@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87B8CEEB-8F40-4705-80CA-23593BCCC130}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>文档</RootNamespace>
+    <AssemblyName>文档</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\bak\Microsoft.SqlServer.ConnectionInfo.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.Dmf.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.RegSvrEnum.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.ServiceBrokerEnum.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.Smo.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.SmoExtended.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.SqlClrProvider.dll" />
+    <Content Include="dll\bak\Microsoft.SqlServer.SqlEnum.dll" />
+    <Content Include="dll\DBBackup.dll" />
+    <Content Include="dll\IBatisNet.Common.dll" />
+    <Content Include="dll\IBatisNet.DataMapper.dll" />
+    <Content Include="dll\MySql.Data.dll" />
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="dll\NPOI.dll" />
+    <Content Include="dll\NPOI\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="dll\NPOI\NPOI.dll" />
+    <Content Include="dll\NPOI\NPOI.OOXML.dll" />
+    <Content Include="dll\NPOI\NPOI.OpenXml4Net.dll" />
+    <Content Include="dll\NPOI\NPOI.OpenXmlFormats.dll" />
+    <Content Include="dll\NPOI\NPOI.XML" />
+    <Content Include="dll\ThoughtWorks.QRCode.dll" />
+    <Content Include="dll\yg_dll.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="开发文档\" />
+    <Folder Include="测试文档\" />
+    <Folder Include="静态页面\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="需求文档\危险品运输系统后台管理.docx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

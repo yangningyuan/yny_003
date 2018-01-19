@@ -103,6 +103,10 @@ namespace yny_003.BLL
 		{
 			return DAL.C_CostType.GetList(Top,strWhere,filedOrder);
 		}
+		public static List<Model.C_CostType> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+		{
+			return DAL.C_CostType.GetList(strWhere, pageIndex, pageSize, out count);
+		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

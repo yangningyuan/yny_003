@@ -58,6 +58,13 @@
     <Compile Include="ChangeType.cs" />
     <Compile Include="ConfigDictionaryNew.cs" />
     <Compile Include="ConfigParameter\IPClick.cs" />
+    <Compile Include="C_Car.cs" />
+    <Compile Include="C_CarTast.cs" />
+    <Compile Include="C_CostDetalis.cs" />
+    <Compile Include="C_CostType.cs" />
+    <Compile Include="C_LoanApply.cs" />
+    <Compile Include="C_Security.cs" />
+    <Compile Include="C_Supplier.cs" />
     <Compile Include="DepartType.cs" />
     <Compile Include="EP\EPConfig.cs" />
     <Compile Include="EP\EPJX.cs" />

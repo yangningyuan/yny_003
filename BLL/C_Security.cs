@@ -36,7 +36,7 @@ namespace yny_003.BLL
 		/// </summary>
 		public int GetMaxId()
 		{
-			return dal.GetMaxId();
+			return DAL.C_Security.GetMaxId();
 		}
 
 		/// <summary>
@@ -44,7 +44,7 @@ namespace yny_003.BLL
 		/// </summary>
 		public bool Exists(int ID)
 		{
-			return dal.Exists(ID);
+			return DAL.C_Security.Exists(ID);
 		}
 
 		/// <summary>
@@ -52,7 +52,7 @@ namespace yny_003.BLL
 		/// </summary>
 		public int  Add(yny_003.Model.C_Security model)
 		{
-			return dal.Add(model);
+			return DAL.C_Security.Add(model);
 		}
 
 		/// <summary>
@@ -60,7 +60,7 @@ namespace yny_003.BLL
 		/// </summary>
 		public bool Update(yny_003.Model.C_Security model)
 		{
-			return dal.Update(model);
+			return DAL.C_Security.Update(model);
 		}
 
 		/// <summary>
@@ -69,14 +69,14 @@ namespace yny_003.BLL
 		public bool Delete(int ID)
 		{
 			
-			return dal.Delete(ID);
+			return DAL.C_Security.Delete(ID);
 		}
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
 		public bool DeleteList(string IDlist )
 		{
-			return dal.DeleteList(IDlist );
+			return DAL.C_Security.DeleteList(IDlist );
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace yny_003.BLL
 		public yny_003.Model.C_Security GetModel(int ID)
 		{
 			
-			return dal.GetModel(ID);
+			return DAL.C_Security.GetModel(ID);
 		}
 
 		
@@ -95,21 +95,21 @@ namespace yny_003.BLL
 		/// </summary>
 		public DataSet GetList(string strWhere)
 		{
-			return dal.GetList(strWhere);
+			return DAL.C_Security.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
 		public DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
-			return dal.GetList(Top,strWhere,filedOrder);
+			return DAL.C_Security.GetList(Top,strWhere,filedOrder);
 		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
 		public List<yny_003.Model.C_Security> GetModelList(string strWhere)
 		{
-			DataSet ds = dal.GetList(strWhere);
+			DataSet ds = DAL.C_Security.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
 		}
 		/// <summary>
@@ -124,7 +124,7 @@ namespace yny_003.BLL
 				yny_003.Model.C_Security model;
 				for (int n = 0; n < rowsCount; n++)
 				{
-					model = dal.DataRowToModel(dt.Rows[n]);
+					model = DAL.C_Security.DataRowToModel(dt.Rows[n]);
 					if (model != null)
 					{
 						modelList.Add(model);
@@ -147,14 +147,14 @@ namespace yny_003.BLL
 		/// </summary>
 		public int GetRecordCount(string strWhere)
 		{
-			return dal.GetRecordCount(strWhere);
+			return DAL.C_Security.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
 		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
-			return dal.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
+			return DAL.C_Security.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表

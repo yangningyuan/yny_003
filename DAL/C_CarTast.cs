@@ -24,16 +24,16 @@ namespace yny_003.DAL
 	/// <summary>
 	/// 数据访问类:C_CarTast
 	/// </summary>
-	public partial class C_CarTast
+	public  partial class C_CarTast
 	{
-		public C_CarTast()
+		public  C_CarTast()
 		{}
 		#region  BasicMethod
 
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>
-		public int GetMaxId()
+		public static int GetMaxId()
 		{
 		return DbHelperSQL.GetMaxID("ID", "C_CarTast"); 
 		}
@@ -41,7 +41,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from C_CarTast");
@@ -58,7 +58,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(yny_003.Model.C_CarTast model)
+		public static int Add(yny_003.Model.C_CarTast model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into C_CarTast(");
@@ -111,7 +111,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(yny_003.Model.C_CarTast model)
+		public static bool Update(yny_003.Model.C_CarTast model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update C_CarTast set ");
@@ -179,7 +179,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -203,7 +203,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 批量删除数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from C_CarTast ");
@@ -223,7 +223,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_003.Model.C_CarTast GetModel(int ID)
+		public static yny_003.Model.C_CarTast GetModel(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -250,7 +250,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_003.Model.C_CarTast DataRowToModel(DataRow row)
+		public static yny_003.Model.C_CarTast DataRowToModel(DataRow row)
 		{
 			yny_003.Model.C_CarTast model=new yny_003.Model.C_CarTast();
 			if (row != null)
@@ -326,7 +326,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2 ");
@@ -341,7 +341,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select ");
@@ -362,7 +362,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 获取记录总数
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) FROM C_CarTast ");
@@ -383,7 +383,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("SELECT * FROM ( ");
@@ -410,7 +410,7 @@ namespace yny_003.DAL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		{
 			SqlParameter[] parameters = {
 					new SqlParameter("@tblName", SqlDbType.VarChar, 255),

@@ -252,6 +252,7 @@
     <Content Include="OJ\ObjList.aspx" />
     <Content Include="OJ\ObjSubList.aspx" />
     <Content Include="OJ\ObjSubTypeList.aspx" />
+    <Content Include="plugin\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="plugin\layer\extend\layer.ext.js" />
     <Content Include="plugin\layer\layer.js" />
     <Content Include="plugin\layer\skin\default\icon-ext.png" />
@@ -1567,7 +1568,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="plugin\kindeditor\asp.net\bin\" />
     <Folder Include="plugin\kindeditor\attached\image\" />
     <Folder Include="plugin\UEditor\net\upload1\" />
     <Folder Include="plugin\UEditor\net\upload\2013-06-25\" />

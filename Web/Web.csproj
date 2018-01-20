@@ -263,7 +263,6 @@
     <Content Include="plugin\layer\skin\layer.ext.css" />
     <Content Include="login\js\bootstrap.min.js" />
     <Content Include="login\js\jquery-1.9.1.min.js" />
-    <Content Include="plugin\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="plugin\kindeditor\asp.net\demo.aspx" />
     <Content Include="plugin\kindeditor\asp.net\README.txt" />
     <Content Include="plugin\kindeditor\examples\auto-height.html" />
@@ -1568,6 +1567,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="plugin\kindeditor\asp.net\bin\" />
     <Folder Include="plugin\kindeditor\attached\image\" />
     <Folder Include="plugin\UEditor\net\upload1\" />
     <Folder Include="plugin\UEditor\net\upload\2013-06-25\" />

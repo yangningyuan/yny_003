@@ -49,10 +49,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassHmac2003, Version=1.0.2564.40224, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Payment\ShouXinyi\bin\ClassHmac2003.dll</HintPath>
-    </Reference>
     <Reference Include="DBBackup">
       <HintPath>..\文档\dll\DBBackup.dll</HintPath>
     </Reference>

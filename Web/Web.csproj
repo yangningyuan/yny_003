@@ -49,10 +49,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassHmac2003, Version=1.0.2564.40224, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Payment\ShouXinyi\bin\ClassHmac2003.dll</HintPath>
-    </Reference>
     <Reference Include="DBBackup">
       <HintPath>..\文档\dll\DBBackup.dll</HintPath>
     </Reference>
@@ -259,6 +255,7 @@
     <Content Include="OJ\ObjList.aspx" />
     <Content Include="OJ\ObjSubList.aspx" />
     <Content Include="OJ\ObjSubTypeList.aspx" />
+    <Content Include="plugin\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="plugin\layer\extend\layer.ext.js" />
     <Content Include="plugin\layer\layer.js" />
     <Content Include="plugin\layer\skin\default\icon-ext.png" />
@@ -270,7 +267,6 @@
     <Content Include="plugin\layer\skin\layer.ext.css" />
     <Content Include="login\js\bootstrap.min.js" />
     <Content Include="login\js\jquery-1.9.1.min.js" />
-    <Content Include="plugin\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="plugin\kindeditor\asp.net\demo.aspx" />
     <Content Include="plugin\kindeditor\asp.net\README.txt" />
     <Content Include="plugin\kindeditor\examples\auto-height.html" />

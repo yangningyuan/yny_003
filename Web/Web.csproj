@@ -229,7 +229,9 @@
     <Content Include="autoaspx\minute.aspx" />
     <Content Include="Admin\pop\images\home_main.png" />
     <Content Include="Admin\pop\images\uploadify-cancel.png" />
+    <Content Include="Car\AddCar.aspx" />
     <Content Include="Car\CarList.aspx" />
+    <Content Include="Car\EditCar.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
     <Content Include="login\css\style1.css" />
@@ -952,12 +954,26 @@
     <Compile Include="autoaspx\minute.aspx.designer.cs">
       <DependentUpon>minute.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\AddCar.aspx.cs">
+      <DependentUpon>AddCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AddCar.aspx.designer.cs">
+      <DependentUpon>AddCar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\CarList.aspx.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\CarList.aspx.designer.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\EditCar.aspx.cs">
+      <DependentUpon>EditCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\EditCar.aspx.designer.cs">
+      <DependentUpon>EditCar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\Handler\CarList.ashx.cs">
       <DependentUpon>CarList.ashx</DependentUpon>

@@ -24,17 +24,17 @@ namespace yny_003.BLL
 	/// <summary>
 	/// C_CostType
 	/// </summary>
-	public partial class C_CostType
+	public  partial class C_CostType
 	{
 		private readonly yny_003.DAL.C_CostType dal=new yny_003.DAL.C_CostType();
-		public C_CostType()
+		public  C_CostType()
 		{}
 		#region  BasicMethod
 
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>
-		public int GetMaxId()
+		public static int GetMaxId()
 		{
 			return DAL.C_CostType.GetMaxId();
 		}
@@ -42,7 +42,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			return DAL.C_CostType.Exists(ID);
 		}
@@ -50,7 +50,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_003.Model.C_CostType model)
+		public static int  Add(yny_003.Model.C_CostType model)
 		{
 			return DAL.C_CostType.Add(model);
 		}
@@ -58,7 +58,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(yny_003.Model.C_CostType model)
+		public static bool Update(yny_003.Model.C_CostType model)
 		{
 			return DAL.C_CostType.Update(model);
 		}
@@ -66,7 +66,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public static bool Delete(int ID)
 		{
 			
 			return DAL.C_CostType.Delete(ID);
@@ -74,7 +74,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			return DAL.C_CostType.DeleteList(IDlist );
 		}
@@ -82,7 +82,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_003.Model.C_CostType GetModel(int ID)
+		public static yny_003.Model.C_CostType GetModel(int ID)
 		{
 			
 			return DAL.C_CostType.GetModel(ID);
@@ -92,14 +92,14 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			return DAL.C_CostType.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.C_CostType.GetList(Top,strWhere,filedOrder);
 		}
@@ -110,7 +110,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_003.Model.C_CostType> GetModelList(string strWhere)
+		public static List<yny_003.Model.C_CostType> GetModelList(string strWhere)
 		{
 			DataSet ds = DAL.C_CostType.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -118,7 +118,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_003.Model.C_CostType> DataTableToList(DataTable dt)
+		public static List<yny_003.Model.C_CostType> DataTableToList(DataTable dt)
 		{
 			List<yny_003.Model.C_CostType> modelList = new List<yny_003.Model.C_CostType>();
 			int rowsCount = dt.Rows.Count;
@@ -140,7 +140,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetAllList()
+		public static DataSet GetAllList()
 		{
 			return GetList("");
 		}
@@ -148,21 +148,21 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			return DAL.C_CostType.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			return DAL.C_CostType.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
 			//return dal.GetList(PageSize,PageIndex,strWhere);
 		//}

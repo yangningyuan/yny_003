@@ -24,17 +24,17 @@ namespace yny_003.BLL
 	/// <summary>
 	/// C_CarTast
 	/// </summary>
-	public partial class C_CarTast
+	public  partial class C_CarTast
 	{
 		private readonly yny_003.DAL.C_CarTast dal=new yny_003.DAL.C_CarTast();
-		public C_CarTast()
+		public  C_CarTast()
 		{}
 		#region  BasicMethod
 
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>
-		public int GetMaxId()
+		public static int GetMaxId()
 		{
 			return DAL.C_CarTast.GetMaxId();
 		}
@@ -42,7 +42,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			return DAL.C_CarTast.Exists(ID);
 		}
@@ -50,7 +50,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_003.Model.C_CarTast model)
+		public static int  Add(yny_003.Model.C_CarTast model)
 		{
 			return DAL.C_CarTast.Add(model);
 		}
@@ -58,7 +58,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(yny_003.Model.C_CarTast model)
+		public static bool Update(yny_003.Model.C_CarTast model)
 		{
 			return DAL.C_CarTast.Update(model);
 		}
@@ -66,7 +66,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public static bool Delete(int ID)
 		{
 			
 			return DAL.C_CarTast.Delete(ID);
@@ -74,7 +74,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			return DAL.C_CarTast.DeleteList(IDlist );
 		}
@@ -82,7 +82,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_003.Model.C_CarTast GetModel(int ID)
+		public static yny_003.Model.C_CarTast GetModel(int ID)
 		{
 			
 			return DAL.C_CarTast.GetModel(ID);
@@ -93,14 +93,14 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			return DAL.C_CarTast.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.C_CarTast.GetList(Top,strWhere,filedOrder);
 		}
@@ -111,7 +111,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_003.Model.C_CarTast> GetModelList(string strWhere)
+		public static List<yny_003.Model.C_CarTast> GetModelList(string strWhere)
 		{
 			DataSet ds = DAL.C_CarTast.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -119,7 +119,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_003.Model.C_CarTast> DataTableToList(DataTable dt)
+		public static List<yny_003.Model.C_CarTast> DataTableToList(DataTable dt)
 		{
 			List<yny_003.Model.C_CarTast> modelList = new List<yny_003.Model.C_CarTast>();
 			int rowsCount = dt.Rows.Count;
@@ -141,7 +141,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetAllList()
+		public static DataSet GetAllList()
 		{
 			return GetList("");
 		}
@@ -149,21 +149,21 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			return DAL.C_CarTast.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			return DAL.C_CarTast.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
 			//return dal.GetList(PageSize,PageIndex,strWhere);
 		//}

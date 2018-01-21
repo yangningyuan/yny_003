@@ -27,14 +27,14 @@ namespace yny_003.BLL
 	public partial class C_Supplier
 	{
 		private readonly yny_003.DAL.C_Supplier dal=new yny_003.DAL.C_Supplier();
-		public C_Supplier()
+		public  C_Supplier()
 		{}
 		#region  BasicMethod
 
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>
-		public int GetMaxId()
+		public static int GetMaxId()
 		{
 			return DAL.C_Supplier.GetMaxId();
 		}
@@ -42,7 +42,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int ID)
+		public static bool Exists(int ID)
 		{
 			return DAL.C_Supplier.Exists(ID);
 		}
@@ -50,7 +50,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(yny_003.Model.C_Supplier model)
+		public static int  Add(yny_003.Model.C_Supplier model)
 		{
 			return DAL.C_Supplier.Add(model);
 		}
@@ -58,7 +58,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(yny_003.Model.C_Supplier model)
+		public static bool Update(yny_003.Model.C_Supplier model)
 		{
 			return DAL.C_Supplier.Update(model);
 		}
@@ -66,7 +66,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public static bool Delete(int ID)
 		{
 			
 			return DAL.C_Supplier.Delete(ID);
@@ -74,7 +74,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool DeleteList(string IDlist )
+		public static bool DeleteList(string IDlist )
 		{
 			return DAL.C_Supplier.DeleteList(IDlist );
 		}
@@ -82,7 +82,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public yny_003.Model.C_Supplier GetModel(int ID)
+		public static yny_003.Model.C_Supplier GetModel(int ID)
 		{
 			
 			return DAL.C_Supplier.GetModel(ID);
@@ -91,14 +91,14 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetList(string strWhere)
+		public static DataSet GetList(string strWhere)
 		{
 			return DAL.C_Supplier.GetList(strWhere);
 		}
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
+		public static DataSet GetList(int Top,string strWhere,string filedOrder)
 		{
 			return DAL.C_Supplier.GetList(Top,strWhere,filedOrder);
 		}
@@ -109,7 +109,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_003.Model.C_Supplier> GetModelList(string strWhere)
+		public static List<yny_003.Model.C_Supplier> GetModelList(string strWhere)
 		{
 			DataSet ds = DAL.C_Supplier.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -117,7 +117,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<yny_003.Model.C_Supplier> DataTableToList(DataTable dt)
+		public static List<yny_003.Model.C_Supplier> DataTableToList(DataTable dt)
 		{
 			List<yny_003.Model.C_Supplier> modelList = new List<yny_003.Model.C_Supplier>();
 			int rowsCount = dt.Rows.Count;
@@ -139,7 +139,7 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public DataSet GetAllList()
+		public static DataSet GetAllList()
 		{
 			return GetList("");
 		}
@@ -147,21 +147,21 @@ namespace yny_003.BLL
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public int GetRecordCount(string strWhere)
+		public static int GetRecordCount(string strWhere)
 		{
 			return DAL.C_Supplier.GetRecordCount(strWhere);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+		public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			return DAL.C_Supplier.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
 			//return dal.GetList(PageSize,PageIndex,strWhere);
 		//}

@@ -339,7 +339,11 @@ namespace yny_003.DAL
 				{
 					model.Spare2=row["Spare2"].ToString();
 				}
-			}
+                if (row["CreateDate"] != null)
+                {
+                    model.CreateDate = DateTime.Parse( row["CreateDate"].ToString());
+                }
+            }
 			return model;
 		}
 

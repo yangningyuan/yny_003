@@ -226,7 +226,9 @@
     <Content Include="Admin\pop\images\home_main.png" />
     <Content Include="Admin\pop\images\uploadify-cancel.png" />
     <Content Include="Car\AddCar.aspx" />
+    <Content Include="Car\AddTast.aspx" />
     <Content Include="Car\CarList.aspx" />
+    <Content Include="Car\CostList.aspx" />
     <Content Include="Car\TastList.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
@@ -513,6 +515,114 @@
     <Content Include="plugin\kindeditor\themes\qq\editor.gif" />
     <Content Include="plugin\kindeditor\themes\qq\qq.css" />
     <Content Include="plugin\kindeditor\themes\simple\simple.css" />
+    <Content Include="plugin\layui\css\layui.css" />
+    <Content Include="plugin\layui\css\modules\code.css" />
+    <Content Include="plugin\layui\css\modules\laydate\icon.png" />
+    <Content Include="plugin\layui\css\modules\laydate\laydate.css" />
+    <Content Include="plugin\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="plugin\layui\css\modules\layer\default\icon.png" />
+    <Content Include="plugin\layui\css\modules\layer\default\layer.css" />
+    <Content Include="plugin\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="plugin\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="plugin\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="plugin\layui\font\iconfont.svg" />
+    <Content Include="plugin\layui\images\09ae5a349b49c222.png" />
+    <Content Include="plugin\layui\images\0e573fcb8a5b7f84.png" />
+    <Content Include="plugin\layui\images\34a609da9a0a3496.png" />
+    <Content Include="plugin\layui\images\498a428e0c3a4ac4.jpg" />
+    <Content Include="plugin\layui\images\51e9e5e534d7112c.jpg" />
+    <Content Include="plugin\layui\images\6f2367c15fcc7afe.jpg" />
+    <Content Include="plugin\layui\images\c23a93b1edde12b4.jpg" />
+    <Content Include="plugin\layui\images\c721931373f9f405.jpg" />
+    <Content Include="plugin\layui\images\ca7200dbb2f1ca34.png" />
+    <Content Include="plugin\layui\images\ddb5f97a764b276e.png" />
+    <Content Include="plugin\layui\images\face\0.gif" />
+    <Content Include="plugin\layui\images\face\1.gif" />
+    <Content Include="plugin\layui\images\face\10.gif" />
+    <Content Include="plugin\layui\images\face\11.gif" />
+    <Content Include="plugin\layui\images\face\12.gif" />
+    <Content Include="plugin\layui\images\face\13.gif" />
+    <Content Include="plugin\layui\images\face\14.gif" />
+    <Content Include="plugin\layui\images\face\15.gif" />
+    <Content Include="plugin\layui\images\face\16.gif" />
+    <Content Include="plugin\layui\images\face\17.gif" />
+    <Content Include="plugin\layui\images\face\18.gif" />
+    <Content Include="plugin\layui\images\face\19.gif" />
+    <Content Include="plugin\layui\images\face\2.gif" />
+    <Content Include="plugin\layui\images\face\20.gif" />
+    <Content Include="plugin\layui\images\face\21.gif" />
+    <Content Include="plugin\layui\images\face\22.gif" />
+    <Content Include="plugin\layui\images\face\23.gif" />
+    <Content Include="plugin\layui\images\face\24.gif" />
+    <Content Include="plugin\layui\images\face\25.gif" />
+    <Content Include="plugin\layui\images\face\26.gif" />
+    <Content Include="plugin\layui\images\face\27.gif" />
+    <Content Include="plugin\layui\images\face\28.gif" />
+    <Content Include="plugin\layui\images\face\29.gif" />
+    <Content Include="plugin\layui\images\face\3.gif" />
+    <Content Include="plugin\layui\images\face\30.gif" />
+    <Content Include="plugin\layui\images\face\31.gif" />
+    <Content Include="plugin\layui\images\face\32.gif" />
+    <Content Include="plugin\layui\images\face\33.gif" />
+    <Content Include="plugin\layui\images\face\34.gif" />
+    <Content Include="plugin\layui\images\face\35.gif" />
+    <Content Include="plugin\layui\images\face\36.gif" />
+    <Content Include="plugin\layui\images\face\37.gif" />
+    <Content Include="plugin\layui\images\face\38.gif" />
+    <Content Include="plugin\layui\images\face\39.gif" />
+    <Content Include="plugin\layui\images\face\4.gif" />
+    <Content Include="plugin\layui\images\face\40.gif" />
+    <Content Include="plugin\layui\images\face\41.gif" />
+    <Content Include="plugin\layui\images\face\42.gif" />
+    <Content Include="plugin\layui\images\face\43.gif" />
+    <Content Include="plugin\layui\images\face\44.gif" />
+    <Content Include="plugin\layui\images\face\45.gif" />
+    <Content Include="plugin\layui\images\face\46.gif" />
+    <Content Include="plugin\layui\images\face\47.gif" />
+    <Content Include="plugin\layui\images\face\48.gif" />
+    <Content Include="plugin\layui\images\face\49.gif" />
+    <Content Include="plugin\layui\images\face\5.gif" />
+    <Content Include="plugin\layui\images\face\50.gif" />
+    <Content Include="plugin\layui\images\face\51.gif" />
+    <Content Include="plugin\layui\images\face\52.gif" />
+    <Content Include="plugin\layui\images\face\53.gif" />
+    <Content Include="plugin\layui\images\face\54.gif" />
+    <Content Include="plugin\layui\images\face\55.gif" />
+    <Content Include="plugin\layui\images\face\56.gif" />
+    <Content Include="plugin\layui\images\face\57.gif" />
+    <Content Include="plugin\layui\images\face\58.gif" />
+    <Content Include="plugin\layui\images\face\59.gif" />
+    <Content Include="plugin\layui\images\face\6.gif" />
+    <Content Include="plugin\layui\images\face\60.gif" />
+    <Content Include="plugin\layui\images\face\61.gif" />
+    <Content Include="plugin\layui\images\face\62.gif" />
+    <Content Include="plugin\layui\images\face\63.gif" />
+    <Content Include="plugin\layui\images\face\64.gif" />
+    <Content Include="plugin\layui\images\face\65.gif" />
+    <Content Include="plugin\layui\images\face\66.gif" />
+    <Content Include="plugin\layui\images\face\67.gif" />
+    <Content Include="plugin\layui\images\face\68.gif" />
+    <Content Include="plugin\layui\images\face\69.gif" />
+    <Content Include="plugin\layui\images\face\7.gif" />
+    <Content Include="plugin\layui\images\face\70.gif" />
+    <Content Include="plugin\layui\images\face\71.gif" />
+    <Content Include="plugin\layui\images\face\8.gif" />
+    <Content Include="plugin\layui\images\face\9.gif" />
+    <Content Include="plugin\layui\layui.js" />
+    <Content Include="plugin\layui\lay\dest\layui.all.js" />
+    <Content Include="plugin\layui\lay\lib\jquery.js" />
+    <Content Include="plugin\layui\lay\modules\code.js" />
+    <Content Include="plugin\layui\lay\modules\element.js" />
+    <Content Include="plugin\layui\lay\modules\flow.js" />
+    <Content Include="plugin\layui\lay\modules\form.js" />
+    <Content Include="plugin\layui\lay\modules\laydate.js" />
+    <Content Include="plugin\layui\lay\modules\layedit.js" />
+    <Content Include="plugin\layui\lay\modules\layer.js" />
+    <Content Include="plugin\layui\lay\modules\laypage.js" />
+    <Content Include="plugin\layui\lay\modules\laytpl.js" />
+    <Content Include="plugin\layui\lay\modules\tree.js" />
+    <Content Include="plugin\layui\lay\modules\upload.js" />
+    <Content Include="plugin\layui\lay\modules\util.js" />
     <Content Include="plugin\qrcode\index.html" />
     <Content Include="plugin\qrcode\jquery.min.js" />
     <Content Include="plugin\qrcode\jquery.qrcode.min.js" />
@@ -915,6 +1025,9 @@
     <Compile Include="Admin\UpLoadPic\IbeaconHandler.ashx.cs">
       <DependentUpon>IbeaconHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UpLoadPic\UploadImage.ashx.cs">
+      <DependentUpon>UploadImage.ashx</DependentUpon>
+    </Compile>
     <Compile Include="AjaxM\ajax.aspx.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -957,6 +1070,13 @@
     <Compile Include="Car\AddCar.aspx.designer.cs">
       <DependentUpon>AddCar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\AddTast.aspx.cs">
+      <DependentUpon>AddTast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AddTast.aspx.designer.cs">
+      <DependentUpon>AddTast.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\CarList.aspx.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -964,8 +1084,19 @@
     <Compile Include="Car\CarList.aspx.designer.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\CostList.aspx.cs">
+      <DependentUpon>CostList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\CostList.aspx.designer.cs">
+      <DependentUpon>CostList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\Handler\CarList.ashx.cs">
       <DependentUpon>CarList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\CostList.ashx.cs">
+      <DependentUpon>CostList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\Handler\TastList.ashx.cs">
@@ -1657,6 +1788,11 @@
     <Content Include="OJ\Handler\ImpTypeList.ashx" />
     <Content Include="Car\Handler\CarList.ashx" />
     <Content Include="Car\Handler\TastList.ashx" />
+    <Content Include="Admin\UpLoadPic\UploadImage.ashx" />
+    <Content Include="plugin\layui\font\iconfont.eot" />
+    <Content Include="plugin\layui\font\iconfont.ttf" />
+    <Content Include="plugin\layui\font\iconfont.woff" />
+    <Content Include="Car\Handler\CostList.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

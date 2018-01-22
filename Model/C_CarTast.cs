@@ -157,7 +157,7 @@ namespace yny_003.Model
 			get{return _isdelete;}
 		}
 		/// <summary>
-		/// 
+		/// 备注
 		/// </summary>
 		public string Spare1
 		{
@@ -165,7 +165,7 @@ namespace yny_003.Model
 			get{return _spare1;}
 		}
 		/// <summary>
-		/// 
+		/// 车辆牌照
 		/// </summary>
 		public string Spare2
 		{

@@ -188,6 +188,10 @@
     <script type="text/javascript" src="Admin/pop/js/MyValide.js"></script>
     <script type="text/javascript" src="Admin/pop/js/TableToExcel.js"></script>
     <script type="text/javascript" src="Admin/pop/js/linkage.js"></script>
+
+    <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
+        <script src="/plugin/layui/layui.js"></script>
+
     <%--<script type="text/javascript" src="Shop/js/shopJs.js"></script>--%>
     <script type="text/javascript" src="Module/Investment/js/invest.js"></script>
     <script type="text/javascript" src="Admin/pop/js/javascript_main.js"></script>

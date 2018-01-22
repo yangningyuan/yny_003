@@ -226,9 +226,12 @@
     <Content Include="Admin\pop\images\home_main.png" />
     <Content Include="Admin\pop\images\uploadify-cancel.png" />
     <Content Include="Car\AddCar.aspx" />
+    <Content Include="Car\AddCost.aspx" />
+    <Content Include="Car\AddSupplier.aspx" />
     <Content Include="Car\AddTast.aspx" />
     <Content Include="Car\CarList.aspx" />
     <Content Include="Car\CostList.aspx" />
+    <Content Include="Car\SupplierList.aspx" />
     <Content Include="Car\TastList.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
@@ -1070,6 +1073,20 @@
     <Compile Include="Car\AddCar.aspx.designer.cs">
       <DependentUpon>AddCar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\AddCost.aspx.cs">
+      <DependentUpon>AddCost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AddCost.aspx.designer.cs">
+      <DependentUpon>AddCost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\AddSupplier.aspx.cs">
+      <DependentUpon>AddSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AddSupplier.aspx.designer.cs">
+      <DependentUpon>AddSupplier.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\AddTast.aspx.cs">
       <DependentUpon>AddTast.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1090,6 +1107,17 @@
     </Compile>
     <Compile Include="Car\CostList.aspx.designer.cs">
       <DependentUpon>CostList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\Handler\SupplierList.ashx.cs">
+      <DependentUpon>SupplierList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\SupplierList.aspx.cs">
+      <DependentUpon>SupplierList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\SupplierList.aspx.designer.cs">
+      <DependentUpon>SupplierList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\Handler\CarList.ashx.cs">
       <DependentUpon>CarList.ashx</DependentUpon>
@@ -1793,6 +1821,7 @@
     <Content Include="plugin\layui\font\iconfont.ttf" />
     <Content Include="plugin\layui\font\iconfont.woff" />
     <Content Include="Car\Handler\CostList.ashx" />
+    <Content Include="Car\Handler\SupplierList.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

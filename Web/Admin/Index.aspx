@@ -193,7 +193,7 @@
         <script src="/plugin/layui/layui.js"></script>
 
     <%--<script type="text/javascript" src="Shop/js/shopJs.js"></script>--%>
-    <script type="text/javascript" src="Module/Investment/js/invest.js"></script>
+    <%--<script type="text/javascript" src="Module/Investment/js/invest.js"></script>--%>
     <script type="text/javascript" src="Admin/pop/js/javascript_main.js"></script>
     <script type="text/javascript" src="Admin/pop/js/ajax.js"></script>
     <script type="text/javascript" src="Admin/pop/js/javascript_pop.js"></script>

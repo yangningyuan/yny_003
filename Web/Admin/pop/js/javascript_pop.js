@@ -291,7 +291,8 @@ function RunAjaxByListReload(state, ajaxKey, keys) {
 
 //对对象的操作，新增，修改
 function ActionModel(acturl, actdata, url, showtime, title) {
-    //document.write(actdata);
+	//document.write(actdata);
+
     verifypsd(function () {
         $.ajax({
             type: 'post',
@@ -310,10 +311,11 @@ function ActionModel(acturl, actdata, url, showtime, title) {
                         v5.clearall();
                     }, 1000);
                 }
-                if (url) {
+                if (url && info.indexOf("成功") >= 0) {
+                	//alert("a");
                     callhtml(url, title);
                 } else {
-                    PageLoad();
+                    //PageLoad();
                 }
             }
         });

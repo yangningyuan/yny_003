@@ -209,6 +209,7 @@ function RunAjaxByList(state, ajaxKey, joinKey) {
 
 //对对象的操作，新增，修改
 function ActionModel(acturl, actdata, url) {
+	alert("a");
     //document.write(actdata);
     verifypsd(function () {
         $.ajax({
@@ -218,7 +219,7 @@ function ActionModel(acturl, actdata, url) {
             success: function (info) {
                 v5.alert(info, '1', 'true');
                 setTimeout(function () { v5.clearall(); }, 1000);
-                if (url) {
+                if (url && info.indexOf("成功")) {
                     callhtml(url);
                 } else {
                     PageLoad();

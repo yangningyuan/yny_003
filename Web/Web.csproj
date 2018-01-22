@@ -227,6 +227,7 @@
     <Content Include="Admin\pop\images\uploadify-cancel.png" />
     <Content Include="Car\AddCar.aspx" />
     <Content Include="Car\CarList.aspx" />
+    <Content Include="Car\TastList.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
     <Content Include="login\css\style1.css" />
@@ -970,6 +971,13 @@
     <Compile Include="Car\Handler\TastList.ashx.cs">
       <DependentUpon>TastList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\TastList.aspx.cs">
+      <DependentUpon>TastList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\TastList.aspx.designer.cs">
+      <DependentUpon>TastList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Handler\TJTree.ashx.cs">
       <DependentUpon>TJTree.ashx</DependentUpon>

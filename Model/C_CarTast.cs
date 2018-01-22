@@ -42,10 +42,12 @@ namespace yny_003.Model
 		private int _isdelete;
 		private string _spare1;
 		private string _spare2;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int ID
+        
+        public DateTime CreateDate { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ID
 		{
 			set{ _id=value;}
 			get{return _id;}

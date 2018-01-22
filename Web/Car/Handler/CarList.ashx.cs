@@ -16,12 +16,12 @@ namespace yny_003.Web.Car.Handler
 		public override void ProcessRequest(HttpContext context)
 		{
 			base.ProcessRequest(context);
-			string strWhere = "'1'='1' and IsDelete=0 ";
-			//if (!string.IsNullOrEmpty(context.Request["tState"]))
-			//{
-			//	strWhere += " and State='" + context.Request["tState"] + "'";
-			//}
-			if (!string.IsNullOrEmpty(context.Request["nTitle"]))
+			string strWhere = "'1'='1' ";
+            if (!string.IsNullOrEmpty(context.Request["tState"]))
+            {
+                strWhere += " and IsDelete='" + context.Request["tState"] + "'";
+            }
+            if (!string.IsNullOrEmpty(context.Request["nTitle"]))
 			{
 				strWhere += " and PZCode like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
 			}

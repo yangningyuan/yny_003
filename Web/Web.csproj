@@ -227,7 +227,7 @@
     <Content Include="Admin\pop\images\uploadify-cancel.png" />
     <Content Include="Car\AddCar.aspx" />
     <Content Include="Car\CarList.aspx" />
-    <Content Include="Car\EditCar.aspx" />
+    <Content Include="Car\TastList.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
     <Content Include="login\css\style1.css" />
@@ -964,16 +964,20 @@
     <Compile Include="Car\CarList.aspx.designer.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Car\EditCar.aspx.cs">
-      <DependentUpon>EditCar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Car\EditCar.aspx.designer.cs">
-      <DependentUpon>EditCar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Car\Handler\CarList.ashx.cs">
       <DependentUpon>CarList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\TastList.ashx.cs">
+      <DependentUpon>TastList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\TastList.aspx.cs">
+      <DependentUpon>TastList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\TastList.aspx.designer.cs">
+      <DependentUpon>TastList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Handler\TJTree.ashx.cs">
       <DependentUpon>TJTree.ashx</DependentUpon>
@@ -1652,6 +1656,7 @@
     <Content Include="OJ\Handler\ObjSubList.ashx" />
     <Content Include="OJ\Handler\ImpTypeList.ashx" />
     <Content Include="Car\Handler\CarList.ashx" />
+    <Content Include="Car\Handler\TastList.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

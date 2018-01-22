@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <script type="text/javascript">
-        tState = '';
+        tState = '0';
         tUrl = "Car/Handler/CarList.ashx";
         SearchByCondition();
     </script>
@@ -14,17 +14,17 @@
     <div id="mempay">
         <div class="control">
             <div class="select">
-                <a href="javascript:void(0)" onclick="SearchByState('',this);" class="btn btn-danger">所有</a> <a href="javascript:void(0);" onclick="SearchByState('1',this);" class="btn btn-success">已完成</a> <a href="javascript:void(0)" onclick="SearchByState('0',this);" class="btn btn-success">未完成</a>
+                <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已报废</a>
             </div>
-            <div class="pay" onclick="UpDateByID('OJ/EditObj.aspx?','修改项目',900,470);">
-                修改项目
+            <div class="pay" onclick="UpDateByID('Car/AddCar.aspx?','修改车辆',900,470);">
+                修改车辆
             </div>
-            <div class="pay" onclick="v5.show('OJ/AddObj.aspx','新增项目','url',900,470)">
-                新增项目
+            <div class="pay" onclick="v5.show('Car/AddCar.aspx','新增车辆','url',900,470)">
+                新增车辆
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
-                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入项目名称" type="text" class="sinput" />
+                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入车辆牌照" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">

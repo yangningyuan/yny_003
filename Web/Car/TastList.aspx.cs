@@ -7,11 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace yny_003.Web.Car
 {
-	public partial class EditCar : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
-
-		}
-	}
+    public partial class TastList : BasePage
+    {
+        
+    }
 }

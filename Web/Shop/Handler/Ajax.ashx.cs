@@ -218,8 +218,11 @@ namespace yny_003.Web.Shop.Handler
                             {
                                 error += "商品：" + go.GName + "库存不足，请联系管理员";
                             }
+							go.SelledCount = go.SelledCount + od.GCount;
+							go.SellingCount = go.SellingCount - od.GCount;
+							BLL.Goods.Update(go, hs);
 
-                            od.IsDeleted = false;
+							od.IsDeleted = false;
                             od.OrderCode = order.Code;
                             od.Status = 1;
                             od.TotalMoney = od.GCount * od.BuyPrice;
@@ -231,7 +234,7 @@ namespace yny_003.Web.Shop.Handler
                     }
                     order.GoodCount = count;
                     order.IsDeleted = false;
-                    order.MID = TModel.MID;
+                    order.MID = "";
                     order.OrderTime = DateTime.Now;
                     order.Status = 1;
                     order.TotalPrice = totalMoney;

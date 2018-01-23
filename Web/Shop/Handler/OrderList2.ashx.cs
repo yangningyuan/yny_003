@@ -50,7 +50,8 @@ namespace yny_003.Web.Shop.Handler
                 sb.Append(List[i].Id + "~");
                 sb.Append(List[i].Code + "~");
                 sb.Append(List[i].MID + "~");
-                sb.Append(List[i].TotalPrice + "~");
+				sb.Append(List[i].ReceiveId + "~");
+				sb.Append(List[i].TotalPrice + "~");
                 //sb.Append((List[i].DisCountTotalPrice).ToFixedString() + "~");
                 sb.Append(List[i].GoodCount + "~");
                 sb.Append(List[i].OrderTime.ToString("yyyy-MM-dd HH:mm") + "~");
@@ -60,10 +61,10 @@ namespace yny_003.Web.Shop.Handler
                 {
                     case 1:
                         resu = "已打包待调度~";
-                        if (List[i].MID == memberModel.MID)
-                        {
+                        //if (List[i].MID == memberModel.MID)
+                        //{
                             resu += "<input type='button' value='调度' class='btn btn-success btn-sm' onclick='payOrder2(" + List[i].Id + ")' />";
-                        }
+                        //}
                         break;
                     case 2:
                         resu = "已调度未完成~";

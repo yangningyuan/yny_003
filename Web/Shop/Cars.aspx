@@ -14,7 +14,7 @@
     <div id="mempay">
         <div class="ui_table">
             <form id="form1">
-                <div id="receiveDiv" style="display: none">
+                <%--<div id="receiveDiv" style="display: none">
                     <table class="table">
                         <asp:Repeater ID="repReceiveList" runat="server">
                             <ItemTemplate>
@@ -41,7 +41,7 @@
                             </td>
                         </tr>
                     </table>
-                </div>
+                </div>--%>
                 <table cellpadding="0" cellspacing="0" id="Result" class="tabcolor">
                     <tr>
                         <th width="4%">全选
@@ -56,8 +56,8 @@
                         </th>
                         <th>总价
                         </th>
-                        <th>折后价
-                        </th>
+                        <%--<th>折后价
+                        </th>--%>
                         <th>库存数量
                         </th>
                     </tr>
@@ -66,7 +66,7 @@
                     <em style="vertical-align: middle;">
                         <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                     <div class="pn">
-                        <a href="javascript:void(0);" title="提交订单" onclick="showReceiveInfo()">提交订单</a>
+                        <a href="javascript:void(0);" title="生成订单" onclick="choiceReceive()">生成订单</a>
                     </div>
                     <div class="pagebar">
                         <div id="Pagination">
@@ -78,7 +78,7 @@
     </div>
     <script type="text/javascript">
         var pageii;
-        var disc = <%=yny_003.BLL.Configuration.Model.E_GWDiscount %>;
+        
         function showReceiveInfo() {
             if ($("#receiveDiv tr").length < 2) {
                 v5.alert("您未添加收货人，请先添加收货人", '1', 'true', function () {
@@ -98,12 +98,13 @@
         }
 
         function choiceReceive() {
-            layer.close(pageii);
-            var rid = $('input:radio:checked').val();
-            if (typeof (rid) == "undefined" || rid == "") {
-                v5.alert("您未添加收货人，请在[收货人管理]中添加收货人", '3', 'true');
-                return false;
-            }
+            var rid = "0";
+            //layer.close(pageii);
+            //var rid = $('input:radio:checked').val();
+            //if (typeof (rid) == "undefined" || rid == "") {
+            //    v5.alert("您未添加收货人，请在[收货人管理]中添加收货人", '3', 'true');
+            //    return false;
+            //}
             RunAjaxByListAddKeyShop('', 'SubmitOrder', ',', rid, function () { callhtml('Shop/OrderList.aspx', '订单列表'); });
         }
     </script>

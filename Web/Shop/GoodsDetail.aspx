@@ -31,7 +31,7 @@
                 v5.alert("添加失败，请重试", '1', 'true');
             }
             else {
-                v5.alert("已添加到购物车，您可以在[购物车]中提交订单并结算", '2', 'true');
+                v5.alert("已添加到任务包，您可以在[任务包]中提交订单并结算", '2', 'true');
             }
         }
         function checkBuyNow1() {
@@ -72,7 +72,7 @@
                             <strong>数量:</strong> <span class="goodNum numDesc" onclick="numDesc1(this)">&nbsp;-&nbsp;</span>
                             <input type="text" id="choiceOrderNum" class="numVal" value="1" onchange="checkIsNum1()" />
                             <span class="goodNum numAsc" onclick="numAsc1(this)">&nbsp;+&nbsp;</span>
-                            <input class="btn btn-success" id="btnOK" type="button" value="加入购物车" onclick="checkAddCar1();" />
+                            <input class="btn btn-success" id="btnOK" type="button" value="加入任务包" onclick="checkAddCar1();" />
                             <input class="btn btn-danger" id="Button1" type="button" value="立即购买" style="display: none"
                                 onclick="checkBuyNow1();" />
                         </td>

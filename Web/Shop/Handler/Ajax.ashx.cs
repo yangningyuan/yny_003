@@ -185,7 +185,7 @@ namespace yny_003.Web.Shop.Handler
                 if (!string.IsNullOrEmpty(_context.Request["pram"]))
                 {
                     string gid = _context.Request["pram"];
-                    string receiveId = _context.Request["otherParm"];
+                    //string receiveId = _context.Request["otherParm"];
                     Hashtable hs = new Hashtable();
                     string[] array = gid.Split(',');
                     //先生成订单主表
@@ -193,7 +193,7 @@ namespace yny_003.Web.Shop.Handler
                     DateTime dt = DateTime.Now;
                     string code = dt.ToString("yyyyMMddHHmmssfff");// dt.Year.ToString() + dt.Month.ToString() + dt.Day.ToString() + dt.Hour.ToString() + dt.Minute.ToString() + dt.Second.ToString() + dt.Millisecond.ToString();
                     order.Code = code;
-                    order.ReceiveId = int.Parse(receiveId);
+                    order.ReceiveId =0;
                     order.CreatedBy = TModel.MID;
                     order.CreatedTime = DateTime.Now;
                     //order.GoodCount
@@ -245,14 +245,14 @@ namespace yny_003.Web.Shop.Handler
                     else
                     {
                         if (BLL.CommonBase.RunHashtable(hs))
-                            result = "订单提交成功";
+                            result = "订单生成成功";
                         else
-                            result = "订单提交失败";
+                            result = "订单生成失败";
                     }
                 }
                 else
                 {
-                    result = "添加失败";
+                    result = "生成失败";
                 }
                 return result;
             }

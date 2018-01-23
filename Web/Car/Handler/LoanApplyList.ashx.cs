@@ -45,7 +45,7 @@ namespace yny_003.Web.Car.Handler
 				sb.Append(ListNotice[i].CareteDate + "~");
 				sb.Append(ListNotice[i].SPMID + "~");
 				sb.Append((ListNotice[i].RealDate) + "~");
-				sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
+				//sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
 				sb.Append("≌");
 
 			}

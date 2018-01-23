@@ -108,7 +108,7 @@
     <div>
         <div class="banner">
             <%--<img src="/Admin/images/banner03.jpg">--%>
-            <!--<div class="imgsilder">
+            <div class="imgsilder">
                 <div class="banner_Carousel">
                     <div class="carousel slide" data-ride="carousel" id="carousel3">
                         <ol class="carousel-indicators">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
         </div>
 			
         <div class="banner-bottom">
@@ -138,35 +138,35 @@
 				
                     <div class="row-fluid">
                         <div class="col-md-3">
-                            <a class="info-box red-bg" href="javascript:callhtml('/OJ/ObjList.aspx','项目管理');onclickMenu()">
+                            <a class="info-box red-bg" href="javascript:callhtml('/Member/List.aspx','会员列表');onclickMenu()">
                                 <i class="gold">
                                     <img src="/Admin/images/jf.png"></i>
                                 <!--<div class="count">0.00</div>-->
-                                <div class="title">项目管理 </div>
+                                <div class="title">会员列表 </div>
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a class="info-box green-bg" href="javascript:callhtml('/OJ/ObjSubTypeList.aspx','子类类别管理');onclickMenu()">
+                            <a class="info-box green-bg" href="javascript:callhtml('/Shop/OrderList.aspx','订单列表');onclickMenu()">
                                 <i class="gold">
                                     <img src="/Admin/images/hl.png"></i>
                                 <!--<div class="count">0.00</div>-->
-                                <div class="title">子类类别管理 </div>
+                                <div class="title">订单列表 </div>
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a class="info-box blue-bg" href="javascript:callhtml('/OJ/FundTypeList.aspx','费用支出维护');onclickMenu()">
+                            <a class="info-box blue-bg" href="javascript:callhtml('/Car/CostList.aspx','费用列表');onclickMenu()">
                                 <i class="gold">
                                     <img src="/Admin/images/xj.png"></i>
                                 <!--<div class="count">0.00</div>-->
-                                <div class="title">费用支出维护 </div>
+                                <div class="title">费用维护 </div>
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a class="info-box magenta-bg" href="javascript:callhtml('/OJ/DepartTypeList.aspx','批复部门管理');onclickMenu()">
+                            <a class="info-box magenta-bg" href="javascript:callhtml('/Car/TastList.aspx','调度列表');onclickMenu()">
                                 <i class="gold">
                                     <img src="/Admin/images/wjb.png"></i>
                                 <!--<div class="count">0.00</div>-->
-                                <div class="title">批复部门管理</div>
+                                <div class="title">调度列表</div>
                             </a>
                         </div>
                     </div>
@@ -178,7 +178,7 @@
     </div>
     <div class="footer"><%=WebModel.WebTitle %>系统-版权所有京ICP备09047137号 </div>
 
-
+      <script src="/Admin/js/EPjs.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/pop.css" />
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/V5-UI.css" />
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/next_page_search.css" />
@@ -192,7 +192,7 @@
     <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
         <script src="/plugin/layui/layui.js"></script>
 
-    <%--<script type="text/javascript" src="Shop/js/shopJs.js"></script>--%>
+    <script type="text/javascript" src="Shop/js/shopJs.js"></script>
     <%--<script type="text/javascript" src="Module/Investment/js/invest.js"></script>--%>
     <script type="text/javascript" src="Admin/pop/js/javascript_main.js"></script>
     <script type="text/javascript" src="Admin/pop/js/ajax.js"></script>

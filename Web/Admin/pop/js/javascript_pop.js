@@ -565,27 +565,27 @@ function trClick(obj) {
         }
 }
 
-function JsonToTable(str) {
-    var trs = str.split('≌');
-    var table = '';
-    for (var i = 0; i < trs.length - 1; i++) {
-        table += '<tr><td>';
-        var tds = trs[i].split('~');
-        if (tds[0] != '') {
-            if (trs[i].indexOf('#T') > 0) {
-                table += "<em><input type='checkbox' id='chk_" + tds[0] + "' checked='checked' name='chkGroup' onclick='SelectChk(this);'/></em>";
-            }
-            else
-                table += "<em><input type='checkbox' id='chk_" + tds[0] + "' name='chkGroup' onclick='SelectChk(this);'/></em>";
-        }
-        for (var j = 1; j < tds.length; j++) {
-            table += "</td><td>";
-            table += tds[j].replace('#T', '') + '&nbsp;';
-        }
-        table += "</td></tr>";
-    }
-    return table;
-}
+//function JsonToTable(str) {
+//    var trs = str.split('≌');
+//    var table = '';
+//    for (var i = 0; i < trs.length - 1; i++) {
+//        table += '<tr><td>';
+//        var tds = trs[i].split('~');
+//        if (tds[0] != '') {
+//            if (trs[i].indexOf('#T') > 0) {
+//                table += "<em><input type='checkbox' id='chk_" + tds[0] + "' checked='checked' name='chkGroup' onclick='SelectChk(this);'/></em>";
+//            }
+//            else
+//                table += "<em><input type='checkbox' id='chk_" + tds[0] + "' name='chkGroup' onclick='SelectChk(this);'/></em>";
+//        }
+//        for (var j = 1; j < tds.length; j++) {
+//            table += "</td><td>";
+//            table += tds[j].replace('#T', '') + '&nbsp;';
+//        }
+//        table += "</td></tr>";
+//    }
+//    return table;
+//}
 
 //网络图
 function GetAjaxInfo(mkey) {

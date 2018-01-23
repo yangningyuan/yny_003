@@ -13,10 +13,10 @@ namespace yny_003.Web.Shop
         {
 
         }
-        protected override void SetPowerZone()
-        {
-            repReceiveList.DataSource = BLL.ReceiveInfo.GetList("IsDeleted=0 and Status=1 and MID='" + TModel.MID + "'");
-            repReceiveList.DataBind();
-        }
+        //protected override void SetPowerZone()
+        //{
+        //    repReceiveList.DataSource = BLL.ReceiveInfo.GetList("IsDeleted=0 and Status=1 and MID='" + TModel.MID + "'");
+        //    repReceiveList.DataBind();
+        //}
     }
 }

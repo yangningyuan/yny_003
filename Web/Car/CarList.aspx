@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <script src="/Admin/js/EPjs.js" type="text/javascript"></script>
+  
     <script type="text/javascript">
         tState = '0';
         tUrl = "Car/Handler/CarList.ashx";
@@ -33,7 +33,7 @@
         <div class="ui_table">
             <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                 <tr>
-                    <th width="50px">全选
+                    <th width="4%">全选
                     </th>
                     <th>序号
                     </th>

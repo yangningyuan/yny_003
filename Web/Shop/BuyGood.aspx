@@ -34,7 +34,7 @@
                     </th>
                     <th>商品名称
                     </th>
-                    <th>价格
+                    <th>进价
                     </th>
                     <th>剩余数量
                     </th>
@@ -48,7 +48,7 @@
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
-                    <a href="javascript:void(0);" title="加入购物车" onclick="RunAjaxByListShop('','BatchAddShopCar',',',function(){callhtml('Shop/Cars.aspx','购物车');});">加入购物车</a>
+                    <a href="javascript:void(0);" title="加入任务" onclick="RunAjaxByListShop('','BatchAddShopCar',',',function(){callhtml('Shop/Cars.aspx','加入任务');});">加入任务</a>
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">

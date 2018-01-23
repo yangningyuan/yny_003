@@ -41,7 +41,19 @@ namespace yny_003.Web.Car.Handler
 				sb.Append(ListNotice[i].QCMoney + "~");
 				sb.Append(ListNotice[i].OverMoney + "~");
 				sb.Append((ListNotice[i].CreateDate) + "~");
-				sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
+				//sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
+				sb.Append("≌");
+				sb.Append("≠");
+				////数量
+				sb.Append("9");
+				sb.Append("≠");
+				//内容(买家信息				
+				sb.Append("税号:" + ListNotice[i].SHCode);
+				sb.Append("<br/>账号:" + ListNotice[i].UserCode);
+				sb.Append("<br/>结账周期:" + ListNotice[i].ZQDate);
+				sb.Append("<br/>资质:" + ListNotice[i].ZZValue);
+				sb.Append("<br/>地址:" + ListNotice[i].Address);
+				sb.Append("<br/>备注:" + ListNotice[i].Remark);
 				sb.Append("≌");
 
 			}

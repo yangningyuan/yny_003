@@ -29,7 +29,7 @@ namespace yny_003.Web.Shop.Handler
             {
                 if (memberModel.Role.Super)
                 {
-                    strWhere += string.Format(" and ( MID='{0}' or MName='{0}') ", (context.Request["mKey"]));
+                    strWhere += string.Format(" and ( MID='{0}' ) ", (context.Request["mKey"]));
                 }
             }
             if (!string.IsNullOrEmpty(context.Request["startDate"]))
@@ -51,7 +51,7 @@ namespace yny_003.Web.Shop.Handler
                 sb.Append(List[i].Code + "~");
                 sb.Append(List[i].MID + "~");
                 sb.Append(List[i].TotalPrice + "~");
-                sb.Append((List[i].DisCountTotalPrice).ToFixedString() + "~");
+                //sb.Append((List[i].DisCountTotalPrice).ToFixedString() + "~");
                 sb.Append(List[i].GoodCount + "~");
                 sb.Append(List[i].OrderTime.ToString("yyyy-MM-dd HH:mm") + "~");
                 int status = List[i].Status;
@@ -59,26 +59,26 @@ namespace yny_003.Web.Shop.Handler
                 switch (status)
                 {
                     case 1:
-                        resu = "已提交未付款~";
+                        resu = "已打包待调度~";
                         if (List[i].MID == memberModel.MID)
                         {
-                            resu += "<input type='button' value='付款' class='btn btn-success btn-sm' onclick='payOrder(" + List[i].Id + ")' />";
+                            resu += "<input type='button' value='调度' class='btn btn-success btn-sm' onclick='payOrder2(" + List[i].Id + ")' />";
                         }
                         break;
                     case 2:
-                        resu = "已付款未发货~";
-                        if (memberModel.Role.Super)
-                        {
-                            resu += "<input type='button' value='发货' class='btn btn-success btn-sm' onclick='sendOrder(" + List[i].Id + ")' />";
-                        }
+                        resu = "已调度未完成~";
+                        //if (memberModel.Role.Super)
+                        //{
+                        //    resu += "<input type='button' value='发货' class='btn btn-success btn-sm' onclick='sendOrder(" + List[i].Id + ")' />";
+                        //}
                         break;
-                    case 3:
-                        resu = "已发货&nbsp;&nbsp;<span class='seeExpress' onclick='seeExpress(" + List[i].Id + ")'>查看物流</span>~";
-                        if (List[i].MID == memberModel.MID)
-                        {
-                            resu += "<input type='button' value='确认收货' class='btn btn-success btn-sm' onclick='receiveOrder(" + List[i].Id + ")' />";
-                        }
-                        break;
+                    //case 3:
+                    //    resu = "已发货&nbsp;&nbsp;<span class='seeExpress' onclick='seeExpress(" + List[i].Id + ")'>查看物流</span>~";
+                    //    if (List[i].MID == memberModel.MID)
+                    //    {
+                    //        resu += "<input type='button' value='确认收货' class='btn btn-success btn-sm' onclick='receiveOrder(" + List[i].Id + ")' />";
+                    //    }
+                    //    break;
                     case 4:
                         resu = "已完成~";
                         break;

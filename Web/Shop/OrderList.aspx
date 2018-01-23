@@ -86,16 +86,15 @@
         <div class="control">
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('',this);" class="btn btn-danger">全部</a>
-                <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">未支付</a>
-                <a href="javascript:void(0)" onclick="SearchByState('2',this);" class="btn btn-success">未发货</a>
-                <a href="javascript:void(0)" onclick="SearchByState('3',this);" class="btn btn-success">未收货</a>
+                <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">未调度</a>
+                <a href="javascript:void(0)" onclick="SearchByState('2',this);" class="btn btn-success">已调度</a>
+                <%--<a href="javascript:void(0)" onclick="SearchByState('3',this);" class="btn btn-success">未收货</a>--%>
                 <a href="javascript:void(0)" onclick="SearchByState('4',this);" class="btn btn-success">完成</a>
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <%--<input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />--%>
-                <input name="txtKey" data-name="txtKey" id="mKey" value="请输入会员账号" onfocus="if (value =='请输入会员账号'){value =''}"
-                    onblur="if (value ==''){value='请输入会员账号'}" type="text" class="sinput" />
+                <input name="txtKey" data-name="txtKey" id="mKey" type="text" placeholder="客户名称" class="sinput" />
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" value="开始日期" onfocus="if (value =='开始日期'){value =''}"
                     class="daycash_input" style="width: 120px;" onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />
                 <input type="text" name="txtKey" data-name="txtKey" id="endDate" value="截止日期" onfocus="if (value =='截止日期'){value =''}"
@@ -137,12 +136,12 @@
                     </th>
                     <th>订单编号
                     </th>
-                    <th>会员名称
+                    <th>客户名称
                     </th>
                     <th>总价
                     </th>
-                    <th>折后价
-                    </th>
+                   <%-- <th>折后价
+                    </th>--%>
                     <th>商品数量
                     </th>
                     <th>订单时间

@@ -2,7 +2,7 @@ html,
 body {
 	/*font-size: 100%;*/
 	/*background: #37271a;*/
-   background:#37271a;
+   background:#FCFCFC;
 	font-family: "微软雅黑";
 	    min-width: 1080px;
 }
@@ -594,7 +594,7 @@ color:white
 }
 
 .banner-nav ul li>a:hover {
-	color: #fff;
+	color: black;
 }
 
 .banner-nav ul li.hvr-sweep-to-bottom a:hover {
@@ -3631,14 +3631,14 @@ margin-bottom: 20px;
 	min-height: 100px;
 	margin-bottom: 0px;
 	padding: 20px;
-	color: white;
+	color:rgb(228, 167, 0);
 	border-radius: 4px;
-	background-color: #301f15;
+	background-color: #E8E9EE;
 		border:solid 1px transparent;
 		    display: block;
 }
 .info-box:hover {
-	background-color: #3C271A;
+	background-color: #FEC514;
 	border:solid 1px #ffcf0d;
 }
 .info-box .count {
@@ -3655,7 +3655,7 @@ margin-bottom: 20px;
 	text-transform: uppercase;
 	text-align: Center;
 	margin-top: 10px;
-	    color: #EAD28B;
+	    color: black;
 }
 .gold img {
 	width: 130px;
@@ -3713,7 +3713,7 @@ margin-bottom: 20px;
     width: 1080px;
     margin: 0 auto;
     color: white;
-    border: solid 3px #4F4237;
+    border: solid 3px #E8E9EE;
     margin: 10px auto;
 }
 box2 thead tr {

@@ -1997,7 +1997,7 @@ pre code {
 @media (min-width: 1200px) {
 	.container {
 		width: 1080px;
-		  background-color: #4F4237;
+		  /*background-color: #4F4237;*/
 	}
 }
 
@@ -5895,7 +5895,7 @@ a.thumbnail.active {
 
 .alert {
     padding: 10px 15px;
-	margin-bottom: 20px !important;
+	margin-bottom: 1px !important;
 	border: 1px solid transparent;
 	border-radius: 4px;
 }

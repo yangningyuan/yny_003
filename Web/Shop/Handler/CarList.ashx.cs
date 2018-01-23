@@ -34,7 +34,7 @@ namespace yny_003.Web.Shop.Handler
 
                     sb.Append(str + "~");
                     sb.Append("<span class='spTotal'>" + (List[i].GCount * good.CostPrice).ToFixedString() + "</span>~");
-                    sb.Append("<span class='spTotalDis'>" + (List[i].GCount * good.CostPrice /** BLL.Configuration.Model.E_GWDiscount*/).ToFixedString() + "</span>~");
+                    //sb.Append("<span class='spTotalDis'>" + (List[i].GCount * good.CostPrice /** BLL.Configuration.Model.E_GWDiscount*/).ToFixedString() + "</span>~");
                     sb.Append(good.SellingCount);
                     sb.Append("≌");
                 }

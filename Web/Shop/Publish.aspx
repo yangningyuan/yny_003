@@ -59,11 +59,11 @@
                 </tr>
                 <tr>
                     <td align="right">
-                        价格
+                        进价
                     </td>
                     <td>
                         <input id="txtPrice" runat="server" class="normal_input" type="text" require-type="decimal"
-                            require-msg="价格" />
+                            require-msg="进价" />
                         <span class="spRed">*</span> &emsp;单位：<input id="txtUnit" runat="server" class="normal_input"
                             type="text" style="width: 50px" require-type="require" require-msg="单位" />
                         <span class="spRed">*</span> &emsp; 库存:

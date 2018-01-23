@@ -91,7 +91,7 @@
                 <%=WebModel.WCopyright%><span><%=WebModel.WCopyright%></span></div>
             <div class="login_from">
                 <div class="title">
-                    <span>登录</span>经费管理系统</div>
+                    <span>登录</span><%=WebModel.WebTitle %>管理系统</div>
                 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
                         <td width="54">

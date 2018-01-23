@@ -1,33 +1,30 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CarList.aspx.cs" Inherits="yny_003.Web.Car.CarList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoanApplyList.aspx.cs" Inherits="yny_003.Web.Car.LoanApplyList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <script src="/Admin/js/EPjs.js" type="text/javascript"></script>
     <script type="text/javascript">
         tState = '0';
-        tUrl = "Car/Handler/CarList.ashx";
+        tUrl = "Car/Handler/LoanApplyList.ashx";
         SearchByCondition();
     </script>
 </head>
 <body>
-    <div id="distr">
-    </div>
     <div id="mempay">
         <div class="control">
             <div class="select">
-                <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已报废</a>
+                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未审核</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已审核</a>
             </div>
-            <div class="pay" onclick="UpDateByID('Car/AddCar.aspx?','修改车辆',900,470);">
-                修改车辆
+          <%--  <div class="pay" onclick="UpDateByID('Car/AddLoanApply.aspx?','修改费用类型',900,470);">
+                修改费用类型
             </div>
-            <div class="pay" onclick="v5.show('Car/AddCar.aspx','新增车辆','url',900,470)">
-                新增车辆
-            </div>
+            <div class="pay" onclick="v5.show('Car/AddLoanApply.aspx','新增费用类型','url',900,470)">
+                新增费用类型
+            </div>--%>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
-                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入车辆牌照" type="text" class="sinput" />
+                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入借款人" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">
@@ -37,19 +34,21 @@
                     </th>
                     <th>序号
                     </th>
-                    <th>牌照
+                    <th>借款人
                     </th>
-                    <th>车型
+                    <th>借款金额
                     </th>
-                    <th>品牌
+                    <th>实际金额
                     </th>
-                    <th>行驶证号
+                    <th>借款发放方式
                     </th>
-                    <th>吨位
+                    <th>说明
                     </th>
-                    <th>总里程
+                     <th>创建日期
                     </th>
-                    <th>创建日期
+                    <th>审批人
+                    </th>
+                    <th>审批时间
                     </th>
                     <th>操作
                     </th>

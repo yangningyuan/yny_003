@@ -125,7 +125,7 @@ namespace yny_003.Web.Handler
                 sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
                 if (!ListMember[i].IsClose)
                 {
-                    sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">进入会员系统</a>");
+                    sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">进入系统</a>");
                 }
                 else
                 {

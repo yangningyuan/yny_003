@@ -31,7 +31,7 @@
                         </td>--%>
                         <td>
                             <select id="RoleCode" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
-                                <option value="">会员类型</option>
+                                <option value="">角色类型</option>
                                 <%=RoleListStr %>
                             </select>
                             <input type="hidden" id="OnlyOnLine" name="txtKey" data-name="txtKey" value="" />
@@ -43,13 +43,13 @@
                                 <option value="false">未锁定</option>
                             </select>
                         </td>
-                        <td>
+                      <%--  <td>
                             <select id="IsClock" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                                 <option value="">冻结状态</option>
                                 <option value="true">已冻结</option>
                                 <option value="false">未冻结</option>
                             </select>
-                        </td>
+                        </td>--%>
                         <%--<td>
                             <select id="ddlProvince" runat="server" data-name="txtKey">
                             </select>
@@ -69,8 +69,8 @@
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <%--<input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />--%>
-                <input name="txtKey" data-name="txtKey" id="mKey" placeholder="会员账号或名称" value="会员账号或名称"
-                    onfocus="if (value =='会员账号或名称'){value =''}" onblur="if (value ==''){value='会员账号或名称'}"
+                <input name="txtKey" data-name="txtKey" id="mKey" placeholder="账号" value="账号"
+                    onfocus="if (value =='账号'){value =''}" onblur="if (value ==''){value='账号'}"
                     type="text" class="sinput" style="width: 120px;" />
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始日期"
                     value="开始日期" onfocus="if (value =='开始日期'){value =''}" class="daycash_input" style="width: 120px;"

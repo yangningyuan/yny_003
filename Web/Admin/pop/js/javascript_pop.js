@@ -526,43 +526,43 @@ function TableToJson(tableid) {
     return txt;
 }
 
-//function JsonToTable(str) {
-//    var trs = str.split('≌');
-//    var table = '';
-//    for (var i = 0; i < trs.length - 1; i++) {
-//        if (trs[i][0] == "≠") { //隐藏列
-//            var tds = trs[i].split('≠');
-//            table += '<tr style="display:none"><td colspan="' + tds[1] + '">' + tds[2] + '</td></tr>';
-//        } else {
-//            var tds = trs[i].split('~');
-//            if (tds[0] != '') {
-//                if (trs[i].indexOf('#T') > 0) {
-//                    table += "<tr onclick='trClick(this)'><td><em><input type='checkbox' id='chk_" + tds[0] + "' checked='checked' name='chkGroup' onclick='SelectChk(this);'/></em>";
-//                } else
-//                    table += "<tr onclick='trClick(this)'><td><em><input type='checkbox' id='chk_" + tds[0] + "' name='chkGroup' onclick='SelectChk(this);'/></em>";
-//            } else {
-//                table += "<tr onclick='trClick(this)'><td>";
-//            }
-//            for (var j = 1; j < tds.length; j++) {
-//                table += "</td><td>";
-//                table += tds[j].replace('#T', '') + '&nbsp;';
-//            }
-//            table += "</td></tr>";
-//        }
-//    }
-//    return table;
-//}
+function JsonToTable(str) {
+    var trs = str.split('≌');
+    var table = '';
+    for (var i = 0; i < trs.length - 1; i++) {
+        if (trs[i][0] == "≠") { //隐藏列
+            var tds = trs[i].split('≠');
+            table += '<tr style="display:none"><td colspan="' + tds[1] + '">' + tds[2] + '</td></tr>';
+        } else {
+            var tds = trs[i].split('~');
+            if (tds[0] != '') {
+                if (trs[i].indexOf('#T') > 0) {
+                    table += "<tr onclick='trClick(this)'><td><em><input type='checkbox' id='chk_" + tds[0] + "' checked='checked' name='chkGroup' onclick='SelectChk(this);'/></em>";
+                } else
+                    table += "<tr onclick='trClick(this)'><td><em><input type='checkbox' id='chk_" + tds[0] + "' name='chkGroup' onclick='SelectChk(this);'/></em>";
+            } else {
+                table += "<tr onclick='trClick(this)'><td>";
+            }
+            for (var j = 1; j < tds.length; j++) {
+                table += "</td><td>";
+                table += tds[j].replace('#T', '') + '&nbsp;';
+            }
+            table += "</td></tr>";
+        }
+    }
+    return table;
+}
 
 //tr点击事件
 function trClick(obj) {
-    //    if ($("#distr").length > 0) {
-    //        var next = $(obj).next();
-    //        if (next.is(":hidden")) {
-    //            next.show();
-    //        } else {
-    //            next.hide();
-    //        }
-    //    }
+        if ($("#distr").length > 0) {
+            var next = $(obj).next();
+            if (next.is(":hidden")) {
+                next.show();
+            } else {
+                next.hide();
+            }
+        }
 }
 
 function JsonToTable(str) {

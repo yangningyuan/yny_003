@@ -23,7 +23,7 @@
     <script type="text/javascript" src="Admin/pop/js/javascript_pop.js"></script>
     <script type="text/javascript" src="Admin/pop/js/V5-UI.js"></script>
     <script type="text/javascript" src="Admin/pop/js/uaredirect.js"></script>
-    <script type="text/javascript">        uaredirect("/MQL/Login.aspx");</script>
+    <script type="text/javascript">        uaredirect("/mobile/html/Login.aspx");</script>
     <!--<script type="text/javascript">
         var defaultKye = "";
         var GB2312Str = "<%=zhNames %>";

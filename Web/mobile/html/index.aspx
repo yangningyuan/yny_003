@@ -20,7 +20,7 @@
     <script src="/mobile/js/jquery-1.11.3.js"></script>
     <script src="/mobile/js/stack.js" type="text/javascript"></script>
     <script src="/mobile/conn/laydate/laydate.js"></script>
-		<script language="JavaScript" src="http://code.54kefu.net/kefu/js/b38/1031638.js" type="text/javascript" charset="utf-8"></script>
+		<%--<script language="JavaScript" src="http://code.54kefu.net/kefu/js/b38/1031638.js" type="text/javascript" charset="utf-8"></script>--%>
 </head>
 
 <body>

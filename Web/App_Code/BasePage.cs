@@ -389,7 +389,7 @@ namespace yny_003.Web
             {
                 if (NoPower())
                 {
-                    Response.Write("<script>window.top.location.href='MQL/Login.aspx'</script>");
+                    Response.Write("<script>window.top.location.href='/mobile/html/Login.aspx'</script>");
                     Response.End();
                 }
             }

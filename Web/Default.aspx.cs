@@ -25,7 +25,7 @@ namespace yny_003.Web
             //}
             if (IsMobile())
             {
-                Server.Transfer("/Admin/Index.aspx");
+                Server.Transfer("/mobile/html/index.aspx");
             }
             else {
                 Server.Transfer("/Admin/Index.aspx");

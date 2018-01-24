@@ -11,7 +11,8 @@
    <%-- <link rel="shortcut icon" href="/favicon.ico">--%>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-     <script src="/Admin/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+     <%--<script src="/Admin/js/jquery-1.9.1.min.js" type="text/javascript"></script>--%>
+    <script src="/Admin/js/jquery-1.11.1.min.js"></script>
     <link href="/plugin/layer/skin/layer.css" rel="stylesheet" type="text/css" />
     <script src="/plugin/layer/layer.js" type="text/javascript"></script>
     <script src="/Admin/pop/js/V5-UI.js" type="text/javascript"></script>
@@ -80,7 +81,7 @@
         <div class="page page-current" id="login">
             <div class="content Register" style="top: 0;">
             <img src="../img/login.jpg" />
-                <img src="../img/logo-login.png" class="logo-login" />
+                <%--<img src="../img/logo-login.png" class="logo-login" />--%>
                 <input type="hidden" id="inpwd" runat="server" />
                 <div class="Register_Info row" style="top: 8rem;">
                     <div class="Register_List">
@@ -122,7 +123,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            <div class="remember"> <input name="reuserpsw" id="reuserpsw" runat="server" type="checkbox" value="1" />&nbsp;<span>记住密码</span> </div>
+                            <%--<div class="remember"> <input name="reuserpsw" id="reuserpsw" runat="server" type="checkbox" value="1" />&nbsp;<span>记住密码</span> </div>--%>
                         </div>
                         <div class="content-block">
                             <div class="row" style="margin: auto">

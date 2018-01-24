@@ -21,8 +21,8 @@ namespace yny_003.Web.mobile.html
                 txtpwd.Attributes.Add("value", cookies["Pwd"]);
                 //Page.RegisterStartupScript("", "<script>document.getElementById('txtpwd').value='" + cookies["Pwd"] + "';</script>");
                 //txtpwd.Attributes["value"]= cookies["Pwd"];
-                this.reuserpsw.Value = "1";
-                this.reuserpsw.Checked = true;
+                ////this.reuserpsw.Value = "1";
+                ////this.reuserpsw.Checked = true;
                 this.inpwd.Value = cookies["Pwd"];
             }
         }

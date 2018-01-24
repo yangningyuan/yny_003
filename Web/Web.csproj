@@ -248,6 +248,185 @@
     <Content Include="login\images\yanzhengma.jpg" />
     <Content Include="Member\MyLink.aspx" />
     <Content Include="Member\TJTree.aspx" />
+    <Content Include="mobile\conn\bootstrap\css\bootstrap.min.css" />
+    <Content Include="mobile\conn\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="mobile\conn\bootstrap\js\bootstrap.min.js" />
+    <Content Include="mobile\conn\laydate\laydate.js" />
+    <Content Include="mobile\conn\laydate\need\laydate.css" />
+    <Content Include="mobile\conn\laydate\skins\dahong\icon.png" />
+    <Content Include="mobile\conn\laydate\skins\dahong\laydate.css" />
+    <Content Include="mobile\conn\laydate\skins\default\icon.png" />
+    <Content Include="mobile\conn\laydate\skins\default\laydate.css" />
+    <Content Include="mobile\conn\laydate\skins\molv\icon.png" />
+    <Content Include="mobile\conn\laydate\skins\molv\laydate.css" />
+    <Content Include="mobile\conn\select2\css\common.css" />
+    <Content Include="mobile\conn\select2\css\select2.css" />
+    <Content Include="mobile\conn\select2\images\select2-spinner.gif" />
+    <Content Include="mobile\conn\select2\images\select2.png" />
+    <Content Include="mobile\conn\select2\images\select2x2.png" />
+    <Content Include="mobile\conn\select2\js\area.js" />
+    <Content Include="mobile\conn\select2\js\jquery.js" />
+    <Content Include="mobile\conn\select2\js\location.js" />
+    <Content Include="mobile\conn\select2\js\select2.css" />
+    <Content Include="mobile\conn\select2\js\select2.js" />
+    <Content Include="mobile\conn\select2\js\select2_locale_zh-CN.js" />
+    <Content Include="mobile\css\main.css" />
+    <Content Include="mobile\font_icons\demo.css" />
+    <Content Include="mobile\font_icons\demo.html" />
+    <Content Include="mobile\font_icons\iconfont.css" />
+    <Content Include="mobile\font_icons\iconfont.svg" />
+    <Content Include="mobile\html\ADD.aspx" />
+    <Content Include="mobile\html\AddReceive.aspx" />
+    <Content Include="mobile\html\BuyGoods.aspx" />
+    <Content Include="mobile\html\caiwu.aspx" />
+    <Content Include="mobile\html\Cars.aspx" />
+    <Content Include="mobile\html\Code.aspx" />
+    <Content Include="mobile\html\CW.aspx" />
+    <Content Include="mobile\html\findpwd.aspx" />
+    <Content Include="mobile\html\geren.aspx" />
+    <Content Include="mobile\html\GGTZ.aspx" />
+    <Content Include="mobile\html\GMList.aspx" />
+    <Content Include="mobile\html\GoodsDetail.aspx" />
+    <Content Include="mobile\html\HBChange.aspx" />
+    <Content Include="mobile\html\HBList.aspx" />
+    <Content Include="mobile\html\HKChangeFlow.aspx" />
+    <Content Include="mobile\html\HKChangeWY.aspx" />
+    <Content Include="mobile\html\HKList.aspx" />
+    <Content Include="mobile\html\index.aspx" />
+    <Content Include="mobile\html\InvestApply.aspx" />
+    <Content Include="mobile\html\InvestList.aspx" />
+    <Content Include="mobile\html\InvestQuitList.aspx" />
+    <Content Include="mobile\html\JJList.aspx" />
+    <Content Include="mobile\html\KFList.aspx" />
+    <Content Include="mobile\html\Login.aspx" />
+    <Content Include="mobile\html\ModifyPwd.aspx" />
+    <Content Include="mobile\html\ModifySecPwd.aspx" />
+    <Content Include="mobile\html\NoticeList.aspx" />
+    <Content Include="mobile\html\NoticeView.aspx" />
+    <Content Include="mobile\html\OrderList.aspx" />
+    <Content Include="mobile\html\PayHB.aspx" />
+    <Content Include="mobile\html\PayOrder.aspx" />
+    <Content Include="mobile\html\Pwd.aspx" />
+    <Content Include="mobile\html\ReceiveInfo.aspx" />
+    <Content Include="mobile\html\Register.aspx" />
+    <Content Include="mobile\html\ShopMenu.aspx" />
+    <Content Include="mobile\html\TaskAdd.aspx" />
+    <Content Include="mobile\html\TaskList.aspx" />
+    <Content Include="mobile\html\TD.aspx" />
+    <Content Include="mobile\html\TJList.aspx" />
+    <Content Include="mobile\html\TJTree.aspx" />
+    <Content Include="mobile\html\TXChange.aspx" />
+    <Content Include="mobile\html\TXList.aspx" />
+    <Content Include="mobile\html\TZ.aspx" />
+    <Content Include="mobile\html\View.aspx" />
+    <Content Include="mobile\html\WXChange.aspx" />
+    <Content Include="mobile\img\a1.jpg" />
+    <Content Include="mobile\img\aboutus.png" />
+    <Content Include="mobile\img\back.png" />
+    <Content Include="mobile\img\banner.png" />
+    <Content Include="mobile\img\basici.png" />
+    <Content Include="mobile\img\caiwu01.png" />
+    <Content Include="mobile\img\caiwu02.png" />
+    <Content Include="mobile\img\caiwu03.png" />
+    <Content Include="mobile\img\caiwu04.png" />
+    <Content Include="mobile\img\caiwu05.png" />
+    <Content Include="mobile\img\caiwu06.png" />
+    <Content Include="mobile\img\caiwu07.png" />
+    <Content Include="mobile\img\caiwu08.png" />
+    <Content Include="mobile\img\cz.png" />
+    <Content Include="mobile\img\ewm.jpg" />
+    <Content Include="mobile\img\ewm.png" />
+    <Content Include="mobile\img\ewmtil.png" />
+    <Content Include="mobile\img\ewnbottom.png" />
+    <Content Include="mobile\img\fac.ico" />
+    <Content Include="mobile\img\fh.png" />
+    <Content Include="mobile\img\findpwd_bg.jpg" />
+    <Content Include="mobile\img\hk.png" />
+    <Content Include="mobile\img\jj.png" />
+    <Content Include="mobile\img\jjb.png" />
+    <Content Include="mobile\img\login.jpg" />
+    <Content Include="mobile\img\logo-login.png" />
+    <Content Include="mobile\img\logo.png" />
+    <Content Include="mobile\img\money.png" />
+    <Content Include="mobile\img\mynewsn.png" />
+    <Content Include="mobile\img\newsicon.png" />
+    <Content Include="mobile\img\quickenter.png" />
+    <Content Include="mobile\img\rechrge.png" />
+    <Content Include="mobile\img\Register.png" />
+    <Content Include="mobile\img\search.png" />
+    <Content Include="mobile\img\Settingimg.jpg" />
+    <Content Include="mobile\img\sq.png" />
+    <Content Include="mobile\img\sqtb.png" />
+    <Content Include="mobile\img\tz.png" />
+    <Content Include="mobile\img\updatepwd.png" />
+    <Content Include="mobile\img\userbtn.png" />
+    <Content Include="mobile\img\Withdrawals.png" />
+    <Content Include="mobile\img\women.png" />
+    <Content Include="mobile\img\xjb.png" />
+    <Content Include="mobile\img\xpu.png" />
+    <Content Include="mobile\img\zc.png" />
+    <Content Include="mobile\img\zs.png" />
+    <Content Include="mobile\img\zz.png" />
+    <Content Include="mobile\js\ai.js" />
+    <Content Include="mobile\js\ajax.js" />
+    <Content Include="mobile\js\bootstrap.min.js" />
+    <Content Include="mobile\js\bootstrapSwitch.js" />
+    <Content Include="mobile\js\convertor.js" />
+    <Content Include="mobile\js\fastclick.js" />
+    <Content Include="mobile\js\javascript_main.js" />
+    <Content Include="mobile\js\javascript_pop.js" />
+    <Content Include="mobile\js\jquery-1.11.3.js" />
+    <Content Include="mobile\js\jquery-1.8.3.min.js" />
+    <Content Include="mobile\js\jquery.linq.min.js" />
+    <Content Include="mobile\js\jquery.min.js" />
+    <Content Include="mobile\js\jquery.tmpl.js" />
+    <Content Include="mobile\js\linkage.js" />
+    <Content Include="mobile\js\main.js" />
+    <Content Include="mobile\js\main1.js" />
+    <Content Include="mobile\js\mobilebone.js" />
+    <Content Include="mobile\js\MobileSelectAll.js" />
+    <Content Include="mobile\js\mobile_services.js" />
+    <Content Include="mobile\js\mob_paging.js" />
+    <Content Include="mobile\js\slider.js" />
+    <Content Include="mobile\js\slip-min.js" />
+    <Content Include="mobile\js\slip.js" />
+    <Content Include="mobile\js\stack.js" />
+    <Content Include="mobile\layer\layer.js" />
+    <Content Include="mobile\layer\mobile\layer.js" />
+    <Content Include="mobile\layer\mobile\need\layer.css" />
+    <Content Include="mobile\layer\skin\default\icon-ext.png" />
+    <Content Include="mobile\layer\skin\default\icon.png" />
+    <Content Include="mobile\layer\skin\default\layer.css" />
+    <Content Include="mobile\layer\skin\default\loading-0.gif" />
+    <Content Include="mobile\layer\skin\default\loading-1.gif" />
+    <Content Include="mobile\layer\skin\default\loading-2.gif" />
+    <Content Include="mobile\layer\skin\default\loadqiangdan.gif" />
+    <Content Include="mobile\plugin\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="mobile\plugin\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="mobile\plugin\font-awesome\css\font-awesome.css" />
+    <Content Include="mobile\plugin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="mobile\plugin\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="mobile\plugin\ratchet\css\ratchet-theme-android.css" />
+    <Content Include="mobile\plugin\ratchet\css\ratchet-theme-android.min.css" />
+    <Content Include="mobile\plugin\ratchet\css\ratchet-theme-ios.css" />
+    <Content Include="mobile\plugin\ratchet\css\ratchet-theme-ios.min.css" />
+    <Content Include="mobile\plugin\ratchet\css\ratchet.css" />
+    <Content Include="mobile\plugin\ratchet\css\ratchet.min.css" />
+    <Content Include="mobile\plugin\ratchet\fonts\ratchicons.svg" />
+    <Content Include="mobile\plugin\ratchet\js\push.js" />
+    <Content Include="mobile\plugin\ratchet\js\ratchet.js" />
+    <Content Include="mobile\plugin\ratchet\js\ratchet.min.js" />
+    <Content Include="mobile\plugin\SUI\css\sm-extend.css" />
+    <Content Include="mobile\plugin\SUI\css\sm-extend.min.css" />
+    <Content Include="mobile\plugin\SUI\css\sm.css" />
+    <Content Include="mobile\plugin\SUI\css\sm.min.css" />
+    <Content Include="mobile\plugin\SUI\js\sm-city-picker.js" />
+    <Content Include="mobile\plugin\SUI\js\sm-city-picker.min.js" />
+    <Content Include="mobile\plugin\SUI\js\sm-extend.js" />
+    <Content Include="mobile\plugin\SUI\js\sm-extend.min.js" />
+    <Content Include="mobile\plugin\SUI\js\sm.js" />
+    <Content Include="mobile\plugin\SUI\js\sm.min.js" />
+    <Content Include="mobile\plugin\SUI\js\zepto.js" />
     <Content Include="OJ\AddObj.aspx" />
     <Content Include="OJ\AddObjSub.aspx" />
     <Content Include="OJ\DepartTypeList.aspx" />
@@ -1181,6 +1360,321 @@
       <DependentUpon>TaskList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="mobile\html\ADD.aspx.cs">
+      <DependentUpon>ADD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\ADD.aspx.designer.cs">
+      <DependentUpon>ADD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\AddReceive.aspx.cs">
+      <DependentUpon>AddReceive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\AddReceive.aspx.designer.cs">
+      <DependentUpon>AddReceive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\BuyGoods.aspx.cs">
+      <DependentUpon>BuyGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\BuyGoods.aspx.designer.cs">
+      <DependentUpon>BuyGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\caiwu.aspx.cs">
+      <DependentUpon>caiwu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\caiwu.aspx.designer.cs">
+      <DependentUpon>caiwu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\Cars.aspx.cs">
+      <DependentUpon>Cars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\Cars.aspx.designer.cs">
+      <DependentUpon>Cars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\Code.aspx.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\Code.aspx.designer.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\CW.aspx.cs">
+      <DependentUpon>CW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\CW.aspx.designer.cs">
+      <DependentUpon>CW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\findpwd.aspx.cs">
+      <DependentUpon>findpwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\findpwd.aspx.designer.cs">
+      <DependentUpon>findpwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\geren.aspx.cs">
+      <DependentUpon>geren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\geren.aspx.designer.cs">
+      <DependentUpon>geren.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\GGTZ.aspx.cs">
+      <DependentUpon>GGTZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\GGTZ.aspx.designer.cs">
+      <DependentUpon>GGTZ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\GMList.aspx.cs">
+      <DependentUpon>GMList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\GMList.aspx.designer.cs">
+      <DependentUpon>GMList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\GoodsDetail.aspx.cs">
+      <DependentUpon>GoodsDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\GoodsDetail.aspx.designer.cs">
+      <DependentUpon>GoodsDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\HBChange.aspx.cs">
+      <DependentUpon>HBChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\HBChange.aspx.designer.cs">
+      <DependentUpon>HBChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\HBList.aspx.cs">
+      <DependentUpon>HBList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\HBList.aspx.designer.cs">
+      <DependentUpon>HBList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\HKChangeFlow.aspx.cs">
+      <DependentUpon>HKChangeFlow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\HKChangeFlow.aspx.designer.cs">
+      <DependentUpon>HKChangeFlow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\HKChangeWY.aspx.cs">
+      <DependentUpon>HKChangeWY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\HKChangeWY.aspx.designer.cs">
+      <DependentUpon>HKChangeWY.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\HKList.aspx.cs">
+      <DependentUpon>HKList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\HKList.aspx.designer.cs">
+      <DependentUpon>HKList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\InvestApply.aspx.cs">
+      <DependentUpon>InvestApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\InvestApply.aspx.designer.cs">
+      <DependentUpon>InvestApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\InvestList.aspx.cs">
+      <DependentUpon>InvestList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\InvestList.aspx.designer.cs">
+      <DependentUpon>InvestList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\InvestQuitList.aspx.cs">
+      <DependentUpon>InvestQuitList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\InvestQuitList.aspx.designer.cs">
+      <DependentUpon>InvestQuitList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\JJList.aspx.cs">
+      <DependentUpon>JJList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\JJList.aspx.designer.cs">
+      <DependentUpon>JJList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\KFList.aspx.cs">
+      <DependentUpon>KFList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\KFList.aspx.designer.cs">
+      <DependentUpon>KFList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\ModifyPwd.aspx.cs">
+      <DependentUpon>ModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\ModifyPwd.aspx.designer.cs">
+      <DependentUpon>ModifyPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\ModifySecPwd.aspx.cs">
+      <DependentUpon>ModifySecPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\ModifySecPwd.aspx.designer.cs">
+      <DependentUpon>ModifySecPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\NoticeList.aspx.cs">
+      <DependentUpon>NoticeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\NoticeList.aspx.designer.cs">
+      <DependentUpon>NoticeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\NoticeView.aspx.cs">
+      <DependentUpon>NoticeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\NoticeView.aspx.designer.cs">
+      <DependentUpon>NoticeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\OrderList.aspx.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\OrderList.aspx.designer.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\PayHB.aspx.cs">
+      <DependentUpon>PayHB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\PayHB.aspx.designer.cs">
+      <DependentUpon>PayHB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\PayOrder.aspx.cs">
+      <DependentUpon>PayOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\PayOrder.aspx.designer.cs">
+      <DependentUpon>PayOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\Pwd.aspx.cs">
+      <DependentUpon>Pwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\Pwd.aspx.designer.cs">
+      <DependentUpon>Pwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\ReceiveInfo.aspx.cs">
+      <DependentUpon>ReceiveInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\ReceiveInfo.aspx.designer.cs">
+      <DependentUpon>ReceiveInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\ShopMenu.aspx.cs">
+      <DependentUpon>ShopMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\ShopMenu.aspx.designer.cs">
+      <DependentUpon>ShopMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TaskAdd.aspx.cs">
+      <DependentUpon>TaskAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TaskAdd.aspx.designer.cs">
+      <DependentUpon>TaskAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TaskList.aspx.cs">
+      <DependentUpon>TaskList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TaskList.aspx.designer.cs">
+      <DependentUpon>TaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TD.aspx.cs">
+      <DependentUpon>TD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TD.aspx.designer.cs">
+      <DependentUpon>TD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TJList.aspx.cs">
+      <DependentUpon>TJList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TJList.aspx.designer.cs">
+      <DependentUpon>TJList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TJTree.aspx.cs">
+      <DependentUpon>TJTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TJTree.aspx.designer.cs">
+      <DependentUpon>TJTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TXChange.aspx.cs">
+      <DependentUpon>TXChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TXChange.aspx.designer.cs">
+      <DependentUpon>TXChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TXList.aspx.cs">
+      <DependentUpon>TXList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TXList.aspx.designer.cs">
+      <DependentUpon>TXList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TZ.aspx.cs">
+      <DependentUpon>TZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TZ.aspx.designer.cs">
+      <DependentUpon>TZ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\WXChange.aspx.cs">
+      <DependentUpon>WXChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\WXChange.aspx.designer.cs">
+      <DependentUpon>WXChange.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OJ\AddObj.aspx.cs">
       <DependentUpon>AddObj.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1836,6 +2330,52 @@
     <Content Include="Car\Handler\CostList.ashx" />
     <Content Include="Car\Handler\SupplierList.ashx" />
     <Content Include="Car\Handler\LoanApplyList.ashx" />
+    <Content Include="mobile\conn\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="mobile\conn\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="mobile\conn\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="mobile\conn\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="mobile\font_icons\iconfont.eot" />
+    <Content Include="mobile\font_icons\iconfont.ttf" />
+    <Content Include="mobile\font_icons\iconfont.woff" />
+    <Content Include="mobile\plugin\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="mobile\plugin\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="mobile\plugin\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="mobile\plugin\font-awesome\font\FontAwesome.otf" />
+    <Content Include="mobile\plugin\font-awesome\less\animated.less" />
+    <Content Include="mobile\plugin\font-awesome\less\bootstrap.less" />
+    <Content Include="mobile\plugin\font-awesome\less\bordered-pulled.less" />
+    <Content Include="mobile\plugin\font-awesome\less\core.less" />
+    <Content Include="mobile\plugin\font-awesome\less\extras.less" />
+    <Content Include="mobile\plugin\font-awesome\less\fixed-width.less" />
+    <Content Include="mobile\plugin\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="mobile\plugin\font-awesome\less\font-awesome.less" />
+    <Content Include="mobile\plugin\font-awesome\less\icons.less" />
+    <Content Include="mobile\plugin\font-awesome\less\larger.less" />
+    <Content Include="mobile\plugin\font-awesome\less\list.less" />
+    <Content Include="mobile\plugin\font-awesome\less\mixins.less" />
+    <Content Include="mobile\plugin\font-awesome\less\path.less" />
+    <Content Include="mobile\plugin\font-awesome\less\rotated-flipped.less" />
+    <Content Include="mobile\plugin\font-awesome\less\stacked.less" />
+    <Content Include="mobile\plugin\font-awesome\less\variables.less" />
+    <Content Include="mobile\plugin\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\font-awesome.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_animated.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_core.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_extras.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_icons.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_larger.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_list.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_mixins.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_path.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_stacked.scss" />
+    <Content Include="mobile\plugin\font-awesome\scss\_variables.scss" />
+    <Content Include="mobile\plugin\ratchet\fonts\ratchicons.eot" />
+    <Content Include="mobile\plugin\ratchet\fonts\ratchicons.ttf" />
+    <Content Include="mobile\plugin\ratchet\fonts\ratchicons.woff" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

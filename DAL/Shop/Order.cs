@@ -34,10 +34,33 @@ namespace yny_003.DAL
                 return null;
         }
 
-        /// <summary>
-        /// 增加一条数据
-        /// </summary>
-        public static Hashtable Insert(Model.Order model, Hashtable MyHs)
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public static Model.Order GetModel(string Code)
+		{
+
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * ");
+			strSql.Append("  from [Order] ");
+			strSql.Append(" where Code=@Code ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@Code", SqlDbType.VarChar,50)            };
+			parameters[0].Value = Code;
+
+
+			DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+
+			if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+				return TranEntity(ds.Tables[0].Rows[0]);
+			else
+				return null;
+		}
+
+		/// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public static Hashtable Insert(Model.Order model, Hashtable MyHs)
         {
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();

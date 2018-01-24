@@ -42,8 +42,12 @@ namespace yny_003.Model
 		private int _isdelete;
 		private string _spare1;
 		private string _spare2;
-        
-        public DateTime CreateDate { get; set; }
+		/// <summary>
+		/// 商品订单号
+		/// </summary>
+        public string OCode { get; set; }
+
+		public DateTime CreateDate { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -68,6 +72,20 @@ namespace yny_003.Model
 			set{ _ttype=value;}
 			get{return _ttype;}
 		}
+		public static string typename (int count)
+		{
+			switch (count)
+			{
+				case 1:
+					return "装车";
+				case 2:
+					return "卸车";
+				case 3:
+					return "空车";
+			}
+			return "";
+		}
+		
 		/// <summary>
 		/// 供应商或客户
 		/// </summary>

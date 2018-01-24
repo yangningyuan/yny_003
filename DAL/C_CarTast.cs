@@ -20,6 +20,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections.Generic;
+using System.Collections;
 
 namespace yny_003.DAL
 {
@@ -64,9 +65,9 @@ namespace yny_003.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into C_CarTast(");
-			strSql.Append("Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2)");
+			strSql.Append("Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,OCode)");
 			strSql.Append(" values (");
-			strSql.Append("@Name,@TType,@SupplierName,@SupplierAddress,@SupplierTelName,@SupplierTel,@CarID,@CarSJ1,@CarSJ2,@CostType,@BDImg,@TState,@IsDelete,@Spare1,@Spare2)");
+			strSql.Append("@Name,@TType,@SupplierName,@SupplierAddress,@SupplierTelName,@SupplierTel,@CarID,@CarSJ1,@CarSJ2,@CostType,@BDImg,@TState,@IsDelete,@Spare1,@Spare2,@OCode)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Name", SqlDbType.VarChar,150),
@@ -83,7 +84,10 @@ namespace yny_003.DAL
 					new SqlParameter("@TState", SqlDbType.Int,4),
 					new SqlParameter("@IsDelete", SqlDbType.Int,4),
 					new SqlParameter("@Spare1", SqlDbType.VarChar,250),
-					new SqlParameter("@Spare2", SqlDbType.VarChar,250)};
+					new SqlParameter("@Spare2", SqlDbType.VarChar,250),
+					//new SqlParameter("@CreateDate", SqlDbType.DateTime),
+					new SqlParameter("@OCode", SqlDbType.VarChar,50)
+					};
 			parameters[0].Value = model.Name;
 			parameters[1].Value = model.TType;
 			parameters[2].Value = model.SupplierName;
@@ -99,6 +103,8 @@ namespace yny_003.DAL
 			parameters[12].Value = model.IsDelete;
 			parameters[13].Value = model.Spare1;
 			parameters[14].Value = model.Spare2;
+			//parameters[15].Value = model.CreateDate;
+			parameters[15].Value = model.OCode;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -109,6 +115,59 @@ namespace yny_003.DAL
 			{
 				return Convert.ToInt32(obj);
 			}
+		}
+
+		/// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public static Hashtable Add(yny_003.Model.C_CarTast model,Hashtable MyHs)
+		{
+			string guid = Guid.NewGuid().ToString();
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("insert into C_CarTast(");
+			strSql.Append("Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,OCode)");
+			strSql.Append(" values (");
+			strSql.Append("@Name,@TType,@SupplierName,@SupplierAddress,@SupplierTelName,@SupplierTel,@CarID,@CarSJ1,@CarSJ2,@CostType,@BDImg,@TState,@IsDelete,@Spare1,@Spare2,@OCode)");
+			strSql.AppendFormat(" ;select '{0}'", guid);
+			SqlParameter[] parameters = {
+					new SqlParameter("@Name", SqlDbType.VarChar,150),
+					new SqlParameter("@TType", SqlDbType.Int,4),
+					new SqlParameter("@SupplierName", SqlDbType.VarChar,50),
+					new SqlParameter("@SupplierAddress", SqlDbType.VarChar,150),
+					new SqlParameter("@SupplierTelName", SqlDbType.VarChar,50),
+					new SqlParameter("@SupplierTel", SqlDbType.VarChar,50),
+					new SqlParameter("@CarID", SqlDbType.Int,4),
+					new SqlParameter("@CarSJ1", SqlDbType.VarChar,50),
+					new SqlParameter("@CarSJ2", SqlDbType.VarChar,50),
+					new SqlParameter("@CostType", SqlDbType.Int,4),
+					new SqlParameter("@BDImg", SqlDbType.VarChar,250),
+					new SqlParameter("@TState", SqlDbType.Int,4),
+					new SqlParameter("@IsDelete", SqlDbType.Int,4),
+					new SqlParameter("@Spare1", SqlDbType.VarChar,250),
+					new SqlParameter("@Spare2", SqlDbType.VarChar,250),
+					//new SqlParameter("@CreateDate", SqlDbType.DateTime),
+					new SqlParameter("@OCode", SqlDbType.VarChar,50)
+					};
+			parameters[0].Value = model.Name;
+			parameters[1].Value = model.TType;
+			parameters[2].Value = model.SupplierName;
+			parameters[3].Value = model.SupplierAddress;
+			parameters[4].Value = model.SupplierTelName;
+			parameters[5].Value = model.SupplierTel;
+			parameters[6].Value = model.CarID;
+			parameters[7].Value = model.CarSJ1;
+			parameters[8].Value = model.CarSJ2;
+			parameters[9].Value = model.CostType;
+			parameters[10].Value = model.BDImg;
+			parameters[11].Value = model.TState;
+			parameters[12].Value = model.IsDelete;
+			parameters[13].Value = model.Spare1;
+			parameters[14].Value = model.Spare2;
+			//parameters[15].Value = model.CreateDate;
+			parameters[15].Value = model.OCode;
+
+			MyHs.Add(strSql.ToString(), parameters);
+			return MyHs;
 		}
 		/// <summary>
 		/// 更新一条数据
@@ -131,7 +190,9 @@ namespace yny_003.DAL
 			strSql.Append("TState=@TState,");
 			strSql.Append("IsDelete=@IsDelete,");
 			strSql.Append("Spare1=@Spare1,");
-			strSql.Append("Spare2=@Spare2");
+			strSql.Append("Spare2=@Spare2,");
+			//strSql.Append("CreateDate=@CreateDate,");
+			strSql.Append("OCode=@OCode");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Name", SqlDbType.VarChar,150),
@@ -149,6 +210,8 @@ namespace yny_003.DAL
 					new SqlParameter("@IsDelete", SqlDbType.Int,4),
 					new SqlParameter("@Spare1", SqlDbType.VarChar,250),
 					new SqlParameter("@Spare2", SqlDbType.VarChar,250),
+					//new SqlParameter("@CreateDate", SqlDbType.DateTime),
+					new SqlParameter("@OCode", SqlDbType.VarChar,50),
 					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.Name;
 			parameters[1].Value = model.TType;
@@ -165,7 +228,9 @@ namespace yny_003.DAL
 			parameters[12].Value = model.IsDelete;
 			parameters[13].Value = model.Spare1;
 			parameters[14].Value = model.Spare2;
-			parameters[15].Value = model.ID;
+			//parameters[15].Value = model.CreateDate;
+			parameters[15].Value = model.OCode;
+			parameters[16].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -229,7 +294,7 @@ namespace yny_003.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2 from C_CarTast ");
+			strSql.Append("select  top 1 ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,CreateDate,OCode from C_CarTast ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -239,6 +304,31 @@ namespace yny_003.DAL
 			yny_003.Model.C_CarTast model=new yny_003.Model.C_CarTast();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
+			{
+				return DataRowToModel(ds.Tables[0].Rows[0]);
+			}
+			else
+			{
+				return null;
+			}
+		}
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public static yny_003.Model.C_CarTast GetModel(string code)
+		{
+
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select  top 1 ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,CreateDate,OCode from C_CarTast ");
+			strSql.Append(" where OCode=@OCode");
+			SqlParameter[] parameters = {
+					new SqlParameter("@OCode", SqlDbType.VarChar,50)
+			};
+			parameters[0].Value = code;
+
+			yny_003.Model.C_CarTast model = new yny_003.Model.C_CarTast();
+			DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+			if (ds.Tables[0].Rows.Count > 0)
 			{
 				return DataRowToModel(ds.Tables[0].Rows[0]);
 			}
@@ -343,7 +433,11 @@ namespace yny_003.DAL
                 {
                     model.CreateDate = DateTime.Parse( row["CreateDate"].ToString());
                 }
-            }
+				if (row["OCode"] != null)
+				{
+					model.OCode =row["OCode"].ToString();
+				}
+			}
 			return model;
 		}
 
@@ -353,7 +447,7 @@ namespace yny_003.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2 ");
+			strSql.Append("select ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,CreateDate,OCode ");
 			strSql.Append(" FROM C_CarTast ");
 			if(strWhere.Trim()!="")
 			{
@@ -373,7 +467,7 @@ namespace yny_003.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2 ");
+			strSql.Append(" ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,CreateDate,OCode ");
 			strSql.Append(" FROM C_CarTast ");
 			if(strWhere.Trim()!="")
 			{

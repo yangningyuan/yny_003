@@ -34,26 +34,35 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListNotice[i].Name + "~");
-                sb.Append(ListNotice[i].TType + "~");
+                sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
                 //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
                 sb.Append(ListNotice[i].SupplierName + "~");
                 sb.Append(ListNotice[i].SupplierTel + "~");
                 sb.Append(ListNotice[i].Spare2 + "~");
-                sb.Append(ListNotice[i].CostType + "~");
+                sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 //sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
                 sb.Append("≌");
 				sb.Append("≠");
 				////数量
-				sb.Append("9");
+				sb.Append("10");
 				sb.Append("≠");
 				//内容(买家信息				
 				sb.Append("供应商地址:" + ListNotice[i].SupplierAddress);
 				sb.Append("<br/>主司机:" + ListNotice[i].CarSJ1);
 				sb.Append("<br/>副司机:" + ListNotice[i].CarSJ2);
-				sb.Append("<br/>磅单图片:<img src='"+ ListNotice[i].BDImg + "' width='40%' />" );
-				//sb.Append("<br/>地址:" + ListNotice[i].Address);
-				//sb.Append("<br/>备注:" + ListNotice[i].Remark);
+				
+				if (!string.IsNullOrEmpty( ListNotice[i].OCode)) //装车  卸车
+				{
+					sb.Append("<br/>商品订单:" + ListNotice[i].OCode);
+					List<Model.OrderDetail> odlist= BLL.OrderDetail.GetList(" ordercode='"+ ListNotice[i].OCode.ToString() + "'; ");
+					foreach (Model.OrderDetail item in odlist)
+					{
+						Model.Goods good = BLL.Goods.GetModel(item.GId);
+						sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", good.GName, item.GCount,good.Unit));
+					}
+				}
+				sb.Append("<br/>磅单图片:<a href='" + ListNotice[i].BDImg + "' target='blank'><img src='" + ListNotice[i].BDImg + "' width='5%' /></a>");
 				sb.Append("≌");
 			}
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

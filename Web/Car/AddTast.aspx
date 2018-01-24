@@ -28,7 +28,16 @@
         <div id="finance">
             <form id="form1">
                 <input type="hidden" id="fid" runat="server" />
+                <input type="hidden" id="oid" runat="server" />
                 <table cellpadding="0" cellspacing="0">
+                     <tr>
+                        <td width="15%" align="right">商品订单号<input runat="server" id="Hidden1" type="hidden" />
+                        </td>
+                        <td width="20%" style="height: 40px;">
+                            <input id="ocode" class="normal_input" runat="server" readonly="readonly"  style="width: 30%;" />
+                        </td>
+                    </tr>
+
                     <tr>
                         <td width="15%" align="right">任务名称<input runat="server" id="lbID" type="hidden" />
                         </td>

@@ -50,7 +50,7 @@ namespace yny_003.Web.Shop.Handler
                 sb.Append(List[i].Id + "~");
                 sb.Append(List[i].Code + "~");
                 sb.Append(List[i].MID + "~");
-				sb.Append(List[i].ReceiveId + "~");
+				sb.Append(List[i].ExpressCompany + "~");
 				sb.Append(List[i].TotalPrice + "~");
                 //sb.Append((List[i].DisCountTotalPrice).ToFixedString() + "~");
                 sb.Append(List[i].GoodCount + "~");
@@ -63,16 +63,18 @@ namespace yny_003.Web.Shop.Handler
                         resu = "已打包待调度~";
                         //if (List[i].MID == memberModel.MID)
                         //{
-                            resu += "<input type='button' value='调度' class='btn btn-success btn-sm' onclick='payOrder2(" + List[i].Id + ")' />";
+                            resu += "<input type='button' value='调度' class='btn btn-success btn-sm' onclick=\"callhtml('/Car/AddTast.aspx?oid="+List[i].Code+"','调度');\" />";
                         //}
                         break;
                     case 2:
                         resu = "已调度未完成~";
-                        //if (memberModel.Role.Super)
-                        //{
-                        //    resu += "<input type='button' value='发货' class='btn btn-success btn-sm' onclick='sendOrder(" + List[i].Id + ")' />";
-                        //}
-                        break;
+						//if (memberModel.Role.Super)
+						//{
+						//    resu += "<input type='button' value='发货' class='btn btn-success btn-sm' onclick='sendOrder(" + List[i].Id + ")' />";
+						//}
+						Model.C_CarTast tast= BLL.C_CarTast.GetModel(List[i].Code);
+						resu +="<input type='button' value='任务详情' class='btn btn-success btn-sm' onclick=\"callhtml('/Car/AddTast.aspx?oid=" + List[i].Code + "&id="+List[i].Id+"','调度任务详情');\" />";
+						break;
                     //case 3:
                     //    resu = "已发货&nbsp;&nbsp;<span class='seeExpress' onclick='seeExpress(" + List[i].Id + ")'>查看物流</span>~";
                     //    if (List[i].MID == memberModel.MID)
@@ -85,7 +87,7 @@ namespace yny_003.Web.Shop.Handler
                         break;
                 }
                 sb.Append(resu);
-                sb.Append("<input type='button' value='查看详情' class='btn btn-success btn-sm' onclick='ShowOrder(" + List[i].Id + ")' />");
+                
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

@@ -13,8 +13,12 @@ namespace yny_003.BLL
         {
             return yny_003.DAL.Order.GetModel(obj);
         }
+		public static Model.Order GetModel(string obj)
+		{
+			return yny_003.DAL.Order.GetModel(obj);
+		}
 
-        public static Hashtable Insert(Model.Order model, Hashtable MyHs)
+		public static Hashtable Insert(Model.Order model, Hashtable MyHs)
         {
             return yny_003.DAL.Order.Insert(model, MyHs);
         }

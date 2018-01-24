@@ -19,6 +19,8 @@ using System.Data;
 using System.Collections.Generic;
 
 using yny_003.Model;
+using System.Collections;
+
 namespace yny_003.BLL
 {
 	/// <summary>
@@ -54,7 +56,13 @@ namespace yny_003.BLL
 		{
 			return DAL.C_CarTast.Add(model);
 		}
-
+		/// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public static Hashtable Add(yny_003.Model.C_CarTast model,Hashtable MyHs)
+		{
+			return DAL.C_CarTast.Add(model, MyHs);
+		}
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -88,7 +96,14 @@ namespace yny_003.BLL
 			return DAL.C_CarTast.GetModel(ID);
 		}
 
-		
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public static yny_003.Model.C_CarTast GetModel(string code)
+		{
+
+			return DAL.C_CarTast.GetModel(code);
+		}
 
 		/// <summary>
 		/// 获得数据列表

@@ -106,10 +106,10 @@ namespace yny_003.Model
         /// Status
         /// </summary>		
         private int _status;
-        /// <summary>
-        /// 订单状态：1、提交订单；2、订单支付、3、管理员发货；4、会员收货
-        /// </summary>
-        public int Status
+		/// <summary>
+		/// 订单状态：1、已打包待调度；2、已调度未完成、3、；4、已完成
+		/// </summary>
+		public int Status
         {
             get { return _status; }
             set { _status = value; }
@@ -148,10 +148,10 @@ namespace yny_003.Model
             get { return _ReceiveId; }
             set { _ReceiveId = value; }
         }
-
-        /// ExpressCompany
-        /// </summary>		
-        private string _expresscompany;
+		/// </summary>		
+		/// 调度名称
+		/// </summary>		
+		private string _expresscompany;
         public string ExpressCompany
         {
             get { return _expresscompany; }

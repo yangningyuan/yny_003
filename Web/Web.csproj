@@ -297,6 +297,8 @@
     <Content Include="mobile\html\InvestList.aspx" />
     <Content Include="mobile\html\InvestQuitList.aspx" />
     <Content Include="mobile\html\JJList.aspx" />
+    <Content Include="mobile\html\JKChange.aspx" />
+    <Content Include="mobile\html\JKList.aspx" />
     <Content Include="mobile\html\KFList.aspx" />
     <Content Include="mobile\html\Login.aspx" />
     <Content Include="mobile\html\ModifyPwd.aspx" />
@@ -1513,6 +1515,20 @@
     </Compile>
     <Compile Include="mobile\html\JJList.aspx.designer.cs">
       <DependentUpon>JJList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\JKChange.aspx.cs">
+      <DependentUpon>JKChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\JKChange.aspx.designer.cs">
+      <DependentUpon>JKChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\JKList.aspx.cs">
+      <DependentUpon>JKList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\JKList.aspx.designer.cs">
+      <DependentUpon>JKList.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\KFList.aspx.cs">
       <DependentUpon>KFList.aspx</DependentUpon>

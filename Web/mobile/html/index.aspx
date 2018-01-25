@@ -41,9 +41,9 @@
                     <span class="icon icon-app"></span>
                     <span class="tab-label">财务</span>
                 </a>
-                <a class="tab-item user-img-btn external" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/Code.aspx','二维码注册');">
+           <%--     <a class="tab-item user-img-btn external" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/Code.aspx','二维码注册');">
                     <img src="/mobile/img/userbtn.png" />
-                </a>
+                </a>--%>
                <%-- <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TJTree.aspx','推荐图谱');">
                     <span class="icon icon-share"></span>
                     <span class="tab-label">图谱</span>
@@ -73,87 +73,17 @@
                 <div class="qicon"><span>快捷图标</span></div>
                 <div class="row margin-top-buttom">
                     <div class="col-25 row-tab">
-                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/View.aspx','基本资料');">
-                            <img src="/mobile/img/basici.png" title="基本信息">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/JKList.aspx','借款管理');">
+                            借款管理
                         </a>
                     </div>
-                    <div class="col-25 row-tab">
-                        <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/ADD.aspx','立即注册');">
-                            <!--<span class="icon icon-message"></span>
-								<span class="tab-label">系统消息</span>-->
-                            <img src="/mobile/img/zc.png" title="立即注册">
-                        </a>
-                    </div>
+                  
                     <div class="col-25 row-tab">
                         <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');">
-                            <!--<span class="icon icon-edit"></span>
-								<span class="tab-label">注册会员</span>-->
-                            <img src="/mobile/img/cz.png" title="公告查询 ">
+                           公告查询
                         </a>
                     </div>
-                    <div class="col-25 row-tab">
-                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/InvestApply.aspx','申请投资');">
-                            <!--<span class="fa icon-sitemap"></span>
-								<span class="tab-label">我的团队</span>-->
-                            <img src="/mobile/img/sq.png" title="申请投资">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab">
-                        <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/InvestList.aspx','投资明细');">
-                            <!--<span class="icon icon-code"></span>
-								<span class="tab-label">我的二维码</span>-->
-                            <img src="/mobile/img/tz.png" title="投资明细">
-                        </a>
-                    </div>
-                    <div class=" col-25 row-tab ">
-                        <a class="tab-item " href="javascript:void(0)" onclick="pcallhtml('/mobile/html/HBList.aspx','转账查询');">
-                            <!--<span class="fa icon-tag "></span>
-								<span class="tab-label ">充值</span>-->
-                            <img src="/mobile/img/fh.png " title="转账查询">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab ">
-                        <a class="tab-item " href="javascript:void(0)" onclick="pcallhtml('/mobile/html/JJList.aspx','奖金明细');">
-                            <!--<span class="icon icon-star "></span>
-								<span class="tab-label ">奖金查询</span>-->
-                            <img src="/mobile/img/jj.png " title="奖金明细">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab ">
-                        <a class="tab-item " href="javascript:void(0)" onclick="pcallhtml('/mobile/html/HKList.aspx','汇款管理');">
-                            <!--<span class="icon icon-search "></span>
-								<span class="tab-label ">奖金明细</span>-->
-                            <img src="/mobile/img/hk.png " title="汇款管理">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab ">
-                        <a class="tab-item "  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TXList.aspx','提现管理');">
-                            <!--<span class="fa icon-upload-alt "></span>
-								<span class="tab-label ">我要升级</span>-->
-                            <img src="/mobile/img/zz.png " title="提现管理">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab ">
-                        <a class="tab-item " href="javascript:void(0)" onclick="pcallhtml('/mobile/html/InvestList.aspx','申请退本');">
-                            <!--<span class="fa icon-upload-alt "></span>
-								<span class="tab-label ">我要升级</span>-->
-                            <img src="/mobile/img/sqtb.png " title="申请退本">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab ">
-                        <a class="tab-item " href="javascript:void(0)" onclick="pcallhtml('/mobile/html/Pwd.aspx','密码设置');">
-                            <!--<span class="fa icon-upload-alt "></span>
-								<span class="tab-label ">我要升级</span>-->
-                            <img src="/mobile/img/updatepwd.png " title="修改密码">
-                        </a>
-                    </div>
-                    <div class="col-25 row-tab ">
-                        <a class="tab-item " href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TJTree.aspx','推荐图谱');">
-                            <!--<span class="fa icon-upload-alt "></span>
-								<span class="tab-label ">我要升级</span>-->
-                            <img src="/mobile/img/xpu.png " title="推荐图谱">
-                        </a>
-                    </div>
+                   
                 </div>
                 <div class="qicon"><span>关于我们</span></div>
                 <div class="row margin-top-buttom aboutus">
@@ -170,10 +100,10 @@
             </div>
         </div>
     </div>
-    <script src="/mobile/plugin/SUI/js/zepto.js"></script>    
-    <script type='text/javascript' src='/mobile/plugin/SUI/js/sm.js' charset='utf-8'></script>
-    <script type='text/javascript' src='/mobile/plugin/SUI/js/sm-city-picker.js' charset='utf-8'></script>
-    <script type='text/javascript' src='/mobile/js/main.js' charset='utf-8'></script>
+    <%--<script src="/mobile/plugin/SUI/js/zepto.js"></script>--%>    
+    <%--<script type='text/javascript' src='/mobile/plugin/SUI/js/sm.js' charset='utf-8'></script>--%>
+    <%--<script type='text/javascript' src='/mobile/plugin/SUI/js/sm-city-picker.js' charset='utf-8'></script>--%>
+    <%--<script type='text/javascript' src='/mobile/js/main.js' charset='utf-8'></script>--%>
 
  
 
@@ -182,7 +112,7 @@
     <script src="/Admin/pop/js/MyValide.js" type="text/javascript"></script>
     <script src="/mobile/layer/layer.js" type="text/javascript"></script>
     <script src="/mobile/js/mobilebone.js" type="text/javascript"></script>
-    <script src="/mobile/js/main.js"></script>
+    <%--<script src="/mobile/js/main.js"></script>--%>
     <script src="/mobile/js/javascript_main.js" type="text/javascript"></script>
     <script type="text/javascript" src="/mobile/js/ajax.js"></script>
     <script src="/mobile/js/javascript_pop.js" type="text/javascript"></script>
@@ -193,7 +123,7 @@
     <script type="text/javascript" src="/plugin/ztree/js/jquery.ztree.core-3.5.js"></script>
     <script type="text/javascript" src="/plugin/ztree/ztreeScript.js"></script>
     <script type="text/javascript" src="/plugin/kindeditor/kindeditor-min.js"></script>
-    <script src="/Admin/js/jquery.qrcode.min.js"></script>
+    <%--<script src="/Admin/js/jquery.qrcode.min.js"></script>--%>
 
      <script type="text/javascript">
         $(function () {
@@ -213,37 +143,25 @@
             window.KKKK = K;
         });
     </script>
-
-    <script>
-        KindEditor.ready(function (K) {
-            window.KKKK = K;
-        });
-    </script>
-    <script>
-        //二维码
-        function toUtf8(str) {
-            var out, i, len, c;
-            out = "";
-            len = str.length;
-            for (i = 0; i < len; i++) {
-                c = str.charCodeAt(i);
-                if ((c >= 0x0001) && (c <= 0x007F)) {
-                    out += str.charAt(i);
-                } else if (c > 0x07FF) {
-                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
-                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                } else {
-                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
-                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                }
-            }
-            return out;
-        }
-    </script>
-      
         <script src="/plugin/layui/layui.js"></script>
-
+      <script>
+        $(function(){
+            var isnotice= <%=isnotice%>;
+            if(isnotice=="1")
+            {
+                layer.confirm('是否要进入安全教育栏目学习？', {
+                    btn : [ '是', '否' ]//按钮
+                }, function(index) {
+                    layer.close(index);
+                    //此处请求后台程序，下方是成功后的前台处理……
+                    //var index = layer.load(0,{shade: [0.7, '#393D49']}, {shadeClose: true}); //0代表加载的风格，支持0-2
+                    pcallhtml('/mobile/html/NoticeView.aspx?id=<%=notice.ID%>','查看公告');
+                }); 
+            }
+        });
+        
+            
+    </script>
 </body>
 
 </html>

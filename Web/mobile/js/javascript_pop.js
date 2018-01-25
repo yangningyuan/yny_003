@@ -336,7 +336,7 @@ function RunAjaxByList11(state, ajaxKey, keys) {
 //对对象的操作，新增，修改
 function ActionModel(acturl, actdata, url) {
     //document.write(actdata);
-    appverifypsd(function () {
+    //appverifypsd(function () {
         $.ajax({
             type: 'post',
             url: acturl,
@@ -348,13 +348,13 @@ function ActionModel(acturl, actdata, url) {
                     layer.msg(info);
                 }
                 if (url) {
-                    pcallhtml(url, "常青树");
+                	pcallhtml(url, "危险品系统后台管理");
                 } else {
                     PageLoad();
                 }
             }
         });
-    });
+    //});
 }
 
 function ActionModelNoVer(acturl, actdata) {

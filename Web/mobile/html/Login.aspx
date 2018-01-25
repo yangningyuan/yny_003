@@ -154,7 +154,7 @@
     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
     <script type='text/javascript' src='../plugin/SUI/js/sm.js' charset='utf-8'></script>
     <script type='text/javascript' src='../plugin/SUI/js/sm-city-picker.js' charset='utf-8'></script>
-    <script type='text/javascript' src='../js/main.js' charset='utf-8'></script>
+    <%--<script type='text/javascript' src='../js/main.js' charset='utf-8'></script>--%>
 </body>
 
 </html>

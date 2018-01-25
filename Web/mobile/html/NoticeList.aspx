@@ -14,7 +14,7 @@
                                                          
                                                           <li class="item-content">
                                                             <div class="item-inner create-actions">
-                                                                <div class="item-title"  onclick="noticedetails('<%#Eval("ID")%>','<%#Eval("NTitle")%>')">
+                                                                <div class="item-title"  onclick="pcallhtml('/mobile/html/NoticeView.aspx?id=<%#Eval("ID") %>','公告查看');">
                                                                    <%#Eval("NTitle")%>
 									
                                                                     <p><%#Eval("NCreateTime","{0:yyyy-MM-dd}")%></p>

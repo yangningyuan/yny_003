@@ -62,9 +62,11 @@
     <Compile Include="C_CarTast.cs" />
     <Compile Include="C_CostDetalis.cs" />
     <Compile Include="C_CostType.cs" />
+    <Compile Include="C_Error.cs" />
     <Compile Include="C_LoanApply.cs" />
     <Compile Include="C_Security.cs" />
     <Compile Include="C_Supplier.cs" />
+    <Compile Include="C_Violation.cs" />
     <Compile Include="DepartType.cs" />
     <Compile Include="EP\EPConfig.cs" />
     <Compile Include="EP\EPJX.cs" />

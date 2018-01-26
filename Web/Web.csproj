@@ -322,6 +322,8 @@
     <Content Include="mobile\html\TZ.aspx" />
     <Content Include="mobile\html\View.aspx" />
     <Content Include="mobile\html\WXChange.aspx" />
+    <Content Include="mobile\html\WZAdd.aspx" />
+    <Content Include="mobile\html\WZList.aspx" />
     <Content Include="mobile\img\a1.jpg" />
     <Content Include="mobile\img\aboutus.png" />
     <Content Include="mobile\img\back.png" />
@@ -1690,6 +1692,20 @@
     </Compile>
     <Compile Include="mobile\html\WXChange.aspx.designer.cs">
       <DependentUpon>WXChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\WZAdd.aspx.cs">
+      <DependentUpon>WZAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\WZAdd.aspx.designer.cs">
+      <DependentUpon>WZAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\WZList.aspx.cs">
+      <DependentUpon>WZList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\WZList.aspx.designer.cs">
+      <DependentUpon>WZList.aspx</DependentUpon>
     </Compile>
     <Compile Include="OJ\AddObj.aspx.cs">
       <DependentUpon>AddObj.aspx</DependentUpon>

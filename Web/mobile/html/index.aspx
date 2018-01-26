@@ -83,7 +83,16 @@
                            公告查询
                         </a>
                     </div>
-                   
+                   <div class="col-25 row-tab">
+                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/WZList.aspx','违章查询');">
+                           违章查询
+                        </a>
+                    </div>
+                    <div class="col-25 row-tab">
+                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');">
+                           公告查询
+                        </a>
+                    </div>
                 </div>
                 <div class="qicon"><span>关于我们</span></div>
                 <div class="row margin-top-buttom aboutus">

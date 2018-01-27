@@ -278,6 +278,9 @@
     <Content Include="mobile\html\ADD.aspx" />
     <Content Include="mobile\html\AddReceive.aspx" />
     <Content Include="mobile\html\BuyGoods.aspx" />
+    <Content Include="mobile\html\BXAdd.aspx" />
+    <Content Include="mobile\html\BXList.aspx" />
+    <Content Include="mobile\html\BXView.aspx" />
     <Content Include="mobile\html\caiwu.aspx" />
     <Content Include="mobile\html\Cars.aspx" />
     <Content Include="mobile\html\Code.aspx" />
@@ -314,6 +317,7 @@
     <Content Include="mobile\html\ShopMenu.aspx" />
     <Content Include="mobile\html\TaskAdd.aspx" />
     <Content Include="mobile\html\TaskList.aspx" />
+    <Content Include="mobile\html\TastList.aspx" />
     <Content Include="mobile\html\TD.aspx" />
     <Content Include="mobile\html\TJList.aspx" />
     <Content Include="mobile\html\TJTree.aspx" />
@@ -1385,6 +1389,27 @@
     <Compile Include="mobile\html\BuyGoods.aspx.designer.cs">
       <DependentUpon>BuyGoods.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mobile\html\BXAdd.aspx.cs">
+      <DependentUpon>BXAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\BXAdd.aspx.designer.cs">
+      <DependentUpon>BXAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\BXList.aspx.cs">
+      <DependentUpon>BXList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\BXList.aspx.designer.cs">
+      <DependentUpon>BXList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\BXView.aspx.cs">
+      <DependentUpon>BXView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\BXView.aspx.designer.cs">
+      <DependentUpon>BXView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mobile\html\caiwu.aspx.cs">
       <DependentUpon>caiwu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1636,6 +1661,13 @@
     </Compile>
     <Compile Include="mobile\html\TaskList.aspx.designer.cs">
       <DependentUpon>TaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TastList.aspx.cs">
+      <DependentUpon>TastList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TastList.aspx.designer.cs">
+      <DependentUpon>TastList.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\TD.aspx.cs">
       <DependentUpon>TD.aspx</DependentUpon>

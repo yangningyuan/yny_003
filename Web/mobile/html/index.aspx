@@ -89,8 +89,8 @@
                         </a>
                     </div>
                     <div class="col-25 row-tab">
-                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');">
-                           公告查询
+                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/BXList.aspx','报修查询');">
+                           报修查询
                         </a>
                     </div>
                 </div>

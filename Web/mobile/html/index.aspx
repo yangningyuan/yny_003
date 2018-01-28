@@ -20,7 +20,7 @@
     <script src="/mobile/js/jquery-1.11.3.js"></script>
     <script src="/mobile/js/stack.js" type="text/javascript"></script>
     <script src="/mobile/conn/laydate/laydate.js"></script>
-		<%--<script language="JavaScript" src="http://code.54kefu.net/kefu/js/b38/1031638.js" type="text/javascript" charset="utf-8"></script>--%>
+		
 </head>
 
 <body>
@@ -48,21 +48,27 @@
                     <span class="icon icon-share"></span>
                     <span class="tab-label">图谱</span>
                 </a>--%>
-                  <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/ShopMenu.aspx','购物区');">
+                <%--  <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
                     <span class="icon icon-gift"></span>
-                    <span class="tab-label">购物区</span>
-                </a>
+                    <span class="tab-label">我的任务</span>
+                </a>--%>
                 <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
                     <span class="icon icon-me"></span>
                     <span class="tab-label">我的任务</span>
                 </a>
             </nav>
             <div class="content native-scroll" id="pageHome">
-                <div class="row">
+                <%--<div class="qicon"><span>关于我们</span></div>--%>
+                <div class="row margin-top-buttom aboutus">
+                    <div class="atcion content-padded">
+                        <img src="/mobile/img/aboutus.png"></div>
+                
+                </div>
+                <%--<div class="row">
                     <div>
                         <img src="/mobile/img/banner.png" />
                     </div>
-                </div>
+                </div>--%>
                 <div class="notice_content">
                     <div class="news_panel">
                         <img src="/mobile/img/newsicon.png"></div>
@@ -99,18 +105,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="qicon"><span>关于我们</span></div>
-                <div class="row margin-top-buttom aboutus">
-                    <div class="atcion content-padded">
-                        <img src="/mobile/img/aboutus.png"></div>
-                   <%-- <div class="aboutustxt">
-                        <p class=" content-padded">
-                            云数贸集团公司它是一个互联网企业。目标是2-8亿会员！ 云数贸是中国第一个以股份制形式加入互联网.并分享互联网 利益的混合体经济企业。
-								 目前在短短两年的时间里，已经有了几千万会员，而且市 场已经开拓到了东南亚的缅甸（目前已经成立分公司）、马 来西亚、新加坡，最近又把市场拓展到了小日本！ 
-						
-                        </p>
-                    </div>--%>
-                </div>
+                
             </div>
         </div>
     </div>

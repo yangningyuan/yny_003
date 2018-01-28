@@ -6,17 +6,16 @@
             <input type="hidden" id="bankauto" runat="server" />
             <ul>
                 <!-- Text inputs -->
-                 <li>
-                    <div class="item-content" style="background-color:powderblue">
+                <li>
+                    <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
                             <div class="item-title label">任务详情</div>
                             <div class="item-input">
-                               
                             </div>
                         </div>
                     </div>
                 </li>
-                  <li>
+                <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">任务名称</div>
@@ -26,13 +25,14 @@
                         </div>
                     </div>
                 </li>
-                
+
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">供应商或客户</div>
                             <div class="item-input">
-                                <%=cartast.SupplierName %><br /><span style="color:green">【联系人：<%=cartast.SupplierTelName %>，联系方式：<%=cartast.SupplierTel %>】</span>
+                                <%=cartast.SupplierName %><br />
+                                <span style="color: green">【联系人：<%=cartast.SupplierTelName %>，联系方式：<%=cartast.SupplierTel %>】</span>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </li>
-              
+
 
                 <li>
                     <div class="item-content">
@@ -100,28 +100,86 @@
                     </div>
                 </li>
 
-                  <li>
-                    <div class="item-content" style="background-color:powderblue">
+                <li>
+                    <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
-                            <div class="item-title label">商品详情</div>
+                            <div class="item-title label"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>商品详情</div>
                             <div class="item-input">
-                               
                             </div>
+                             <div class="item-input"><a class="button" style="float:right;" href="javascript:"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","") %></a></div>
                         </div>
                     </div>
                 </li>
-                   <li>
+                <%  if (order.OrderDetail != null)
+                    {
+                        foreach (var item in order.OrderDetail)
+                        {
+                %>
+                <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">派遣车辆</div>
+                            <div class="item-title label"><%=yny_003.BLL.Goods.GetModel( item.GId).GName %></div>
                             <div class="item-input">
-                                <%=cartast.Spare2 %>
+                                总<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>量<span style="color: red;"><%=item.GCount %></span>
+                            </div>
+                            <div class="item-input">
+                                已<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>量<span style="color: red;"><%=item.ReCount %></span>
                             </div>
                         </div>
                     </div>
                 </li>
+                <%
+                        }
+                    }
+                %>
+                <li>
+                    <div class="item-content" style="background-color: powderblue">
+                        <div class="item-inner">
+                            <div class="item-title label">费用详情</div>
+                            <div class="item-input">
+                            </div>
+                            <div class="item-input"><a class="button" style="float:right;" href="javascript:">添加费用</a></div>
+                        </div>
+                    </div>
+                </li>
+                <%  if (listcost != null)
+                    {
+                        foreach (var item in listcost)
+                        {
+                %>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label"><%=item.CostMoney %></div>
+                            <div class="item-input">
+                                <%=item.CareteDate %>
+                            </div>
+                            <div class="item-input">
+                                <img src="<%=item.CostImgUrl %>" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <%
+                        }
+                    }
+                %>
+                <div class="content-block">
+                    <div class="row">
+                        <div class="col-100">
+                            <a href="javascript:checkChange();" class="button button-big button-fill button-success">确认完成此任务</a>
+                        </div>
+                    </div>
+                </div>
             </ul>
         </form>
     </div>
 
 </div>
+<script type="text/javascript">
+    function checkChange() {
+      
+            ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize());
+        
+    }
+</script>

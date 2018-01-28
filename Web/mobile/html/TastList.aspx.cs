@@ -11,7 +11,7 @@ namespace yny_003.Web.mobile.html
 	{
 		protected override string btnOther_Click()
 		{
-			string where = "  CarSJ1='" + TModel.MID + "' or  CarSJ2='" + TModel.MID + "' ";
+			string where = " ( CarSJ1='" + TModel.MID + "' or  CarSJ2='" + TModel.MID + "' ) ";
 			string state = Request.Form["state"];
 			if (!string.IsNullOrEmpty(state))
 			{

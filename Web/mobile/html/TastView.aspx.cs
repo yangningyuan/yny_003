@@ -12,6 +12,7 @@ namespace yny_003.Web.mobile.html
 		protected Model.Order order = null;
 		protected Model.C_CarTast cartast = null;
 		protected List<Model.OrderDetail> listord = null;
+		protected List<Model.C_CostDetalis> listcost = null;
 		protected override void SetValue(string id)
 		{
 			cartast = BLL.C_CarTast.GetModel(int.Parse(id));
@@ -19,7 +20,8 @@ namespace yny_003.Web.mobile.html
 			{
 				order = BLL.Order.GetModel(cartast.OCode);
 				listord = order.OrderDetail;
-			}			
+			}
+			listcost = BLL.C_CostDetalis.GetModelList(" CID="+order.Id);			
 		}
 	}
 }

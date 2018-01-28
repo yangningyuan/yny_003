@@ -9,7 +9,7 @@
    
       <form id="form1">
         <div class="buttons-tab">
-            <input type="hidden" value="" id="state" runat="server" />
+            <input type="hidden" value="0" id="state" runat="server" />
             <a href="javascript:void(0)" onclick="$('#state').val('0'); dianji(this); " class="tab-link active button requery">未完成</a>
             <a href="javascript:void(0)" onclick="$('#state').val('1'); dianji(this); " class="tab-link button requery">已完成</a>
         </div>

@@ -24,6 +24,11 @@
     <script type="text/javascript" src="Admin/pop/js/V5-UI.js"></script>
     <script type="text/javascript" src="Admin/pop/js/uaredirect.js"></script>
     <script type="text/javascript">        uaredirect("/mobile/html/Login.aspx");</script>
+    <script>
+        $(function () {
+            window.location.href = "/mobile/html/login.aspx";
+        });
+    </script>
     <!--<script type="text/javascript">
         var defaultKye = "";
         var GB2312Str = "<%=zhNames %>";
@@ -109,7 +114,7 @@
         body {
             width: 100%;
             height: 100%;
-            background: url(/Admin/login/images/background.jpg) no-repeat;
+            /*background: url(/Admin/login/images/background.jpg) no-repeat;*/
             background-size: cover;
         }
     </style>

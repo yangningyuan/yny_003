@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../plugin/SUI/css/sm.css">
     <link rel="stylesheet" href="../css/main.css">
 
-    <script src="/Admin/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="/Admin/js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <link href="/plugin/layer/skin/layer.css" rel="stylesheet" type="text/css" />
     <script src="/plugin/layer/layer.js" type="text/javascript"></script>
 </head>
@@ -64,23 +64,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="item-content item-content2">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="password" placeholder="交易密码" id="txtChangePwd" name="password" runat="server">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item-content item-content2">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="password" placeholder="确认交易密码" id="txtChangePwd2" name="password" runat="server">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                             
                                 <li>
                                     <div class="item-content item-content2">
                                         <div class="item-inner">
@@ -147,18 +131,7 @@
             } else if ($('#txtChangePwd').val() != $('#txtChangePwd2').val()) {
                 v5.error('登录密码与确认登录密码不一样', '1', 'true');
                 return false;
-            } else if ($('#txtChangePwd').val() == "" || $('#txtChangePwd').val().length < 6) {
-                v5.error('交易密码应至少6个字母或数字', '1', 'true');
-                return false;
-            } else if ($('#txtChangePwd2').val() == "") {
-                v5.error('确认交易密码不能为空', '1', 'true');
-                return false;
-            } else if ($('#txtChangePwd').val() != $('#txtChangePwd2').val()) {
-                v5.error('交易密码与确认交易密码不一样', '1', 'true');
-                return false;
-            } else if ($('#txtChangePwd').val() == $('#txtpwd').val()) {
-                v5.error('交易密码与登录密码不能相同', '1', 'true');
-                return false;
+           
             }
             return true;
         }

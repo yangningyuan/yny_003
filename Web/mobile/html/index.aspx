@@ -37,9 +37,9 @@
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
                 </a>
-                <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/caiwu.aspx','财务');">
+                <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
                     <span class="icon icon-app"></span>
-                    <span class="tab-label">财务</span>
+                    <span class="tab-label">我的任务</span>
                 </a>
            <%--     <a class="tab-item user-img-btn external" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/Code.aspx','二维码注册');">
                     <img src="/mobile/img/userbtn.png" />
@@ -52,9 +52,9 @@
                     <span class="icon icon-gift"></span>
                     <span class="tab-label">购物区</span>
                 </a>
-                <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtmlNoV('/mobile/html/geren.aspx','个人中心');">
+                <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
                     <span class="icon icon-me"></span>
-                    <span class="tab-label">我的</span>
+                    <span class="tab-label">我的任务</span>
                 </a>
             </nav>
             <div class="content native-scroll" id="pageHome">
@@ -72,6 +72,11 @@
                 </div>
                 <div class="qicon"><span>快捷图标</span></div>
                 <div class="row margin-top-buttom">
+                      <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
+                            我的任务
+                        </a>
+                    </div>
                     <div class="col-25 row-tab">
                         <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/JKList.aspx','借款管理');">
                             借款管理

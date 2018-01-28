@@ -65,9 +65,9 @@ namespace yny_003.DAL
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into [Order](");
-            strSql.Append("Status,IsDeleted,CreatedTime,CreatedBy,ReceiveId,ExpressCompany,ExpressCode,Code,TotalPrice,GoodCount,OrderTime,MID,PayTime,SendTime,ReceiveTime,Remarks,DisCountTotalPrice");
+            strSql.Append("Status,IsDeleted,CreatedTime,CreatedBy,ReceiveId,ExpressCompany,ExpressCode,Code,TotalPrice,GoodCount,OrderTime,MID,PayTime,SendTime,ReceiveTime,Remarks,DisCountTotalPrice,OType");
             strSql.Append(") values (");
-            strSql.Append("@Status,@IsDeleted,@CreatedTime,@CreatedBy,@ReceiveId,@ExpressCompany,@ExpressCode,@Code,@TotalPrice,@GoodCount,@OrderTime,@MID,@PayTime,@SendTime,@ReceiveTime,@Remarks,@DisCountTotalPrice");
+            strSql.Append("@Status,@IsDeleted,@CreatedTime,@CreatedBy,@ReceiveId,@ExpressCompany,@ExpressCode,@Code,@TotalPrice,@GoodCount,@OrderTime,@MID,@PayTime,@SendTime,@ReceiveTime,@Remarks,@DisCountTotalPrice,@OType");
             strSql.Append(") ");
             strSql.AppendFormat(";select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -87,9 +87,10 @@ namespace yny_003.DAL
                         new SqlParameter("@SendTime", SqlDbType.DateTime) ,
                         new SqlParameter("@ReceiveTime", SqlDbType.DateTime),
                         new SqlParameter("@Remarks", SqlDbType.VarChar,100),
-                        new SqlParameter("@DisCountTotalPrice", SqlDbType.Decimal,9)
+                        new SqlParameter("@DisCountTotalPrice", SqlDbType.Decimal,9),
+						new SqlParameter("@OType", SqlDbType.Int,4)
 
-            };
+			};
 
             parameters[0].Value = model.Status;
             parameters[1].Value = model.IsDeleted;
@@ -108,7 +109,8 @@ namespace yny_003.DAL
             parameters[14].Value = model.ReceiveTime;
             parameters[15].Value = model.Remarks;
             parameters[16].Value = model.DisCountTotalPrice;
-            MyHs.Add(strSql.ToString(), parameters);
+			parameters[17].Value = model.OType;
+			MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
 
@@ -146,8 +148,9 @@ namespace yny_003.DAL
             strSql.Append(" SendTime = @SendTime , ");
             strSql.Append(" Remarks = @Remarks , ");
             strSql.Append(" DisCountTotalPrice = @DisCountTotalPrice , ");
-            strSql.Append(" ReceiveTime = @ReceiveTime  ");
-            strSql.Append(" where Id=@Id ");
+            strSql.Append(" ReceiveTime = @ReceiveTime,  ");
+			strSql.Append(" OType = @OType  ");
+			strSql.Append(" where Id=@Id ");
             strSql.AppendFormat(" ;select '{0}'", guid);
 
             SqlParameter[] parameters = {
@@ -168,9 +171,10 @@ namespace yny_003.DAL
                         new SqlParameter("@SendTime", SqlDbType.DateTime) ,
                         new SqlParameter("@ReceiveTime", SqlDbType.DateTime),
                         new SqlParameter("@Remarks", SqlDbType.VarChar,100),
-                        new SqlParameter("@DisCountTotalPrice", SqlDbType.Decimal,9)
+                        new SqlParameter("@DisCountTotalPrice", SqlDbType.Decimal,9),
+						new SqlParameter("@OType", SqlDbType.Int,4)
 
-            };
+			};
 
             parameters[0].Value = model.Id;
             parameters[1].Value = model.Status;
@@ -190,7 +194,8 @@ namespace yny_003.DAL
             parameters[15].Value = model.ReceiveTime;
             parameters[16].Value = model.Remarks;
             parameters[17].Value = model.DisCountTotalPrice;
-            MyHs.Add(strSql.ToString(), parameters);
+			parameters[18].Value = model.OType;
+			MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
 
@@ -378,8 +383,11 @@ namespace yny_003.DAL
                 {
                     model.ReceiveTime = DateTime.Parse(dr["ReceiveTime"].ToString());
                 }
-
-                return model;
+				if (!string.IsNullOrEmpty(dr["OType"].ToString()))
+				{
+					model.OType = int.Parse(dr["OType"].ToString());
+				}
+				return model;
             }
             else
             {

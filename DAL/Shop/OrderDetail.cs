@@ -43,9 +43,9 @@ namespace yny_003.DAL
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OrderDetail(");
-            strSql.Append("IsDeleted,Status,Code,OrderCode,GId,GCount,BuyPrice,TotalMoney,CreatedTime,CreatedBy");
+            strSql.Append("IsDeleted,Status,Code,OrderCode,GId,GCount,BuyPrice,TotalMoney,CreatedTime,CreatedBy,ReCount");
             strSql.Append(") values (");
-            strSql.Append("@IsDeleted,@Status,@Code,@OrderCode,@GId,@GCount,@BuyPrice,@TotalMoney,@CreatedTime,@CreatedBy");
+            strSql.Append("@IsDeleted,@Status,@Code,@OrderCode,@GId,@GCount,@BuyPrice,@TotalMoney,@CreatedTime,@CreatedBy,@ReCount");
             strSql.Append(") ");
             strSql.AppendFormat(";select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -58,9 +58,9 @@ namespace yny_003.DAL
                         new SqlParameter("@BuyPrice", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@TotalMoney", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@CreatedTime", SqlDbType.DateTime) ,            
-                        new SqlParameter("@CreatedBy", SqlDbType.VarChar,50)             
-              
-            };
+                        new SqlParameter("@CreatedBy", SqlDbType.VarChar,50) ,
+						new SqlParameter("@ReCount", SqlDbType.Int,4) 
+			};
 
             parameters[0].Value = model.IsDeleted;
             parameters[1].Value = model.Status;
@@ -72,7 +72,8 @@ namespace yny_003.DAL
             parameters[7].Value = model.TotalMoney;
             parameters[8].Value = model.CreatedTime;
             parameters[9].Value = model.CreatedBy;
-            MyHs.Add(strSql.ToString(), parameters);
+			parameters[10].Value = model.ReCount;
+			MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
 
@@ -102,8 +103,9 @@ namespace yny_003.DAL
             strSql.Append(" BuyPrice = @BuyPrice , ");
             strSql.Append(" TotalMoney = @TotalMoney , ");
             strSql.Append(" CreatedTime = @CreatedTime , ");
-            strSql.Append(" CreatedBy = @CreatedBy  ");
-            strSql.Append(" where Id=@Id  ");
+            strSql.Append(" CreatedBy = @CreatedBy,  ");
+			strSql.Append(" ReCount = @ReCount  ");
+			strSql.Append(" where Id=@Id  ");
             strSql.AppendFormat(" ;select '{0}'", guid);
 
             SqlParameter[] parameters = {
@@ -116,9 +118,9 @@ namespace yny_003.DAL
                         new SqlParameter("@BuyPrice", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@TotalMoney", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@CreatedTime", SqlDbType.DateTime) ,            
-                        new SqlParameter("@CreatedBy", SqlDbType.VarChar,50)             
-              
-            };
+                        new SqlParameter("@CreatedBy", SqlDbType.VarChar,50),
+			  new SqlParameter("@ReCount", SqlDbType.Int,4)
+			};
 
             parameters[0].Value = model.IsDeleted;
             parameters[1].Value = model.Status;
@@ -130,7 +132,8 @@ namespace yny_003.DAL
             parameters[7].Value = model.TotalMoney;
             parameters[8].Value = model.CreatedTime;
             parameters[9].Value = model.CreatedBy;
-            MyHs.Add(strSql.ToString(), parameters);
+			parameters[10].Value = model.ReCount;
+			MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
 
@@ -297,8 +300,11 @@ namespace yny_003.DAL
                     model.CreatedTime = DateTime.Parse(dr["CreatedTime"].ToString());
                 }
                 model.CreatedBy = dr["CreatedBy"].ToString();
-
-                return model;
+				if (!string.IsNullOrEmpty(dr["ReCount"].ToString()))
+				{
+					model.ReCount = int.Parse(dr["ReCount"].ToString());
+				}
+				return model;
             }
             else
             {

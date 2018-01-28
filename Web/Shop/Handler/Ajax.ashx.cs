@@ -218,9 +218,9 @@ namespace yny_003.Web.Shop.Handler
                             {
                                 error += "商品：" + go.GName + "库存不足，请联系管理员";
                             }
-							go.SelledCount = go.SelledCount + od.GCount;
-							go.SellingCount = go.SellingCount - od.GCount;
-							BLL.Goods.Update(go, hs);
+							//go.SelledCount = go.SelledCount + od.GCount;//完成订单时候加减库存
+							//go.SellingCount = go.SellingCount - od.GCount;
+							//BLL.Goods.Update(go, hs);
 
 							od.IsDeleted = false;
                             od.OrderCode = order.Code;

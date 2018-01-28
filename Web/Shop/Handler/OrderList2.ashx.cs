@@ -74,6 +74,7 @@ namespace yny_003.Web.Shop.Handler
 						//}
 						Model.C_CarTast tast= BLL.C_CarTast.GetModel(List[i].Code);
 						resu +="<input type='button' value='任务详情' class='btn btn-success btn-sm' onclick=\"callhtml('/Car/AddTast.aspx?oid=" + List[i].Code + "&id="+List[i].Id+"','调度任务详情');\" />";
+						resu += "<input type='button' value='订单详情' class='btn btn-success btn-sm' onclick=\"callhtml('/Shop/ShowOrder.aspx?id=" + List[i].Code + "','订单详情');\" />";
 						break;
                     //case 3:
                     //    resu = "已发货&nbsp;&nbsp;<span class='seeExpress' onclick='seeExpress(" + List[i].Id + ")'>查看物流</span>~";

@@ -107,6 +107,10 @@ namespace yny_003.Model
             get { return _status; }
             set { _status = value; }
         }
+		/// <summary>
+		/// 实际装车或卸车数量
+		/// </summary>
+		public int ReCount { get; set; }
 
-    }
+	}
 }

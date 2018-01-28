@@ -6,20 +6,20 @@
         <div class="preloader"></div>
         <div class="pull-to-refresh-arrow"></div>
     </div>
-     <form id="form1">
+   
+      <form id="form1">
         <div class="buttons-tab">
             <input type="hidden" value="" id="state" runat="server" />
             <a href="javascript:void(0)" onclick="$('#state').val('0'); dianji(this); " class="tab-link active button requery">未完成</a>
             <a href="javascript:void(0)" onclick="$('#state').val('1'); dianji(this); " class="tab-link button requery">已完成</a>
         </div>
     </form>
-    <script type="text/x-jquery-tmpl" id="TastListTmpl">
+    <script type="text/x-jquery-tmpl" id="JKListTmpl">
         <tr>
             
-            <td>${Money}</td>
-            <td>${DayCount}</td>
-            <td>${LJMoney}</td>
-            <td>${Date}</td>
+            <td>${Name}</td>
+            <td>${SupplierTel}</td>
+            <td>${CreateDate}</td>
             <td>{{html dhtml}}</td>
         </tr>
     </script>
@@ -27,11 +27,10 @@
     <table class=" table table-striped table-bordered ">
         <thead>
             <tr>
-                <th>投资金额</th>
-                <th>收益天数</th>
-                <th>累计收益</th>
+                <th>客户</th>
+                <th>联系方式</th>
                 <th>时间</th>
-                <th>操作</th>
+                <th>详情</th>
             </tr>
         </thead>
         <tbody id="data_container">
@@ -42,6 +41,15 @@
 </div>
 
 <script>
+    $(".buttons-tab a").click(function () {
+        var n = $(".buttons-tab a").index(this);
+        $(".buttons-tab a").eq(n).addClass("active");
+    })
+    function dianji(obj) {
+        $(".tab-link").removeClass('active');
+        obj.addClass('active');
+    }
+
     $(function () {
         $('#data_container').on('click', '.list-detail', function () {
             //console.log(parseInt($(this).next().css('height')));
@@ -59,7 +67,7 @@
 <script type="text/javascript">
     setTimeout(function () {
         $('#page_container').Paging({
-            TemplateContainer: '#TastListTmpl',
+            TemplateContainer: '#JKListTmpl',
             DataContainer: '#data_container',
             DataUrl: '/mobile/html/TastList.aspx?Action=Other',
             QueryContainer: '#form1',
@@ -69,12 +77,4 @@
         });
     }, 50);
 
-
-    function InvestOperate(ajaxKey, id, func) {
-        
-            var data = RunAjaxGetKey(ajaxKey, id, null, null, 'Module/Investment/Handler/Ajax.ashx');
-            PageLoad();
-            layer.msg(data);
-        
-    }
 </script>

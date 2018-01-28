@@ -10,7 +10,7 @@ namespace yny_003.Web.Shop
     public partial class ShowOrder : BasePage
     {
         protected Model.Order orderModel;
-        protected Model.ReceiveInfo ReceiveInfoModel;
+        //protected Model.ReceiveInfo ReceiveInfoModel;
         protected string status = "";
         protected override void SetValue(string id)
         {
@@ -18,7 +18,7 @@ namespace yny_003.Web.Shop
             string oid = HttpUtility.UrlDecode(Request["id"].Trim());//订单Id
             hidId.Value = oid;
             orderModel = BLL.Order.GetModel(oid);
-            ReceiveInfoModel = BLL.ReceiveInfo.GetModel(orderModel.ReceiveId);
+            //ReceiveInfoModel = BLL.ReceiveInfo.GetModel(orderModel.ReceiveId);
             ViewState["OrderInfo"] = orderModel;
             Session["OrderId"] = oid;
             string gids = "";
@@ -54,7 +54,7 @@ namespace yny_003.Web.Shop
 
         }
 
-        protected int GetOrderDetailCount(object gid)
+        protected Model.OrderDetail GetOrderDetailCount(object gid)
         {
             Model.Order objOrder = (Model.Order)ViewState["OrderInfo"];
             if (objOrder != null)
@@ -63,10 +63,10 @@ namespace yny_003.Web.Shop
                 Model.OrderDetail od = objOrder.OrderDetail.Where(c => c.GId == goodId).FirstOrDefault();
                 if (od != null)
                 {
-                    return od.GCount;
+                    return od;
                 }
             }
-            return 0;
+            return null;
         }
     }
 }

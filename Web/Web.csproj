@@ -318,6 +318,7 @@
     <Content Include="mobile\html\TaskAdd.aspx" />
     <Content Include="mobile\html\TaskList.aspx" />
     <Content Include="mobile\html\TastList.aspx" />
+    <Content Include="mobile\html\TastView.aspx" />
     <Content Include="mobile\html\TD.aspx" />
     <Content Include="mobile\html\TJList.aspx" />
     <Content Include="mobile\html\TJTree.aspx" />
@@ -1668,6 +1669,13 @@
     </Compile>
     <Compile Include="mobile\html\TastList.aspx.designer.cs">
       <DependentUpon>TastList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\TastView.aspx.cs">
+      <DependentUpon>TastView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\TastView.aspx.designer.cs">
+      <DependentUpon>TastView.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\TD.aspx.cs">
       <DependentUpon>TD.aspx</DependentUpon>

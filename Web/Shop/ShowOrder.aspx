@@ -22,7 +22,9 @@
                                         </td>
                                         <td>库存
                                         </td>
-                                        <td>订购数量
+                                        <td><%=orderModel.OType==1?"装车":"卸车" %>数量
+                                        </td>
+                                        <td><%=orderModel.OType==1?"已装车":"已卸车" %>数量
                                         </td>
                                         <td>合计价格
                                         </td>
@@ -41,10 +43,13 @@
                                                     <%#Eval("SellingCount")%>
                                                 </td>
                                                 <td>
-                                                    <%#GetOrderDetailCount(Eval("GID"))%>
+                                                    <%#GetOrderDetailCount(Eval("GID")).GCount%>
                                                 </td>
                                                 <td>
-                                                    <%#Convert.ToDecimal(Eval("CostPrice")) * GetOrderDetailCount(Eval("GID"))%>
+                                                    <%#GetOrderDetailCount(Eval("GID")).ReCount%>
+                                                </td>
+                                                <td>
+                                                    <%#Convert.ToDecimal(Eval("CostPrice")) *GetOrderDetailCount(Eval("GID")).GCount%>
                                                 </td>
                                             </tr>
                                         </ItemTemplate>
@@ -52,7 +57,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr>
+                       <%-- <tr>
                             <td>
                                 <div class="ReceiveDiv">
                                     收货人:<%=ReceiveInfoModel.Receiver%>；联系电话<%=ReceiveInfoModel.Phone%>
@@ -60,7 +65,7 @@
                                     地址:<%=ReceiveInfoModel.DetailAddress%>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>--%>
                         <tr style="display: none">
                             <td>
                                 <strong>数量:</strong> <span class="goodNum numDesc" onclick="numDesc(this)">&nbsp;-&nbsp;</span>
@@ -69,13 +74,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>订单金额：<%=orderModel.TotalPrice%>；折后价:<%=(orderModel.DisCountTotalPrice)%>
+                            <td>订单金额：<%=orderModel.TotalPrice%>
                             </td>
                         </tr>
-                        <tr>
+                      <%--  <tr>
                             <td>状态:<span style="color: Red"><%=status %></span>
                             </td>
-                        </tr>
+                        </tr>--%>
                         <tr>
                             <td>
                                 <input class="btn btn-danger" id="Button1" type="button" runat="server" value="返回订单列表"

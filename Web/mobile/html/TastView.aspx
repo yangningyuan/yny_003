@@ -32,7 +32,7 @@
                             <div class="item-title label">供应商或客户</div>
                             <div class="item-input">
                                 <%=cartast.SupplierName %><br />
-                                <span style="color: green">【联系人：<%=cartast.SupplierTelName %>，联系方式：<%=cartast.SupplierTel %>】</span>
+                                <div style="color: red; width:100%; font-size:10px;">【联系人：<%=cartast.SupplierTelName %>】<br />【联系方式：<%=cartast.SupplierTel %>】</div>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             <div class="item-title label"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>商品详情</div>
                             <div class="item-input">
                             </div>
-                             <div class="item-input"><a class="button" style="float:right;" href="javascript:"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","") %></a></div>
+                             <div class="item-input"><a class="button" style="float:right;" href="javascript:pcallhtml('/mobile/html/LoadGoods.aspx?id=<%=cartast.ID %>','添加装卸车商品');"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","") %></a></div>
                         </div>
                     </div>
                 </li>
@@ -138,7 +138,7 @@
                             <div class="item-title label">费用详情</div>
                             <div class="item-input">
                             </div>
-                            <div class="item-input"><a class="button" style="float:right;" href="javascript:">添加费用</a></div>
+                            <div class="item-input"><a class="button" style="float:right;" href="javascript:pcallhtml('/mobile/html/CostAdd.aspx?id=<%=cartast.ID %>','添加费用');">添加费用</a></div>
                         </div>
                     </div>
                 </li>

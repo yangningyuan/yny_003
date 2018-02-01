@@ -284,6 +284,7 @@
     <Content Include="mobile\html\caiwu.aspx" />
     <Content Include="mobile\html\Cars.aspx" />
     <Content Include="mobile\html\Code.aspx" />
+    <Content Include="mobile\html\CostAdd.aspx" />
     <Content Include="mobile\html\CW.aspx" />
     <Content Include="mobile\html\findpwd.aspx" />
     <Content Include="mobile\html\geren.aspx" />
@@ -303,6 +304,7 @@
     <Content Include="mobile\html\JKChange.aspx" />
     <Content Include="mobile\html\JKList.aspx" />
     <Content Include="mobile\html\KFList.aspx" />
+    <Content Include="mobile\html\LoadGoods.aspx" />
     <Content Include="mobile\html\Login.aspx" />
     <Content Include="mobile\html\ModifyPwd.aspx" />
     <Content Include="mobile\html\ModifySecPwd.aspx" />
@@ -1432,6 +1434,13 @@
     <Compile Include="mobile\html\Code.aspx.designer.cs">
       <DependentUpon>Code.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mobile\html\CostAdd.aspx.cs">
+      <DependentUpon>CostAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\CostAdd.aspx.designer.cs">
+      <DependentUpon>CostAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mobile\html\CW.aspx.cs">
       <DependentUpon>CW.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1564,6 +1573,13 @@
     </Compile>
     <Compile Include="mobile\html\KFList.aspx.designer.cs">
       <DependentUpon>KFList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\LoadGoods.aspx.cs">
+      <DependentUpon>LoadGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\LoadGoods.aspx.designer.cs">
+      <DependentUpon>LoadGoods.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -59,6 +59,7 @@
     <Content Include="dll\DBBackup.dll" />
     <Content Include="dll\IBatisNet.Common.dll" />
     <Content Include="dll\IBatisNet.DataMapper.dll" />
+    <Content Include="dll\LitJSON.dll" />
     <Content Include="dll\MySql.Data.dll" />
     <Content Include="dll\Newtonsoft.Json.dll" />
     <Content Include="dll\NPOI.dll" />

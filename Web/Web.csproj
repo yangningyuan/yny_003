@@ -60,9 +60,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>Payment\HuanXun\code\Bin\Interop.IPSVERIFYLib.dll</HintPath>
     </Reference>
-    <Reference Include="LitJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>plugin\kindeditor\asp.net\bin\LitJSON.dll</HintPath>
+    <Reference Include="LitJSON">
+      <HintPath>D:\LitJSON.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

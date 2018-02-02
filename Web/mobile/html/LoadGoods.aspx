@@ -30,7 +30,7 @@
                         <div class="item-inner">
                             <div class="item-title label">商品列表</div>
                             <div class="item-input">
-                                <select id="txtGoodList" >
+                                <select id="txtGoodList"  name="txtGoodList">
                                     <%=strordsel %>
                                 </select>
                             </div>
@@ -40,11 +40,9 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">上传发票</div>
+                            <div class="item-title label">【<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>】数量</div>
                             <div class="item-input">
-                                <input type="file" name="upload" capture="camera" class="layui-upload-file">
-                                <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
-                                <img id="upimage" height="50px" />
+                                <input type="text" value="" name="txtGCount" id="txtGCount" placeholder="请输入调度数量">
                             </div>
                         </div>
                     </div>
@@ -63,11 +61,11 @@
 </div>
 <script type="text/javascript">
     function checkChange() {
-        if ($('#txtMHB').val().trim() == "") {
-            layer.msg("费用金额不能为空");
+        if ($('#txtGCount').val().trim() == "") {
+            layer.msg("调度数量不能为空");
             return;
         } else {
-            ActionModel("mobile/html/CostAdd.aspx?Action=add", $('#form1').serialize(), "/mobile/html/TastView.aspx?id=" + $("#cid").val());
+            ActionModel("mobile/html/LoadGoods.aspx?Action=add", $('#form1').serialize(), "/mobile/html/TastView.aspx?id=" + $("#cid").val());
         }
     }
 </script>

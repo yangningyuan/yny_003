@@ -119,7 +119,8 @@ namespace yny_003.DAL
                         new SqlParameter("@TotalMoney", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@CreatedTime", SqlDbType.DateTime) ,            
                         new SqlParameter("@CreatedBy", SqlDbType.VarChar,50),
-			  new SqlParameter("@ReCount", SqlDbType.Int,4)
+			  new SqlParameter("@ReCount", SqlDbType.Int,4),
+			  new SqlParameter("@id", SqlDbType.Int,4)
 			};
 
             parameters[0].Value = model.IsDeleted;
@@ -133,6 +134,7 @@ namespace yny_003.DAL
             parameters[8].Value = model.CreatedTime;
             parameters[9].Value = model.CreatedBy;
 			parameters[10].Value = model.ReCount;
+			parameters[11].Value = model.Id;
 			MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }

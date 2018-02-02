@@ -4,6 +4,7 @@
     <div class="list-block myinfo">
         <form id="form1">
             <input type="hidden" id="bankauto" runat="server" />
+            <input type="hidden" id="cid" runat="server" />
             <ul>
                 <!-- Text inputs -->
                 <li>
@@ -164,7 +165,7 @@
                         }
                     }
                 %>
-                <div class="content-block">
+                <div class="content-block" id="anbtn" runat="server">
                     <div class="row">
                         <div class="col-100">
                             <a href="javascript:checkChange();" class="button button-big button-fill button-success">确认完成此任务</a>
@@ -178,8 +179,15 @@
 </div>
 <script type="text/javascript">
     function checkChange() {
-      
-            ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize());
-        
+        //layer.confirm(function () {
+        //    //ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize());
+        //});
+            
+        layer.confirm('确定交付任务吗？', {
+            btn: ['确定', '取消']//按钮
+        }, function (index) {
+            layer.close(index);
+            ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize(),"mobile/html/TastList.aspx");
+        });
     }
 </script>

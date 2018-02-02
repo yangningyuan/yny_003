@@ -25,7 +25,8 @@ namespace yny_003.Web.mobile.html
             {
                 Model.C_CarTast cartast = BLL.C_CarTast.GetModel(int.Parse(Request.Form["cid"]));
                 List<Model.C_CostDetalis> listcost = BLL.C_CostDetalis.GetModelList(" CID=" + cartast.ID);
-
+				if (cartast.TState == 1)
+					return "非法操作，此任务已结束";
                 decimal money= Convert.ToDecimal(Request.Form["txtMHB"]);
                 Model.C_CostType ct= BLL.C_CostType.GetModel(cartast.CostType);
                 decimal totalmoney= listcost.Sum(m=>m.CostMoney);

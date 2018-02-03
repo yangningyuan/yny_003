@@ -61,7 +61,7 @@
       <HintPath>Payment\HuanXun\code\Bin\Interop.IPSVERIFYLib.dll</HintPath>
     </Reference>
     <Reference Include="LitJSON">
-      <HintPath>D:\LitJSON.dll</HintPath>
+      <HintPath>..\文档\dll\LitJSON.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

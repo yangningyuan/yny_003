@@ -318,7 +318,12 @@ float:left
 	text-align: center;
 	vertical-align: middle;
 }
-
+.row-tab .tab-item .iconfont {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    font-weight: 100;
+}
 .row-tab .tab-item .fa {
 	top: 0.05rem;
 	height: 1.2rem;

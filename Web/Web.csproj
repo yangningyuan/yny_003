@@ -142,8 +142,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Admin\assets\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="Admin\css\bootstrap.css" />
+    <Content Include="Admin\css\bootstrap.min.css" />
     <Content Include="Admin\css\flexy-menu.css" />
+    <Content Include="Admin\css\font-awesome.css" />
+    <Content Include="Admin\css\font-awesome.min.css" />
+    <Content Include="Admin\css\main.css" />
+    <Content Include="Admin\css\reset.css" />
+    <Content Include="Admin\css\style-responsive.css" />
     <Content Include="Admin\css\style.css" />
     <Content Include="Admin\css\touchTouch.css" />
     <Content Include="Admin\find_password\css\bootstrap.css" />
@@ -155,6 +163,7 @@
     <Content Include="Admin\images\banner.jpg" />
     <Content Include="Admin\images\banner02.jpg" />
     <Content Include="Admin\images\banner03.jpg" />
+    <Content Include="Admin\images\bg.jpg" />
     <Content Include="Admin\images\edit.png" />
     <Content Include="Admin\images\gold.png" />
     <Content Include="Admin\images\hl.png" />
@@ -172,10 +181,20 @@
     <Content Include="Admin\images\wjb.png" />
     <Content Include="Admin\images\xj.png" />
     <Content Include="Admin\Index.aspx" />
+    <Content Include="Admin\js\ajaxForm.js" />
     <Content Include="Admin\js\bootstrap.min.js" />
+    <Content Include="Admin\js\common-scripts.js" />
     <Content Include="Admin\js\EPjs.js" />
     <Content Include="Admin\js\flexy-menu.js" />
     <Content Include="Admin\js\jquery-1.11.1.min.js" />
+    <Content Include="Admin\js\jquery-scroll.js" />
+    <Content Include="Admin\js\jquery.nicescroll.js" />
+    <Content Include="Admin\js\jquery.scrollTo.min.js" />
+    <Content Include="Admin\js\jquery.tmpl.js" />
+    <Content Include="Admin\js\paginationHelper.js" />
+    <Content Include="Admin\js\pagination\autoPagination.js" />
+    <Content Include="Admin\js\pagination\jquery.twbsPagination.js" />
+    <Content Include="Admin\js\pagination\jquery.twbsPagination.min.js" />
     <Content Include="Admin\login\css\bootstrap.css" />
     <Content Include="Admin\login\css\login.css" />
     <Content Include="Admin\login\css\style1.css" />
@@ -193,6 +212,7 @@
     <Content Include="Admin\login_phone\images\yzhm.png" />
     <Content Include="Admin\login_phone\Login.html" />
     <Content Include="Admin\pop\css\next_page_search.css" />
+    <Content Include="Admin\pop\js\FileUploader.js" />
     <Content Include="Admin\pop\js\jquery.qrcode.min.js" />
     <Content Include="Admin\pop\js\linkage.js" />
     <Content Include="Admin\pop\js\TableToExcel.js" />
@@ -2473,6 +2493,10 @@
     <Content Include="mobile\plugin\ratchet\fonts\ratchicons.eot" />
     <Content Include="mobile\plugin\ratchet\fonts\ratchicons.ttf" />
     <Content Include="mobile\plugin\ratchet\fonts\ratchicons.woff" />
+    <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontd41d.eot" />
+    <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.eot" />
+    <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.ttf" />
+    <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.woff" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

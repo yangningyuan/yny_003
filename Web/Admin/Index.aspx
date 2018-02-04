@@ -1,182 +1,232 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="yny_003.Web.Admin.Index" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--	<link rel="Shortcut Icon" href="images/fac.ico" />-->
     <title><%=WebModel.WebTitle %></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
-    <link rel="shortcut icon" href="/Admin/images/favicon.ico" type="image/x-icon" />
-    <link href="/Admin/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Admin/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Admin/css/flexy-menu.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- js -->
-    <script src="/Admin/js/jquery-1.11.1.min.js"></script>
-    <script src="/Admin/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/Admin/js/flexy-menu.js"></script>
-	
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".flexy-menu").flexymenu({
-                speed: 400,
-                type: "horizontal",
-                align: "right"
-            });
-        });
-        function onclickMenu() {
-        	var width = $(window).width();
-        	if (width <= 768) {
-        		var className = document.getElementById("container").style.display;
-        		if (className == "block") {
-        			$(".showhide").click();
-        		}
-        	}
-        }
-    </script>
+    <link href="/Admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Admin/css/style.css" rel="stylesheet" />
+    <link href="/Admin/css/style-responsive.css" rel="stylesheet" />
+    <link href="/Admin/css/reset.css" rel="stylesheet" />
+    <link href="/Admin/css/main.css" rel="stylesheet" />
+    <link href="/Admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <%--<script src="/Admin/js/jquery-1.8.3.min.js"></script>--%>
+    <script type="text/javascript" src="/Admin/js/jquery-1.11.1.min.js"></script>
+    <%--<script src="/Admin/js/jquery-1.9.1.min.js"></script>--%>
+    <script src="/Admin/js/jquery-scroll.js"></script>
+    <!--pop-->
+    <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
+   
 </head>
 <body>
-		
-    <!-- header -->
-    <div class="head1">
-        <div class="banner-nav">
-            <div class="topleft">
-                
+    <div id="container">
+        <div class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
             </div>
-            <div class="topR">
-				<%--<a href="https://tb.53kf.com/code/client/10150595/1 " target="_blank"><img src="Admin/images/online.png" /></a>--%>
-               <%=DateTime.Now.ToString("yyyy年MM月dd日") %> <%=System.DateTime.Today.ToString("dddd", new System.Globalization.CultureInfo("zh-CN")) %>
-            </div>
-        </div>
-    </div>
-    <div class="header">
-        <div class="banner-navigation">
-            <div class="banner-nav">
-                <div class="logo">
-                    <%--<img src="/Admin/images/logo.png">--%>
-                </div>
-                <ul class="flexy-menu orange nav1">
-                    <li class="hvr-sweep-to-bottom">
-                        <a href="javascript:location.reload()">首页</a><em>&nbsp;|</em>
-                    </li>
-
-                    <%
-                        foreach (yny_003.Model.RolePowers item in GetPowers("0"))
-                        {
-                    %>
-                    <li class="hvr-sweep-to-bottom">
-                        <a href="javascript:void(0)"><%=item.Content.CTitle %>
-                        </a><em>&nbsp;|</em>
-                        <ul>
-                            <%foreach (yny_003.Model.RolePowers item2 in GetPowers(item.CID))
-                                {
-                                    if (item2.Content.IsOuterLink)
-                                    {
-                            %>
-                            <li><a href="<%=item2.Content.CAddress %>" target="_blank"><%=item2.Content.CTitle%></a></li>
-                            <%
-                                }
-                                else
-                                {
-                            %>
-                            <li><a href="javascript:callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');"onclick="onclickMenu()"><%=item2.Content.CTitle%></a></li>
-                            <%
-                                    }
-                                } %>
+            <a href="#" class="logo">
+                <%--<img src="/Admin/images/logo.png" alt="" style="">--%></a>
+            <div class="top-nav">
+                <ul class="nav pull-right top-menu">
+                 
+                  
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-user"></i><span class="username"><%=TModel.MID %></span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu extended logout">
+                            <%-- <div class="log-arrow-up"></div>--%>
+                            <%--<li>
+                                <a href="javascript:void(0)" onclick="callhtml('/Member/View.aspx','个人资料');onclickMenu()"><i class=" icon-suitcase"></i>个人信息</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="callhtml('/SecurityCenter/ModifyPwd.aspx','登录密码修改');onclickMenu()"><i class="icon-cog"></i>修改密码</a>
+                            </li>--%>
+                         <%--   <li>
+                                <a href="javascript:void(0)" onclick="callhtml('/Member/Structure.aspx','团队图谱');onclickMenu()"><i class="icon-bell-alt"></i>团队管理</a>
+                            </li>--%>
+                            <li>
+                                <a href="/SysManage/out.aspx"><i class="icon-key"></i>安全退出</a>
+                            </li>
                         </ul>
                     </li>
-                    <%} %>
-
-
-                    <li class="hvr-sweep-to-bottom">
-                        <a href="/SysManage/Out.aspx">安全退出</a>
+                    <li class="dropdown">
+                        <a href="/SysManage/out.aspx" class="username"><i class="fa fa-sign-out"></i>退出</a>
                     </li>
                 </ul>
-                <div class="clearfix"></div>
             </div>
         </div>
-    </div>
-    <div class="gao">
-        <div class="notice">
-            <div class="news" style="margin-left: 40px;">
-                <marquee direction="top" scrollamount="6" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()">
-                    <%=notice==null?"":notice.NContent %>
-                </marquee>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a data-ripple href="javascript:window.location.reload()" class=""><i class="icon-dashboard"></i><span>首页</span> </a>
+                    </li>
+                    <%foreach (yny_003.Model.RolePowers item in GetPowers("0"))
+                        { %>
+                    <li class="sub-menu">
+                        <a data-ripple href="javascript:void(0);" class=""><i class="<%=item.Content.CImage %>"></i><span><%=item.Content.CTitle %></span> <span class="arrow"></span></a>
+                        <ul class="sub">
+                            <%foreach (yny_003.Model.RolePowers item2 in GetPowers(item.CID))
+                                { %>
+                            <li>
+                                <a data-ripple class="" href="javascript:void(0)" onclick="callhtml('<%=item2.Content.CAddress %>','<%=item2.Content.CTitle %>');onclickMenu()"><%=item2.Content.CTitle %></a>
+                            </li>
+                            <%} %>
+                        </ul>
+
+                    </li>
+                    <%} %>
+                </ul>
             </div>
-        </div>
-    </div>
-    <div>
-        <div class="banner">
-            <%--<img src="/Admin/images/banner03.jpg">--%>
-            <div class="imgsilder">
-                <div class="banner_Carousel">
-                    <div class="carousel slide" data-ride="carousel" id="carousel3">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel3" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel3" data-slide-to="1"></li>
-                            <li data-target="#carousel3" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="images/banner02.jpg">
+        </aside>
+        <div id="main-content">
+            <div class="w1000 min_height row" id="mainContent">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="row-fluid">
+
+                            <div class="col-md-2">
+                                <a class="info-box blue-bg" >
+                                    <div class="leftb"><i class="fa fa-shopping-cart"></i></div>
+                                    <div class="rightb">
+                                         <div class="count">空车数量</div>
+                                    <div class="title">100</div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="item">
-                                <img src="images/banner.jpg">
-                            </div>
-                            <div class="item">
-                                <img src="images/banner03.jpg">
+                            <div class="col-md-2">
+                                <a class="info-box green-bg">
+                                    <div class="leftb"><i class="fa fa-user"></i></div>
+                                    <div class="rightb">
+                                         <div class="count">非空车数量</div>
+                                    <div class="title">100</div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+                        <div class="col-md-2">
+                            <a class="info-box jj">
+                                <div class="leftb"><i class="icon icon-lightbulb"></i></div>
+                                <div class="rightb">
+                                     <div class="count">本月违章</div>
+                                    <div class="title">100起</div>
+                                </div>
+                            </a>
+                        </div>
+                      
+                         <div class="col-md-2">
+                            <a class="info-box magenta-bg">
+                                <div class="leftb"><i class="fa fa-refresh"></i></div>
+                                <div class="rightb">
+                                    <div class="count">本月总里程</div>
+                                    <div class="title">100KM</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="info-box jh">
+                                <div class="leftb"><i class="fa fa-refresh"></i></div>
+                                <div class="rightb">
+                                    <div class="count">本月费用</div>
+                                    <div class="title">145400</div>
+                                </div>
+                            </a>
+                        </div>
+
+                    <%--    <div class="col-md-2">
+                            <a class="info-box jh">
+                                <div class="leftb"><i class="icon icon-lightbulb"></i></div>
+                                <div class="rightb">
+                                    <div class="count">本月总里程</div>
+                                    <div class="title">600000KM</div>
+                                </div>
+                            </a>
+                        </div>--%>
                     </div>
+                </div>
+                <div class="box1 col-md-8">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="personinfo">
+                        <thead>
+                            <tr>
+                                <th colspan="2">月份商品销售变化曲线</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="container2" style="height: 353px;"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box2 col-md-4">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="personinfo">
+                        <thead>
+                            <tr>
+                                <th>本月商品各项进货</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="container3" style="height: 353px;"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box1 col-md-8">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="personinfo">
+                        <thead>
+                            <tr>
+                                <th colspan="2">我的账户</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>您好，
+										<font style="color: #e98001; font-weight: bold;">尊贵的<%=TModel.Role.RName %></font>
+                                </td>
+                                <td>账号状态：<%=TModel.MState?"正常":"未激活" %></td>
+
+                            </tr>
+                         
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box2 col-md-4">
+                    <table width="100%" cellpadding="0" cellspacing="0" class="personinfo">
+                        <thead>
+                            <tr>
+                                <th colspan="2">系统公告</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul class="recent-posts">
+                                        <li>
+                                            <p style="color:white;"><%=notice!=null?notice.NContent:"" %></p>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-			
-        <div class="banner-bottom">
-            <div class="container"  id="main-content">
-                <div class="w1000">
-				
-                    <div class="row-fluid">
-                        <div class="col-md-3">
-                            <a class="info-box red-bg" href="javascript:callhtml('/Member/List.aspx','会员列表');onclickMenu()">
-                                <i class="gold">
-                                    <img src="/Admin/images/jf.png"></i>
-                                <!--<div class="count">0.00</div>-->
-                                <div class="title">会员列表 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="info-box green-bg" href="javascript:callhtml('/Shop/OrderList.aspx','订单列表');onclickMenu()">
-                                <i class="gold">
-                                    <img src="/Admin/images/hl.png"></i>
-                                <!--<div class="count">0.00</div>-->
-                                <div class="title">订单列表 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="info-box blue-bg" href="javascript:callhtml('/Car/CostList.aspx','费用列表');onclickMenu()">
-                                <i class="gold">
-                                    <img src="/Admin/images/xj.png"></i>
-                                <!--<div class="count">0.00</div>-->
-                                <div class="title">费用维护 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="info-box magenta-bg" href="javascript:callhtml('/Car/TastList.aspx','调度列表');onclickMenu()">
-                                <i class="gold">
-                                    <img src="/Admin/images/wjb.png"></i>
-                                <!--<div class="count">0.00</div>-->
-                                <div class="title">调度列表</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-             
-                
-            </div>
-        </div>
     </div>
-    <div class="footer"><%=WebModel.WebTitle %>系统-版权所有京ICP备09047137号 </div>
+    <script src="/Admin/js/bootstrap.min.js"></script>
+    <script src="/Admin/js/jquery.scrollTo.min.js"></script>
+    <script src="/Admin/js/jquery.nicescroll.js"></script>
+    <script src="/Admin/js/common-scripts.js"></script>
 
       <script src="/Admin/js/EPjs.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/pop.css" />
@@ -203,66 +253,11 @@
     <script type="text/javascript" src="plugin/ZeroClipboard/ZeroClipboard.js"></script>
     <script type="text/javascript" src="plugin/kindeditor/kindeditor-min.js"></script>
     <script src="/Admin/pop/js/jquery.qrcode.min.js"></script>
-    <!-- 数据库定时备份 -->
-    <%-- <script src="admin/js/ajaxForm.js" type="text/javascript"></script>
-    <script src="admin/js/paginationHelper.js" type="text/javascript"></script>
-    <script src="admin/js/jquery.tmpl.js" type="text/javascript"></script>
-    <script src="admin/js/pagination/jquery.twbsPagination.js" type="text/javascript"></script>--%>
-    <!-- 数据库定时备份 -->
+   
     <script type="text/javascript">
-        //二维码
-        function toUtf8(str) {
-            var out, i, len, c;
-            out = "";
-            len = str.length;
-            for (i = 0; i < len; i++) {
-                c = str.charCodeAt(i);
-                if ((c >= 0x0001) && (c <= 0x007F)) {
-                    out += str.charAt(i);
-                } else if (c > 0x07FF) {
-                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
-                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                } else {
-                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
-                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                }
-            }
-            return out;
-        }
-
-        $(function () {
-            var AllLoad;
-            $.ajaxSetup({
-                cache: false,
-                success: function (data) { },
-                error: function (xhr, status, e) { },
-                complete: function (xhr, status) { layer.close(AllLoad); },
-                beforeSend: function (xhr) {
-                    AllLoad = layer.load(2, { shade: [0] });
-                }
-            });
-
-            var clip = new ZeroClipboard(document.getElementById("fenxian"), {
-                moviePath: "plugin/ZeroClipboard/ZeroClipboard.swf"
-            });
-            // 复制内容到剪贴板成功后的操作 
-            clip.on('complete', function (client, args) {
-                layer.alert('复制成功！', {
-                    skin: 'layer-ext-moon',
-                    btn: '确定',
-                    yes: function (index, layero) {
-                        layer.close(index);
-                    }
-                });
-            });
-        });
-
         KindEditor.ready(function (K) {
             window.KKKK = K;
         });
-    </script>
-    <script type="text/javascript">
         function onclickMenu() {
             var width = $(window).width();
             if (width <= 768) {
@@ -273,6 +268,11 @@
             }
         }
     </script>
-
+    <iframe id='frameFile' name='frameFile' style='display: none;'></iframe>
+    <script type="text/javascript" src="/admin/js/ajaxForm.js"></script>
+    <script type="text/javascript" src="/admin/js/paginationHelper.js"></script>
+    <script type="text/javascript" src="/admin/js/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="/admin/js/pagination/jquery.twbsPagination.js"></script>
+    <script type="text/javascript" src="/admin/pop/js/FileUploader.js"></script>
 </body>
 </html>

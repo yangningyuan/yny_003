@@ -255,7 +255,11 @@
     <Content Include="mobile\conn\iconfont\demo_symbol.html" />
     <Content Include="mobile\conn\iconfont\demo_unicode.html" />
     <Content Include="mobile\conn\iconfont\iconfont.css" />
+    <Content Include="mobile\conn\iconfont\iconfont.eot" />
     <Content Include="mobile\conn\iconfont\iconfont.js" />
+    <Content Include="mobile\conn\iconfont\iconfont.svg" />
+    <Content Include="mobile\conn\iconfont\iconfont.ttf" />
+    <Content Include="mobile\conn\iconfont\iconfont.woff" />
     <Content Include="mobile\conn\laydate\laydate.js" />
     <Content Include="mobile\conn\laydate\need\laydate.css" />
     <Content Include="mobile\conn\laydate\skins\dahong\icon.png" />
@@ -2469,10 +2473,6 @@
     <Content Include="mobile\plugin\ratchet\fonts\ratchicons.eot" />
     <Content Include="mobile\plugin\ratchet\fonts\ratchicons.ttf" />
     <Content Include="mobile\plugin\ratchet\fonts\ratchicons.woff" />
-    <Content Include="mobile\conn\iconfont\iconfont.eot" />
-    <Content Include="mobile\conn\iconfont\iconfont.svg" />
-    <Content Include="mobile\conn\iconfont\iconfont.ttf" />
-    <Content Include="mobile\conn\iconfont\iconfont.woff" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

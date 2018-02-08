@@ -10,10 +10,10 @@
                                 <ul class="personlist">
                                     <li><strong><%=TModel.MID %>，您好</strong></li>
                                     <li><label></label><i class="zs"></i><span class="po1"><%=TModel.MAgencyType.MAgencyName %></span></li>
-                                    <li><span>团队有效投资额：<b><%=TModel.MConfig.YJMoney %></b></span>&nbsp;</li>
+                                    <br />
                                     <li><span>会员类型：<b><%=TModel.Role.RName %></b></span>&nbsp;</li>
-                                    <li><i class="jiangjin"></i><%=yny_003.BLL.Reward.List["MHB"].RewardName %>：<%=TModel.MConfig.MHB %></li>
-                                    <li><i class="currentm"></i><%=yny_003.BLL.Reward.List["MJB"].RewardName %>：<%=TModel.MConfig.MJB %></li>
+                                   <%-- <li><i class="jiangjin"></i><%=yny_003.BLL.Reward.List["MHB"].RewardName %>：<%=TModel.MConfig.MHB %></li>
+                                    <li><i class="currentm"></i><%=yny_003.BLL.Reward.List["MJB"].RewardName %>：<%=TModel.MConfig.MJB %></li>--%>
                                     
                                 </ul>
                             </div>
@@ -28,19 +28,19 @@
                     <div class="in_outmoney">
                         <ul>
                             <li>
-                                <a href="javascript:pcallhtml('/mobile/html/HKList.aspx','汇款管理');"><i class="recharge"></i>充值</a>
+                                <a href="javascript:pcallhtml('/mobile/html/TastList.aspx','我的任务');"><i class="recharge"></i>我的任务</a>
                             </li>
                             <li>
-                                <a href="javascript:pcallhtml('/mobile/html/TXList.aspx','提现记录');"><i class="Withdrawals"></i>提现</a>
+                                <a href="javascript:pcallhtml('/mobile/html/BXList.aspx','我的报修');"><i class="Withdrawals"></i>我的报修</a>
                             </li>
                         </ul>
                     </div>
                     <div class="list-block myinfo">
                         <ul>
                             <li>
-                                <a href="javascript:pcallhtml('/mobile/html/Pwd.aspx','密码设置');" class="item-link item-content">
+                                <a href="javascript:pcallhtml('/mobile/html/ModifyPwd.aspx','密码设置');" class="item-link item-content">
                                     <div class="item-inner">
-                                        <div class="item-title">安全设置</div>
+                                        <div class="item-title">密码设置</div>
                                     </div>
                                 </a>
                             </li>
@@ -59,26 +59,20 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:pcallhtml('/mobile/html/TD.aspx','团队管理');" class="item-link item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title">团队管理</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:pcallhtml('/mobile/html/TZ.aspx','投资中心');" class="item-link item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title">投资中心</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');" class="item-link item-content">
                                     <div class="item-inner">
                                         <div class="item-title">公告通知</div>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="javascript:pcallhtml('/mobile/html/WZList.aspx','违章查询');" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">违章查询</div>
+                                    </div>
+                                </a>
+                            </li>
+                          
                         </ul>
                     </div>
                     <div class="exit">

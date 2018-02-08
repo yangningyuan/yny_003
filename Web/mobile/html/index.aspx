@@ -52,9 +52,9 @@
                     <span class="icon icon-gift"></span>
                     <span class="tab-label">我的任务</span>
                 </a>--%>
-                <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
+                <a class="tab-item"  href="javascript:void(0)" onclick="pcallhtml('/mobile/html/geren.aspx','个人中心');">
                     <span class="icon icon-me"></span>
-                    <span class="tab-label">我的任务</span>
+                    <span class="tab-label">个人中心</span>
                 </a>
             </nav>
             <div class="content native-scroll" id="pageHome">
@@ -103,12 +103,12 @@
                            违章查询
                         </a>
                     </div>
-                    <div class="col-25 row-tab">
+                    <%--<div class="col-25 row-tab">
                         <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/BXList.aspx','报修查询');">
                              <i class="iconfont">&#xe65e;</i>
                            报修查询
                         </a>
-                    </div>
+                    </div>--%>
                 </div>
                 
             </div>

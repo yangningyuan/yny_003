@@ -253,7 +253,7 @@ float:left
 
 .row .col-30 {
 	width: 27.333333333333332%;
-	margin-left: 4%;
+	margin-left: 20%;	
 	margin-right: 2%;
 }
 
@@ -1310,6 +1310,7 @@ height:100%
     color: white;
     WIDTH: 100%;
     TEXT-ALIGN: cEnter;
+	margin-top:10%;
 }
 .person_info .tx img{
 	    WIDTH: 90PX;

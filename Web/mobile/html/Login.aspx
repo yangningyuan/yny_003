@@ -38,7 +38,7 @@
                     type: "post",
                     url: "/Login.aspx?type=login",
                     data: {
-                        txtname: $("#txtname").val(), txtpwd: $("#txtpwd").val(), checkCode: $("#checkCode").val(), href: window.location.href, reuserpsw: $("#reuserpsw").val()
+                        txtname: $("#txtname").val(), txtpwd: $("#txtpwd").val(),href: window.location.href, reuserpsw: $("#reuserpsw").val()
                     },
                     async: true,
                     success: function (data) {
@@ -49,10 +49,10 @@
                             case "2":
                                 v5.error('密码不正确', '1', 'true');
                                 break;
-                            case "3":
-                                v5.error('验证码错误', '1', 'true');
-                                $("#imgcode").click();
-                                break;
+                            //case "3":
+                            //    v5.error('验证码错误', '1', 'true');
+                            //    $("#imgcode").click();
+                            //    break;
                             case "-1":
                                 v5.error('限制登录', '1', 'true');
                                 break;
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                              <%--  <li>
                                     <div class="item-content">
                                         <div class="item-media"><i class="fa icon-lock icon-large"></i></div>
                                         <div class="item-inner">
@@ -121,7 +121,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </li>--%>
                             </ul>
                             <%--<div class="remember"> <input name="reuserpsw" id="reuserpsw" runat="server" type="checkbox" value="1" />&nbsp;<span>记住密码</span> </div>--%>
                         </div>

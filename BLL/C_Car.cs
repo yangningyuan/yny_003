@@ -19,6 +19,8 @@ using System.Data;
 using System.Collections.Generic;
 using System.Data.Common;
 using yny_003.Model;
+using System.Collections;
+
 namespace yny_003.BLL
 {
 	/// <summary>
@@ -62,11 +64,17 @@ namespace yny_003.BLL
 		{
 			return DAL.C_Car.Update(model);
 		}
-
-		/// <summary>
-		/// 删除一条数据
+        /// <summary>
+		/// 更新一条数据
 		/// </summary>
-		public static bool Delete(int ID)
+		public static Hashtable Update(yny_003.Model.C_Car model,Hashtable MyHs)
+        {
+            return DAL.C_Car.Update(model,MyHs);
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			return DAL.C_Car.Delete(ID);
@@ -88,12 +96,19 @@ namespace yny_003.BLL
 			return DAL.C_Car.GetModel(ID);
 		}
 
-		
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_003.Model.C_Car GetModelByCode(string carcode)
+        {
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public static DataSet GetList(string strWhere)
+            return DAL.C_Car.GetModelByCode(carcode);
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataSet GetList(string strWhere)
 		{
 			return DAL.C_Car.GetList(strWhere);
 		}

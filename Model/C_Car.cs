@@ -192,7 +192,7 @@ namespace yny_003.Model
 			get{return _createdate;}
 		}
 		/// <summary>
-		/// 
+		/// 任务ID   为空时空车
 		/// </summary>
 		public string Spare1
 		{

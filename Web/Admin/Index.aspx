@@ -158,7 +158,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <div id="container2" style="height: 353px;"></div>
+                                    <div id="container1" style="height: 353px;" ></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -174,7 +174,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <div id="container3" style="height: 353px;"></div>
+                                    <div id="container2" style="height: 353px;"></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -212,7 +212,7 @@
                                 <td>
                                     <ul class="recent-posts">
                                         <li>
-                                            <p style="color:white;"><%=notice!=null?notice.NContent:"" %></p>
+                                      <%--      <p style="color:white;"><%=notice!=null?notice.NContent:"" %></p>--%>
                                         </li>
                                     </ul>
                                 </td>
@@ -274,5 +274,117 @@
     <script type="text/javascript" src="/admin/js/jquery.tmpl.js"></script>
     <script type="text/javascript" src="/admin/js/pagination/jquery.twbsPagination.js"></script>
     <script type="text/javascript" src="/admin/pop/js/FileUploader.js"></script>
+
+
+    <script type="text/javascript" src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script type="text/javascript" src="https://img.hcharts.cn/highcharts/modules/series-label.js"></script>
+    <script type="text/javascript" src="https://img.hcharts.cn/highcharts/modules/oldie.js"></script>
+    <script type="text/javascript" src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <script>
+
+        var chart = Highcharts.chart('container1', {
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            yAxis: {
+                title: {
+                    text: '销售数量'
+                }
+            },
+            
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                    pointStart: 2010
+                }
+            },
+            series: [{
+                name: '食品',
+                data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+            }, {
+                name: '包装',
+                data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+            }, {
+                name: '水产',
+                data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+            }, {
+                name: '家具',
+                data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+            }, {
+                name: '电子产品',
+                data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+            }],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        });
+    </script>
+
+
+    <script>
+        $(function () {
+            $('#container2').highcharts({
+                chart: {
+                    type: 'pie',
+                    options3d: {
+                        enabled: true,
+                        alpha: 45,
+                        beta: 0
+                    }
+                },
+                title: {
+                    text: '本月商品各项进货'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        depth: 35,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: '进货占比',
+                    data: [
+                        ['食品', 45.0],
+                        ['包装', 26.8],
+                        {
+                            name: '水产',
+                            y: 12.8,
+                            sliced: true,
+                            selected: true
+                        },
+                        ['家具', 8.5],
+                        ['电子产品', 6.9]
+                    ]
+                }]
+            });
+        });
+
+    </script>
 </body>
 </html>

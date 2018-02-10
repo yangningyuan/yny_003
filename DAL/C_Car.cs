@@ -20,6 +20,8 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections.Generic;
+using yny_003.Model;
+using System.Collections;
 
 namespace yny_003.DAL
 {
@@ -120,10 +122,13 @@ namespace yny_003.DAL
 				return Convert.ToInt32(obj);
 			}
 		}
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		public static bool Update(yny_003.Model.C_Car model)
+
+        
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static bool Update(yny_003.Model.C_Car model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update C_Car set ");
@@ -202,11 +207,86 @@ namespace yny_003.DAL
 				return false;
 			}
 		}
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_003.Model.C_Car model,Hashtable MyHs)
+        {
+            string guid = Guid.NewGuid().ToString();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update C_Car set ");
+            strSql.Append("PZCode=@PZCode,");
+            strSql.Append("CarType=@CarType,");
+            strSql.Append("CarBrand=@CarBrand,");
+            strSql.Append("CarEngine=@CarEngine,");
+            strSql.Append("CarCJCode=@CarCJCode,");
+            strSql.Append("CarXSZCode=@CarXSZCode,");
+            strSql.Append("CarDW=@CarDW,");
+            strSql.Append("RYType=@RYType,");
+            strSql.Append("BXDate=@BXDate,");
+            strSql.Append("YYZDate=@YYZDate,");
+            strSql.Append("BYDate=@BYDate,");
+            strSql.Append("GJYDate=@GJYDate,");
+            strSql.Append("AQFDate=@AQFDate,");
+            strSql.Append("CarZLC=@CarZLC,");
+            strSql.Append("Remark=@Remark,");
+            strSql.Append("IsDelete=@IsDelete,");
+            strSql.Append("CreateDate=@CreateDate,");
+            strSql.Append("Spare1=@Spare1,");
+            strSql.Append("Spare2=@Spare2,");
+            strSql.Append("Spare3=@Spare3");
+            strSql.Append(" where ID=@ID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@PZCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@CarType", SqlDbType.VarChar,50),
+                    new SqlParameter("@CarBrand", SqlDbType.VarChar,50),
+                    new SqlParameter("@CarEngine", SqlDbType.VarChar,50),
+                    new SqlParameter("@CarCJCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@CarXSZCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@CarDW", SqlDbType.Decimal,9),
+                    new SqlParameter("@RYType", SqlDbType.VarChar,10),
+                    new SqlParameter("@BXDate", SqlDbType.DateTime),
+                    new SqlParameter("@YYZDate", SqlDbType.DateTime),
+                    new SqlParameter("@BYDate", SqlDbType.DateTime),
+                    new SqlParameter("@GJYDate", SqlDbType.DateTime),
+                    new SqlParameter("@AQFDate", SqlDbType.DateTime),
+                    new SqlParameter("@CarZLC", SqlDbType.Int,4),
+                    new SqlParameter("@Remark", SqlDbType.VarChar,250),
+                    new SqlParameter("@IsDelete", SqlDbType.Int,4),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@Spare1", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare2", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare3", SqlDbType.VarChar,250),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
+            parameters[0].Value = model.PZCode;
+            parameters[1].Value = model.CarType;
+            parameters[2].Value = model.CarBrand;
+            parameters[3].Value = model.CarEngine;
+            parameters[4].Value = model.CarCJCode;
+            parameters[5].Value = model.CarXSZCode;
+            parameters[6].Value = model.CarDW;
+            parameters[7].Value = model.RYType;
+            parameters[8].Value = model.BXDate;
+            parameters[9].Value = model.YYZDate;
+            parameters[10].Value = model.BYDate;
+            parameters[11].Value = model.GJYDate;
+            parameters[12].Value = model.AQFDate;
+            parameters[13].Value = model.CarZLC;
+            parameters[14].Value = model.Remark;
+            parameters[15].Value = model.IsDelete;
+            parameters[16].Value = model.CreateDate;
+            parameters[17].Value = model.Spare1;
+            parameters[18].Value = model.Spare2;
+            parameters[19].Value = model.Spare3;
+            parameters[20].Value = model.ID;
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public static bool Delete(int ID)
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -272,10 +352,36 @@ namespace yny_003.DAL
 				return null;
 			}
 		}
-		/// <summary>
-		/// 获得数据列表
+
+        /// <summary>
+		/// 得到一个对象实体
 		/// </summary>
-		public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+		public static yny_003.Model.C_Car GetModelByCode(string code)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3 from C_Car ");
+            strSql.Append(" where PZCode=@PZCode");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@PZCode", SqlDbType.VarChar,50)
+            };
+            parameters[0].Value = code;
+
+            //yny_003.Model.C_Car model = new yny_003.Model.C_Car();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
 		{
 			return DAL.CommonBase.GetTable("C_Car", "ID", "ID asc", strWhere, pageIndex, pageSize, out count);
 		}

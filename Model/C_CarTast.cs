@@ -159,7 +159,7 @@ namespace yny_003.Model
 			get{return _bdimg;}
 		}
 		/// <summary>
-		/// 任务状态 0未完成  1完成
+		/// 任务状态 0未完成  1完成,2.取消任务
 		/// </summary>
 		public int TState
 		{

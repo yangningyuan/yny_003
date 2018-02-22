@@ -32,6 +32,9 @@ namespace yny_003.Model
 		private string _costimgurl;
 		private DateTime _caretedate= DateTime.Now;
 		private int _isdelete=0;
+
+		public string MID { get; set; }
+		public string Remark { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>

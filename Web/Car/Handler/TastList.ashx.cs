@@ -25,7 +25,12 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and Name like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
             }
-            int count;
+			if (!string.IsNullOrEmpty(context.Request["coststate"]))
+			{
+				strWhere += " and TState='" + context.Request["coststate"] + "' ";
+			}
+
+			int count;
             List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetList(strWhere, pageIndex, pageSize, out count);
 
             StringBuilder sb = new StringBuilder();
@@ -41,8 +46,13 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].Spare2 + "~");
                 sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
-                //sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
-                sb.Append("≌");
+				if (ListNotice[i].TState == 0)
+				{
+					sb.Append("<div class=\"pay btn btn-success\" onclick=\"celTast('"+ListNotice[i].ID+"')\">取消任务</div>");
+				}
+
+
+				sb.Append("≌");
 				sb.Append("≠");
 				////数量
 				sb.Append("10");

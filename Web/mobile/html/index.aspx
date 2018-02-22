@@ -103,12 +103,12 @@
                            违章查询
                         </a>
                     </div>
-                    <%--<div class="col-25 row-tab">
-                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/BXList.aspx','报修查询');">
+                    <div class="col-25 row-tab">
+                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/CostList.aspx','费用列表');">
                              <i class="iconfont">&#xe65e;</i>
-                           报修查询
+                           费用列表
                         </a>
-                    </div>--%>
+                    </div>
                 </div>
                 
             </div>

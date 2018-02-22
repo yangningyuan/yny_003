@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TastList.aspx.cs" Inherits="yny_003.Web.mobile.html.TastList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CostList.aspx.cs" Inherits="yny_003.Web.mobile.html.CostList" %>
 
 <div class="content content-padded pull-to-refresh-content" data-ptr-distance="55">
     <!-- 默认的下拉刷新层 -->
@@ -6,20 +6,21 @@
         <div class="preloader"></div>
         <div class="pull-to-refresh-arrow"></div>
     </div>
-   
-      <form id="form1">
-        <div class="buttons-tab">
-            <input type="hidden" value="0" id="state" runat="server" />
-            <a href="javascript:void(0)" onclick="$('#state').val('0'); dianji(this); " class="tab-link active button requery">未完成</a>
-            <a href="javascript:void(0)" onclick="$('#state').val('1'); dianji(this); " class="tab-link button requery">已完成</a>
-            <a href="javascript:void(0)" onclick="$('#state').val('2'); dianji(this); " class="tab-link button requery">已取消</a>
+   <%-- <div class="searchbar row">
+        <div class="search-input col-80">
+            <input type="search" placeholder="会员账号" id="search" />
         </div>
-    </form>
+        <a class="button button-fill button-primary col-20">查询</a>
+    </div>--%>
+    <p>
+        <a class="button button-fill button-success" href="javascript:pcallhtml('/mobile/html/CostAdd.aspx','新增费用');">新增费用</a>
+    </p>
+
     <script type="text/x-jquery-tmpl" id="JKListTmpl">
         <tr>
             
-            <td>${Name}</td>
-            <td>${SupplierTel}</td>
+            <td>${Money}</td>
+            <td>${Remark}</td>
             <td>${CreateDate}</td>
             <td>{{html dhtml}}</td>
         </tr>
@@ -28,8 +29,8 @@
     <table class=" table table-striped table-bordered ">
         <thead>
             <tr>
-                <th>客户</th>
-                <th>联系方式</th>
+                <th>费用金额</th>
+                <th>用途</th>
                 <th>时间</th>
                 <th>详情</th>
             </tr>
@@ -42,15 +43,6 @@
 </div>
 
 <script>
-    $(".buttons-tab a").click(function () {
-        var n = $(".buttons-tab a").index(this);
-        $(".buttons-tab a").eq(n).addClass("active");
-    })
-    function dianji(obj) {
-        $(".tab-link").removeClass('active');
-        obj.addClass('active');
-    }
-
     $(function () {
         $('#data_container').on('click', '.list-detail', function () {
             //console.log(parseInt($(this).next().css('height')));
@@ -70,7 +62,7 @@
         $('#page_container').Paging({
             TemplateContainer: '#JKListTmpl',
             DataContainer: '#data_container',
-            DataUrl: '/mobile/html/TastList.aspx?Action=Other',
+            DataUrl: '/mobile/html/CostList.aspx?Action=Other',
             QueryContainer: '#form1',
             Rendered: function () {
                 window.MobileSelectAll();
@@ -78,4 +70,9 @@
         });
     }, 50);
 
+
+    function delCost(id)
+    {
+        ActionModel("mobile/html/CostList.aspx?Action=Add", "cid=" + id, "mobile/html/CostList.aspx");
+    }
 </script>

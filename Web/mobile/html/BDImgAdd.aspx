@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CostAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.CostAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BDImgAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.BDImgAdd" %>
 
 <script>
     layui.use("upload", function () {
@@ -24,7 +24,7 @@
             <input type="hidden" id="cid" runat="server" />
             <ul>
                 <!-- Text inputs -->
-                <%--  <li>
+                <li>
                     <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
                             <div class="item-title label">任务详情</div>
@@ -42,31 +42,13 @@
                             </div>
                         </div>
                     </div>
-                </li>--%>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">费用用途</div>
-                            <div class="item-input">
-                               <input type="text" value="" name="txtName" id="txtName" placeholder="请输入费用用途">
-                            </div>
-                        </div>
-                    </div>
                 </li>
+
+               
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">费用金额</div>
-                            <div class="item-input">
-                                <input type="text" value="" name="txtMHB" id="txtMHB" placeholder="请输入费用金额">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title label">上传费用单据</div>
+                            <div class="item-title label">上传磅单图片</div>
                             <div class="item-input">
                                 <input type="file" name="upload" capture="camera" class="layui-upload-file">
                                 <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
@@ -89,11 +71,12 @@
 </div>
 <script type="text/javascript">
     function checkChange() {
-        if ($('#txtMHB').val().trim() == "") {
-            layer.msg("费用金额不能为空");
-            return;
-        } else {
-            ActionModel("mobile/html/CostAdd.aspx?Action=add", $('#form1').serialize(), "/mobile/html/CostList.aspx");
+        //if ($('#txtMHB').val().trim() == "") {
+        //    layer.msg("费用金额不能为空");
+        //    return;
+        //} else
+        {
+            ActionModel("mobile/html/BDImgAdd.aspx?Action=add", $('#form1').serialize(), "/mobile/html/TastView.aspx?id=" + $("#cid").val());
         }
     }
 </script>

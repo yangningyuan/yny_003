@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TastList.aspx.cs" Inherits="yny_003.Web.Car.TastList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CostList2.aspx.cs" Inherits="yny_003.Web.Car.CostList2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,39 +6,30 @@
     <title></title>
     <script type="text/javascript">
         tState = '0';
-        tUrl = "Car/Handler/TastList.ashx";
+        tUrl = "Car/Handler/CostList2.ashx";
         SearchByCondition();
-
-        function celTast(id)
+        function shcost(id)
         {
-            ActionModel("Car/TastList.aspx?Action=Add", "tid="+id);
+            ActionModel("Car/CostList2.aspx?Action=Other", "cid="+id, "Car/CostList2.aspx");
         }
     </script>
 </head>
-<body><div id="distr">
-    </div>
+<body>
     <div id="mempay">
         <div class="control">
             <div class="select">
-                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>
+                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未审核</a> <a href="javascript:void(0)" onclick="SearchByState('2',this);" class="btn btn-success">已审核</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>
+                <span style="color:white;">未审核：</span><span style="color:white;" id="summoney" runat="server"></span>
             </div>
-               
-                            <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
-                                <option value="">全部</option>
-                                <option value="0">未完成</option>
-                                <option value="1">已完成</option>
-                                <option value="2">已取消</option>
-                            </select>
-                        
-            <div class="pay" onclick="UpDateByID('Car/AddTast.aspx?','修改任务',900,470);">
-                修改任务
+            <%--<div class="pay" onclick="UpDateByID('Car/AddCost.aspx?','修改费用类型',900,470);">
+                修改费用类型
             </div>
-            <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
-                新增任务
-            </div>
+            <div class="pay" onclick="v5.show('Car/AddCost.aspx','新增费用类型','url',900,470)">
+                新增费用类型
+            </div>--%>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
-                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务名称" type="text" class="sinput" />
+                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入费用名称" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">
@@ -48,17 +39,13 @@
                     </th>
                     <th>序号
                     </th>
-                    <th>任务名称
+                    <th>申请费用人
                     </th>
-                    <th>任务类型
+                    <th>费用用途
                     </th>
-                    <th>供应商或客户
+                    <th>费用金额
                     </th>
-                    <th>联系电话
-                    </th>
-                    <th>派遣车辆
-                    </th>
-                    <th>费用类型
+                    <th>费用图片
                     </th>
                     <th>创建日期
                     </th>

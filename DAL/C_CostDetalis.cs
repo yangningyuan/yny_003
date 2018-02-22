@@ -64,21 +64,26 @@ namespace yny_003.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into C_CostDetalis(");
-			strSql.Append("CID,CostMoney,CostImgUrl,CareteDate,IsDelete)");
+			strSql.Append("CID,CostMoney,CostImgUrl,CareteDate,IsDelete,MID,Remark)");
 			strSql.Append(" values (");
-			strSql.Append("@CID,@CostMoney,@CostImgUrl,@CareteDate,@IsDelete)");
+			strSql.Append("@CID,@CostMoney,@CostImgUrl,@CareteDate,@IsDelete,@MID,@Remark)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@CID", SqlDbType.Int,4),
 					new SqlParameter("@CostMoney", SqlDbType.Decimal,9),
 					new SqlParameter("@CostImgUrl", SqlDbType.VarChar,150),
 					new SqlParameter("@CareteDate", SqlDbType.DateTime),
-					new SqlParameter("@IsDelete", SqlDbType.Int,4)};
+					new SqlParameter("@IsDelete", SqlDbType.Int,4),
+					new SqlParameter("@MID", SqlDbType.VarChar,50),
+					new SqlParameter("@Remark", SqlDbType.VarChar,50)
+					};
 			parameters[0].Value = model.CID;
 			parameters[1].Value = model.CostMoney;
 			parameters[2].Value = model.CostImgUrl;
 			parameters[3].Value = model.CareteDate;
 			parameters[4].Value = model.IsDelete;
+			parameters[5].Value = model.MID;
+			parameters[6].Value = model.Remark;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -101,7 +106,9 @@ namespace yny_003.DAL
 			strSql.Append("CostMoney=@CostMoney,");
 			strSql.Append("CostImgUrl=@CostImgUrl,");
 			strSql.Append("CareteDate=@CareteDate,");
-			strSql.Append("IsDelete=@IsDelete");
+			strSql.Append("IsDelete=@IsDelete,");
+			strSql.Append("MID=@MID,");
+			strSql.Append("Remark=@Remark");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@CID", SqlDbType.Int,4),
@@ -109,13 +116,17 @@ namespace yny_003.DAL
 					new SqlParameter("@CostImgUrl", SqlDbType.VarChar,150),
 					new SqlParameter("@CareteDate", SqlDbType.DateTime),
 					new SqlParameter("@IsDelete", SqlDbType.Int,4),
+					new SqlParameter("@MID", SqlDbType.VarChar,50),
+					new SqlParameter("@Remark", SqlDbType.VarChar,50),
 					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.CID;
 			parameters[1].Value = model.CostMoney;
 			parameters[2].Value = model.CostImgUrl;
 			parameters[3].Value = model.CareteDate;
 			parameters[4].Value = model.IsDelete;
-			parameters[5].Value = model.ID;
+			parameters[5].Value = model.MID;
+			parameters[6].Value = model.Remark;
+			parameters[7].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -179,7 +190,7 @@ namespace yny_003.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,CID,CostMoney,CostImgUrl,CareteDate,IsDelete from C_CostDetalis ");
+			strSql.Append("select  top 1 ID,CID,CostMoney,CostImgUrl,CareteDate,IsDelete,MID,Remark from C_CostDetalis ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -249,6 +260,14 @@ namespace yny_003.DAL
 				{
 					model.IsDelete=int.Parse(row["IsDelete"].ToString());
 				}
+				if (row["MID"] != null)
+				{
+					model.MID = row["MID"].ToString();
+				}
+				if (row["Remark"] != null)
+				{
+					model.Remark = row["Remark"].ToString();
+				}
 			}
 			return model;
 		}
@@ -259,7 +278,7 @@ namespace yny_003.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,CID,CostMoney,CostImgUrl,CareteDate,IsDelete ");
+			strSql.Append("select ID,CID,CostMoney,CostImgUrl,CareteDate,IsDelete,MID,Remark ");
 			strSql.Append(" FROM C_CostDetalis ");
 			if(strWhere.Trim()!="")
 			{
@@ -279,7 +298,7 @@ namespace yny_003.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,CID,CostMoney,CostImgUrl,CareteDate,IsDelete ");
+			strSql.Append(" ID,CID,CostMoney,CostImgUrl,CareteDate,IsDelete,MID,Remark ");
 			strSql.Append(" FROM C_CostDetalis ");
 			if(strWhere.Trim()!="")
 			{

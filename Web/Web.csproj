@@ -306,6 +306,7 @@
     <Content Include="mobile\font_icons\iconfont.svg" />
     <Content Include="mobile\html\ADD.aspx" />
     <Content Include="mobile\html\AddReceive.aspx" />
+    <Content Include="mobile\html\BDImgAdd.aspx" />
     <Content Include="mobile\html\BuyGoods.aspx" />
     <Content Include="mobile\html\BXAdd.aspx" />
     <Content Include="mobile\html\BXList.aspx" />
@@ -314,6 +315,8 @@
     <Content Include="mobile\html\Cars.aspx" />
     <Content Include="mobile\html\Code.aspx" />
     <Content Include="mobile\html\CostAdd.aspx" />
+    <Content Include="mobile\html\CostList.aspx" />
+    <Content Include="Car\CostList2.aspx" />
     <Content Include="mobile\html\CW.aspx" />
     <Content Include="mobile\html\findpwd.aspx" />
     <Content Include="mobile\html\geren.aspx" />
@@ -1458,6 +1461,10 @@
     <Compile Include="Car\CostList.aspx.designer.cs">
       <DependentUpon>CostList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\Handler\CostList2.ashx.cs">
+      <DependentUpon>CostList2.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Car\Handler\LoanApplyList.ashx.cs">
       <DependentUpon>LoanApplyList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1543,6 +1550,13 @@
     <Compile Include="mobile\html\AddReceive.aspx.designer.cs">
       <DependentUpon>AddReceive.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mobile\html\BDImgAdd.aspx.cs">
+      <DependentUpon>BDImgAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\BDImgAdd.aspx.designer.cs">
+      <DependentUpon>BDImgAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mobile\html\BuyGoods.aspx.cs">
       <DependentUpon>BuyGoods.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1598,6 +1612,20 @@
     </Compile>
     <Compile Include="mobile\html\CostAdd.aspx.designer.cs">
       <DependentUpon>CostAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\CostList.aspx.cs">
+      <DependentUpon>CostList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\CostList.aspx.designer.cs">
+      <DependentUpon>CostList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\CostList2.aspx.cs">
+      <DependentUpon>CostList2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\CostList2.aspx.designer.cs">
+      <DependentUpon>CostList2.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\CW.aspx.cs">
       <DependentUpon>CW.aspx</DependentUpon>
@@ -2626,6 +2654,7 @@
     <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.eot" />
     <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.ttf" />
     <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.woff" />
+    <Content Include="Car\Handler\CostList2.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

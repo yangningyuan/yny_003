@@ -35,9 +35,25 @@ namespace yny_003.Web.mobile.html
 			if (cartast.TState == 1)
 				return "状态已改变,请勿重复提交";
 			cartast.TState = 1;
+
+			if (cartast.TType == 1 || cartast.TType == 2)
+			{
+				if (string.IsNullOrEmpty(cartast.BDImg))
+					return "请上传磅单图片";
+
+				
+				List<Model.OrderDetail> listord2 = null;
+				if (!string.IsNullOrEmpty(cartast.OCode))
+				{
+					order = BLL.Order.GetModel(cartast.OCode);
+					listord2 = order.OrderDetail;
+				}
+				if (listord2.Sum(m => m.ReCount) <= 0)
+					return "未查询到实际装车/卸车数量，不能完成";
+			}
 			if (BLL.C_CarTast.Update(cartast))
 			{
-				return "此任务已结束";
+				return "结束任务成功";
 			}
 			else {
 				return "数据有误，结束任务失败";

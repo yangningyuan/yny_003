@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+               <%-- <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">费用类型</div>
@@ -90,17 +90,38 @@
                         </div>
                     </div>
                 </li>
-                <li>
+             --%>
+                 <li>
+                    <div class="item-content" style="background-color: powderblue">
+                        <div class="item-inner">
+                            <div class="item-title label"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>商品详情</div>
+                            <div class="item-input">
+                            </div>
+                             <div class="item-input"><a class="button" style="float:right;" href="javascript:pcallhtml('/mobile/html/BDImgAdd.aspx?id=<%=cartast.ID %>','上传磅单图片');">上传</a></div>
+                        </div>
+                    </div>
+                </li>
+                   <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">磅单图片</div>
                             <div class="item-input">
-                                <img src="<%=cartast.BDImg %>" />
+                                <%  if (!string.IsNullOrEmpty(cartast.BDImg)) 
+                                    {
+                                    %>
+                                        <img src="<%=cartast.BDImg %>" />
+                                    <%
+                                        }else {
+                                        %>
+                                   请上传磅单图片，并与实际装车，卸车数量相符
+                                <%
+                                        }
+                                     %>
+                               
                             </div>
                         </div>
                     </div>
                 </li>
-
                 <li>
                     <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
@@ -133,7 +154,7 @@
                         }
                     }
                 %>
-                <li>
+              <%--  <li>
                     <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
                             <div class="item-title label">费用详情</div>
@@ -164,7 +185,7 @@
                 <%
                         }
                     }
-                %>
+                %>--%>
                 <div class="content-block" id="anbtn" runat="server">
                     <div class="row">
                         <div class="col-100">

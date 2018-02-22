@@ -79,9 +79,10 @@
                             <div class="item-title label">拍照</div>
                             <div class="item-input">
                                 <%--<input type="file" id="imageUrl" name="imageUrl" accept="image/*" capture="camera">--%> 
-                                    <input type="file" name="upload" capture="camera" class="layui-upload-file">
+                                    <input type="file" name="upload" accept="image/*" multiple class="layui-upload-file">
                                 <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
                                 <img id="upimage"  height="50px" />
+
                             </div>
                         </div>
                     </div>

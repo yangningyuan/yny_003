@@ -64,6 +64,7 @@
     <Compile Include="C_CostType.cs" />
     <Compile Include="C_Error.cs" />
     <Compile Include="C_LoanApply.cs" />
+    <Compile Include="C_Mileage.cs" />
     <Compile Include="C_Security.cs" />
     <Compile Include="C_Supplier.cs" />
     <Compile Include="C_Violation.cs" />

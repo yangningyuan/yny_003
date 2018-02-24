@@ -62,9 +62,9 @@ namespace yny_003.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into C_Mileage(");
-			strSql.Append("SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2)");
+			strSql.Append("SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2,DiffCount)");
 			strSql.Append(" values (");
-			strSql.Append("@SIJI1,@SIJI2,@CarCode,@Mileage,@Oid,@Type,@CreateDate,@Spare,@Spare2)");
+			strSql.Append("@SIJI1,@SIJI2,@CarCode,@Mileage,@Oid,@Type,@CreateDate,@Spare,@Spare2,@DiffCount)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@SIJI1", SqlDbType.VarChar,50),
@@ -75,7 +75,7 @@ namespace yny_003.DAL
 					new SqlParameter("@Type", SqlDbType.Int,4),
 					new SqlParameter("@CreateDate", SqlDbType.DateTime),
 					new SqlParameter("@Spare", SqlDbType.VarChar,50),
-					new SqlParameter("@Spare2", SqlDbType.VarChar,50)};
+					new SqlParameter("@Spare2", SqlDbType.VarChar,50),new SqlParameter("@DiffCount", SqlDbType.Int,4)};
 			parameters[0].Value = model.SIJI1;
 			parameters[1].Value = model.SIJI2;
 			parameters[2].Value = model.CarCode;
@@ -85,6 +85,7 @@ namespace yny_003.DAL
 			parameters[6].Value = model.CreateDate;
 			parameters[7].Value = model.Spare;
 			parameters[8].Value = model.Spare2;
+			parameters[9].Value = model.DiffCount;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -111,7 +112,8 @@ namespace yny_003.DAL
 			strSql.Append("Type=@Type,");
 			strSql.Append("CreateDate=@CreateDate,");
 			strSql.Append("Spare=@Spare,");
-			strSql.Append("Spare2=@Spare2");
+			strSql.Append("Spare2=@Spare2,");
+			strSql.Append("DiffCount=@DiffCount");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@SIJI1", SqlDbType.VarChar,50),
@@ -123,6 +125,7 @@ namespace yny_003.DAL
 					new SqlParameter("@CreateDate", SqlDbType.DateTime),
 					new SqlParameter("@Spare", SqlDbType.VarChar,50),
 					new SqlParameter("@Spare2", SqlDbType.VarChar,50),
+					new SqlParameter("@DiffCount", SqlDbType.Int,4),
 					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.SIJI1;
 			parameters[1].Value = model.SIJI2;
@@ -133,7 +136,8 @@ namespace yny_003.DAL
 			parameters[6].Value = model.CreateDate;
 			parameters[7].Value = model.Spare;
 			parameters[8].Value = model.Spare2;
-			parameters[9].Value = model.ID;
+			parameters[9].Value = model.DiffCount;
+			parameters[10].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -146,10 +150,12 @@ namespace yny_003.DAL
 			}
 		}
 
-        /// <summary>
-        /// 删除一条数据
-        /// </summary>
-        public static bool Delete(int ID)
+		
+
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -188,16 +194,32 @@ namespace yny_003.DAL
 				return false;
 			}
 		}
+		public static Model.C_Mileage GetModelBywhere(string where)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select  top 1 ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2,DiffCount from C_Mileage ");
+			strSql.Append(" where "+where);
+			
+			yny_003.Model.C_Mileage model = new yny_003.Model.C_Mileage();
+			DataSet ds = DbHelperSQL.Query(strSql.ToString());
+			if (ds.Tables[0].Rows.Count > 0)
+			{
+				return DataRowToModel(ds.Tables[0].Rows[0]);
+			}
+			else
+			{
+				return null;
+			}
+		}
 
-
-        /// <summary>
-        /// 得到一个对象实体
-        /// </summary>
-        public static yny_003.Model.C_Mileage GetModel(int ID)
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public static yny_003.Model.C_Mileage GetModel(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2 from C_Mileage ");
+			strSql.Append("select  top 1 ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2,DiffCount from C_Mileage ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -265,6 +287,10 @@ namespace yny_003.DAL
 				{
 					model.Spare2=row["Spare2"].ToString();
 				}
+				if (row["DiffCount"] != null && row["DiffCount"].ToString() != "")
+				{
+					model.DiffCount = int.Parse(row["DiffCount"].ToString());
+				}
 			}
 			return model;
 		}
@@ -275,7 +301,7 @@ namespace yny_003.DAL
         public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2 ");
+			strSql.Append("select ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2,DiffCount ");
 			strSql.Append(" FROM C_Mileage ");
 			if(strWhere.Trim()!="")
 			{
@@ -295,7 +321,7 @@ namespace yny_003.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2 ");
+			strSql.Append(" ID,SIJI1,SIJI2,CarCode,Mileage,Oid,Type,CreateDate,Spare,Spare2,DiffCount ");
 			strSql.Append(" FROM C_Mileage ");
 			if(strWhere.Trim()!="")
 			{

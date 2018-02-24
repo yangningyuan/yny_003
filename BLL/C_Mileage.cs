@@ -149,12 +149,17 @@ namespace yny_003.BLL
 		{
 			return DAL.C_Mileage.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
+
+		public static Model.C_Mileage GetModelBywhere(string where)
+		{
+			return DAL.C_Mileage.GetModelBywhere(where);
+		}
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
 		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
 		//{
-			//return dal.GetList(PageSize,PageIndex,strWhere);
+		//return dal.GetList(PageSize,PageIndex,strWhere);
 		//}
 
 		#endregion  BasicMethod

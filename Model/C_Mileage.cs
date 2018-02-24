@@ -37,6 +37,10 @@ namespace yny_003.Model
 		private string _spare;
 		private string _spare2;
 		/// <summary>
+		/// 差值
+		/// </summary>
+		public int DiffCount { get; set; }
+		/// <summary>
 		/// 
 		/// </summary>
 		public int ID

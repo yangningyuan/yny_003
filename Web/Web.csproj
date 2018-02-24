@@ -318,6 +318,7 @@
     <Content Include="mobile\html\CostList.aspx" />
     <Content Include="Car\CostList2.aspx" />
     <Content Include="mobile\html\CW.aspx" />
+    <Content Include="mobile\html\DelCar.aspx" />
     <Content Include="mobile\html\findpwd.aspx" />
     <Content Include="mobile\html\geren.aspx" />
     <Content Include="mobile\html\GGTZ.aspx" />
@@ -359,6 +360,7 @@
     <Content Include="mobile\html\TXChange.aspx" />
     <Content Include="mobile\html\TXList.aspx" />
     <Content Include="mobile\html\TZ.aspx" />
+    <Content Include="mobile\html\VerCar.aspx" />
     <Content Include="mobile\html\View.aspx" />
     <Content Include="mobile\html\WXChange.aspx" />
     <Content Include="mobile\html\WZAdd.aspx" />
@@ -1634,6 +1636,13 @@
     <Compile Include="mobile\html\CW.aspx.designer.cs">
       <DependentUpon>CW.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mobile\html\DelCar.aspx.cs">
+      <DependentUpon>DelCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\DelCar.aspx.designer.cs">
+      <DependentUpon>DelCar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mobile\html\findpwd.aspx.cs">
       <DependentUpon>findpwd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1920,6 +1929,13 @@
     </Compile>
     <Compile Include="mobile\html\TZ.aspx.designer.cs">
       <DependentUpon>TZ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\VerCar.aspx.cs">
+      <DependentUpon>VerCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\VerCar.aspx.designer.cs">
+      <DependentUpon>VerCar.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>

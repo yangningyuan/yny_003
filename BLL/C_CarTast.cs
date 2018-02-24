@@ -131,6 +131,15 @@ namespace yny_003.BLL
 			DataSet ds = DAL.C_CarTast.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
 		}
+
+		/// <summary>
+		/// 获得指定会员有效任务
+		/// </summary>
+		public static Model.C_CarTast GetModelBySJ(string mid)
+		{
+			return DAL.C_CarTast.GetModelBySJ(mid);
+		}
+
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

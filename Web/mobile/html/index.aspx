@@ -109,6 +109,19 @@
                            费用列表
                         </a>
                     </div>
+
+                     <div class="col-25 row-tab">
+                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/VerCar.aspx','确认车辆');">
+                             <i class="iconfont">&#xe653;</i>
+                           确认车辆
+                        </a>
+                    </div>
+                     <div class="col-25 row-tab">
+                        <a class="tab-item"  href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/DelCar.aspx','我要交车');">
+                             <i class="iconfont">&#xe61e;</i>
+                           我要交车
+                        </a>
+                    </div>
                 </div>
                 
             </div>

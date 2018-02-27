@@ -47,10 +47,15 @@ namespace yny_003.Model
 		private string _spare1;
 		private string _spare2;
 		private string _spare3;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int ID
+
+        /// <summary>
+        /// 车辆类型 牵引车 挂车
+        /// </summary>
+        public string CType { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ID
 		{
 			set{ _id=value;}
 			get{return _id;}
@@ -200,7 +205,7 @@ namespace yny_003.Model
 			get{return _spare1;}
 		}
 		/// <summary>
-		/// 
+		/// 营运证号
 		/// </summary>
 		public string Spare2
 		{
@@ -208,7 +213,7 @@ namespace yny_003.Model
 			get{return _spare2;}
 		}
 		/// <summary>
-		/// 
+		/// 罐体容积
 		/// </summary>
 		public string Spare3
 		{

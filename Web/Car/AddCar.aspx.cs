@@ -27,7 +27,10 @@ namespace yny_003.Web.Car
 			c.AQFDate = DateTime.Parse(Request.Form["AQFDate"]);
 			c.CarZLC = int.Parse(Request.Form["CarZLC"]);
 			c.Remark = Request.Form["Remark"];
-			if (string.IsNullOrEmpty(Request.Form["fid"]))
+            c.Spare2 = Request.Form["CarYYZCode"];
+            c.Spare3 = Request.Form["CarGTRJ"];
+
+            if (string.IsNullOrEmpty(Request.Form["fid"]))
 			{
 				if (BLL.C_Car.Add(c) > 0)
 				{
@@ -67,6 +70,8 @@ namespace yny_003.Web.Car
 			AQFDate.Value = c.AQFDate.ToString();
 			CarZLC.Value = c.CarZLC.ToString();
 			Remark.Value = c.Remark;
+            CarYYZCode.Value = c.Spare2;
+            CarGTRJ.Value = c.Spare3;
 			fid.Value = c.ID.ToString();
 		}
 	}

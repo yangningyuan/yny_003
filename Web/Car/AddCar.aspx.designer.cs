@@ -94,6 +94,24 @@ namespace yny_003.Web.Car {
         protected global::System.Web.UI.HtmlControls.HtmlInputText CarXSZCode;
         
         /// <summary>
+        /// CarYYZCode 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CarYYZCode;
+        
+        /// <summary>
+        /// CarGTRJ 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CarGTRJ;
+        
+        /// <summary>
         /// CarDW 控件。
         /// </summary>
         /// <remarks>

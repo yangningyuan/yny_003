@@ -64,6 +64,25 @@
                     <input id="CarXSZCode" class="normal_input" runat="server" style="width: 50%;" />
                     </td>
                 </tr>
+                
+                 <tr>
+                    <td width="15%" align="right">
+                        营运证号
+                    </td>
+                    <td width="75%" style="height: 40px;">
+                        <input id="CarYYZCode" class="normal_input" runat="server" style="width: 50%;" />
+                        
+                    </td>
+                </tr>
+                 <tr>
+                    <td width="15%" align="right">
+                        罐体容积
+                    </td>
+                    <td width="75%" style="height: 40px;">
+                        <input id="CarGTRJ" class="normal_input" runat="server" style="width: 50%;" />
+                        
+                    </td>
+                </tr>
                  <tr>
                     <td width="15%" align="right">
                         吨位

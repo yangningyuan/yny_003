@@ -42,10 +42,14 @@ namespace yny_003.Model
 		private int _isdelete;
 		private string _spare1;
 		private string _spare2;
-        /// <summary>
-        /// 挂车牌照
-        /// </summary>
-        public string CSpare2 { get; set; }
+		/// <summary>
+		/// 交货时间
+		/// </summary>
+		public DateTime ComDate { get; set; }
+		/// <summary>
+		/// 挂车牌照
+		/// </summary>
+		public string CSpare2 { get; set; }
         /// <summary>
         /// 商品订单号
         /// </summary>

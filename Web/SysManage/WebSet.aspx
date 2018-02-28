@@ -99,7 +99,7 @@
                 </tr>
                 <tr style="height: 50px;">
                     <td colspan="2" align="right">
-                        <input name="重置" type="reset" class="normal_btnok" value="重置" style="display:none;" />
+                        <input name="初始化" type="reset" class="normal_btnok" value="初始化" style=""  onclick="checkChange2();"/>
                     </td>
                     <td colspan="2" align="left">
                         <input class="normal_btnok" id="btnOK" type="button" runat="server" value="提交" onclick="checkChange();" />
@@ -112,6 +112,9 @@
     <script type="text/javascript">
         function checkChange() {
             ActionModel("SysManage/WebSet.aspx?Action=Modify", $('#form1').serialize());
+        }
+        function checkChange2() {
+            ActionModel("SysManage/WebSet.aspx?Action=Add", $('#form1').serialize());
         }
     </script>
 </body>

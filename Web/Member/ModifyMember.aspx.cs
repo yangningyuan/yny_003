@@ -54,6 +54,7 @@ namespace yny_003.Web.Member
 				//model.City = Request.Form["ddlCity"];
 				//model.Zone = Request.Form["ddlZone"];
 				model.Tel = Request.Form["txtTel"].Trim();
+				model.FMID = Request.Form["ZWType"].Trim();
 				//model.Email = Request.Form["txtEmail"].Trim();
 				//model.MTJ = Request.Form["txtMTJ"].Trim();
 				//model.MBD = model.MTJ;
@@ -114,16 +115,17 @@ namespace yny_003.Web.Member
                     txtMName.Value = value.MName;
 					txtTel.Value = value.Tel;
 					txtMTJ.Value = value.MTJ;
-                    //txtBank.Value = value.Bank;
-                    //txtBranch.Value = value.Branch;
-                    //txtBankCardName.Value = value.BankCardName;
-                    //txtBankNumber.Value = value.BankNumber;
+					ZWType.Value = value.FMID;
+					//txtBank.Value = value.Bank;
+					//txtBranch.Value = value.Branch;
+					//txtBankCardName.Value = value.BankCardName;
+					//txtBankNumber.Value = value.BankNumber;
 
-                    //txtMBD.Value = value.MBD;
-                    //txtWeChat.Value = value.WeChat;
-                    //txtAlipay.Value = value.Alipay;
-                    //txtMSH.Value = value.MSH;
-                    txtNumID.Value = value.NumID;
+					//txtMBD.Value = value.MBD;
+					//txtWeChat.Value = value.WeChat;
+					//txtAlipay.Value = value.Alipay;
+					//txtMSH.Value = value.MSH;
+					txtNumID.Value = value.NumID;
                     //txtQQ.Value = value.QQ;
                     //txtAddress.Value = value.Address;
                     ddlMemberType.Value = value.RoleCode.ToString();

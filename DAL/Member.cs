@@ -850,7 +850,18 @@ namespace yny_003.DAL
                 strSql.Append("delete from [EPJX];");
                 strSql.Append("delete from [Agents];");
 
-                DAL.Configuration.TModel = null;
+				strSql.Append("delete from [C_Car];");
+				strSql.Append("delete from [C_CarTast];");
+				strSql.Append("delete from [C_CostDetalis];");
+				strSql.Append("delete from [C_CostType];");
+				strSql.Append("delete from [C_Error];");
+				strSql.Append("delete from [C_LoanApply];");
+				strSql.Append("delete from [C_Mileage];");
+				strSql.Append("delete from [C_Security];");
+				strSql.Append("delete from [C_Supplier];");
+				strSql.Append("delete from [C_Violation];");
+
+				DAL.Configuration.TModel = null;
                 return DbHelperSQL.ExecuteSql(strSql.ToString()) > 0;
             }
             return false;

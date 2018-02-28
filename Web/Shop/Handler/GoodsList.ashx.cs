@@ -53,7 +53,7 @@ namespace yny_003.Web.Shop.Handler
                 //    sb.Append(List[i].GName + "~");
                 //}
 
-                sb.Append(List[i].CostPrice + "/" + List[i].Unit + "~");
+                //sb.Append(List[i].CostPrice + "/" + List[i].Unit + "~");
                 sb.Append(List[i].SellingCount + "~");
                 if (state == "1")
                 {

@@ -85,6 +85,24 @@ namespace yny_003.Web.Car {
         protected global::System.Web.UI.HtmlControls.HtmlSelect TType;
         
         /// <summary>
+        /// Spare2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Spare2;
+        
+        /// <summary>
+        /// CSpare2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CSpare2;
+        
+        /// <summary>
         /// SupplierName 控件。
         /// </summary>
         /// <remarks>
@@ -121,22 +139,40 @@ namespace yny_003.Web.Car {
         protected global::System.Web.UI.HtmlControls.HtmlInputText SupplierTel;
         
         /// <summary>
-        /// Spare2 控件。
+        /// ComDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Spare2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ComDate;
         
         /// <summary>
-        /// CSpare2 控件。
+        /// txtGood 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CSpare2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect txtGood;
+        
+        /// <summary>
+        /// txtGoodCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtGoodCount;
+        
+        /// <summary>
+        /// txtGoodPrice 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtGoodPrice;
         
         /// <summary>
         /// CarSJ1 控件。

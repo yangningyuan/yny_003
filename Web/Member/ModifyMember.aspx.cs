@@ -71,7 +71,7 @@ namespace yny_003.Web.Member
                 //model.IsClock = Request.Form["chkIsClock"] == "on";
                 //model.AgencyCode = Request.Form["ddlSHMoney"];
                 //model.Address = Request.Form["txtAddress"];
-                //model.NumID = Request.Form["txtNumID"];
+                model.NumID = Request.Form["txtNumID"];
                 //model.Country = Request.Form["txtCountry"];
                 //model.QQ = Request.Form["txtQQ"];
                 if (!string.IsNullOrEmpty(Request.Form["txtPassword"].Trim()))
@@ -123,7 +123,7 @@ namespace yny_003.Web.Member
                     //txtWeChat.Value = value.WeChat;
                     //txtAlipay.Value = value.Alipay;
                     //txtMSH.Value = value.MSH;
-                    //txtNumID.Value = value.NumID;
+                    txtNumID.Value = value.NumID;
                     //txtQQ.Value = value.QQ;
                     //txtAddress.Value = value.Address;
                     ddlMemberType.Value = value.RoleCode.ToString();

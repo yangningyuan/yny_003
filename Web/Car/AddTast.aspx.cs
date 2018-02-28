@@ -37,6 +37,7 @@ namespace yny_003.Web.Car
             c.SupplierTelName = Request.Form["SupplierTelName"];
             c.SupplierTel = Request.Form["SupplierTel"];
             c.Spare2 = Request.Form["Spare2"];
+            c.CSpare2 = Request.Form["CSpare2"];
             c.CarSJ1 = Request.Form["CarSJ1"];
             c.CarSJ2 = Request.Form["CarSJ2"];
             c.CostType = int.Parse(Request.Form["CostType"]);
@@ -64,9 +65,15 @@ namespace yny_003.Web.Car
                 }
                 Model.C_Car car = BLL.C_Car.GetModelByCode(c.Spare2);
                 if (car == null)
-                    return "此车不存在，请正确输入车辆牌照";
+                    return "此牵引车不存在，请正确输入车辆牌照";
                 if (!string.IsNullOrEmpty(car.Spare1))
-                    return "此车任务未完成，请选择别的车辆";
+                    return "此牵引车任务未完成，请选择别的车辆";
+
+                Model.C_Car car2 = BLL.C_Car.GetModelByCode(c.CSpare2);
+                if (car2 == null)
+                    return "此挂车不存在，请正确输入车辆牌照";
+                if (!string.IsNullOrEmpty(car2.Spare1))
+                    return "此挂车任务未完成，请选择别的车辆";
 
                 int tid = BLL.C_CarTast.Add(c);
                 if (tid > 0)
@@ -108,6 +115,7 @@ namespace yny_003.Web.Car
             SupplierTelName.Value = c.SupplierTelName;
             SupplierTel.Value = c.SupplierTel;
             Spare2.Value = c.Spare2.ToString();
+            CSpare2.Value = c.CSpare2.ToString();
             CarSJ1.Value = c.CarSJ1.ToString();
             CarSJ2.Value = c.CarSJ2.ToString();
             CostType.Value = c.CostType.ToString();

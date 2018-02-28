@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -51,7 +52,18 @@ namespace yny_003.Web.mobile.html
 				if (listord2.Sum(m => m.ReCount) <= 0)
 					return "未查询到实际装车/卸车数量，不能完成";
 			}
-			if (BLL.C_CarTast.Update(cartast))
+            Hashtable MyHs = new Hashtable();
+            Model.C_Car c1= BLL.C_Car.GetModelByCode(cartast.Spare2);
+            c1.Spare1 = "";
+            BLL.C_Car.Update(c1, MyHs);
+            Model.C_Car c2 = BLL.C_Car.GetModelByCode(cartast.CSpare2);
+            if (c2 != null)
+            {
+                c2.Spare1 = "";
+                BLL.C_Car.Update(c2, MyHs);
+            }
+            BLL.C_CarTast.Update(cartast, MyHs);
+            if (BLL.CommonBase.RunHashtable(MyHs))
 			{
 				return "结束任务成功";
 			}

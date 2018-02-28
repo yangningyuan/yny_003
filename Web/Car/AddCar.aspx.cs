@@ -29,6 +29,7 @@ namespace yny_003.Web.Car
 			c.Remark = Request.Form["Remark"];
             c.Spare2 = Request.Form["CarYYZCode"];
             c.Spare3 = Request.Form["CarGTRJ"];
+            c.CType = Request.Form["CType"];
 
             if (string.IsNullOrEmpty(Request.Form["fid"]))
 			{
@@ -72,6 +73,7 @@ namespace yny_003.Web.Car
 			Remark.Value = c.Remark;
             CarYYZCode.Value = c.Spare2;
             CarGTRJ.Value = c.Spare3;
+            CType.Value = c.CType.ToString();
 			fid.Value = c.ID.ToString();
 		}
 	}

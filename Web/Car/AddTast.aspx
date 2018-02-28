@@ -87,10 +87,18 @@
                         </td>
                     </tr>
                     <tr>
-                        <td width="15%" align="right">派遣车辆
+                        <td width="15%" align="right">派遣牵引车辆
                         </td>
                         <td width="75%" style="height: 40px;">
                             <input id="Spare2" class="normal_input" runat="server" style="width: 50%;" />
+
+                        </td>
+                    </tr>
+                        <tr>
+                        <td width="15%" align="right">派遣挂车（可空）
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            <input id="CSpare2" class="normal_input" runat="server" style="width: 50%;" />
 
                         </td>
                     </tr>

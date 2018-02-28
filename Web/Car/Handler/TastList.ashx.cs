@@ -25,12 +25,32 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and Name like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
             }
-			if (!string.IsNullOrEmpty(context.Request["coststate"]))
+            if (!string.IsNullOrEmpty(context.Request["SupplierName"]))
+            {
+                strWhere += " and SupplierName like '%" + HttpUtility.UrlDecode(context.Request["SupplierName"]) + "%'";
+            }
+            if (!string.IsNullOrEmpty(context.Request["coststate"]))
 			{
 				strWhere += " and TState='" + context.Request["coststate"] + "' ";
 			}
+            if (!string.IsNullOrEmpty(context.Request["TType"]))
+            {
+                strWhere += " and TType='" + context.Request["TType"] + "' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["CarSJ1"]))
+            {
+                strWhere += " and CarSJ1='" + context.Request["CarSJ1"] + "' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["CarSJ2"]))
+            {
+                strWhere += " and CarSJ2='" + context.Request["CarSJ2"] + "' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["Spare2"]))
+            {
+                strWhere += " and Spare2='" + context.Request["Spare2"] + "' ";
+            }
 
-			int count;
+            int count;
             List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetList(strWhere, pageIndex, pageSize, out count);
 
             StringBuilder sb = new StringBuilder();
@@ -44,9 +64,11 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].SupplierName + "~");
                 sb.Append(ListNotice[i].SupplierTel + "~");
                 sb.Append(ListNotice[i].Spare2 + "~");
+                sb.Append(ListNotice[i].CSpare2 + "~");
                 sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
-				if (ListNotice[i].TState == 0)
+                sb.Append((ListNotice[i].TState.ToString().Replace("0","未完成").Replace("1","已完成").Replace("2","已取消")) + "~");
+                if (ListNotice[i].TState == 0)
 				{
 					sb.Append("<div class=\"pay btn btn-success\" onclick=\"celTast('"+ListNotice[i].ID+"')\">取消任务</div>");
 				}

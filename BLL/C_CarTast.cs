@@ -71,10 +71,17 @@ namespace yny_003.BLL
 			return DAL.C_CarTast.Update(model);
 		}
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public static bool Delete(int ID)
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_003.Model.C_CarTast model,Hashtable MyHs)
+        {
+            return DAL.C_CarTast.Update(model, MyHs);
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			return DAL.C_CarTast.Delete(ID);

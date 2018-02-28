@@ -37,13 +37,17 @@
                             <input id="txtTel" runat="server" class="normal_input" type="text" maxlength="15" />
                         </td>
                     </tr>
-                  
-                    <tr style="display:none;">
-                        <%--<td align="right">身份证号码:
+                  <tr>
+
+                        <td align="right">身份证号码:
                         </td>
                         <td>
                             <input id="txtNumID" runat="server" class="normal_input" type="text" maxlength="18" />
-                        </td>--%>
+                        </td>
+                <td></td><td></td>
+                  </tr>
+                    <tr style="display:none;">
+                      
                         
                         <td align="right">推荐人:
                         </td>

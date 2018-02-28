@@ -42,9 +42,13 @@ namespace yny_003.Model
 		private int _isdelete;
 		private string _spare1;
 		private string _spare2;
-		/// <summary>
-		/// 商品订单号
-		/// </summary>
+        /// <summary>
+        /// 挂车牌照
+        /// </summary>
+        public string CSpare2 { get; set; }
+        /// <summary>
+        /// 商品订单号
+        /// </summary>
         public string OCode { get; set; }
 
 		public DateTime CreateDate { get; set; }

@@ -52,6 +52,7 @@ namespace yny_003.Web.Car.Handler
 				sb.Append("<br/>车架号:" + ListNotice[i].CarCJCode);
                 sb.Append("<br/>营运证号:" + ListNotice[i].Spare2);
                 sb.Append("<br/>罐体容积:" + ListNotice[i].Spare3);
+                sb.Append("<br/>车辆类型:" + ListNotice[i].CType);
                 sb.Append("<br/>保险到期时间:" + ListNotice[i].BXDate);
 				sb.Append("<br/>营运证号到期时间:" + ListNotice[i].YYZDate);
 				sb.Append("<br/>保养到期时间:" + ListNotice[i].BYDate);

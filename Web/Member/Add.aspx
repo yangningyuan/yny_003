@@ -95,7 +95,13 @@
                             <input type="button" value="获取验证码" onclick="sendTelCode()" class="btn btn-success"  style="display:none;"/>
                         </td>
                     </tr>
-                  
+                   <tr>
+                        <td align="right">身份证号码:
+                        </td>
+                        <td>
+                            <input id="txtNumID" name="txtNumID" class="normal_input" type="text" maxlength="18" />
+                        </td>
+                    </tr>
                     <tr>
                         <td align="right">性别:
                         </td>
@@ -107,13 +113,20 @@
                         <td align="right">职务:
                         </td>
                         <td>
-                          <select id="txtRole" name="txtRole">
+                          <select id="txtRole" name="txtRole"  onchange="gradeChange()">
                                 <option value="">职务类型</option>
                                 <%=RoleListStr %>
                             </select>
                         </td>
                     </tr>
-                     
+                      
+                    <tr style="display:none;" id="strzwtype">
+                        <td align="right">职务类型:
+                        </td>
+                        <td>
+                            <input type="radio" name="ZWType" value="1">主司机<input type="radio" name="ZWType" value="2">副司机<input type="radio" name="ZWType" value="3">押运员
+                        </td>
+                    </tr>
                     <tr>
                         <td align="right">登录密码:
                         </td>
@@ -167,6 +180,17 @@
         //    $('#ddlCity').change();
         //    $('#ddlZone')[0].selectedIndex = 1;
         //}, 50);
+        function gradeChange() {
+            var objS = document.getElementById("txtRole");
+            var index = objS.selectedIndex;
+
+            if (objS.options[index].value == "SiJi") {
+                document.getElementById("strzwtype").style.display = "";
+            } else {
+                document.getElementById("strzwtype").style.display = "none";
+            }
+        }
+        
         function sendTelCode() {
             var tel = $.trim($("#txtTel").val());
             if (tel == "") {

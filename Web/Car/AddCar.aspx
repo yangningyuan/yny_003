@@ -21,6 +21,18 @@
                         
                     </td>
                 </tr>
+                <tr>
+                    <td width="15%" align="right">
+                        车辆类型
+                    </td>
+                    <td width="75%" style="height: 40px;">
+                        <select id="CType" runat="server">
+                            <option value="牵引车" selected="selected">牵引车</option>
+                            <option value="挂车">挂车</option>
+                        </select>
+                        
+                    </td>
+                </tr>
                  <tr>
                     <td width="15%" align="right">
                         车型

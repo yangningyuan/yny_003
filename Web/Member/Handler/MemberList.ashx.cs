@@ -115,8 +115,11 @@ namespace yny_003.Web.Handler
                 {
                     sb.Append(ListMember[i].MID + "[" + (BLL.Member.IfOnLine(ListMember[i].MID) ? "<b style='color:#A8FF24;cursor:help;' onclick='OpenTask(\"" + ListMember[i].MID + "\");'>在线</b>" : "离线") + "]" + "~");
                 }
+                string rostr = "";
+                if(!string.IsNullOrEmpty(ListMember[i].FMID))
+                    rostr = ListMember[i].FMID.ToString().Replace("1", "主司机").Replace("2", "副司机").Replace("3", "押运员");
                 sb.Append(ListMember[i].MName + "~");
-                sb.Append(ListMember[i].Role.RName + "~");
+                sb.Append((ListMember[i].Role.RName+(ListMember[i].RoleCode== "SiJi"?"["+ rostr + "]":"")) + "~");
 				sb.Append(ListMember[i].Tel+ "~");
 				sb.Append((ListMember[i].IsClose ? "已锁定" : "未锁定") + "~");
                 //sb.Append((ListMember[i].IsClock ? "已冻结" : "未冻结") + "~");

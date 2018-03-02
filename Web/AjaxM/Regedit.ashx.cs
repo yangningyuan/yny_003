@@ -140,7 +140,7 @@ namespace yny_003.Web.AjaxM
 				Model.Sys_SQ_Answer objAnswer = new Model.Sys_SQ_Answer();
 				objAnswer.MID = model.ID;
 				objAnswer.QId = long.Parse(_context.Request.Form["ddlQuestion"]);
-				objAnswer.Answer = _context.Request.Form["txtAnswer"];
+				objAnswer.Answer = _context.Request.Form["txtMID"];
 				objAnswer.CreatedBy = model.MID;
 				if (new BLL.Sys_SQ_Answer().Insert(objAnswer))
 				{

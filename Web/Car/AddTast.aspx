@@ -43,7 +43,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td width="15%" align="right">任务名称<input runat="server" id="lbID" type="hidden" />
+                        <td width="15%" align="right">任务订单号<input runat="server" id="lbID" type="hidden" />
                         </td>
                         <td width="20%" style="height: 40px;">
                             <input id="Name" class="normal_input" runat="server" style="width: 30%;" />
@@ -64,24 +64,30 @@
                         <td width="15%" align="right">派遣牵引车辆
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="Spare2" class="normal_input" runat="server" style="width: 10%;" />
-
+                            <%--<input id="Spare2" class="normal_input" runat="server" style="width: 10%;" />--%>
+                            <select id="Spare2" runat="server">
+                                
+                            </select>
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">派遣挂车（可空）
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="CSpare2" class="normal_input" runat="server" style="width: 10%;" />
-
+                            <%--<input id="CSpare2" class="normal_input" runat="server" style="width: 10%;" />--%>
+                             <select id="CSpare2" runat="server">
+                                
+                            </select>
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">供应商或客户
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="SupplierName" class="normal_input" runat="server" style="width: 50%;" />
-
+                            <%--<input id="SupplierName" class="normal_input" runat="server" style="width: 50%;" />--%>
+                            <select id="SupplierName" runat="server">
+                                
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -151,7 +157,9 @@
                         <td width="15%" align="right">主驾驶
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <input id="CarSJ1" class="normal_input" runat="server" style="width: 10%;"  oninput="setViewSiJi1($('#CarSJ1').val());" />
+                            <%--<input id="CarSJ1" class="normal_input" runat="server" style="width: 10%;"  oninput="setViewSiJi1($('#CarSJ1').val());" />--%>
+                            <select id="CarSJ1" runat="server">
+                            </select>
                             <span id="sjview1"></span>
                         </td>
                     </tr>
@@ -159,7 +167,9 @@
                         <td align="right">副驾驶
                         </td>
                         <td style="padding: 15px;">
-                            <input id="CarSJ2" class="normal_input" runat="server" style="width: 10%;"  onblur="setViewSiJi2($('#CarSJ2').val());"  />
+                            <%--<input id="CarSJ2" class="normal_input" runat="server" style="width: 10%;"  onblur="setViewSiJi2($('#CarSJ2').val());"  />--%>
+                             <select id="CarSJ2" runat="server">
+                            </select>
                             <span id="sjview2"></span>
                         </td>
                     </tr>

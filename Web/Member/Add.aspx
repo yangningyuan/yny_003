@@ -144,7 +144,7 @@
                     </tr>
               
                
-                    <tr>
+                    <tr style="display:none;">
                         <td align="right">密保问题:
                         </td>
                         <td>
@@ -152,11 +152,11 @@
                             </select>
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="display:none;">
                         <td align="right">密保答案:
                         </td>
                         <td>
-                            <input id="txtAnswer" name="txtAnswer" type="text" /><span class="dotted">*</span>
+                            <input id="txtAnswer" name="txtAnswer" value="" type="text" /><span class="dotted">*</span>
                         </td>
                     </tr>
                     <tr style="height: 50px;">
@@ -220,8 +220,8 @@
             } else if (!$('#txtPassword').val().TryPassword()) {
                 v5.error('登录密码不能为空，且必须为6-20位字母或数字组合', '1', 'true');
           
-            } else if ($('#txtAnswer').val() == "") {
-                v5.error('密保答案用于找回密码，不能为空', '1', 'true');
+            //} else if ($('#txtAnswer').val() == "") {
+            //    v5.error('密保答案用于找回密码，不能为空', '1', 'true');
             //} else if ($('#txtSecPsd').val() != $('#txtSecPsd2').val()) {
             //    v5.error('资金密码与确认资金密码不一样', '1', 'true');
             //} else if ($('#txtPassword').val() == $('#txtSecPsd').val()) {

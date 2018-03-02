@@ -63,6 +63,9 @@
             </div>
             <%--<div id="Div1" runat="server" class="pay" onclick="UpDateByIDOrEmpty('Member/SMSSend.aspx?','发送短信',820,530)">
                 发送短信</div>--%>
+            <div id="Div1" runat="server" class="pay" onclick="UpDateByID('Member/Add.aspx','新增人员',820,530)">
+                新增人员
+            </div>
             <div id="editMember" runat="server" class="pay" onclick="UpDateByID('Member/ModifyMember.aspx?','修改会员',820,530)">
                 修改会员
             </div>

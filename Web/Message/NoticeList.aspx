@@ -20,9 +20,9 @@
                             已作废</a>
             </div>
             <div class="pay" onclick="UpDateByID('Message/NoticeModify.aspx?','修改公告',900,470);">
-                修改公告</div>
+                修改安全教育</div>
             <div class="pay" onclick="v5.show('Message/NoticeAdd.aspx','发布公告','url',900,470)">
-                发布公告</div>
+                发布安全教育</div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
                     id="nTitle" name="txtKey" data-name="txtKey" value="请输入标题" onfocus="if (value =='请输入标题'){value =''}"

@@ -91,7 +91,7 @@ namespace yny_003.Web.Car {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Spare2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Spare2;
         
         /// <summary>
         /// CSpare2 控件。
@@ -100,7 +100,7 @@ namespace yny_003.Web.Car {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CSpare2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CSpare2;
         
         /// <summary>
         /// SupplierName 控件。
@@ -109,7 +109,7 @@ namespace yny_003.Web.Car {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText SupplierName;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect SupplierName;
         
         /// <summary>
         /// SupplierAddress 控件。
@@ -181,7 +181,7 @@ namespace yny_003.Web.Car {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CarSJ1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CarSJ1;
         
         /// <summary>
         /// CarSJ2 控件。
@@ -190,7 +190,7 @@ namespace yny_003.Web.Car {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CarSJ2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CarSJ2;
         
         /// <summary>
         /// CostType 控件。

@@ -27,7 +27,7 @@ namespace yny_003.Web.Car.Handler
             }
             if (!string.IsNullOrEmpty(context.Request["SupplierName"]))
             {
-                strWhere += " and SupplierName like '%" + HttpUtility.UrlDecode(context.Request["SupplierName"]) + "%'";
+                strWhere += " and SupplierName in (select ID from C_Supplier where Name like '%" + context.Request["SupplierName"] + "%')";
             }
             if (!string.IsNullOrEmpty(context.Request["coststate"]))
 			{
@@ -61,17 +61,18 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].Name + "~");
                 sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
                 //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
-                sb.Append(ListNotice[i].SupplierName + "~");
+                sb.Append(BLL.C_Supplier.GetModel(Convert.ToInt32(ListNotice[i].SupplierName)).Name + "~");
                 sb.Append(ListNotice[i].SupplierTel + "~");
                 sb.Append(ListNotice[i].Spare2 + "~");
                 sb.Append(ListNotice[i].CSpare2 + "~");
-                sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
+                //sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
 				sb.Append((ListNotice[i].ComDate) + "~");
 				sb.Append((ListNotice[i].TState.ToString().Replace("0","未完成").Replace("1","已完成").Replace("2","已取消")) + "~");
                 if (ListNotice[i].TState == 0)
 				{
 					sb.Append("<div class=\"pay btn btn-success\" onclick=\"celTast('"+ListNotice[i].ID+"')\">取消任务</div>");
+					//sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");
 				}
 
 

@@ -90,11 +90,11 @@
                     </th>
                     <th>序号
                     </th>
-                    <th>会员账号
+                    <th>账号
                     </th>
-                    <th>会员姓名
+                    <th>姓名
                     </th>
-                    <th>会员类型
+                    <th>人员类型
                     </th>
                  <th>联系电话
                     </th>
@@ -107,8 +107,8 @@
                    
                     <th>注册日期
                     </th>
-                    <th>操作
-                    </th>
+                  <%--  <th>操作
+                    </th>--%>
                 </tr>
             </table>
             <div class="ui_table_control">

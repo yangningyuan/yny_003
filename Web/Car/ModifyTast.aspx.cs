@@ -8,10 +8,8 @@ using System.Web.UI.WebControls;
 
 namespace yny_003.Web.Car
 {
-	public partial class AddTast : BasePage
+	public partial class ModifyTast : BasePage
 	{
-		//public object HashTable { get; private set; }
-
 		protected override void SetPowerZone()
 		{
 			//CostType.DataSource = BLL.C_CostType.GetList(" 1 = 1  order by ID");
@@ -60,15 +58,17 @@ namespace yny_003.Web.Car
 			CarSJ2.DataTextField = "MID";
 			CarSJ2.DataValueField = "MID";
 			CarSJ2.DataBind();
-			Name.Value = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
+			binddata(Request.QueryString["id"]);
+
 			if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
 			{
 				ocode.Value = Request.QueryString["oid"];
 				oid.Value = Request.QueryString["oid"];
 
 			}
-			else { 
-			
+			else {
+
 			}
 			//ocode.Disabled = true;
 		}
@@ -88,7 +88,7 @@ namespace yny_003.Web.Car
 			else {
 				c.SupplierName = Request.Form["SupplierName3"];
 			}
-			
+
 			c.SupplierAddress = Request.Form["SupplierAddress"];
 			c.SupplierTelName = Request.Form["SupplierTelName"];
 			c.SupplierTel = Request.Form["SupplierTel"];
@@ -104,17 +104,16 @@ namespace yny_003.Web.Car
 
 			#region 司机车辆验证
 			Model.C_Car car = BLL.C_Car.GetModelByCode(c.Spare2);
-			Model.C_Car car2 = null;
 			if (car == null)
 				return "此牵引车不存在，请正确输入车辆牌照";
-			if (!string.IsNullOrEmpty(car.Spare1))
+			if (!string.IsNullOrEmpty(car.Spare1)&&car.ID!=c.ID)
 				return "此牵引车任务未完成，请选择别的车辆";
 			if (!string.IsNullOrEmpty(c.CSpare2))
 			{
-				 car2= BLL.C_Car.GetModelByCode(c.CSpare2);
+				Model.C_Car car2 = BLL.C_Car.GetModelByCode(c.CSpare2);
 				if (car2 == null)
 					return "此挂车不存在，请正确输入车辆牌照";
-				if (!string.IsNullOrEmpty(car2.Spare1))
+				if (!string.IsNullOrEmpty(car2.Spare1) && car.ID != c.ID)
 					return "此挂车任务未完成，请选择别的车辆";
 			}
 
@@ -136,131 +135,21 @@ namespace yny_003.Web.Car
 				return "副司机不存在";
 			#endregion
 
-			if (string.IsNullOrEmpty(Request.Form["fid"]))
+
+			c.ID = int.Parse(Request.Form["fid"]);
+
+			if (BLL.C_CarTast.Update(c))
 			{
-				//if (string.IsNullOrEmpty(Request.Form["oid"]))
-				//{
-				//	c.OCode = "";
-				//}
-				//else {
-				//	c.OCode = Request.Form["oid"];
-				//}
-				Hashtable MyHs = new Hashtable();
-
-				#region 生成商品订单
-				string code = "";
-				string goodid = Request.Form["txtGood"];
-				Model.Goods go = BLL.Goods.GetModel(goodid);
-				if (go == null)
-					return "此商品找不到";
-
-				if (!string.IsNullOrEmpty(goodid))
-				{
-					int goodcount = 0;
-					decimal goodprice = 0;
-					try
-					{
-						goodcount = Convert.ToInt32(Request.Form["txtGoodCount"]);
-						goodprice = Convert.ToDecimal(Request.Form["txtGoodPrice"]);
-					}
-					catch (Exception e)
-					{
-						return e.Message;
-					}
-					//先生成订单主表
-					Model.Order order = new Model.Order();
-					DateTime dt = DateTime.Now;
-					code = dt.ToString("yyyyMMddHHmmssfff");// dt.Year.ToString() + dt.Month.ToString() + dt.Day.ToString() + dt.Hour.ToString() + dt.Minute.ToString() + dt.Second.ToString() + dt.Millisecond.ToString();
-					order.Code = code;
-					order.ReceiveId = 0;
-					order.CreatedBy = TModel.MID;
-					order.CreatedTime = DateTime.Now;
-					//order.GoodCount
-					int count = goodcount; decimal totalMoney = goodcount * goodprice;
-					string error = string.Empty;
-
-					//生成订单明细表
-					Model.OrderDetail od = new Model.OrderDetail();
-					od.BuyPrice = goodprice;
-					od.Code = GetGuid();
-					od.CreatedBy = TModel.MID;
-					od.CreatedTime = DateTime.Now;
-					od.GCount = count;
-					od.GId = Convert.ToInt32(goodid);
-					//查看库存数量是否足够，不够的话暂时不能提交订单
-
-					if (go.SellingCount < od.GCount)
-					{
-						error += "商品：" + go.GName + "库存不足，请联系管理员";
-					}
-					//go.SelledCount = go.SelledCount + od.GCount;//完成订单时候加减库存
-					//go.SellingCount = go.SellingCount - od.GCount;
-					//BLL.Goods.Update(go, hs);
-
-					od.IsDeleted = false;
-					od.OrderCode = order.Code;
-					od.Status = 1;
-					od.TotalMoney = od.GCount * od.BuyPrice;
-					totalMoney += od.TotalMoney;
-					BLL.OrderDetail.Insert(od, MyHs);
-
-					order.GoodCount = count;
-					order.IsDeleted = false;
-					order.MID = c.SupplierName;
-					order.OrderTime = DateTime.Now;
-					order.TotalPrice = totalMoney;
-					order.DisCountTotalPrice = order.TotalPrice;// * BLL.Configuration.Model.E_GWDiscount;
-
-					order.ExpressCompany = c.Name;
-					order.Status = 2;
-					c.OCode = order.Code;
-					BLL.Order.Insert(order, MyHs);
-
-					if (!string.IsNullOrEmpty(error))
-					{
-						return error;
-					}
-				}
-
-				#endregion
-
-				int tid = BLL.C_CarTast.Add(c);
-				if (tid > 0)
-				{
-					car.Spare1 = tid.ToString();
-					BLL.C_Car.Update(car, MyHs);
-					if (car2 != null)
-					{
-						car.Spare1 = tid.ToString();
-						BLL.C_Car.Update(car2, MyHs);
-					}
-				}
-				else {
-					return "任务添加失败";
-				}
-				if (BLL.CommonBase.RunHashtable(MyHs))
-				{
-					return "添加成功";
-				}
-				else {
-					return "添加失败";
-				}
+				return "修改成功";
 			}
 			else {
-				c.ID = int.Parse(Request.Form["fid"]);
-
-				if (BLL.C_CarTast.Update(c))
-				{
-					return "修改成功";
-				}
-				else {
-					return "修改失败";
-				}
+				return "修改失败";
 			}
+
 		}
 
 
-		protected override void SetValue(string id)
+		protected void binddata(string id)
 		{
 			Model.C_CarTast c = BLL.C_CarTast.GetModel(int.Parse(id));
 			Name.Value = c.Name;

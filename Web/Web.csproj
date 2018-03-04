@@ -252,6 +252,7 @@
     <Content Include="Car\CarList.aspx" />
     <Content Include="Car\CostList.aspx" />
     <Content Include="Car\LoanApplyList.aspx" />
+    <Content Include="Car\ModifyTast.aspx" />
     <Content Include="Car\SupplierList.aspx" />
     <Content Include="Car\TastList.aspx" />
     <Content Include="login\css\bootstrap.css" />
@@ -1481,6 +1482,13 @@
     </Compile>
     <Compile Include="Car\LoanApplyList.aspx.designer.cs">
       <DependentUpon>LoanApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\ModifyTast.aspx.cs">
+      <DependentUpon>ModifyTast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\ModifyTast.aspx.designer.cs">
+      <DependentUpon>ModifyTast.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\SupplierList.aspx.cs">
       <DependentUpon>SupplierList.aspx</DependentUpon>

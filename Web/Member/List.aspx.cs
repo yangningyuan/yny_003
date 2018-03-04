@@ -28,5 +28,25 @@ namespace yny_003.Web.Member
             //    NAgencyListStr += "<option value='" + item.NType + "'>" + item.NName + "</option>";
             OnLineCount = BLL.Member.OnLineCount;
         }
-    }
+		protected override string btnAdd_Click()
+		{
+			try
+			{
+				string req = Request.Form["id"];
+				Model.C_Supplier cc= BLL.C_Supplier.GetModel(int.Parse(req));
+				if (cc != null)
+				{
+					return cc.Address + "^" + cc.TelName + "^" + cc.Tel;
+				}
+				else {
+					return "-1";
+				}
+			}
+			catch (Exception e)
+			{
+				return "-1";
+			}
+			
+		}
+	}
 }

@@ -36,7 +36,7 @@
                                 <option value="3">空车</option>
                             </select>
                         
-            <div class="pay" onclick="UpDateByID('Car/AddTast.aspx?','修改任务',900,470);">
+            <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
             <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
@@ -71,8 +71,8 @@
                     </th>
                      <th>派遣挂车
                     </th>
-                    <th>费用类型
-                    </th>
+                    <%--<th>费用类型
+                    </th>--%>
                     <th>创建日期
                     </th>
                     <th>交货日期

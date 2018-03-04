@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddTast.aspx.cs" Inherits="yny_003.Web.Car.AddTast" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModifyTast.aspx.cs" Inherits="yny_003.Web.Car.ModifyTast" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,7 +46,7 @@
                         <td width="15%" align="right">任务订单号<input runat="server" id="lbID" type="hidden" />
                         </td>
                         <td width="20%" style="height: 40px;">
-                            <input id="Name" class="normal_input" readonly="readonly" runat="server" style="width: 30%;" />
+                            <input id="Name" class="normal_input" runat="server" readonly="readonly" style="width: 30%;" />
                         </td>
                     </tr>
                     <tr>

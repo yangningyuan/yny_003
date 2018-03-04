@@ -164,5 +164,7 @@ namespace yny_003.Web.Member
             return error;
         }
 
-    }
+		
+
+	}
 }

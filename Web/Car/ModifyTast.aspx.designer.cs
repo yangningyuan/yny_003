@@ -10,7 +10,7 @@
 namespace yny_003.Web.Car {
     
     
-    public partial class AddTast {
+    public partial class ModifyTast {
         
         /// <summary>
         /// Head1 控件。

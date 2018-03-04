@@ -16,13 +16,18 @@ namespace yny_003.Web.mobile.html
 		protected int isnotice = 0;
         protected override void SetPowerZone()
         {
-			if (Convert.ToDateTime(TModel.ValidTime).ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))//当天第一次登陆
+			notice = BLL.Notice.GetTopNotice();
+			if (Convert.ToDateTime(TModel.ValidTime).ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd") && notice != null)//当天第一次登陆
 			{
-				isnotice = 1;
-				BLL.CommonBase.GetSingle(string.Format("update member set validtime='{0}' where mid='{1}'",DateTime.Now,TModel.MID));
+				isnotice2.Value = "1";
+				BLL.CommonBase.GetSingle(string.Format("update member set validtime='{0}' where mid='{1}'", DateTime.Now, TModel.MID));
+				noticeid3.Value = notice.ID.ToString();
+			}
+			else {
+				isnotice2.Value = "0";
 			}
 
-			notice = BLL.Notice.GetTopNotice();
+			
             
         }
 

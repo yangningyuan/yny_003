@@ -157,11 +157,11 @@ namespace yny_003.Web.Car
 
 				if (!string.IsNullOrEmpty(goodid))
 				{
-					int goodcount = 0;
+					decimal goodcount = 0;
 					decimal goodprice = 0;
 					try
 					{
-						goodcount = Convert.ToInt32(Request.Form["txtGoodCount"]);
+						goodcount = Convert.ToDecimal(Request.Form["txtGoodCount"]);
 						goodprice = Convert.ToDecimal(Request.Form["txtGoodPrice"]);
 					}
 					catch (Exception e)
@@ -177,7 +177,7 @@ namespace yny_003.Web.Car
 					order.CreatedBy = TModel.MID;
 					order.CreatedTime = DateTime.Now;
 					//order.GoodCount
-					int count = goodcount; decimal totalMoney = goodcount * goodprice;
+					decimal count = goodcount; decimal totalMoney = goodcount * goodprice;
 					string error = string.Empty;
 
 					//生成订单明细表

@@ -14,18 +14,19 @@ namespace yny_003.Web.Car
 
 		protected override void SetPowerZone()
 		{
-			//CostType.DataSource = BLL.C_CostType.GetList(" 1 = 1  order by ID");
-			//CostType.DataTextField = "Name";
-			//CostType.DataValueField = "ID";
-			//CostType.DataBind();
+            //CostType.DataSource = BLL.C_CostType.GetList(" 1 = 1  order by ID");
+            //CostType.DataTextField = "Name";
+            //CostType.DataValueField = "ID";
+            //CostType.DataBind();
 
-
-			txtGood.DataSource = BLL.Goods.GetList(" IsDeleted = 0 order by GID");
+           
+            txtGood.DataSource = BLL.Goods.GetList(" IsDeleted = 0 order by GID");
 			txtGood.DataTextField = "GName";
 			txtGood.DataValueField = "GID";
 			txtGood.DataBind();
+            txtGood.Items.Insert(0, "--请选择--");
 
-			Spare2.DataSource = BLL.C_Car.GetList(" IsDelete = 0 and CType='牵引车' order by ID");
+            Spare2.DataSource = BLL.C_Car.GetList(" IsDelete = 0 and CType='牵引车' order by ID");
 			Spare2.DataTextField = "PZCode";
 			Spare2.DataValueField = "PZCode";
 			Spare2.DataBind();
@@ -107,15 +108,15 @@ namespace yny_003.Web.Car
 			Model.C_Car car2 = null;
 			if (car == null)
 				return "此牵引车不存在，请正确输入车辆牌照";
-			if (!string.IsNullOrEmpty(car.Spare1))
-				return "此牵引车任务未完成，请选择别的车辆";
+			//if (!string.IsNullOrEmpty(car.Spare1))
+			//	return "此牵引车任务未完成，请选择别的车辆";
 			if (!string.IsNullOrEmpty(c.CSpare2))
 			{
 				 car2= BLL.C_Car.GetModelByCode(c.CSpare2);
 				if (car2 == null)
 					return "此挂车不存在，请正确输入车辆牌照";
-				if (!string.IsNullOrEmpty(car2.Spare1))
-					return "此挂车任务未完成，请选择别的车辆";
+				//if (!string.IsNullOrEmpty(car2.Spare1))
+				//	return "此挂车任务未完成，请选择别的车辆";
 			}
 
 			Model.Member siji1 = BLL.Member.GetModelByMID(c.CarSJ1);

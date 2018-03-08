@@ -48,5 +48,26 @@ namespace yny_003.Web.Member
 			}
 			
 		}
-	}
+
+        protected override string btnModify_Click()
+        {
+            try
+            {
+                string req = Request.Form["gid"];
+                Model.Goods cc = BLL.Goods.GetModel(int.Parse(req));
+                if (cc != null)
+                {
+                    return cc.Unit;
+                }
+                else {
+                    return "-1";
+                }
+            }
+            catch (Exception e)
+            {
+                return "-1";
+            }
+        }
+        
+    }
 }

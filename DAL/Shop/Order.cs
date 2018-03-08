@@ -80,7 +80,7 @@ namespace yny_003.DAL
                         new SqlParameter("@ExpressCode", SqlDbType.VarChar,50) ,
                         new SqlParameter("@Code", SqlDbType.VarChar,50) ,
                         new SqlParameter("@TotalPrice", SqlDbType.Decimal,9) ,
-                        new SqlParameter("@GoodCount", SqlDbType.Int,4) ,
+                        new SqlParameter("@GoodCount", SqlDbType.Decimal,9) ,
                         new SqlParameter("@OrderTime", SqlDbType.DateTime) ,
                         new SqlParameter("@MID", SqlDbType.VarChar,50) ,
                         new SqlParameter("@PayTime", SqlDbType.DateTime) ,
@@ -164,7 +164,7 @@ namespace yny_003.DAL
                         new SqlParameter("@ExpressCode", SqlDbType.VarChar,50) ,
                         new SqlParameter("@Code", SqlDbType.VarChar,50) ,
                         new SqlParameter("@TotalPrice", SqlDbType.Decimal,9) ,
-                        new SqlParameter("@GoodCount", SqlDbType.Int,4) ,
+                        new SqlParameter("@GoodCount", SqlDbType.Decimal,9) ,
                         new SqlParameter("@OrderTime", SqlDbType.DateTime) ,
                         new SqlParameter("@MID", SqlDbType.VarChar,50) ,
                         new SqlParameter("@PayTime", SqlDbType.DateTime) ,
@@ -363,7 +363,7 @@ namespace yny_003.DAL
                 }
                 if (!string.IsNullOrEmpty(dr["GoodCount"].ToString()))
                 {
-                    model.GoodCount = int.Parse(dr["GoodCount"].ToString());
+                    model.GoodCount = decimal.Parse(dr["GoodCount"].ToString());
                 }
                 if (!string.IsNullOrEmpty(dr["OrderTime"].ToString()))
                 {

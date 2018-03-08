@@ -36,7 +36,7 @@ namespace yny_003.Web.Shop
 
         }
 
-        protected int GetOrderDetailCount(object gid)
+        protected decimal GetOrderDetailCount(object gid)
         {
             Model.Order objOrder = (Model.Order)ViewState["OrderInfo"];
             if (objOrder != null)

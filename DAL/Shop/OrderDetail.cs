@@ -54,12 +54,12 @@ namespace yny_003.DAL
                         new SqlParameter("@Code", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@OrderCode", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@GId", SqlDbType.Int,4) ,            
-                        new SqlParameter("@GCount", SqlDbType.Int,4) ,            
+                        new SqlParameter("@GCount", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@BuyPrice", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@TotalMoney", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@CreatedTime", SqlDbType.DateTime) ,            
                         new SqlParameter("@CreatedBy", SqlDbType.VarChar,50) ,
-						new SqlParameter("@ReCount", SqlDbType.Int,4) 
+						new SqlParameter("@ReCount", SqlDbType.Decimal,9) 
 			};
 
             parameters[0].Value = model.IsDeleted;
@@ -114,13 +114,13 @@ namespace yny_003.DAL
                         new SqlParameter("@Code", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@OrderCode", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@GId", SqlDbType.Int,4) ,            
-                        new SqlParameter("@GCount", SqlDbType.Int,4) ,            
+                        new SqlParameter("@GCount", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@BuyPrice", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@TotalMoney", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@CreatedTime", SqlDbType.DateTime) ,            
                         new SqlParameter("@CreatedBy", SqlDbType.VarChar,50),
-			  new SqlParameter("@ReCount", SqlDbType.Int,4),
-			  new SqlParameter("@id", SqlDbType.Int,4)
+			  new SqlParameter("@ReCount",SqlDbType.Decimal,9) ,
+              new SqlParameter("@id", SqlDbType.Int,4)
 			};
 
             parameters[0].Value = model.IsDeleted;
@@ -287,7 +287,7 @@ namespace yny_003.DAL
                 }
                 if (!string.IsNullOrEmpty(dr["GCount"].ToString()))
                 {
-                    model.GCount = int.Parse(dr["GCount"].ToString());
+                    model.GCount = decimal.Parse(dr["GCount"].ToString());
                 }
                 if (!string.IsNullOrEmpty(dr["BuyPrice"].ToString()))
                 {
@@ -304,7 +304,7 @@ namespace yny_003.DAL
                 model.CreatedBy = dr["CreatedBy"].ToString();
 				if (!string.IsNullOrEmpty(dr["ReCount"].ToString()))
 				{
-					model.ReCount = int.Parse(dr["ReCount"].ToString());
+					model.ReCount = decimal.Parse(dr["ReCount"].ToString());
 				}
 				return model;
             }

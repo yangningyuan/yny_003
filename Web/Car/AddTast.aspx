@@ -150,8 +150,8 @@
                         <td width="15%" align="right">选择货物商品
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <select id="txtGood" runat="server">
-                            </select>
+                            <select id="txtGood" runat="server"  onchange="getgooddanwei(this[selectedIndex].value)">
+                            </select><span id="gooddanwei"></span>
                         </td>
                     </tr>
                     <tr>
@@ -301,35 +301,48 @@
                 });
             }
 
-            function checkChange() {
-                //if ($('#txtName').val() == '') {
-                //    v5.error('经费项目名称不能为空', '1', 'ture');
-                //} else {
-                ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "Car/TastList.aspx");
-                //}
-            }
-            function setViewSiJi1(realobj) {
+            function getgooddanwei(gid)
+            {
                 $.ajax({
                     type: 'post',
-                    url: 'Car/AddTast.aspx?Action=Add',
-                    data: $('#form1').serialize(),
+                    url: 'member/list.aspx?Action=modify',
+                    data: { "gid": gid },
                     success: function (info) {
-                        document.getElementById("sjview1").innerHTML = info;
+                        //$("#gooddanwei").val(info);
+                        document.getElementById("gooddanwei").innerHTML = info;
                     }
                 });
-            
             }
-            function setViewSiJi2(realobj) {
-                $.ajax({
-                    type: 'post',
-                    url: 'Car/AddTast.aspx?Action=Other',
-                    data: $('#form1').serialize(),
-                    success: function (info) {
-                        document.getElementById("sjview2").innerHTML = info;
-                    }
-                });
 
-            }
+                function checkChange() {
+                    //if ($('#txtName').val() == '') {
+                    //    v5.error('经费项目名称不能为空', '1', 'ture');
+                    //} else {
+                    ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "Car/TastList.aspx");
+                    //}
+                }
+                function setViewSiJi1(realobj) {
+                    $.ajax({
+                        type: 'post',
+                        url: 'Car/AddTast.aspx?Action=Add',
+                        data: $('#form1').serialize(),
+                        success: function (info) {
+                            document.getElementById("sjview1").innerHTML = info;
+                        }
+                    });
+            
+                }
+                function setViewSiJi2(realobj) {
+                    $.ajax({
+                        type: 'post',
+                        url: 'Car/AddTast.aspx?Action=Other',
+                        data: $('#form1').serialize(),
+                        success: function (info) {
+                            document.getElementById("sjview2").innerHTML = info;
+                        }
+                    });
+
+                }
     </script>
 </body>
 </html>

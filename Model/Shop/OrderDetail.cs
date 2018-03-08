@@ -47,8 +47,8 @@ namespace yny_003.Model
         /// <summary>
         /// GCount
         /// </summary>		
-        private int _gcount;
-        public int GCount
+        private decimal _gcount;
+        public decimal GCount
         {
             get { return _gcount; }
             set { _gcount = value; }
@@ -110,7 +110,7 @@ namespace yny_003.Model
 		/// <summary>
 		/// 实际装车或卸车数量
 		/// </summary>
-		public int ReCount { get; set; }
+		public decimal ReCount { get; set; }
 
 	}
 }

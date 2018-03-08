@@ -53,8 +53,8 @@ namespace yny_003.DAL
 			            new SqlParameter("@GroupPrice", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@GroupPV", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@ImageAddr", SqlDbType.VarChar,255) ,            
-                        new SqlParameter("@SelledCount", SqlDbType.Int,4) ,            
-                        new SqlParameter("@SellingCount", SqlDbType.Int,4) ,            
+                        new SqlParameter("@SelledCount", SqlDbType.Decimal,9) ,            
+                        new SqlParameter("@SellingCount", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@Unit", SqlDbType.VarChar,10) ,            
                         new SqlParameter("@IsDeleted", SqlDbType.Bit,1) ,            
                         new SqlParameter("@Status", SqlDbType.Int,4) ,            
@@ -134,8 +134,8 @@ namespace yny_003.DAL
                         new SqlParameter("@GroupPrice", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@GroupPV", SqlDbType.Decimal,9) ,            
                         new SqlParameter("@ImageAddr", SqlDbType.VarChar,255) ,            
-                        new SqlParameter("@SelledCount", SqlDbType.Int,4) ,            
-                        new SqlParameter("@SellingCount", SqlDbType.Int,4) ,            
+                        new SqlParameter("@SelledCount", SqlDbType.Decimal,9) ,
+                        new SqlParameter("@SellingCount", SqlDbType.Decimal,9) ,
                         new SqlParameter("@Unit", SqlDbType.VarChar,10) ,            
                         new SqlParameter("@IsDeleted", SqlDbType.Bit,1) ,            
                         new SqlParameter("@Status", SqlDbType.Int,4) ,            
@@ -317,11 +317,11 @@ namespace yny_003.DAL
 
                 if (!string.IsNullOrEmpty(dr["SelledCount"].ToString()))
                 {
-                    model.SelledCount = int.Parse(dr["SelledCount"].ToString());
+                    model.SelledCount = decimal.Parse(dr["SelledCount"].ToString());
                 }
                 if (!string.IsNullOrEmpty(dr["SellingCount"].ToString()))
                 {
-                    model.SellingCount = int.Parse(dr["SellingCount"].ToString());
+                    model.SellingCount = decimal.Parse(dr["SellingCount"].ToString());
                 }
                 model.Unit = dr["Unit"].ToString();
                 if (!string.IsNullOrEmpty(dr["IsDeleted"].ToString()))

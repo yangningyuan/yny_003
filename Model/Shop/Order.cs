@@ -55,8 +55,8 @@ namespace yny_003.Model
 		/// <summary>
 		/// GoodCount
 		/// </summary>		
-		private int _goodcount;
-		public int GoodCount
+		private decimal _goodcount;
+		public decimal GoodCount
 		{
 			get { return _goodcount; }
 			set { _goodcount = value; }

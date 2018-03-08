@@ -106,15 +106,15 @@ namespace yny_003.Web.Car
 			Model.C_Car car = BLL.C_Car.GetModelByCode(c.Spare2);
 			if (car == null)
 				return "此牵引车不存在，请正确输入车辆牌照";
-			if (!string.IsNullOrEmpty(car.Spare1)&&car.ID!=c.ID)
-				return "此牵引车任务未完成，请选择别的车辆";
+			//if (!string.IsNullOrEmpty(car.Spare1)&&car.ID!=c.ID)
+			//	return "此牵引车任务未完成，请选择别的车辆";
 			if (!string.IsNullOrEmpty(c.CSpare2))
 			{
 				Model.C_Car car2 = BLL.C_Car.GetModelByCode(c.CSpare2);
 				if (car2 == null)
 					return "此挂车不存在，请正确输入车辆牌照";
-				if (!string.IsNullOrEmpty(car2.Spare1) && car.ID != c.ID)
-					return "此挂车任务未完成，请选择别的车辆";
+				//if (!string.IsNullOrEmpty(car2.Spare1) && car.ID != c.ID)
+				//	return "此挂车任务未完成，请选择别的车辆";
 			}
 
 			Model.Member siji1 = BLL.Member.GetModelByMID(c.CarSJ1);

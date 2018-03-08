@@ -26,11 +26,11 @@ namespace yny_003.Model
         /// <summary>
         /// 已售出数量
         /// </summary>
-        public int SelledCount { get; set; }//已发货数量
+        public decimal SelledCount { get; set; }//已发货数量
         /// <summary>
         /// 库存数量
         /// </summary>
-        public int SellingCount { get; set; }//
+        public decimal SellingCount { get; set; }//
         public bool IsDeleted { get; set; }//是否已删除
         public int Status { get; set; }//状态
         public string Remark { get; set; }//备注说明

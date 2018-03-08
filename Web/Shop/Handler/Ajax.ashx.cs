@@ -197,7 +197,7 @@ namespace yny_003.Web.Shop.Handler
                     order.CreatedBy = TModel.MID;
                     order.CreatedTime = DateTime.Now;
                     //order.GoodCount
-                    int count = 0; decimal totalMoney = 0;
+                    decimal count = 0; decimal totalMoney = 0;
                     string error = string.Empty;
                     foreach (string str in array)
                     {

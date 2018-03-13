@@ -190,10 +190,10 @@ namespace yny_003.Web.Car
 					od.GId = Convert.ToInt32(goodid);
 					//查看库存数量是否足够，不够的话暂时不能提交订单
 
-					if (go.SellingCount < od.GCount)
-					{
-						error += "商品：" + go.GName + "库存不足，请联系管理员";
-					}
+					//if (go.SellingCount < od.GCount)
+					//{
+					//	error += "商品：" + go.GName + "库存不足，请联系管理员";
+					//}
 					//go.SelledCount = go.SelledCount + od.GCount;//完成订单时候加减库存
 					//go.SellingCount = go.SellingCount - od.GCount;
 					//BLL.Goods.Update(go, hs);

@@ -44,7 +44,7 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-                <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务名称" type="text" class="sinput" />
+                <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务名称" type="text" class="sinput" style="display:none;" />
                 <input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入单位名称" type="text" class="sinput" />
 
                 <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
@@ -59,17 +59,24 @@
                     </th>
                     <th>序号
                     </th>
-                    <th>任务名称
-                    </th>
+                   <%-- <th>任务名称
+                    </th>--%>
                     <th>任务类型
                     </th>
-                    <th>供应商或客户
+                    <th>单位名称
                     </th>
                     <th>联系电话
                     </th>
+                   
                     <th>派遣车辆
                     </th>
                      <th>派遣挂车
+                    </th>
+                     <th>商品
+                    </th>
+                    <th>下单数量
+                    </th>
+                    <th>实际数量
                     </th>
                     <%--<th>费用类型
                     </th>--%>

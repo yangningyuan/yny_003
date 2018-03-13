@@ -159,6 +159,7 @@
                         </td>
                         <td width="75%" style="height: 40px;">
                             <input id="txtGoodCount" class="normal_input" runat="server" style="width: 10%;" />
+                            <span id="gooddanwei2"></span>
                         </td>
                     </tr>
                     <tr>
@@ -166,6 +167,7 @@
                         </td>
                         <td width="75%" style="height: 40px;">
                             <input id="txtGoodPrice" class="normal_input" runat="server" style="width: 10%;" />
+                            <span id="gooddanwei3"></span>
                         </td>
                     </tr>
                     <tr>
@@ -310,6 +312,8 @@
                     success: function (info) {
                         //$("#gooddanwei").val(info);
                         document.getElementById("gooddanwei").innerHTML = info;
+                        document.getElementById("gooddanwei2").innerHTML = info;
+                        document.getElementById("gooddanwei3").innerHTML = info;
                     }
                 });
             }

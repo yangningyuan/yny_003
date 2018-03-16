@@ -178,7 +178,7 @@
                         </td>
                         <td width="75%" style="height: 40px;">
                             <%--<input id="CarSJ1" class="normal_input" runat="server" style="width: 10%;"  oninput="setViewSiJi1($('#CarSJ1').val());" />--%>
-                            <select id="CarSJ1" runat="server">
+                            <select id="CarSJ1" runat="server"   onchange="setViewSiJi1(this[selectedIndex].value)">
                             </select>
                             <span id="sjview1"></span>
                         </td>
@@ -188,7 +188,7 @@
                         </td>
                         <td style="padding: 15px;">
                             <%--<input id="CarSJ2" class="normal_input" runat="server" style="width: 10%;"  onblur="setViewSiJi2($('#CarSJ2').val());"  />--%>
-                             <select id="CarSJ2" runat="server">
+                             <select id="CarSJ2" runat="server"   onchange="setViewSiJi2(this[selectedIndex].value)">
                             </select>
                             <span id="sjview2"></span>
                         </td>

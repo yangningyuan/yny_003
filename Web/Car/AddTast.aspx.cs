@@ -57,11 +57,14 @@ namespace yny_003.Web.Car
 			CarSJ1.DataTextField = "MID";
 			CarSJ1.DataValueField = "MID";
 			CarSJ1.DataBind();
-			CarSJ2.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID IN('2','3') AND IsClock=0 AND IsClose=0  order by ID");
+            CarSJ1.Items.Insert(0, "--请选择--");
+
+            CarSJ2.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID IN('2','3') AND IsClock=0 AND IsClose=0  order by ID");
 			CarSJ2.DataTextField = "MID";
 			CarSJ2.DataValueField = "MID";
 			CarSJ2.DataBind();
-			Name.Value = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            CarSJ2.Items.Insert(0, "--请选择--");
+            Name.Value = DateTime.Now.ToString("yyyyMMddHHmmssfff");
 			if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
 			{
 				ocode.Value = Request.QueryString["oid"];

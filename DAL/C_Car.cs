@@ -241,6 +241,7 @@ namespace yny_003.DAL
             strSql.Append("Spare3=@Spare3,");
             strSql.Append("CType=@CType");
             strSql.Append(" where ID=@ID");
+            strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
                     new SqlParameter("@PZCode", SqlDbType.VarChar,50),
                     new SqlParameter("@CarType", SqlDbType.VarChar,50),

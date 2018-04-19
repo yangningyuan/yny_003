@@ -60,26 +60,7 @@
                             </select>
                         </td>
                     </tr>
-                    <tr>
-                        <td width="15%" align="right">派遣牵引车辆
-                        </td>
-                        <td width="75%" style="height: 40px;">
-                            <%--<input id="Spare2" class="normal_input" runat="server" style="width: 10%;" />--%>
-                            <select id="Spare2" runat="server">
-                                
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="15%" align="right">派遣挂车（可空）
-                        </td>
-                        <td width="75%" style="height: 40px;">
-                            <%--<input id="CSpare2" class="normal_input" runat="server" style="width: 10%;" />--%>
-                             <select id="CSpare2" runat="server">
-                                
-                            </select>
-                        </td>
-                    </tr>
+                   
                     <tr id="gysstr">
                         <td width="15%" align="right">供应商
                         </td>
@@ -141,6 +122,17 @@
                         </td>
                     </tr>
                     <tr>
+                        <td width="15%" align="right">比重（越大越紧急）
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                             <select id="txtProt" runat="server"  name="txtProt">
+                                 <option value="1" selected="selected">1</option>
+                                 <option value="2" >2</option>
+                                 <option value="3" >3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2">
                             <b style="margin-left: 5%;">商品信息</b>
                         </td>
@@ -170,16 +162,36 @@
                             <span id="gooddanwei3"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <%--<tr>
                         <td colspan="2">
                             <b style="margin-left: 5%;">车辆信息</b>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td width="15%" align="right">派遣牵引车辆
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            
+                            <select id="Spare2" runat="server">
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">派遣挂车（可空）
+                        </td>
+                        <td width="75%" style="height: 40px;">
+                            
+                             <select id="CSpare2" runat="server">
+                                
+                            </select>
                         </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">主驾驶
                         </td>
                         <td width="75%" style="height: 40px;">
-                            <%--<input id="CarSJ1" class="normal_input" runat="server" style="width: 10%;"  oninput="setViewSiJi1($('#CarSJ1').val());" />--%>
+                            
                             <select id="CarSJ1" runat="server"   onchange="setViewSiJi1(this[selectedIndex].value)">
                             </select>
                             <span id="sjview1"></span>
@@ -189,12 +201,12 @@
                         <td align="right">副驾驶
                         </td>
                         <td style="padding: 15px;">
-                            <%--<input id="CarSJ2" class="normal_input" runat="server" style="width: 10%;"  onblur="setViewSiJi2($('#CarSJ2').val());"  />--%>
+                            
                              <select id="CarSJ2" runat="server"   onchange="setViewSiJi2(this[selectedIndex].value)">
                             </select>
                             <span id="sjview2"></span>
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr style="display:none;">
                         <td align="right">费用类型
                         </td>
@@ -226,7 +238,7 @@
                         <td width="15%" align="right"></td>
                         <td width="75%" align="left">
 
-                            <input type="button" class="normal_btnok" value="提交" onclick="checkChange();" />
+                            <input type="button" class="normal_btnok" value="提交调度处理" onclick="checkChange();" />
                         </td>
                     </tr>
                 </table>

@@ -20,6 +20,7 @@ namespace yny_003.Model
         public bool KeFu { set; get; }//客服权限
 
 		public bool YunYing { get; set; }//运营
+        public bool XiaoShou { get; set; }
 		public bool DiaoDu { get; set; }//调度
 		public bool SiJi { get; set; }//司机
         public string RColor { get; set; }

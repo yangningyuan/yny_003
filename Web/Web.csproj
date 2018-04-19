@@ -251,6 +251,7 @@
     <Content Include="Car\AddTast.aspx" />
     <Content Include="Car\CarList.aspx" />
     <Content Include="Car\CostList.aspx" />
+    <Content Include="Car\DDTast.aspx" />
     <Content Include="Car\LoanApplyList.aspx" />
     <Content Include="Car\ModifyTast.aspx" />
     <Content Include="Car\SupplierList.aspx" />
@@ -1463,6 +1464,13 @@
     </Compile>
     <Compile Include="Car\CostList.aspx.designer.cs">
       <DependentUpon>CostList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\DDTast.aspx.cs">
+      <DependentUpon>DDTast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\DDTast.aspx.designer.cs">
+      <DependentUpon>DDTast.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\Handler\CostList2.ashx.cs">
       <DependentUpon>CostList2.ashx</DependentUpon>

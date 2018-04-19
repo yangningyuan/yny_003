@@ -87,10 +87,15 @@ namespace yny_003.Web.Car.Handler
                 //sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].ComDate) + "~");
-                sb.Append((ListNotice[i].TState.ToString().Replace("0", "未完成").Replace("1", "已完成").Replace("2", "已取消")) + "~");
-                if (ListNotice[i].TState == 0)
+                sb.Append((ListNotice[i].TState.ToString().Replace("-1","待调度").Replace("0", "未完成").Replace("1", "已完成").Replace("2", "已取消")) + "~");
+                if (ListNotice[i].TState == -1&&TModel.Role.XiaoShou)
                 {
                     sb.Append("<div class=\"pay btn btn-success\" onclick=\"celTast('" + ListNotice[i].ID + "')\">取消任务</div>");
+                    //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");
+                }
+                else if (ListNotice[i].TState == -1 && TModel.Role.DiaoDu)
+                {
+                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/DDTast.aspx?id="+ListNotice[i].ID+"','调度');onclickMenu()\">调度</div>");
                     //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");
                 }
 

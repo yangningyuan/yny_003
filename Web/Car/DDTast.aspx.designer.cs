@@ -10,7 +10,7 @@
 namespace yny_003.Web.Car {
     
     
-    public partial class AddTast {
+    public partial class DDTast {
         
         /// <summary>
         /// Head1 控件。
@@ -85,60 +85,6 @@ namespace yny_003.Web.Car {
         protected global::System.Web.UI.HtmlControls.HtmlSelect TType;
         
         /// <summary>
-        /// SupplierName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect SupplierName;
-        
-        /// <summary>
-        /// SupplierName2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect SupplierName2;
-        
-        /// <summary>
-        /// SupplierName3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect SupplierName3;
-        
-        /// <summary>
-        /// SupplierAddress 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText SupplierAddress;
-        
-        /// <summary>
-        /// SupplierTelName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText SupplierTelName;
-        
-        /// <summary>
-        /// SupplierTel 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText SupplierTel;
-        
-        /// <summary>
         /// ComDate 控件。
         /// </summary>
         /// <remarks>
@@ -148,66 +94,48 @@ namespace yny_003.Web.Car {
         protected global::System.Web.UI.HtmlControls.HtmlInputText ComDate;
         
         /// <summary>
-        /// txtProt 控件。
+        /// Spare2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect txtProt;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Spare2;
         
         /// <summary>
-        /// txtGood 控件。
+        /// CSpare2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect txtGood;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CSpare2;
         
         /// <summary>
-        /// txtGoodCount 控件。
+        /// CarSJ1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtGoodCount;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CarSJ1;
         
         /// <summary>
-        /// txtGoodPrice 控件。
+        /// CarSJ2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtGoodPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CarSJ2;
         
         /// <summary>
-        /// CostType 控件。
+        /// subview 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect CostType;
-        
-        /// <summary>
-        /// uploadurl 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden uploadurl;
-        
-        /// <summary>
-        /// Spare1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Spare1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton subview;
     }
 }

@@ -37,7 +37,11 @@ namespace yny_003.Web.AjaxM
                 //model.MSH = Request.Form["txtMSH"];
                 model.MSH = model.MTJ;
                 model.NumID = _context.Request.Form["txtNumID"].Trim();
-                model.FMID= _context.Request.Form["ZWType"].Trim();
+                if (model.Role.SiJi)
+                {
+                    model.FMID = _context.Request.Form["ZWType"].Trim();
+                }
+                
                 model.MCreateDate = DateTime.Now;
                 model.MDate = DateTime.Now;
                 model.Salt = new Random().Next(10000, 99999).ToString();

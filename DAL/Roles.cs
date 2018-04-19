@@ -35,7 +35,7 @@ namespace yny_003.DAL
 
         public static bool Insert(Model.Roles model)
         {
-            string sb = "insert into Roles(RType,RName,CMessage,IsAdmin,CanSH,CanLogin,VState,Super,RColor,XingZheng,CaiWu,KeFu,YunYing,DiaoDu,SiJi) values (@RType,@RName,@CMessage,@IsAdmin,@CanSH,@CanLogin,@VState,@Super,@RColor,@XingZheng,@CaiWu,@KeFu,@YunYing,@DiaoDu,@SiJi);";
+            string sb = "insert into Roles(RType,RName,CMessage,IsAdmin,CanSH,CanLogin,VState,Super,RColor,XingZheng,CaiWu,KeFu,YunYing,DiaoDu,SiJi,XiaoShou) values (@RType,@RName,@CMessage,@IsAdmin,@CanSH,@CanLogin,@VState,@Super,@RColor,@XingZheng,@CaiWu,@KeFu,@YunYing,@DiaoDu,@SiJi,@XiaoShou);";
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@RType", SqlDbType.VarChar,20),
@@ -52,8 +52,9 @@ namespace yny_003.DAL
                 new SqlParameter("@KeFu", SqlDbType.Bit,1),
 				new SqlParameter("@YunYing", SqlDbType.Bit,1),
 				new SqlParameter("@DiaoDu", SqlDbType.Bit,1),
-				new SqlParameter("@SiJi", SqlDbType.Bit,1)
-			};
+				new SqlParameter("@SiJi", SqlDbType.Bit,1),
+                new SqlParameter("@XiaoShou", SqlDbType.Bit,1),
+            };
 
             para[0].Value = model.RType;
             para[1].Value = model.RName;
@@ -71,8 +72,9 @@ namespace yny_003.DAL
 			para[12].Value = model.YunYing;
 			para[13].Value = model.DiaoDu;
 			para[14].Value = model.SiJi;
+            para[15].Value = model.XiaoShou;
 
-			DAL.Roles.RolsList = null;
+            DAL.Roles.RolsList = null;
             return DbHelperSQL.ExecuteSql(sb, para) > 0;
         }
 
@@ -93,8 +95,9 @@ namespace yny_003.DAL
             sb.Append("RColor=@RColor,");
 			sb.Append("YunYing=@YunYing,");
 			sb.Append("DiaoDu=@DiaoDu,");
-			sb.Append("SiJi=@SiJi");
-			sb.Append(" where ");
+			sb.Append("SiJi=@SiJi,");
+            sb.Append("XiaoShou=@XiaoShou");
+            sb.Append(" where ");
             sb.Append("RType=@RType");
             SqlParameter[] para = new SqlParameter[]
             {
@@ -112,8 +115,9 @@ namespace yny_003.DAL
                 new SqlParameter("@KeFu", SqlDbType.Bit,1),
 				new SqlParameter("@YunYing", SqlDbType.Bit,1),
 				new SqlParameter("@DiaoDu", SqlDbType.Bit,1),
-				new SqlParameter("@SiJi", SqlDbType.Bit,1)
-			};
+				new SqlParameter("@SiJi", SqlDbType.Bit,1),
+                new SqlParameter("@XiaoShou", SqlDbType.Bit,1)
+            };
 
             para[0].Value = model.RType;
             para[1].Value = model.RName;
@@ -130,8 +134,9 @@ namespace yny_003.DAL
 			para[12].Value = model.YunYing;
 			para[13].Value = model.DiaoDu;
 			para[14].Value = model.SiJi;
+            para[15].Value = model.XiaoShou;
 
-			DAL.Roles.RolsList = null;
+            DAL.Roles.RolsList = null;
             return DbHelperSQL.ExecuteSql(sb.ToString(), para) > 0;
         }
         public static Model.Roles GetModel(string cid)
@@ -228,7 +233,11 @@ namespace yny_003.DAL
 			{
 				model.SiJi = bool.Parse(dr["SiJi"].ToString());
 			}
-			return model;
+            if (dr["XiaoShou"].ToString() != "")
+            {
+                model.XiaoShou = bool.Parse(dr["XiaoShou"].ToString());
+            }
+            return model;
         }
 
         /// <summary>

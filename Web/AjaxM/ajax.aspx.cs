@@ -226,6 +226,13 @@ namespace yny_003.Web.AjaxM
                 case "VerifyBase":
                     VerifyBase();
                     break;
+
+                case "GetCarSJ1":
+                    GetCarSJ1();
+                    break;
+                case "GetCarSJ2":
+                    GetCarSJ2();
+                    break;
             }
         }
 
@@ -1366,6 +1373,61 @@ namespace yny_003.Web.AjaxM
                 }
             }
             Response.Write("0.00");
+            return;
+        }
+
+
+        /// <summary>
+        /// 得到主司机会员姓名
+        /// </summary>
+        private void GetCarSJ1()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                if (BllModel != null)
+                {
+                    string mid = Request["pram"];
+                    Model.Member mm1 = BLL.Member.GetModelByMID(mid);
+                    string result = "";
+                    if (mm1 == null)
+                        result = "此司机不存在";
+                    if (mm1.FMID != "1")
+                        result = "此司机不是主司机";
+
+                    result = string.Format("姓名：{0}，联系电话：{1}", mm1.MName, mm1.Tel);
+
+                    Response.Write(result);
+                    return;
+                }
+            }
+            Response.Write("请重新登录");
+            return;
+        }
+
+        /// <summary>
+        /// 得到会员姓名
+        /// </summary>
+        private void GetCarSJ2()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                if (BllModel != null)
+                {
+                    string mid = Request["pram"];
+                    Model.Member mm1 = BLL.Member.GetModelByMID(mid);
+                    string result = "";
+                    if (mm1 == null)
+                        result = "此司机不存在";
+                    if (mm1.FMID != "2" && mm1.FMID != "3")
+                        result = "此司机不是副司机";
+
+                    result = string.Format("姓名：{0}，联系电话：{1}", mm1.MName, mm1.Tel);
+
+                    Response.Write(result);
+                    return;
+                }
+            }
+            Response.Write("请重新登录");
             return;
         }
         /// <summary>

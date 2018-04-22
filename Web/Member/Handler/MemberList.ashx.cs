@@ -125,15 +125,15 @@ namespace yny_003.Web.Handler
                 //sb.Append((ListMember[i].IsClock ? "已冻结" : "未冻结") + "~");
                 
                 
-                sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "~");
-                if (!ListMember[i].IsClose)
-                {
-                    //sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">进入系统</a>");
-                }
-                else
-                {
-                    sb.Append("限制登录");
-                }
+                sb.Append(ListMember[i].MCreateDate.ToString("yyyy-MM-dd HH:mm") + "");
+                //if (!ListMember[i].IsClose)
+                //{
+                //    //sb.Append("<a href='?LoggedInMID=" + ListMember[i].MID + "' target=\"_blank\">进入系统</a>");
+                //}
+                //else
+                //{
+                //    sb.Append("限制登录");
+                //}
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

@@ -42,10 +42,22 @@ namespace yny_003.Model
 		private int _isdelete;
 		private string _spare1;
 		private string _spare2;
-		/// <summary>
-		/// 交货时间
-		/// </summary>
-		public DateTime ComDate { get; set; }
+        /// <summary>
+        /// 销售
+        /// </summary>
+        public string XSMID { get; set; }
+        /// <summary>
+        /// 调度
+        /// </summary>
+        public string DDMID { get; set; }
+        /// <summary>
+        /// 比重
+        /// </summary>
+        public int Prot { get; set; }
+        /// <summary>
+        /// 交货时间
+        /// </summary>
+        public DateTime ComDate { get; set; }
 		/// <summary>
 		/// 挂车牌照
 		/// </summary>
@@ -166,10 +178,10 @@ namespace yny_003.Model
 			set{ _bdimg=value;}
 			get{return _bdimg;}
 		}
-		/// <summary>
-		/// 任务状态 0未完成  1完成,2.取消任务
-		/// </summary>
-		public int TState
+        /// <summary>
+        /// 任务状态 0未完成  1完成,2.取消任务-1待调度
+        /// </summary>
+        public int TState
 		{
 			set{ _tstate=value;}
 			get{return _tstate;}

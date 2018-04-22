@@ -22,6 +22,7 @@ namespace yny_003.Model
 		public bool YunYing { get; set; }//运营
 		public bool DiaoDu { get; set; }//调度
 		public bool SiJi { get; set; }//司机
+        public bool XiaoShou { get; set; }//销售
         public string RColor { get; set; }
         public List<Model.RolePowers> PowersList { get; set; }
     }

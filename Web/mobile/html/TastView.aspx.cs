@@ -23,7 +23,10 @@ namespace yny_003.Web.mobile.html
 				order = BLL.Order.GetModel(cartast.OCode);
 				listord = order.OrderDetail;
 			}
-			listcost = BLL.C_CostDetalis.GetModelList(" CID="+order.Id);
+            if (order != null)
+            {
+                listcost = BLL.C_CostDetalis.GetModelList(" CID=" + order.Id);
+            }
 			if (cartast.TState == 1) 
 			{
 				anbtn.Visible = false;

@@ -367,6 +367,7 @@
     <Content Include="mobile\html\WXChange.aspx" />
     <Content Include="mobile\html\WZAdd.aspx" />
     <Content Include="mobile\html\WZList.aspx" />
+    <Content Include="mobile\html\XSTastAdd.aspx" />
     <Content Include="mobile\img\a1.jpg" />
     <Content Include="mobile\img\aboutus.png" />
     <Content Include="mobile\img\back.png" />
@@ -1980,6 +1981,13 @@
     </Compile>
     <Compile Include="mobile\html\WZList.aspx.designer.cs">
       <DependentUpon>WZList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\XSTastAdd.aspx.cs">
+      <DependentUpon>XSTastAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\XSTastAdd.aspx.designer.cs">
+      <DependentUpon>XSTastAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="OJ\AddObj.aspx.cs">
       <DependentUpon>AddObj.aspx</DependentUpon>

@@ -54,7 +54,7 @@ namespace yny_003.Web.Car
             c.CSpare2 = Request.Form["CSpare2"];
             c.CarSJ1 = Request.Form["CarSJ1"];
             c.CarSJ2 = Request.Form["CarSJ2"];
-            c.Prot =int.Parse( Request.Form["txtProt"]);
+           
             c.ComDate = DateTime.Parse(Request.Form["ComDate"]);
 
             #region 司机车辆验证

@@ -51,13 +51,13 @@
                                       </div>
                                  </a>
                             </li>-->
-                            <li>
+                          <%--  <li>
                                 <a href="javascript:pcallhtml('/mobile/html/CW.aspx','财务');" class="item-link item-content">
                                     <div class="item-inner">
                                         <div class="item-title">会员财务</div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>--%>
                             <li>
                                 <a href="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');" class="item-link item-content">
                                     <div class="item-inner">

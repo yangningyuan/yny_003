@@ -471,7 +471,7 @@ namespace yny_003.DAL
 		/// </summary>
 		public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
 		{
-			return DAL.CommonBase.GetTable("C_CarTast", "ID", "ID asc", strWhere, pageIndex, pageSize, out count);
+			return DAL.CommonBase.GetTable("C_CarTast", "ID", "Prot desc,ID desc,ComDate desc", strWhere, pageIndex, pageSize, out count);
 		}
 		public static List<Model.C_CarTast> GetList(string strWhere, int pageIndex, int pageSize, out int count)
 		{

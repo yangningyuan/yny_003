@@ -87,91 +87,97 @@ namespace yny_003.Web.Car
 			c.BDImg = Request.Form["uploadurl"];
 			//c.OCode = Request.Form["ocode"];
 			c.Spare1 = Request.Form["Spare1"];
-			c.ComDate = DateTime.Parse(Request.Form["ComDate"]);
+            c.Prot =Convert.ToInt32( Request.Form["txtProt"]);
+            c.ComDate = DateTime.Parse(Request.Form["ComDate"]);
 
 			if (string.IsNullOrEmpty(Request.Form["fid"]))
 			{
 				
 				Hashtable MyHs = new Hashtable();
 
-				#region 生成商品订单
-				string code = "";
-				string goodid = Request.Form["txtGood"];
-				Model.Goods go = BLL.Goods.GetModel(goodid);
-				if (go == null)
-					return "此商品找不到";
+                if (c.TType != 3)//不是空车才能生成商品订单
+                {
+                    #region 生成商品订单
+                    string code = "";
+                    string goodid = Request.Form["txtGood"];
+                    Model.Goods go = BLL.Goods.GetModel(goodid);
+                    if (go == null)
+                        return "此商品找不到";
 
-				if (!string.IsNullOrEmpty(goodid))
-				{
-					decimal goodcount = 0;
-					decimal goodprice = 0;
-					try
-					{
-						goodcount = Convert.ToDecimal(Request.Form["txtGoodCount"]);
-						goodprice = Convert.ToDecimal(Request.Form["txtGoodPrice"]);
-					}
-					catch (Exception e)
-					{
-						return e.Message;
-					}
-					//先生成订单主表
-					Model.Order order = new Model.Order();
-					DateTime dt = DateTime.Now;
-					code = dt.ToString("yyyyMMddHHmmssfff");// dt.Year.ToString() + dt.Month.ToString() + dt.Day.ToString() + dt.Hour.ToString() + dt.Minute.ToString() + dt.Second.ToString() + dt.Millisecond.ToString();
-					order.Code = code;
-					order.ReceiveId = 0;
-					order.CreatedBy = TModel.MID;
-					order.CreatedTime = DateTime.Now;
-					//order.GoodCount
-					decimal count = goodcount; decimal totalMoney = goodcount * goodprice;
-					string error = string.Empty;
+                    if (!string.IsNullOrEmpty(goodid))
+                    {
+                        decimal goodcount = 0;
+                        decimal goodprice = 0;
+                        try
+                        {
+                            goodcount = Convert.ToDecimal(Request.Form["txtGoodCount"]);
+                            goodprice = Convert.ToDecimal(Request.Form["txtGoodPrice"]);
+                        }
+                        catch (Exception e)
+                        {
+                            return e.Message;
+                        }
+                        //先生成订单主表
+                        Model.Order order = new Model.Order();
+                        DateTime dt = DateTime.Now;
+                        code = dt.ToString("yyyyMMddHHmmssfff");// dt.Year.ToString() + dt.Month.ToString() + dt.Day.ToString() + dt.Hour.ToString() + dt.Minute.ToString() + dt.Second.ToString() + dt.Millisecond.ToString();
+                        order.Code = code;
+                        order.ReceiveId = 0;
+                        order.CreatedBy = TModel.MID;
+                        order.CreatedTime = DateTime.Now;
+                        //order.GoodCount
+                        decimal count = goodcount; decimal totalMoney = goodcount * goodprice;
+                        string error = string.Empty;
 
-					//生成订单明细表
-					Model.OrderDetail od = new Model.OrderDetail();
-					od.BuyPrice = goodprice;
-					od.Code = GetGuid();
-					od.CreatedBy = TModel.MID;
-					od.CreatedTime = DateTime.Now;
-					od.GCount = count;
-					od.GId = Convert.ToInt32(goodid);
-					//查看库存数量是否足够，不够的话暂时不能提交订单
+                        //生成订单明细表
+                        Model.OrderDetail od = new Model.OrderDetail();
+                        od.BuyPrice = goodprice;
+                        od.Code = GetGuid();
+                        od.CreatedBy = TModel.MID;
+                        od.CreatedTime = DateTime.Now;
+                        od.GCount = count;
+                        od.GId = Convert.ToInt32(goodid);
+                        //查看库存数量是否足够，不够的话暂时不能提交订单
 
-					//if (go.SellingCount < od.GCount)
-					//{
-					//	error += "商品：" + go.GName + "库存不足，请联系管理员";
-					//}
-					//go.SelledCount = go.SelledCount + od.GCount;//完成订单时候加减库存
-					//go.SellingCount = go.SellingCount - od.GCount;
-					//BLL.Goods.Update(go, hs);
+                        //if (go.SellingCount < od.GCount)
+                        //{
+                        //	error += "商品：" + go.GName + "库存不足，请联系管理员";
+                        //}
+                        //go.SelledCount = go.SelledCount + od.GCount;//完成订单时候加减库存
+                        //go.SellingCount = go.SellingCount - od.GCount;
+                        //BLL.Goods.Update(go, hs);
 
-					od.IsDeleted = false;
-					od.OrderCode = order.Code;
-					od.Status = 1;
-					od.TotalMoney = od.GCount * od.BuyPrice;
-					totalMoney += od.TotalMoney;
-					BLL.OrderDetail.Insert(od, MyHs);
+                        od.IsDeleted = false;
+                        od.OrderCode = order.Code;
+                        od.Status = 1;
+                        od.TotalMoney = od.GCount * od.BuyPrice;
+                        totalMoney += od.TotalMoney;
+                        BLL.OrderDetail.Insert(od, MyHs);
 
-					order.GoodCount = count;
-					order.IsDeleted = false;
-					order.MID = c.SupplierName;
-					order.OrderTime = DateTime.Now;
-					order.TotalPrice = totalMoney;
-					order.DisCountTotalPrice = order.TotalPrice;// * BLL.Configuration.Model.E_GWDiscount;
+                        order.GoodCount = count;
+                        order.IsDeleted = false;
+                        order.MID = c.SupplierName;
+                        order.OrderTime = DateTime.Now;
+                        order.TotalPrice = totalMoney;
+                        order.DisCountTotalPrice = order.TotalPrice;// * BLL.Configuration.Model.E_GWDiscount;
 
-					order.ExpressCompany = c.Name;
-					order.Status = 2;
-					c.OCode = order.Code;
-					BLL.Order.Insert(order, MyHs);
+                        order.ExpressCompany = c.Name;
+                        order.Status = 2;
+                        c.OCode = order.Code;
+                        BLL.Order.Insert(order, MyHs);
 
-					if (!string.IsNullOrEmpty(error))
-					{
-						return error;
-					}
-				}
+                        if (!string.IsNullOrEmpty(error))
+                        {
+                            return error;
+                        }
+                    }
 
-                #endregion
+                    #endregion
+                }
+
                 c.TState = -1;
                 c.XSMID = TModel.MID;
+
 				//int tid = BLL.C_CarTast.Add(c);
                 BLL.C_CarTast.Add(c, MyHs);
 				//if (tid > 0)
@@ -228,6 +234,7 @@ namespace yny_003.Web.Car
 			fid.Value = c.ID.ToString();
 			oid.Value = c.OCode.ToString();
 			ComDate.Value = c.ComDate.ToString();
+            txtProt.Value = c.Prot.ToString();
 
 			if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
 			{

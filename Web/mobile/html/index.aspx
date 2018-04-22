@@ -29,7 +29,7 @@
             <header class="bar bar-nav">
                 <a class="icon icon-left pull-left back" href="javascript:StackPop()"></a>
                 <a class="icon icon-home pull-right" href="javascript:window.location.reload();"></a>
-                
+
                 <h1 class="title"><%=WebModel.WebTitle %></h1>
             </header>
             <nav class="bar bar-tab">
@@ -80,7 +80,12 @@
                 </div>
                 <div class="qicon"><span>快捷图标</span></div>
                 <div class="row margin-top-buttom">
-                    <div class="col-25 row-tab">
+
+                    <%
+                        if (TModel.Role.SiJi)
+                        {
+                    %>
+                      <div class="col-25 row-tab">
                         <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/TastList.aspx','我的任务');">
                             <i class="iconfont">&#xe653;</i>
                             我的任务
@@ -124,6 +129,32 @@
                             我要交车
                         </a>
                     </div>
+                    <%
+                        }
+                        else if (TModel.Role.XiaoShou)
+                        {
+                    %>
+                     <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/DBTastList.aspx','我的待办');">
+                            <i class="iconfont">&#xe653;</i>
+                            我的待办
+                        </a>
+                    </div>
+                  <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/XSTastAdd.aspx','添加任务');">
+                            <i class="iconfont">&#xe61f;</i>
+                            添加任务
+                        </a>
+                    </div>
+                    <%
+                        }
+                        else {
+                            %>
+                    
+                            <%
+                        }
+                    %>
+                  
                 </div>
 
             </div>
@@ -182,14 +213,14 @@
             if(isnotice2=="1")
             {
                 var isnotice= <%=isnotice%>;
-                    layer.confirm('是否要进入安全教育栏目学习？', {
-                        btn : [ '是', '否' ]//按钮
-                    }, function(index) {
-                        layer.close(index);
-                        pcallhtml('/mobile/html/NoticeView.aspx?id='+$("#noticeid3").val(),'查看公告');
-                    }); 
-                }
-            },500);
+                layer.confirm('是否要进入安全教育栏目学习？', {
+                    btn : [ '是', '否' ]//按钮
+                }, function(index) {
+                    layer.close(index);
+                    pcallhtml('/mobile/html/NoticeView.aspx?id='+$("#noticeid3").val(),'查看公告');
+                }); 
+            }
+        },500);
      
     </script>
 </body>

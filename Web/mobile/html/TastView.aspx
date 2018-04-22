@@ -21,7 +21,7 @@
                         <div class="item-inner">
                             <div class="item-title label">任务名称</div>
                             <div class="item-input">
-                                <%=cartast.Name%>【<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>】
+                               <span style="color:red; font-size:10px;">【<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>】 <%=cartast.Name%></span>
                             </div>
                         </div>
                     </div>
@@ -80,6 +80,17 @@
                         </div>
                     </div>
                 </li>
+
+                  <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">到达时间</div>
+                            <div class="item-input">
+                                <%=cartast.ComDate %>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                <%-- <li>
                     <div class="item-content">
                         <div class="item-inner">
@@ -132,7 +143,7 @@
                         </div>
                     </div>
                 </li>
-                <%  if (order.OrderDetail != null)
+                <%  if (order!=null&& order.OrderDetail != null)
                     {
                         foreach (var item in order.OrderDetail)
                         {

@@ -53,7 +53,11 @@ namespace yny_003.DAL
 				new SqlParameter("@YunYing", SqlDbType.Bit,1),
 				new SqlParameter("@DiaoDu", SqlDbType.Bit,1),
 				new SqlParameter("@SiJi", SqlDbType.Bit,1),
+<<<<<<< HEAD
                 new SqlParameter("@XiaoShou", SqlDbType.Bit,1)
+=======
+                new SqlParameter("@XiaoShou", SqlDbType.Bit,1),
+>>>>>>> 9546fb7e983f543e827acfbc86c3cfe2997e9e0a
             };
 
             para[0].Value = model.RType;

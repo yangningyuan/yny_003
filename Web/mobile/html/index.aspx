@@ -156,6 +156,12 @@
                                         我的待办
                                     </a>
                                 </div>
+                     <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/DDTastAdd.aspx','添加任务');">
+                            <i class="iconfont">&#xe61f;</i>
+                            添加任务
+                        </a>
+                    </div>
                             <%
                         }
                     %>

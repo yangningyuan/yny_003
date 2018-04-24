@@ -8,6 +8,15 @@
     </div>
    
       <form id="form1">
+          <input type="hidden" name="txtKey" id="countdate" />
+            <input name="txtKey" id="mKey" type="hidden" class="sinput" />
+
+            <div class="clear"></div>
+            <div class="search-time">
+                <input type="text" placeholder="开始时间" id="begin_time" runat="server" class="laydate-icon" />
+                <input type="text" placeholder="结束时间" id="end_time" runat="server" class="laydate-icon" />
+                <button type="button" class="requery searchh">查询</button>
+            </div>
         <div class="buttons-tab">
             <input type="hidden" value="-1" id="state" runat="server" />
             <a href="javascript:void(0)" onclick="$('#state').val('-1'); dianji(this); " class="tab-link active button requery">待调度</a>
@@ -78,5 +87,33 @@
             }
         });
     }, 50);
-
+    function XSTastCel(id) {
+        ActionModel("mobile/html/DDTastList.aspx?Action=Add", "cid=" + id, "mobile/html/DDTastList.aspx");
+    }
+</script>
+<script>
+    var start = {
+        elem: '#begin_time',
+        format: 'YYYY-MM-DD',
+        min: '2009-06-16', //设定最小日期为当前日期
+        max: '2099-06-16', //最大日期
+        istoday: false,
+        choose: function (datas) {
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    var end = {
+        elem: '#end_time',
+        format: 'YYYY-MM-DD',
+        min: start.toString(),
+        max: '2099-06-16',
+        istoday: false,
+        choose: function (datas) {
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    //    laydate.skin("molv");
+    laydate(start);
+    laydate(end);
 </script>

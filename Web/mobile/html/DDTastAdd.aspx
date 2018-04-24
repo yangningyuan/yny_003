@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSTastAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.XSTastAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DDTastAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.DDTastAdd" %>
 
 <script>
     layui.use("upload", function () {
@@ -47,9 +47,7 @@
                             <div class="item-title label">任务类型</div>
                             <div class="item-input">
                                 <select id="TType" runat="server">
-                                <option value="1">装车</option>
-                                <option value="2">卸车</option>
-                                <%--<option value="3">空车</option>--%>
+                                <option value="3">空车</option>
                             </select>
                             </div>
                         </div>
@@ -146,7 +144,7 @@
                         </div>
                     </div>
                 </li>
-                      <li>
+                      <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">选择货物商品</div>
@@ -157,7 +155,7 @@
                         </div>
                     </div>
                 </li>
-                      <li>
+                      <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">填写数量</div>
@@ -167,7 +165,7 @@
                         </div>
                     </div>
                 </li>
-                      <li>
+                      <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">填写价格</div>
@@ -296,7 +294,7 @@
                     //if ($('#txtName').val() == '') {
                     //    v5.error('经费项目名称不能为空', '1', 'ture');
                     //} else {
-                    ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/XSTastList.aspx");
+                    ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/DDTastList.aspx");
                     //}
                 }
                 function setViewSiJi1(realobj) {

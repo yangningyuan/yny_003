@@ -321,6 +321,7 @@
     <Content Include="Car\CostList2.aspx" />
     <Content Include="mobile\html\CW.aspx" />
     <Content Include="mobile\html\DDTast.aspx" />
+    <Content Include="mobile\html\DDTastAdd.aspx" />
     <Content Include="mobile\html\DDTastList.aspx" />
     <Content Include="mobile\html\DelCar.aspx" />
     <Content Include="mobile\html\findpwd.aspx" />
@@ -1662,6 +1663,13 @@
     </Compile>
     <Compile Include="mobile\html\DDTast.aspx.designer.cs">
       <DependentUpon>DDTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\DDTastAdd.aspx.cs">
+      <DependentUpon>DDTastAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\DDTastAdd.aspx.designer.cs">
+      <DependentUpon>DDTastAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\DDTastList.aspx.cs">
       <DependentUpon>DDTastList.aspx</DependentUpon>

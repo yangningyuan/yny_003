@@ -17,6 +17,14 @@ namespace yny_003.Web.mobile.html
             {
                 where += " and TState=" + state + " ";
             }
+            if (!string.IsNullOrEmpty(Request["begin_time"]))
+            {
+                where += " and CreateDate>'" + Request["begin_time"] + " 00:00:00' ";
+            }
+            if (!string.IsNullOrEmpty(Request["end_time"]))
+            {
+                where += " and CreateDate<'" + Request["end_time"] + " 23:59:59' ";
+            }
 
             List<Model.C_CarTast> listchange = null;
 
@@ -37,10 +45,23 @@ namespace yny_003.Web.mobile.html
                 //SupplierName = item.SupplierName,
                 SupplierTel = item.SupplierTel,
                 CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:ss"),
-                dhtml = item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/XSTastAdd.aspx?id=" + item.ID + "','修改');\">修改</a>" : ""
+                dhtml =( item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/XSTastAdd.aspx?id=" + item.ID + "','修改');\">修改</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "")
 
             });
             return jss.Serialize(new { Items = list, TotalCount = totalCount });
+        }
+
+        protected override string btnAdd_Click()
+        {
+            Model.C_CarTast cd = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["cid"]));
+            if (cd.TState != -1)
+                return "状态已改变，请刷新重试";
+            cd.TState = 2;
+            
+            if (BLL.C_CarTast.Update(cd))
+                return "取消成功";
+            else
+                return "取消失败";
         }
     }
 }

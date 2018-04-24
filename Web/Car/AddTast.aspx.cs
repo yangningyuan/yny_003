@@ -62,8 +62,12 @@ namespace yny_003.Web.Car
 			else { 
 			
 			}
-			//ocode.Disabled = true;
-		}
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+            {
+                Name.Value = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.QueryString["id"])).Name;
+            }
+            //ocode.Disabled = true;
+        }
 		protected override string btnModify_Click()
 		{
 			Model.C_CarTast c = new Model.C_CarTast();

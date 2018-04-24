@@ -299,35 +299,18 @@
 
             function getsudetalis(sid)
             {
-           
-                $.ajax({
-                    type: 'post',
-                    url: 'member/list.aspx?Action=add',
-                    data: { "id": sid },
-                    success: function (info) {
-                        if (info != "-1")
-                        {
-                            $("#SupplierAddress").val(info.split("^")[0]);
-                            $("#SupplierTelName").val(info.split("^")[1]);
-                            $("#SupplierTel").val(info.split("^")[2]);
-                        }
-                    }
-                });
+                var info = RunAjaxGetKey('getsudetalis', sid);
+                $("#SupplierAddress").val(info.split("^")[0]);
+                $("#SupplierTelName").val(info.split("^")[1]);
+                $("#SupplierTel").val(info.split("^")[2]);
             }
 
             function getgooddanwei(gid)
             {
-                $.ajax({
-                    type: 'post',
-                    url: 'member/list.aspx?Action=modify',
-                    data: { "gid": gid },
-                    success: function (info) {
-                        //$("#gooddanwei").val(info);
-                        document.getElementById("gooddanwei").innerHTML = info;
-                        document.getElementById("gooddanwei2").innerHTML = info;
-                        document.getElementById("gooddanwei3").innerHTML = info;
-                    }
-                });
+                var info = RunAjaxGetKey('getgooddanwei', gid);
+                document.getElementById("gooddanwei").innerHTML = info;
+                document.getElementById("gooddanwei2").innerHTML = info;
+                document.getElementById("gooddanwei3").innerHTML = info;
             }
 
                 function checkChange() {

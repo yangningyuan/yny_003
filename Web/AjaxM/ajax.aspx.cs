@@ -233,6 +233,13 @@ namespace yny_003.Web.AjaxM
                 case "GetCarSJ2":
                     GetCarSJ2();
                     break;
+                case "getgooddanwei":
+                    getgooddanwei();
+                    break;
+                case "getsudetalis":
+                    getsudetalis();
+                    break;
+
             }
         }
 
@@ -1423,6 +1430,77 @@ namespace yny_003.Web.AjaxM
 
                     result = string.Format("姓名：{0}，联系电话：{1}", mm1.MName, mm1.Tel);
 
+                    Response.Write(result);
+                    return;
+                }
+            }
+            Response.Write("请重新登录");
+            return;
+        }
+
+        /// <summary>
+        /// 得到会员姓名
+        /// </summary>
+        private void getgooddanwei()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                if (BllModel != null)
+                {
+                    string mid = Request["pram"];
+                    //Model.Member mm1 = BLL.Member.GetModelByMID(mid);
+                    string result = "";
+                    try
+                    {
+                        //string req = Request.Form["gid"];
+                        Model.Goods cc = BLL.Goods.GetModel(int.Parse(mid));
+                        if (cc != null)
+                        {
+                            result= cc.Unit;
+                        }
+                        else {
+                            result= "-1";
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        result= "-1";
+                    }
+                    Response.Write(result);
+                    return;
+                }
+            }
+            Response.Write("请重新登录");
+            return;
+        }
+        /// <summary>
+        /// 得到会员姓名
+        /// </summary>
+        private void getsudetalis()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                if (BllModel != null)
+                {
+                    string mid = Request["pram"];
+                    //Model.Member mm1 = BLL.Member.GetModelByMID(mid);
+                    string result = "";
+                    try
+                    {
+                        //string req = Request.Form["id"];
+                        Model.C_Supplier cc = BLL.C_Supplier.GetModel(int.Parse(mid));
+                        if (cc != null)
+                        {
+                            result= cc.Address + "^" + cc.TelName + "^" + cc.Tel;
+                        }
+                        else {
+                            result= "-1";
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        result= "-1";
+                    }
                     Response.Write(result);
                     return;
                 }

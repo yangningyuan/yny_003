@@ -320,6 +320,8 @@
     <Content Include="mobile\html\CostList.aspx" />
     <Content Include="Car\CostList2.aspx" />
     <Content Include="mobile\html\CW.aspx" />
+    <Content Include="mobile\html\DDTast.aspx" />
+    <Content Include="mobile\html\DDTastList.aspx" />
     <Content Include="mobile\html\DelCar.aspx" />
     <Content Include="mobile\html\findpwd.aspx" />
     <Content Include="mobile\html\geren.aspx" />
@@ -368,6 +370,7 @@
     <Content Include="mobile\html\WZAdd.aspx" />
     <Content Include="mobile\html\WZList.aspx" />
     <Content Include="mobile\html\XSTastAdd.aspx" />
+    <Content Include="mobile\html\XSTastList.aspx" />
     <Content Include="mobile\img\a1.jpg" />
     <Content Include="mobile\img\aboutus.png" />
     <Content Include="mobile\img\back.png" />
@@ -1653,6 +1656,20 @@
     <Compile Include="mobile\html\CW.aspx.designer.cs">
       <DependentUpon>CW.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mobile\html\DDTast.aspx.cs">
+      <DependentUpon>DDTast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\DDTast.aspx.designer.cs">
+      <DependentUpon>DDTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\DDTastList.aspx.cs">
+      <DependentUpon>DDTastList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\DDTastList.aspx.designer.cs">
+      <DependentUpon>DDTastList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mobile\html\DelCar.aspx.cs">
       <DependentUpon>DelCar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1988,6 +2005,13 @@
     </Compile>
     <Compile Include="mobile\html\XSTastAdd.aspx.designer.cs">
       <DependentUpon>XSTastAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\XSTastList.aspx.cs">
+      <DependentUpon>XSTastList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\XSTastList.aspx.designer.cs">
+      <DependentUpon>XSTastList.aspx</DependentUpon>
     </Compile>
     <Compile Include="OJ\AddObj.aspx.cs">
       <DependentUpon>AddObj.aspx</DependentUpon>

@@ -20,15 +20,23 @@
 <div class="content content-padded">
     <div class="list-block myinfo">
         <form id="form1">
-            <input type="hidden" id="bankauto" runat="server" />
+            <input type="hidden" id="fid" runat="server" />
+                <input type="hidden" id="oid" runat="server" />
+             <div style="display: none;">
+                        <td width="15%" align="right">商品订单号<input runat="server" id="Hidden1" type="hidden" />
+                        </td>
+                        <td width="20%" style="height: 40px;">
+                            <input id="ocode" class="normal_input" runat="server" readonly="readonly" style="width: 30%;" />
+                        </td>
+                    </div>
             <ul>
                 <!-- Text inputs -->
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">报修人</div>
+                            <div class="item-title label">任务订单号</div><input runat="server" id="lbID" type="hidden" />
                             <div class="item-input">
-                                <input type="text" value="<%=TModel.MID%>" disabled="disabled">
+                                <input type="text" id="Name"  runat="server" >
                             </div>
                         </div>
                     </div>
@@ -36,20 +44,50 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">车辆牌照</div>
+                            <div class="item-title label">任务类型</div>
                             <div class="item-input">
-                                <input type="text" value="" name="txtPZCode" id="txtPZCode" placeholder="请输入车辆牌照">
+                                <select id="TType" runat="server">
+                                <option value="1">装车</option>
+                                <option value="2">卸车</option>
+                                <option value="3">空车</option>
+                            </select>
                             </div>
                         </div>
                     </div>
                 </li>
                
-                 <li>
+                 <li  id="gysstr">
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">报修类型</div>
+                            <div class="item-title label">供应商</div>
                             <div class="item-input">
-                                <input type="text" value=""  name="txtType" id="txtType" placeholder="请填写报修类型">
+                                 <select id="SupplierName" runat="server">
+                                
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                  <li   id="khstr">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">客户</div>
+                            <div class="item-input">
+                                <select id="SupplierName2" runat="server">
+                                
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                  <li  id="kcstr">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">客户或供应商</div>
+                            <div class="item-input">
+                                 <select id="SupplierName3" runat="server">
+                                
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -57,9 +95,9 @@
                   <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">报修说明</div>
+                            <div class="item-title label">任务地址</div>
                             <div class="item-input">
-                                <input type="text" value=""  name="txtDetails" id="txtDetails" placeholder="请填写报修说明">
+                                <input type="text" id="SupplierAddress"  runat="server" >
                             </div>
                         </div>
                     </div>
@@ -67,14 +105,89 @@
                   <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">报修地址</div>
+                            <div class="item-title label">客户联系人</div>
                             <div class="item-input">
-                                <input type="text" value=""  name="txtAddress" id="txtAddress" placeholder="请填写报修地址">
+                                <input type="text" id="SupplierTelName"  runat="server" >
                             </div>
                         </div>
                     </div>
                 </li>
                   <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">客户电话</div>
+                            <div class="item-input">
+                                <input type="text" id="SupplierTel"  runat="server" >
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label"  id="jhstr">交货时间</div>
+                            <div class="item-input">
+                                <input type="text" id="ComDate" name="ComDate"  class="laydate-icon"  runat="server" >
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                      <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">比重</div>
+                            <div class="item-input">
+                                <select id="txtProt" runat="server"  name="txtProt">
+                                 <option value="1" selected="selected">1</option>
+                                 <option value="2" >2</option>
+                                 <option value="3" >3</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                      <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">选择货物商品</div>
+                            <div class="item-input">
+                                 <select id="txtGood" runat="server"  onchange="getgooddanwei(this[selectedIndex].value)" style="width:80px; float:left;">
+                            </select><span id="gooddanwei" style="font-size:10px; float:right; margin: 6% 0;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                      <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">填写数量</div>
+                            <div class="item-input">
+                                <input type="text" id="txtGoodCount"  runat="server"  style="width:80px; float:left;" > <span id="gooddanwei2" style="font-size:10px; float:right; margin: 6% 0;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                      <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">填写价格</div>
+                            <div class="item-input">
+                                <input type="text" id="txtGoodPrice"  runat="server"  style="width:80px; float:left;"><span id="gooddanwei3" style="font-size:10px; float:right; margin: 6% 0;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                  <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">备注</div>
+                            <div class="item-input">
+                                <input type="text" id="Spare1"  runat="server" >
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                  <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">拍照</div>
@@ -99,13 +212,113 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    function checkChange() {
-        if ($('#txtPZCode').val().trim() == "") {
-            layer.msg("车辆牌照不能为空");
-            return;
-        } else {
-            ActionModel("mobile/html/BXAdd.aspx?Action=add", $('#form1').serialize(), "mobile/html/BXList.aspx");
+<script>
+    var start = {
+        elem: '#ComDate',
+        format: 'YYYY-MM-DD',
+        min: '2009-06-16', //设定最小日期为当前日期
+        max: '2099-06-16', //最大日期
+        istoday: false,
+        choose: function (datas) {
         }
-    }
+    };
+    laydate(start);
 </script>
+<script type="text/javascript">
+        $(function () {
+            if ($("#TType").val() == "1") {
+                document.getElementById("jhstr").innerHTML = "装车时间";
+                document.getElementById("gysstr").style.display = "";
+                document.getElementById("khstr").style.display = "none";
+                document.getElementById("kcstr").style.display = "none";
+                getsudetalis($("#SupplierName").val());
+            } else if ($("#TType").val() == "2") {
+                document.getElementById("jhstr").innerHTML = "卸车时间";
+                document.getElementById("gysstr").style.display = "none";
+                document.getElementById("khstr").style.display = "";
+                document.getElementById("kcstr").style.display = "none";
+                getsudetalis($("#SupplierName2").val());
+            } else {
+                document.getElementById("jhstr").innerHTML = "到达时间";
+                document.getElementById("gysstr").style.display = "none";
+                document.getElementById("khstr").style.display = "none";
+                document.getElementById("kcstr").style.display = "";
+                getsudetalis($("#SupplierName3").val());
+            }
+        });
+
+        $("#SupplierName").click(function () {
+            getsudetalis($("#SupplierName").val());
+        });
+        $("#SupplierName2").click(function () {
+            getsudetalis($("#SupplierName2").val());
+        });
+        $("#SupplierName3").click(function () {
+            getsudetalis($("#SupplierName3").val());
+        });
+
+            $("#TType").click(function () {
+                if ($("#TType").val() == "1") {
+                    document.getElementById("jhstr").innerHTML = "装车时间";
+                    document.getElementById("gysstr").style.display = "";
+                    document.getElementById("khstr").style.display = "none";
+                    document.getElementById("kcstr").style.display = "none";
+                } else if ($("#TType").val() == "2") {
+                    document.getElementById("jhstr").innerHTML = "卸车时间";
+                    document.getElementById("gysstr").style.display = "none";
+                    document.getElementById("khstr").style.display = "";
+                    document.getElementById("kcstr").style.display = "none";
+                } else {
+                    document.getElementById("jhstr").innerHTML = "到达时间";
+                    document.getElementById("gysstr").style.display = "none";
+                    document.getElementById("khstr").style.display = "none";
+                    document.getElementById("kcstr").style.display = "";
+                }
+            });
+
+            function getsudetalis(sid)
+            {
+                var info = RunAjaxGetKey('getsudetalis', sid);
+                $("#SupplierAddress").val(info.split("^")[0]);
+                $("#SupplierTelName").val(info.split("^")[1]);
+                $("#SupplierTel").val(info.split("^")[2]);
+            }
+
+            function getgooddanwei(gid)
+            {
+                var info = RunAjaxGetKey('getgooddanwei', gid);
+                document.getElementById("gooddanwei").innerHTML = info;
+                document.getElementById("gooddanwei2").innerHTML = info;
+                document.getElementById("gooddanwei3").innerHTML = info;
+            }
+
+                function checkChange() {
+                    //if ($('#txtName').val() == '') {
+                    //    v5.error('经费项目名称不能为空', '1', 'ture');
+                    //} else {
+                    ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/XSTastList.aspx");
+                    //}
+                }
+                function setViewSiJi1(realobj) {
+                    $.ajax({
+                        type: 'post',
+                        url: 'Car/AddTast.aspx?Action=Add',
+                        data: $('#form1').serialize(),
+                        success: function (info) {
+                            document.getElementById("sjview1").innerHTML = info;
+                        }
+                    });
+            
+                }
+                function setViewSiJi2(realobj) {
+                    $.ajax({
+                        type: 'post',
+                        url: 'Car/AddTast.aspx?Action=Other',
+                        data: $('#form1').serialize(),
+                        success: function (info) {
+                            document.getElementById("sjview2").innerHTML = info;
+                        }
+                    });
+
+                }
+    </script>

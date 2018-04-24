@@ -135,7 +135,7 @@
                         {
                     %>
                      <div class="col-25 row-tab">
-                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/DBTastList.aspx','我的待办');">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/XSTastList.aspx','我的待办');">
                             <i class="iconfont">&#xe653;</i>
                             我的待办
                         </a>
@@ -150,7 +150,12 @@
                         }
                         else {
                             %>
-                    
+                                <div class="col-25 row-tab">
+                                    <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/DDTastList.aspx','我的待办');">
+                                        <i class="iconfont">&#xe653;</i>
+                                        我的待办
+                                    </a>
+                                </div>
                             <%
                         }
                     %>

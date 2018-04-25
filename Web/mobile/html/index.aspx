@@ -162,6 +162,18 @@
                             添加任务
                         </a>
                     </div>
+                      <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/CarList.aspx','查看车辆');">
+                            <i class="iconfont">&#xe625;</i>
+                            查看车辆
+                        </a>
+                    </div>
+                     <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/CarYJ.aspx','车辆预警');">
+                            <i class="iconfont">&#xe605;</i>
+                            车辆预警
+                        </a>
+                    </div>
                             <%
                         }
                     %>

@@ -315,11 +315,13 @@
     <Content Include="mobile\html\BXView.aspx" />
     <Content Include="mobile\html\caiwu.aspx" />
     <Content Include="mobile\html\Cars.aspx" />
+    <Content Include="mobile\html\CarYJ.aspx" />
     <Content Include="mobile\html\Code.aspx" />
     <Content Include="mobile\html\CostAdd.aspx" />
     <Content Include="mobile\html\CostList.aspx" />
     <Content Include="Car\CostList2.aspx" />
     <Content Include="mobile\html\CW.aspx" />
+    <Content Include="mobile\html\CarList.aspx" />
     <Content Include="mobile\html\DDTast.aspx" />
     <Content Include="mobile\html\DDTastAdd.aspx" />
     <Content Include="mobile\html\DDTastList.aspx" />
@@ -622,7 +624,6 @@
     <Content Include="OJ\ObjList.aspx" />
     <Content Include="OJ\ObjSubList.aspx" />
     <Content Include="OJ\ObjSubTypeList.aspx" />
-    <Content Include="plugin\kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="plugin\layer\extend\layer.ext.js" />
     <Content Include="plugin\layer\layer.js" />
     <Content Include="plugin\layer\skin\default\icon-ext.png" />
@@ -1622,6 +1623,13 @@
     <Compile Include="mobile\html\Cars.aspx.designer.cs">
       <DependentUpon>Cars.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mobile\html\CarYJ.aspx.cs">
+      <DependentUpon>CarYJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\CarYJ.aspx.designer.cs">
+      <DependentUpon>CarYJ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mobile\html\Code.aspx.cs">
       <DependentUpon>Code.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1656,6 +1664,13 @@
     </Compile>
     <Compile Include="mobile\html\CW.aspx.designer.cs">
       <DependentUpon>CW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\CarList.aspx.cs">
+      <DependentUpon>CarList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\CarList.aspx.designer.cs">
+      <DependentUpon>CarList.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\DDTast.aspx.cs">
       <DependentUpon>DDTast.aspx</DependentUpon>
@@ -2612,6 +2627,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="plugin\kindeditor\asp.net\bin\" />
     <Folder Include="plugin\kindeditor\attached\image\" />
     <Folder Include="plugin\UEditor\net\upload1\" />
     <Folder Include="plugin\UEditor\net\upload\2013-06-25\" />

@@ -27,7 +27,7 @@ namespace yny_003.Web.mobile.html
             {
                 listcost = BLL.C_CostDetalis.GetModelList(" CID=" + order.Id);
             }
-			if (cartast.TState == 1) 
+			if (cartast.TState == 1||!TModel.Role.SiJi) 
 			{
 				anbtn.Visible = false;
 			 }

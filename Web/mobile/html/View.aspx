@@ -8,7 +8,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">会员账号</div>
+                            <div class="item-title label">员工账号</div>
                             <div class="item-input">
                                 <%=TModel.MID %>
                             </div>
@@ -18,7 +18,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">会员名称</div>
+                            <div class="item-title label">员工名称</div>
                             <div class="item-input">
                                 <input type="text" id="txtMName" runat="server" >
                             </div>
@@ -105,7 +105,7 @@
 
         function checkChange() {
             if ($('#txtMName').val() == '') {
-                layer.msg('会员姓名不能为空');
+                layer.msg('员工姓名不能为空');
                 
             } else if ($('#txtBranch').val() == '') {
                 layer.msg('请输入开户支行');

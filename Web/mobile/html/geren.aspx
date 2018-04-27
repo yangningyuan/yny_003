@@ -11,7 +11,7 @@
                                     <li><strong><%=TModel.MID %>，您好</strong></li>
                                     <li><label></label><i class="zs"></i><span class="po1"><%=TModel.MAgencyType.MAgencyName %></span></li>
                                     <br />
-                                    <li><span>会员类型：<b><%=TModel.Role.RName %></b></span>&nbsp;</li>
+                                    <li><span>员工类型：<b><%=TModel.Role.RName %></b></span>&nbsp;</li>
                                    <%-- <li><i class="jiangjin"></i><%=yny_003.BLL.Reward.List["MHB"].RewardName %>：<%=TModel.MConfig.MHB %></li>
                                     <li><i class="currentm"></i><%=yny_003.BLL.Reward.List["MJB"].RewardName %>：<%=TModel.MConfig.MJB %></li>--%>
                                     
@@ -54,7 +54,7 @@
                           <%--  <li>
                                 <a href="javascript:pcallhtml('/mobile/html/CW.aspx','财务');" class="item-link item-content">
                                     <div class="item-inner">
-                                        <div class="item-title">会员财务</div>
+                                        <div class="item-title">员工财务</div>
                                     </div>
                                 </a>
                             </li>--%>

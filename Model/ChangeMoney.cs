@@ -12,11 +12,11 @@ namespace yny_003.Model
         /// </summary>
         public int CID { get; set; }
         /// <summary>
-        /// 来自会员账号
+        /// 来自员工账号
         /// </summary>
         public string FromMID { get; set; }
         /// <summary>
-        /// 去向会员账号
+        /// 去向员工账号
         /// </summary>
         public string ToMID { get; set; }
         /// <summary>

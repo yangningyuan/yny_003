@@ -8,7 +8,7 @@ namespace yny_003.Model
     public class MemberConfig
     {
         /// <summary>
-        /// 会员账号
+        /// 员工账号
         /// </summary>
         public string MID { get; set; }
         /// <summary>

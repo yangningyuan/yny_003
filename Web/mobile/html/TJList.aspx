@@ -21,7 +21,7 @@
     <table class=" table table-striped table-bordered ">
         <thead>
             <tr>
-                <th>会员账号</th>
+                <th>员工账号</th>
                 <th><%=yny_003.BLL.Reward.List["MHB"].RewardName %></th>
                 <th><%=yny_003.BLL.Reward.List["MJB"].RewardName %></th>
                 <th>注册/激活时间</th>

@@ -126,7 +126,7 @@ namespace yny_003.Web.Handler
         {
             string result = "";
 
-            result = string.Format("<span>会员帐号：【<b style=\"color:{2};font-weight: bold;\">{0}</b>】</span><span>会员级别：【{1}】</span><span>人数：【<b style=\"color:red;font-weight: bold;\">{3}</b>】</span><span>业绩：【<b style=\"color:red;font-weight: bold;\">{4}万</b>】</span>", member.MID, member.MAgencyType.MAgencyName, member.MAgencyType.MColor, member.MConfig.YJCount, member.MConfig.YJMoney / 10000);
+            result = string.Format("<span>员工帐号：【<b style=\"color:{2};font-weight: bold;\">{0}</b>】</span><span>员工级别：【{1}】</span><span>人数：【<b style=\"color:red;font-weight: bold;\">{3}</b>】</span><span>业绩：【<b style=\"color:red;font-weight: bold;\">{4}万</b>】</span>", member.MID, member.MAgencyType.MAgencyName, member.MAgencyType.MColor, member.MConfig.YJCount, member.MConfig.YJMoney / 10000);
 
             return result;
         }

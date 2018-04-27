@@ -548,7 +548,7 @@ namespace yny_003.Web
         public bool Check_SQ_Answer()
         {
             bool flag = true;
-            //找到该会员的密保问题及答案
+            //找到该员工的密保问题及答案
             Model.Sys_SQ_Answer obj = null;
             BLL.Sys_SQ_Answer BLL = new BLL.Sys_SQ_Answer();
             string whereStr = " IsDeleted=0 and Status=1 and MID=" + TModel.ID;
@@ -573,9 +573,9 @@ namespace yny_003.Web
             return member.MAgencyType._MAgencyName;
             //if (!member.MState)
             //{
-            //    return "未激活会员";
+            //    return "未激活员工";
             //}
-            //return member.MConfig.DTFHState ? "正式会员" : "<span style='color:blue;'>金种子帐号<span>";
+            //return member.MConfig.DTFHState ? "正式员工" : "<span style='color:blue;'>金种子帐号<span>";
         }
 
 
@@ -706,7 +706,7 @@ namespace yny_003.Web
             }
             //else if (member.BankCardName != member.MName)
             //{
-            //    error = "开户姓名必须和会员昵称一直";
+            //    error = "开户姓名必须和员工昵称一直";
             //}
 
             return error;

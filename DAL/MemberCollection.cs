@@ -11,10 +11,10 @@ namespace yny_003.DAL
 {
     public class MemberCollection
     {
-        #region 会员集合信息查询
+        #region 员工集合信息查询
 
         /// <summary>
-        /// 得到会员及附属信息
+        /// 得到员工及附属信息
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <returns></returns>
@@ -33,7 +33,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到会员及附属信息实体列表
+        /// 得到员工及附属信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <returns></returns>
@@ -52,7 +52,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到会员信息数据
+        /// 得到员工信息数据
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <returns>返回DataTable</returns>
@@ -68,7 +68,7 @@ namespace yny_003.DAL
             return DbHelperSQL.Query(strSql.ToString()).Tables[0];
         }
         /// <summary>
-        /// 得到会员信息数据
+        /// 得到员工信息数据
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <returns>返回DataTable</returns>
@@ -85,7 +85,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到会员信息实体列表
+        /// 得到员工信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <returns></returns>
@@ -104,7 +104,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到会员信息实体列表
+        /// 得到员工信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <returns></returns>
@@ -124,13 +124,13 @@ namespace yny_003.DAL
 
 
         /// <summary>
-        /// 得到分页会员信息实体列表
+        /// 得到分页员工信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>
         /// <param name="pageSize">页大小</param>
         /// <param name="count">out类型总计</param>
-        /// <returns>返回会员List集合</returns>
+        /// <returns>返回员工List集合</returns>
         public static List<Model.Member> GetMemberEntityList(string strWhere, int pageIndex, int pageSize, out int count)
         {
             List<Model.Member> MemberList = new List<Model.Member>();
@@ -144,7 +144,7 @@ namespace yny_003.DAL
             return MemberList;
         }
         /// <summary>
-        /// 得到分页会员信息数据
+        /// 得到分页员工信息数据
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>

@@ -63,7 +63,7 @@ namespace yny_003.DAL
         /// <summary>
         /// 查询
         /// </summary>
-        /// <param name="MID">会员账号</param>
+        /// <param name="MID">员工账号</param>
         /// <returns></returns>
         public static List<Model.Task> SelectNewTasks(string TToMID, string TFromMID, int ID)
         {

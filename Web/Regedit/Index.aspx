@@ -50,11 +50,11 @@
         }
         function TestEmail() {
             if (!$('#txtMName').val().TryEN()) {
-                v5.error('会员姓名只能输入两位以上的中文字符', '1', 'true');
+                v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
             } else if ($('#txtMTJ').val() == '') {
-                v5.error('推荐会员帐号不能为空', '1', 'true');
+                v5.error('推荐员工帐号不能为空', '1', 'true');
                 //} else if ($('#txtMBD').val() == '') {
-                //    v5.error('接点会员不能为空', '1', 'true');
+                //    v5.error('接点员工不能为空', '1', 'true');
             } else if (!$('#txtPassword').val().TryPassword()) {
                 v5.error('登录密码不能为空，且必须为6-20位字母或数字组合', '1', 'true');
             } else if ($('#txtPassword').val() != $('#txtPassword2').val()) {
@@ -74,9 +74,9 @@
             //} else if ($('#txtBranch').val() == '') {
             //    v5.error('请输入开户支行', '1', 'true');
             //} else if (!$('#txtBankCardName').val().TryEN()) {
-            //    v5.error('会员姓名只能输入两位以上的中文字符', '1', 'true');
+            //    v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
             //} else if ($('#txtBankCardName').val() != $('#txtMName').val()) {
-            //    v5.error('开户姓名必须与会员姓名一直', '1', 'true');
+            //    v5.error('开户姓名必须与员工姓名一直', '1', 'true');
             //} else if (!$('#txtBankNumber').val().TryBankCard()) {
             //    v5.error('银行卡号只能是16或19位数字', '1', 'true');
             //} else if ($('#txtAnswer').val() == '') {
@@ -91,7 +91,7 @@
                         setTimeout(function () {
                             v5.clearall();
                             //if (info == '注册成功') {
-                            //callhtml('Member/UpMemberSJ.aspx?id=' + $("#txtMID").val(), '升级会员');
+                            //callhtml('Member/UpMemberSJ.aspx?id=' + $("#txtMID").val(), '升级员工');
                             //}
                         }, 1000);
                     }
@@ -121,7 +121,7 @@
                     <img src="images/logo.png" height="66px"></a>
             </div>
             <nav class="blog-nav pull-left">
-                <span class="blog-nav-item active" href="../Regedit/Index.aspx">会员注册</span>
+                <span class="blog-nav-item active" href="../Regedit/Index.aspx">员工注册</span>
             </nav>
         </div>
     </div>
@@ -134,11 +134,11 @@
                 <form class="form-horizontal" method="post" id="form1">
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            推荐会员帐号
+                            推荐员工帐号
                         </label>
                         <div class="col-sm-9">
                             <input id="txtMTJ" class="form-control" name="txtMTJ" type="text" runat="server"
-                                placeholder="请输入您的推荐人帐号" />请输入您的推荐会员帐号
+                                placeholder="请输入您的推荐人帐号" />请输入您的推荐员工帐号
                         </div>
                     </div>
                     <div class="form-group">
@@ -185,19 +185,19 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            会员帐号
+                            员工帐号
                         </label>
                         <div class="col-sm-9">
                             <input id="txtMID" class="form-control" name="txtMID" type="text" maxlength="20"
-                                placeholder="请输入您的会员账号" />6-20字母或数字组合
+                                placeholder="请输入您的员工账号" />6-20字母或数字组合
                         </div>
                     </div>--%>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            会员姓名
+                            员工姓名
                         </label>
                         <div class="col-sm-9">
-                            <input id="txtMName" class="form-control" name="txtMName" type="text" placeholder="请输入您的会员姓名"
+                            <input id="txtMName" class="form-control" name="txtMName" type="text" placeholder="请输入您的员工姓名"
                                 maxlength="30" />
                         </div>
                     </div>

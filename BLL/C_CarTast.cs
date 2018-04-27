@@ -140,7 +140,7 @@ namespace yny_003.BLL
 		}
 
 		/// <summary>
-		/// 获得指定会员有效任务
+		/// 获得指定员工有效任务
 		/// </summary>
 		public static Model.C_CarTast GetModelBySJ(string mid)
 		{

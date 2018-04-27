@@ -18,8 +18,8 @@ namespace yny_003.Model
         public string Unit { get; set; }//单位
         public decimal CostPrice { get; set; }//原价
         public decimal CostPV { get; set; }//原价PV
-        public decimal MemberPrice { get; set; }//会员价
-        public decimal MemberPV { get; set; }//会员PV
+        public decimal MemberPrice { get; set; }//员工价
+        public decimal MemberPV { get; set; }//员工PV
         public decimal GroupPrice { get; set; }//团购价
         public decimal GroupPV { get; set; }//团购PV
         public string ImageAddr { get; set; }//图片路径

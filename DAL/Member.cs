@@ -45,7 +45,7 @@ namespace yny_003.DAL
 
         #region 临时字典
 
-        //临时存储会员业绩相关数据
+        //临时存储员工业绩相关数据
         public static Dictionary<string, Model.Member> tempMemberList = new Dictionary<string, Model.Member>();
         public static Dictionary<string, DateTime> _onLineMember = new Dictionary<string, DateTime>();
         public static Dictionary<string, decimal> _CPList = new Dictionary<string, decimal>();
@@ -112,11 +112,11 @@ namespace yny_003.DAL
 
         #endregion
 
-        #region 会员信息增删改
+        #region 员工信息增删改
         /// <summary>
-        /// 更新会员参数值
+        /// 更新员工参数值
         /// </summary>
-        /// <param name="mid">会员账号</param>
+        /// <param name="mid">员工账号</param>
         /// <param name="ConfigValue">参数值</param>
         /// <param name="ConfigName">参数名称</param>
         /// <param name="MyHs"></param>
@@ -150,7 +150,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 插入会员
+        /// 插入员工
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -266,7 +266,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 修改会员资料
+        /// 修改员工资料
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -412,7 +412,7 @@ namespace yny_003.DAL
             return MyHs;
         }
         /// <summary>
-        /// 修改会员资料
+        /// 修改员工资料
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -451,7 +451,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 删除会员
+        /// 删除员工
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>
@@ -507,7 +507,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 删除会员
+        /// 删除员工
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>
@@ -525,7 +525,7 @@ namespace yny_003.DAL
                 }
                 else
                 {
-                    return "已审核的会员不能删除";
+                    return "已审核的员工不能删除";
                 }
             }
             if (CommonBase.RunHashtable(MyHs))
@@ -536,10 +536,10 @@ namespace yny_003.DAL
         }
         #endregion
 
-        #region 会员信息查询
+        #region 员工信息查询
 
         /// <summary>
-        /// 得到会员对象
+        /// 得到员工对象
         /// </summary>
         /// <param name="MID"></param>
         /// <returns></returns>
@@ -951,7 +951,7 @@ namespace yny_003.DAL
             return Convert.ToInt32(DbHelperSQL.ProcGetSingleProc("GetLevelForView", para));
         }
         /// <summary>
-        /// 判断两个会员是否有推荐或被推荐关系
+        /// 判断两个员工是否有推荐或被推荐关系
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -995,7 +995,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 获取会员人数
+        /// 获取员工人数
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>
@@ -1062,7 +1062,7 @@ namespace yny_003.DAL
         # region 层奖
 
         /// <summary>
-        /// 根据层数得到左右区第一个会员业绩
+        /// 根据层数得到左右区第一个员工业绩
         /// </summary>
         public static decimal GetCYJMoney(string mbdmid, int level)
         {

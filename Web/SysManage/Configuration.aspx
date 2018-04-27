@@ -149,10 +149,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: right; width: 20%;">会员最高持有投资金额:</td>
+                        <td style="text-align: right; width: 20%;">员工最高持有投资金额:</td>
                         <td>
                             <input id="txtE_BbinFHFloat" runat="server" class="normal_input" type="text" require-type="decimal"
-                                require-msg="会员最高持有投资金额" /><font color="red">*</font>
+                                require-msg="员工最高持有投资金额" /><font color="red">*</font>
                         </td>
                         <td></td>
                         <td></td>

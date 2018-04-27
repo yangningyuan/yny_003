@@ -67,10 +67,10 @@
 								<h3>找回密码</h3></div>
 						</div>
 						<div class="form-group">
-							<label for="qq" class="col-sm-12 control-label">会员账号</label>
+							<label for="qq" class="col-sm-12 control-label">员工账号</label>
 							<div class="col-sm-12">
 								<input id="txtMemberMID" type="text" class="form-control" placeholder="用户名" runat="server" />
-								<small class="text-muted">请输入您的会员账号</small>
+								<small class="text-muted">请输入您的员工账号</small>
 							</div>
 						</div>
 						<div class="form-group">

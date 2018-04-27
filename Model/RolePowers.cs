@@ -12,7 +12,7 @@ namespace yny_003.Model
         /// </summary>
         public int RID { get; set; }
         /// <summary>
-        /// 会员角色
+        /// 员工角色
         /// </summary>
         public string RType { get; set; }
         /// <summary>

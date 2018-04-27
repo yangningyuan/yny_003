@@ -12,7 +12,7 @@ namespace yny_003.Model
     {
         #region 基本属性
         /// <summary>
-        /// 会员级别
+        /// 员工级别
         /// </summary>
         public string MAgencyType { get; set; }
 

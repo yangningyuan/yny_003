@@ -66,8 +66,8 @@ namespace yny_003.DAL
         /// <summary>
         /// 转移货币事物哈希表
         /// </summary>
-        /// <param name="fromid">来自会员账号</param>
-        /// <param name="toid">去向会员账号</param>
+        /// <param name="fromid">来自员工账号</param>
+        /// <param name="toid">去向员工账号</param>
         /// <param name="money">货币</param>
         /// <returns></returns>
         public static Hashtable TranChangeTran(string frommid, string tomid, decimal money, string moneytype, Hashtable MyHs)
@@ -257,12 +257,12 @@ namespace yny_003.DAL
 
         #endregion
 
-        #region 会员奖金查询
+        #region 员工奖金查询
 
         /// <summary>
-        /// 得到会员业绩汇总
+        /// 得到员工业绩汇总
         /// </summary>
-        /// <param name="mid">会员账号</param>
+        /// <param name="mid">员工账号</param>
         /// <param name="ChangeType">统计奖金类型</param>
         /// <param name="NeedTakeOff">需要扣除费用的类型</param>
         /// <returns></returns>
@@ -301,7 +301,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到会员的累计未批准提现申请总额
+        /// 得到员工的累计未批准提现申请总额
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>

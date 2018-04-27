@@ -70,14 +70,14 @@
                         <img src="/mobile/img/banner.png" />
                     </div>
                 </div>--%>
-                <div class="notice_content">
+               <%-- <div class="notice_content">
                     <div class="news_panel">
                         <img src="/mobile/img/newsicon.png">
                     </div>
                     <div class="news">
                         <marquee behavior="scroll" direction="left" scrolldelay="150"><%=noticecontent %></marquee>
                     </div>
-                </div>
+                </div>--%>
                 <div class="qicon"><span>快捷图标</span></div>
                 <div class="row margin-top-buttom">
 
@@ -98,12 +98,7 @@
                         </a>
                     </div>
 
-                    <div class="col-25 row-tab">
-                        <a class="tab-item" href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');">
-                            <i class="iconfont">&#xe600;</i>
-                            公告查询
-                        </a>
-                    </div>
+                   
                     <div class="col-25 row-tab">
                         <a class="tab-item" href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/WZList.aspx','违章查询');">
                             <i class="iconfont">&#xe662;</i>
@@ -177,7 +172,12 @@
                             <%
                         }
                     %>
-                  
+                   <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="javascript:pcallhtml('/mobile/html/GGTZ.aspx','公告通知');">
+                            <i class="iconfont">&#xe600;</i>
+                            公告查询
+                        </a>
+                    </div>
                 </div>
 
             </div>

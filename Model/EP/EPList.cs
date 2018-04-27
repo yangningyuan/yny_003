@@ -40,7 +40,7 @@ namespace yny_003.Model
         /// </summary>
         public string BuyMID { get; set; }
         /// <summary>
-        /// 挂卖类型(普通会员/商务中心)
+        /// 挂卖类型(普通员工/商务中心)
         /// </summary>
         public string SellType { get; set; }
         /// <summary>

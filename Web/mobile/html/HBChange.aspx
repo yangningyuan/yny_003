@@ -18,9 +18,9 @@
                 <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">转出会员</div>
+                            <div class="item-title label">转出员工</div>
                             <div class="item-input">
-                                <input type="text" value="" name="txtFromMID" runat="server" id="txtFromMID" placeholder="请输入转出会员">
+                                <input type="text" value="" name="txtFromMID" runat="server" id="txtFromMID" placeholder="请输入转出员工">
                             </div>
                         </div>
                     </div>
@@ -28,9 +28,9 @@
                   <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">转入会员</div>
+                            <div class="item-title label">转入员工</div>
                             <div class="item-input">
-                                <input type="text" value="" name="txtMID"  onchange="getName();" runat="server" id="txtMID" placeholder="请输入转入会员">
+                                <input type="text" value="" name="txtMID"  onchange="getName();" runat="server" id="txtMID" placeholder="请输入转入员工">
                             </div>
                         </div>
                     </div>
@@ -38,9 +38,9 @@
                  <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">会员姓名</div>
+                            <div class="item-title label">员工姓名</div>
                             <div class="item-input">
-                                <input type="text" value="" readonly="readonly" name="txtMName" runat="server" id="txtMName" placeholder="请输入会员姓名">
+                                <input type="text" value="" readonly="readonly" name="txtMName" runat="server" id="txtMName" placeholder="请输入员工姓名">
                             </div>
                         </div>
                     </div>
@@ -104,19 +104,19 @@
                 layer.msg("转账金额应该为整数");
             } else if (RunAjaxGetKey('getMName', $('#txtMID').val()) == '') {
                 
-                layer.msg("不存在转入会员");
+                layer.msg("不存在转入员工");
             } else if (RunAjaxGetKey('getMName', $('#txtFromMID').val()) == '') {
                 
-                layer.msg("不存在转出会员");
+                layer.msg("不存在转出员工");
             } else if ($('#txtFromMID').val() == $('#txtMID').val()) {
                 
                 layer.msg("不能自己给自己转账");
             }
             else {
-                ActionModel("/ChangeMoney/HBChange.aspx?Action=add", $('#form1').serialize(), "/mobile/html/HBChange.aspx", "", "会员转账");
+                ActionModel("/ChangeMoney/HBChange.aspx?Action=add", $('#form1').serialize(), "/mobile/html/HBChange.aspx", "", "员工转账");
             }
         }
-        //转账只能转给有推荐关系的会员之间转账,该函数校验转出会员与转入会员之间是否有推荐或被推荐关系
+        //转账只能转给有推荐关系的员工之间转账,该函数校验转出员工与转入员工之间是否有推荐或被推荐关系
         function isCanChangeByMember() {
             var fromMID = $('#txtFromMID').val().Trim();
             var toMID = $('#txtMID').val().Trim();
@@ -143,7 +143,7 @@
         function findMHB() {
             var reuslt = RunAjaxGetKey('FindMHB', $('#txtFromMID').val());
             if (reuslt == '') {
-                v5.error('不存在转出会员', '1', 'true');
+                v5.error('不存在转出员工', '1', 'true');
             } else {
                 $('#txtMJB').html(reuslt);
             }
@@ -152,7 +152,7 @@
         function findMGP() {
             var reuslt = RunAjaxGetKey('FindMGP', $('#txtFromMID').val());
             if (reuslt == '') {
-                v5.error('不存在转出会员', '1', 'true');
+                v5.error('不存在转出员工', '1', 'true');
             } else {
                 $('#txtMGP').html(reuslt);
             }
@@ -161,7 +161,7 @@
         function findMCW() {
             var reuslt = RunAjaxGetKey('FindMCW', $('#txtFromMID').val());
             if (reuslt == '') {
-                v5.error('不存在转出会员', '1', 'true');
+                v5.error('不存在转出员工', '1', 'true');
             } else {
                 $('#txtMGP').html(reuslt);
             }
@@ -170,7 +170,7 @@
         function findMJB() {
             var reuslt = RunAjaxGetKey('FindMJB', $('#txtFromMID').val());
             if (reuslt == '') {
-                v5.error('不存在转出会员', '1', 'true');
+                v5.error('不存在转出员工', '1', 'true');
             } else {
                 $('#txtMJB').html(reuslt);
             }

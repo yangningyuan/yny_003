@@ -5,7 +5,7 @@
 <script src="/plugin/ztree/ztreeScript.js" type="text/javascript"></script>
 <script type="text/javascript">
     var level = 1;
-    var defalutinfo = "请输入会员账号,层级";
+    var defalutinfo = "请输入员工账号,层级";
     LoadZtree($('#txtMid').val());
 </script>
 
@@ -20,8 +20,8 @@
             <div class="control">
                 <div class="search" id="DivSearch" runat="server" style="display: none;">
 
-                    <input id="txtMid" runat="server" value="请输入会员账号" onfocus="if (value =='请输入会员账号'){value =''}"
-                        onblur="if (value ==''){value='请输入会员账号'}" type="text" class="sinput" />
+                    <input id="txtMid" runat="server" value="请输入员工账号" onfocus="if (value =='请输入员工账号'){value =''}"
+                        onblur="if (value ==''){value='请输入员工账号'}" type="text" class="sinput" />
                 </div>
             </div>
             <div class="tree_table">

@@ -100,8 +100,8 @@
                 <input type="text" name="txtKey" data-name="txtKey" id="endDate" value="截止日期" onfocus="if (value =='截止日期'){value =''}"
                     class="daycash_input" style="width: 120px;" onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate\')}' })" />
             </div>
-            <%--<div class="pay" onclick="UpDateByID('Member/UpMAgencyType.aspx?','升级会员',820,530)">
-                升级会员</div>--%>
+            <%--<div class="pay" onclick="UpDateByID('Member/UpMAgencyType.aspx?','升级员工',820,530)">
+                升级员工</div>--%>
         </div>
         <div class="ui_table">
             <div id="receiveDiv" style="display: none">

@@ -25,7 +25,7 @@
                     <tr>
                         <%--<td>
                             <select id="AgencyCode" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
-                                <option value="">会员级别</option>
+                                <option value="">员工级别</option>
                                 <%=AgencyListStr%>
                             </select>
                         </td>--%>
@@ -66,8 +66,8 @@
             <div id="Div1" runat="server" class="pay" onclick="callhtml('/Member/Add.aspx','新增人员');onclickMenu()">
                 新增人员
             </div>
-            <div id="editMember" runat="server" class="pay" onclick="UpDateByID('Member/ModifyMember.aspx?','修改会员',820,530)">
-                修改会员
+            <div id="editMember" runat="server" class="pay" onclick="UpDateByID('Member/ModifyMember.aspx?','修改员工',820,530)">
+                修改员工
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />

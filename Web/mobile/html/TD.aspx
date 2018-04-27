@@ -6,7 +6,7 @@
             <li>
                 <a href="javascript:pcallhtml('/mobile/html/ADD.aspx','立即注册');" class="item-link item-content">
                     <div class="item-inner">
-                        <div class="item-title">注册会员</div>
+                        <div class="item-title">注册员工</div>
                     </div>
                 </a>
             </li>

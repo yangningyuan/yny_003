@@ -33,7 +33,7 @@ namespace yny_003.Model
         /// </summary>
         public DateTime HKDate { get; set; }
         /// <summary>
-        /// 汇款会员账号
+        /// 汇款员工账号
         /// </summary>
         public string MID { get; set; }
         /// <summary>

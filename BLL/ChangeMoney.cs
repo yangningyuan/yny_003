@@ -13,7 +13,7 @@ namespace yny_003.BLL
         # region 数据统计
 
         /// <summary>
-        /// 今日新增会员
+        /// 今日新增员工
         /// </summary>
         /// <param name="member"></param>
         /// <returns></returns>
@@ -54,7 +54,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 获得当前获取的奖金总额
         /// </summary>
-        /// <param name="mid">会员帐号</param>
+        /// <param name="mid">员工帐号</param>
         /// <param name="type">奖金类型，默认为所有</param>
         /// <param name="day">哪一天(0:当天,1:昨天,2:前天...)</param>
         /// <returns></returns>
@@ -116,7 +116,7 @@ namespace yny_003.BLL
 
         #endregion
 
-        #region 会员业务操作
+        #region 员工业务操作
 
         /// <summary>
         /// 申请提现
@@ -206,7 +206,7 @@ namespace yny_003.BLL
             BLL.Member.UpdateConfigTran(changemoney.FromMID, changemoney.MoneyType, (-changemoney.Money).ToString(), null, false, SqlDbType.Decimal, MyHs);
             if (ifSendMsg)
             {
-                BLL.Task.SendManage(model, "001", "您好，会员:" + model.MID + "于当前时间" +
+                BLL.Task.SendManage(model, "001", "您好，员工:" + model.MID + "于当前时间" +
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "申请提现:" + money + ",实发金额:" + (changemoney.Money /*- changemoney.TakeOffMoney*/) +
                     "，请及时汇款，人民币为" + money + "，实发金额" + ((changemoney.Money/* - changemoney.TakeOffMoney*/)));
             }
@@ -245,7 +245,7 @@ namespace yny_003.BLL
 
             if (ifSendMsg)
             {
-                BLL.Task.SendManage(model, "001", "会员:" + model.MID + "于当前时间" +
+                BLL.Task.SendManage(model, "001", "员工:" + model.MID + "于当前时间" +
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "申请挂卖:" + money);
             }
             return InsertTran(changemoney, MyHs);
@@ -277,7 +277,7 @@ namespace yny_003.BLL
                     DAL.MemberConfig.UpdateConfigTran(FromMember.MID, "TotalTXMoney", changemoney.Money.ToString(), FromMember, false, SqlDbType.Decimal, MyHs);
                     if (BLL.CommonBase.RunHashtable(MyHs))
                     {
-                        //BLL.Task.ManageSend(FromMember, "您好，尊敬的会员:" + FromMember.MID + "，平台已与于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") +
+                        //BLL.Task.ManageSend(FromMember, "您好，尊敬的员工:" + FromMember.MID + "，平台已与于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") +
                         //    "审核您的提现申请" + "，实发金额$" + (changemoney.Money - changemoney.TakeOffMoney) + ",折合人民币￥" + (changemoney.Money - changemoney.TakeOffMoney) * BLL.Configuration.Model.OutFloat + ";，请注意查收");
                         success++;
                     }
@@ -351,7 +351,7 @@ namespace yny_003.BLL
                     //DAL.MemberConfig.UpdateConfigTran(FromMember.MID, "TotalTXMoney", changemoney.Money.ToString(), FromMember, false, SqlDbType.Decimal, MyHs);
                     if (BLL.CommonBase.RunHashtable(MyHs))
                     {
-                        //BLL.Task.ManageSend(FromMember, "您好，尊敬的会员:" + FromMember.MID + "，平台已与于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") +
+                        //BLL.Task.ManageSend(FromMember, "您好，尊敬的员工:" + FromMember.MID + "，平台已与于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") +
                         //    "审核您的提现申请" + "，实发金额$" + (changemoney.Money - changemoney.TakeOffMoney) + ",折合人民币￥" + (changemoney.Money - changemoney.TakeOffMoney) * BLL.Configuration.Model.OutFloat + ";，请注意查收");
                         success++;
                     }
@@ -419,13 +419,13 @@ namespace yny_003.BLL
                 DAL.Member.tempMemberAdd(shmodel);
                 if (model.Role.Super)
                 {
-                    HBChangeTran(shmodel.SHMoney, model.MID, "Activation", "SH", shmodel, "MHB", model.MID + "审核该会员", MyHs);//货币减少
+                    HBChangeTran(shmodel.SHMoney, model.MID, "Activation", "SH", shmodel, "MHB", model.MID + "审核该员工", MyHs);//货币减少
                 }
                 else
                 {
                     if (!EnoughChange(model.MID, shmodel.SHMoney, "MJB"))
-                        return "您的报单币不足，不能激活会员";
-                    HBChangeTran(shmodel.SHMoney, model.MID, BLL.Member.ManageMember.TModel.MID, "SH", shmodel, "MJB", model.MID + "审核该会员", MyHs);
+                        return "您的报单币不足，不能激活员工";
+                    HBChangeTran(shmodel.SHMoney, model.MID, BLL.Member.ManageMember.TModel.MID, "SH", shmodel, "MJB", model.MID + "审核该员工", MyHs);
                 }
                 BLL.Accounts.BDInsert(account, MyHs);
 
@@ -436,7 +436,7 @@ namespace yny_003.BLL
                 DAL.Member.Update(shmodel, MyHs);
                 if (DAL.CommonBase.RunHashtable(MyHs))
                 {
-                    BLL.Task.ManageSend(shmodel, "恭喜您已成功激活成为正式会员");
+                    BLL.Task.ManageSend(shmodel, "恭喜您已成功激活成为正式员工");
                     return "操作成功";
                 }
                 DAL.Member.tempMemberList.Clear();//清空临时字典
@@ -445,7 +445,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 会员充值货币
+        /// 员工充值货币
         /// </summary>
         /// <param name="mid"></param>
         /// <param name="money"></param>
@@ -458,7 +458,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 会员扣费
+        /// 员工扣费
         /// </summary>
         /// <param name="frommid"></param>
         /// <param name="tomid"></param>
@@ -724,7 +724,7 @@ namespace yny_003.BLL
             {
                 Model.Member member = DAL.Member.GetModel(mid);
                 DAL.Member.tempMemberList.Clear();
-                //获取业绩小的会员
+                //获取业绩小的员工
                 List<Model.Member> list = new BLL.Member().GetMemberEntityList(" MState = 1 and MBD = '" + mid + "' ");
                 if (list != null && list.Any())
                 {
@@ -752,7 +752,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 分红奖
         /// </summary>
-        /// <param name="model">待审核会员</param>
+        /// <param name="model">待审核员工</param>
         /// <param name="MyHs">SQL批处理</param>
         /// <returns></returns>
         public static Hashtable FHChangeTran(Model.Accounts model, Hashtable MyHs)
@@ -809,13 +809,13 @@ namespace yny_003.BLL
         /// <summary>
         /// 业绩更新(迭代)
         /// </summary>
-        /// <param name="model">待审核会员（迭代的变量）</param>
+        /// <param name="model">待审核员工（迭代的变量）</param>
         /// <param name="MyHs">SQL批处理</param>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <returns></returns>
         public static Hashtable YJCountTran(Model.Member model, Model.Member shmodel, Hashtable MyHs)
         {
-            //获取待审核会员的接点人
+            //获取待审核员工的接点人
             Model.Member tempmodel = DAL.Member.GetModel(model.MBD);
 
             if (tempmodel != null)
@@ -849,9 +849,9 @@ namespace yny_003.BLL
         /// <summary>
         /// 业绩更新(迭代)
         /// </summary>
-        /// <param name="model">待审核会员（迭代的变量）</param>
+        /// <param name="model">待审核员工（迭代的变量）</param>
         /// <param name="MyHs">SQL批处理</param>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <returns></returns>
         public static Hashtable YJCountTran(decimal money, Model.Member model, Model.Member shmodel, Hashtable MyHs)
         {
@@ -867,12 +867,12 @@ namespace yny_003.BLL
         /// <returns></returns>
         public static Hashtable GetMemberLevel(Model.Member member, Hashtable MyHs)
         {
-            //获取下级所有会员
+            //获取下级所有员工
             var members = DAL.Member.GetModelList(string.Format(" MBD = '{0}' and MID <> '{0}'", member.MID));
             if (members != null && members.Any())
             {
                 int sumYJ = member.MConfig.YJMoney - member.MConfig.SHMoney;// 
-                //获取最大业绩会员
+                //获取最大业绩员工
                 int maxYJ = members.Max(m => m.MConfig.YJMoney - m.MConfig.SHMoney);
                 //获取部门数
                 int count = members.Count;
@@ -896,7 +896,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 推荐更新
         /// </summary>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <param name="MyHs">SQL批处理</param>
         /// <returns></returns>
         public static Hashtable TJCountTran(Model.Member shmodel, Hashtable MyHs)
@@ -939,7 +939,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 报单补贴奖哈希表,管理员不给予奖励
         /// </summary>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <param name="MyHs">SQL批处理</param>
         /// <returns></returns>
         public static Hashtable BTMoneyChangeTran(Model.Member shmodel, Hashtable MyHs)
@@ -955,7 +955,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 反哺奖
         /// </summary>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <param name="MyHs">SQL批处理</param>
         /// <returns></returns>
         public static List<Model.Member> FPMoneyChangeTran(List<Model.Member> limember, List<Model.Member> liall, int count)
@@ -987,7 +987,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 推荐奖励
         /// </summary>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <param name="MyHs">SQL批处理</param>
         /// <returns></returns>
         public static Hashtable TJMoneyChangeTran(Model.Member model, Model.Member shmodel, Hashtable MyHs)
@@ -1004,7 +1004,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 见点奖
         /// </summary>
-        /// <param name="shmodel">待审核会员</param>
+        /// <param name="shmodel">待审核员工</param>
         /// <param name="MyHs">SQL批处理</param>
         /// <returns></returns>
         public static Hashtable LDMoneyChangeTran(Model.Member model, Model.Member shmodel, int level, Hashtable MyHs)
@@ -1145,7 +1145,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 判断是否可以转移货币
         /// </summary>
-        /// <param name="model">来自会员对象</param>
+        /// <param name="model">来自员工对象</param>
         /// <param name="money">货币数目</param>
         /// <returns></returns>
         public static bool EnoughChange(string frommid, decimal money, string moneytype)

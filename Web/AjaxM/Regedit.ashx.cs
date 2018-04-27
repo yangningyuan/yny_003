@@ -121,7 +121,7 @@ namespace yny_003.Web.AjaxM
 
             //if (membermode.MName != membermode.BankCardName)
             //{
-            //    context.Response.Write("开户姓名必须与会员姓名一直");
+            //    context.Response.Write("开户姓名必须与员工姓名一直");
             //    return;
             //}
             //Model.Member mbd = BllModel.GetModel(membermode.MTJ);

@@ -108,7 +108,7 @@ namespace yny_003.BLL
                     Update(eplist, MyHs);
                     if (DAL.CommonBase.RunHashtable(MyHs))
                     {
-                        result = "记录锁定成功，请联系会员进行支付";
+                        result = "记录锁定成功，请联系员工进行支付";
                     }
                     else
                     {
@@ -326,7 +326,7 @@ namespace yny_003.BLL
                 //}
                 //else
                 //{
-                //    DAl.MemberConfig.UpdateConfigTran(eplist.BuyMID, "MHZ", eplist.Money.ToString(), null, false, SqlDbType.Int, MyHs);//买方会员注册币
+                //    DAl.MemberConfig.UpdateConfigTran(eplist.BuyMID, "MHZ", eplist.Money.ToString(), null, false, SqlDbType.Int, MyHs);//买方员工注册币
                 //}
                 //DAl.MemberConfig.UpdateConfigTran(eplist.SellMID, "MHB", eplist.MHGFloat.ToString(), null, false, SqlDbType.Int, MyHs);
                 DAL.MemberConfig.UpdateConfigTran(eplist.BuyMID, "MHB", eplist.Money.ToString(), null, false, SqlDbType.Int, MyHs);//得到股权

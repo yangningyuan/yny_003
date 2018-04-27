@@ -24,8 +24,8 @@
             <div class="search">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <%--<input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />--%>
-                <input name="txtKey" data-name="txtKey" id="mKey" value="会员账号或名称" onfocus="if (value =='会员账号或名称'){value =''}"
-                    onblur="if (value ==''){value='会员账号或名称'}" type="text" class="sinput" />
+                <input name="txtKey" data-name="txtKey" id="mKey" value="员工账号或名称" onfocus="if (value =='员工账号或名称'){value =''}"
+                    onblur="if (value ==''){value='员工账号或名称'}" type="text" class="sinput" />
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" value="开始日期" onfocus="if (value =='开始日期'){value =''}"
                     class="daycash_input" style="width: 120px;" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}'})" />
                 <input type="text" name="txtKey" data-name="txtKey" id="endDate" value="截止日期" onfocus="if (value =='截止日期'){value =''}"

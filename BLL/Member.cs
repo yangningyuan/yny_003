@@ -64,7 +64,7 @@ namespace yny_003.BLL
             }
         }
         /// <summary>
-        /// 更新会员资料
+        /// 更新员工资料
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -112,7 +112,7 @@ namespace yny_003.BLL
             Model.Member model = DAL.Member.GetModel(mid);
             string agencyCode = model.AgencyCode;
             if (model == null)
-                return "升级会员不存在";
+                return "升级员工不存在";
             if (string.IsNullOrEmpty(model.MTJ))
                 return "请联系管理员设置您的推荐人";
             int sjmoney = shmoney.Money - model.MAgencyType.Money;
@@ -121,7 +121,7 @@ namespace yny_003.BLL
                 //DAL.Member.tempMemberList.Clear();
                 //DAL.Member.tempMemberAdd(model);
                 //if (!BLL.ChangeMoney.EnoughChange(shmodel.MID, BLL.Configuration.Model.JTFHMoney, "MCW"))
-                //    return "您的金种子积分不足，不能激活金种子会员";
+                //    return "您的金种子积分不足，不能激活金种子员工";
                 //if (BLL.ChangeMoney.HBChangeTran(BLL.Configuration.Model.JTFHMoney, shmodel.MID, ManageMember.TModel.MID, "SH", model, "MCW", model.MAgencyType.MAgencyName + "->" + shmoney.MAgencyName, MyHs) > 0)
                 //{
                 //    model.MConfig.YJMoney += sjmoney;
@@ -189,7 +189,7 @@ namespace yny_003.BLL
         {
             Model.Member model = DAL.Member.GetModel(mid);
             if (model == null)
-                return "升级会员不存在";
+                return "升级员工不存在";
             if (string.IsNullOrEmpty(model.MTJ))
                 return "请联系管理员设置您的推荐人";
             decimal sjmoney = appendMoney;
@@ -280,7 +280,7 @@ namespace yny_003.BLL
         {
             Model.Member model = DAL.Member.GetModel(mid);
             if (model == null)
-                return "升级会员不存在";
+                return "升级员工不存在";
             if (string.IsNullOrEmpty(model.MTJ))
                 return "请联系管理员设置您的推荐人";
             decimal sjmoney = appendMoney;
@@ -410,18 +410,18 @@ namespace yny_003.BLL
             {
                 Model.Member mtjmodel = DAL.Member.GetModel(model.MTJ);
 
-                retStr = "恭喜您注册成功，您的会员账号为：" + model.MID +
+                retStr = "恭喜您注册成功，您的员工账号为：" + model.MID +
                             "，登录密码是：" + password + "，资金密码是：" + secpsd + "！";
                 Model.SMS smsmodel = new Model.SMS { MID = model.MID, SContent = retStr, Email = model.Email, SType = Model.SMSType.QT };
 
                 BLL.Task.ManageSend(model, "尊敬的" + model.MID +
-                       "会员：恭喜成功注册，为了您的账户安全，请妥善保管您的密码，并且定期在[安全中心]修改密码，为了使您能够享受更多的服务，请及时购币激活账号，您的推荐人QQ号码：" + mtjmodel.QQ + "，手机号码：" + mtjmodel.Tel);
+                       "员工：恭喜成功注册，为了您的账户安全，请妥善保管您的密码，并且定期在[安全中心]修改密码，为了使您能够享受更多的服务，请及时购币激活账号，您的推荐人QQ号码：" + mtjmodel.QQ + "，手机号码：" + mtjmodel.Tel);
 
                 string emailerr = "";
                 if (NeedEmail)
                     BLL.Email.Insert(smsmodel, ref emailerr);
 
-                emailerr = "恭喜您，会员账号" + model.MID + "成功注册为您伞下体验会员，请尽快协助新会员购币激活账号，谢谢合作！";
+                emailerr = "恭喜您，员工账号" + model.MID + "成功注册为您伞下体验员工，请尽快协助新员工购币激活账号，谢谢合作！";
                 BLL.Task.ManageSend(mtjmodel, emailerr);
                 smsmodel = new Model.SMS { MID = mtjmodel.MID, SContent = emailerr, Email = mtjmodel.Email, SType = Model.SMSType.QT };
                 if (NeedEmail)
@@ -432,10 +432,10 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 注册会员
+        /// 注册员工
         /// </summary>
         /// <param name="model"></param>
-        /// <returns>返回注册成功之后的会员信息</returns>
+        /// <returns>返回注册成功之后的员工信息</returns>
         public static Model.Member InsertAndReturnEntity(Model.Member model, int count, bool NeedEmail, ref string retStr)
         {
             string p1 = model.Password;
@@ -505,7 +505,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 得到会员的累记提现申请总额
+        /// 得到员工的累记提现申请总额
         /// </summary>
         /// <param name="Mid"></param>
         /// <returns></returns>
@@ -515,7 +515,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 得到会员对象
+        /// 得到员工对象
         /// </summary>
         /// <param name="MID"></param>
         /// <returns></returns>
@@ -525,7 +525,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 得到会员对象
+        /// 得到员工对象
         /// </summary>
         /// <param name="MID"></param>
         /// <returns></returns>
@@ -551,7 +551,7 @@ namespace yny_003.BLL
                     {
                         model.IsClose = true;
                         MemberClose(model);
-                        string Msg = "会员：" + model.MID + "于当前时间[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]账号异常，已锁定，未冻结";
+                        string Msg = "员工：" + model.MID + "于当前时间[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]账号异常，已锁定，未冻结";
                         Model.SMS smsmodel = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = BLL.WebBase.Model.MonitorTel, SContent = Msg };
                         string error = "";
                         if (BLL.SMS.Insert(smsmodel, ref error))
@@ -567,9 +567,9 @@ namespace yny_003.BLL
             }
             return model;
         }
-        #region 会员集合查询
+        #region 员工集合查询
         /// <summary>
-        /// 得到会员实体列表
+        /// 得到员工实体列表
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>
@@ -578,7 +578,7 @@ namespace yny_003.BLL
             return DAL.MemberCollection.GetMemberEntityList(strWhere);
         }
         /// <summary>
-        /// 得到会员实体列表
+        /// 得到员工实体列表
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>
@@ -589,13 +589,13 @@ namespace yny_003.BLL
 
 
         /// <summary>
-        /// 得到分页会员信息实体列表
+        /// 得到分页员工信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>
         /// <param name="pageSize">页大小</param>
         /// <param name="count">out类型总计</param>
-        /// <returns>返回会员List集合</returns>
+        /// <returns>返回员工List集合</returns>
         public List<Model.Member> GetMemberEntityList(string strWhere, int pageIndex, int pageSize, out int count)
         {
             return DAL.MemberCollection.GetMemberEntityList(strWhere, pageIndex, pageSize, out count);
@@ -604,7 +604,7 @@ namespace yny_003.BLL
         #endregion
 
 
-        #region 会员权限查询及验证
+        #region 员工权限查询及验证
 
         /// <summary>
         /// 验证权限
@@ -635,7 +635,7 @@ namespace yny_003.BLL
 
         #endregion
 
-        #region 会员奖金及附属信息查询
+        #region 员工奖金及附属信息查询
 
         /// <summary>
         /// 得到提现实体列表
@@ -657,7 +657,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 会员直绑定数
+        /// 员工直绑定数
         /// </summary>
         /// <param name="MBD"></param>
         /// <returns></returns>
@@ -762,7 +762,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 删除会员
+        /// 删除员工
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>
@@ -774,7 +774,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 删除会员
+        /// 删除员工
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>
@@ -891,7 +891,7 @@ namespace yny_003.BLL
                     }
                     else
                     {
-                        //BLL.Task.ManageSend(member, "尊敬的会员：" + model.MID + ",非常抱歉，您本次充值报单币" + model.ValidMoney + "充值失败！");
+                        //BLL.Task.ManageSend(member, "尊敬的员工：" + model.MID + ",非常抱歉，您本次充值报单币" + model.ValidMoney + "充值失败！");
                         continue;
                     }
                     BLL.HKModel.Update(model, MyHs);
@@ -903,8 +903,8 @@ namespace yny_003.BLL
             {
                 foreach (KeyValuePair<Model.Member, decimal> mid in midlist)
                 {
-                    BLL.Task.SendManage(mid.Key, "001", "会员于当前时间向公司汇款人民币：" + mid.Value.ToString());
-                    BLL.Task.ManageSend(mid.Key, "尊敬的会员：" + mid.Key.MID + ",您的汇款记录已于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "成功审核，请及时查看您的账户信息，如有疑问，请联系客服");
+                    BLL.Task.SendManage(mid.Key, "001", "员工于当前时间向公司汇款人民币：" + mid.Value.ToString());
+                    BLL.Task.ManageSend(mid.Key, "尊敬的员工：" + mid.Key.MID + ",您的汇款记录已于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "成功审核，请及时查看您的账户信息，如有疑问，请联系客服");
                 }
                 return "操作成功";
             }
@@ -1007,19 +1007,19 @@ namespace yny_003.BLL
             }
             //if (DAL.Member.GetNumIDCount(shmodel.MName, "MName") >= 1)
             //{
-            //    return "一个会员姓名只能注册1单";
+            //    return "一个员工姓名只能注册1单";
             //}
             //if (DAL.Member.GetNumIDCount(shmodel.MName, "MName") >= 1)
             //{
-            //    return "一个会员姓名只能注册1单";
+            //    return "一个员工姓名只能注册1单";
             //}
             if (DAL.Member.GetModel(shmodel.MID) != null)
             {
-                return "已存在该ID会员";
+                return "已存在该ID员工";
             }
             //if (!DAL.CommonBase.TestSql(shmodel.MID))
             //{
-            //    return "会员ID不合法，请重新填写";
+            //    return "员工ID不合法，请重新填写";
             //}
             //if (string.IsNullOrEmpty(shmodel.MSH))
             //{
@@ -1068,7 +1068,7 @@ namespace yny_003.BLL
         public static string Validation2(Model.Member shmodel, Model.SHMoney sh = null)
         {
             //if (shmodel.MState)
-            //    return "该会员已被激活";
+            //    return "该员工已被激活";
 
             Model.Member MTJ = DAL.Member.GetModel(shmodel.MTJ);
             //Model.Member MSH = DAL.Member.GetModel(shmodel.MSH);
@@ -1270,7 +1270,7 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 获取会员人数
+        /// 获取员工人数
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>

@@ -13,7 +13,7 @@
                             <div class="item-content in_register">
                                 <div class="item-inner">
                                     <div class="item-input">
-                                        <input type="text" id="txtMTJ" name="txtMTJ" runat="server" placeholder="推荐会员帐号">
+                                        <input type="text" id="txtMTJ" name="txtMTJ" runat="server" placeholder="推荐员工帐号">
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
 
                                 <div class="item-inner">
                                     <div class="item-input">
-                                        <input type="text" id="txtMName" name="txtMName" placeholder="会员姓名">
+                                        <input type="text" id="txtMName" name="txtMName" placeholder="员工姓名">
                                     </div>
                                 </div>
                             </div>
@@ -142,13 +142,13 @@
     }
     function checkChange() {
         if (!$('#txtMName').val().TryEN()) {
-            layer.msg("会员姓名只能输入两位以上的中文字符");
+            layer.msg("员工姓名只能输入两位以上的中文字符");
             
         } else if ($('#txtMTJ').val() == '') {
-            layer.msg("推荐会员帐号不能为空");
+            layer.msg("推荐员工帐号不能为空");
            
             //} else if ($('#txtMBD').val() == '') {
-            //    v5.error('接点会员不能为空', '1', 'true');
+            //    v5.error('接点员工不能为空', '1', 'true');
         } else if (!$('#txtPassword').val().TryPassword()) {
             layer.msg("登录密码不能为空，且必须为6-20位字母或数字组合");
             
@@ -173,9 +173,9 @@
             //} else if ($('#txtBranch').val() == '') {
             //    v5.error('请输入开户支行', '1', 'true');
             //} else if (!$('#txtBankCardName').val().TryEN()) {
-            //    v5.error('会员姓名只能输入两位以上的中文字符', '1', 'true');
+            //    v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
             //} else if ($('#txtBankCardName').val() != $('#txtMName').val()) {
-            //    v5.error('开户姓名必须与会员姓名一直', '1', 'true');
+            //    v5.error('开户姓名必须与员工姓名一直', '1', 'true');
             //} else if (!$('#txtBankNumber').val().TryBankCard()) {
             //    v5.error('银行卡号只能是16-19位数字', '1', 'true');
             //} else if ($('#txtAnswer').val() == '') {
@@ -191,7 +191,7 @@
                         //setTimeout(function () {
                         //    v5.clearall();
                         //    //if (info == '注册成功') {
-                        //    //callhtml('Member/UpMemberSJ.aspx?id=' + $("#txtMID").val(), '升级会员');
+                        //    //callhtml('Member/UpMemberSJ.aspx?id=' + $("#txtMID").val(), '升级员工');
                         //    //}
                         //}, 1000);
                     }

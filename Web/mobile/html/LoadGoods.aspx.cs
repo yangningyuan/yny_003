@@ -30,7 +30,7 @@ namespace yny_003.Web.mobile.html
 				Model.C_CarTast cartast = BLL.C_CarTast.GetModel(int.Parse(Request.Form["cid"]));
 				if (cartast.TState == 1)
 					return "非法操作，此任务已结束";
-				int money = Convert.ToInt32(Request.Form["txtGCount"]);
+				decimal money =Convert.ToDecimal( Request.Form["txtGCount"]);
 				Model.OrderDetail ord = BLL.OrderDetail.GetList(" ordercode='" + cartast.OCode + "' and  code='" + Request.Form["txtGoodList"] + "' ").FirstOrDefault();
 				if (ord != null)
 				{

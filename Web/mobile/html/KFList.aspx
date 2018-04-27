@@ -8,7 +8,7 @@
     </div>
     <%--<div class="searchbar row">
         <div class="search-input col-80">
-            <input type="search" placeholder="会员账号" id="search" />
+            <input type="search" placeholder="员工账号" id="search" />
         </div>
         <a class="button button-fill button-primary col-20">查询</a>
     </div>--%>
@@ -27,7 +27,7 @@
     <table class=" table table-striped table-bordered ">
         <thead>
             <tr>
-                <%--<th>会员账号</th>--%>
+                <%--<th>员工账号</th>--%>
                 <th>扣费金额</th>
                 <th>币种</th>
                 <th>充值时间</th>

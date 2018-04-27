@@ -168,7 +168,7 @@ namespace yny_003.DAL
         /// <summary>
         /// 得到见点奖
         /// </summary>
-        /// <param name="mid">推荐会员账号</param>
+        /// <param name="mid">推荐员工账号</param>
         /// <returns></returns>
         public static Model.NConfigDictionary GetConfigDictionary(int Level, int Rec, string DType, string DKey)
         {

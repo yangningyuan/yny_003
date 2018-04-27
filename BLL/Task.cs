@@ -24,7 +24,7 @@ namespace yny_003.BLL
         /// <summary>
         /// 查询
         /// </summary>
-        /// <param name="MID">会员账号</param>
+        /// <param name="MID">员工账号</param>
         /// <param name="TaskAction">对话方向，T发送方，F接收方</param>
         /// <returns></returns>
         public static List<Model.Task> SelectNewTasks(string TToMID, string TFromMID, int ID)

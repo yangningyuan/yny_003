@@ -12,13 +12,13 @@
             <form id="form1">
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="15%" align="right">会员账号:
+                        <td width="15%" align="right">员工账号:
                         </td>
                         <td width="35%">
                             <input id="txtMID" runat="server" class="normal_input" type="text" readonly="readonly"
                                 maxlength="20" />
                         </td>
-                        <td width="15%" align="right">会员姓名:
+                        <td width="15%" align="right">员工姓名:
                         </td>
                         <td width="35%">
                             <input id="txtMName" runat="server" class="normal_input" type="text" maxlength="30" />
@@ -113,7 +113,7 @@
 
         function checkChange() {
             if ($('#txtMName').val().Trim() == '') {
-                v5.error('会员姓名不能为空', '1', 'true');
+                v5.error('员工姓名不能为空', '1', 'true');
                 //} else if (RunAjaxGetKey('getMName', $('#txtMTJ').val()) == '') {
                 //    v5.error('推荐人不存在', '1', 'true');
                 //} else if ($('#ddlZone').val() == '县市') {

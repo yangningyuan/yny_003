@@ -23,8 +23,8 @@
                 发送邮件</div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition();" />
-                <input id="mKey" name="txtKey" data-name="txtKey" value="请输入会员账号" onfocus="if (value =='请输入会员账号'){value =''}"
-                    onblur="if (value ==''){value='请输入会员账号'}" type="text" class="sinput" />
+                <input id="mKey" name="txtKey" data-name="txtKey" value="请输入员工账号" onfocus="if (value =='请输入员工账号'){value =''}"
+                    onblur="if (value ==''){value='请输入员工账号'}" type="text" class="sinput" />
                 <input id="nTitle" name="txtKey" data-name="txtKey" value="请输入关键内容" onfocus="if (value =='请输入关键内容'){value =''}"
                     onblur="if (value ==''){value='请输入关键内容'}" type="text" class="sinput" />
             </div>
@@ -60,10 +60,10 @@
                         序号
                     </th>
                     <th>
-                        发件会员
+                        发件员工
                     </th>
                     <th>
-                        收件会员
+                        收件员工
                     </th>
                     <th style="width: 55%;">
                         邮件

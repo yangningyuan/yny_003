@@ -44,7 +44,7 @@
 
             var txtThrPwd = $.trim($('#txtThrPwd').val());
             if (txtThrPwd == '') {
-                layer.alert('请输入转出会员资金密码');
+                layer.alert('请输入转出员工资金密码');
                 return;
             }
 
@@ -78,12 +78,12 @@
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <%--<input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />--%>
-                <input name="txtKey" data-name="txtKey" id="mKey" value="请输入会员账号" onfocus="if (value =='请输入会员账号'){value =''}"
-                    onblur="if (value ==''){value='请输入会员账号'}" type="text" class="sinput" />
-                <input name="txtKey" data-name="txtKey" id="mTJKey" value="请输入推荐会员账号" onfocus="if (value =='请输入推荐会员账号'){value =''}"
-                    onblur="if (value ==''){value='请输入推荐会员账号'}" type="text" class="sinput" />
-                <input name="txtKey" data-name="txtKey" id="mBDKey" value="请输入接点会员账号" onfocus="if (value =='请输入接点会员账号'){value =''}"
-                    onblur="if (value ==''){value='请输入接点会员账号'}" type="text" class="sinput" />
+                <input name="txtKey" data-name="txtKey" id="mKey" value="请输入员工账号" onfocus="if (value =='请输入员工账号'){value =''}"
+                    onblur="if (value ==''){value='请输入员工账号'}" type="text" class="sinput" />
+                <input name="txtKey" data-name="txtKey" id="mTJKey" value="请输入推荐员工账号" onfocus="if (value =='请输入推荐员工账号'){value =''}"
+                    onblur="if (value ==''){value='请输入推荐员工账号'}" type="text" class="sinput" />
+                <input name="txtKey" data-name="txtKey" id="mBDKey" value="请输入接点员工账号" onfocus="if (value =='请输入接点员工账号'){value =''}"
+                    onblur="if (value ==''){value='请输入接点员工账号'}" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">
@@ -96,13 +96,13 @@
                         序号
                     </th>
                     <th>
-                        会员账号
+                        员工账号
                     </th>
                     <th>
-                        会员姓名
+                        员工姓名
                     </th>
                     <th>
-                        会员角色
+                        员工角色
                     </th>
                     <th>
                         推荐人
@@ -174,7 +174,7 @@
             </tr>
             <tr>
                 <td style="text-align: right">
-                    转出会员资金密码：
+                    转出员工资金密码：
                 </td>
                 <td>
                     <input type="password" id="txtThrPwd" name="txtThrPwd" />

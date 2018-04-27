@@ -24,11 +24,11 @@ namespace yny_003.Web.Member
             Model.Member member = BLL.Member.GetModelByMID(txtFromMID);
             if (member == null)
             {
-                return "转出会员不存在";
+                return "转出员工不存在";
             }
             if (!TModel.Role.IsAdmin && TModel.MID != member.MTJ)
             {
-                return "您没有权限对该会员操作";
+                return "您没有权限对该员工操作";
             }
             string txtCurrencyType = Request.GetData("txtCurrencyType");
             if (txtCurrencyType != "MHB" && txtCurrencyType != "MJB" && txtCurrencyType != "MCW")
@@ -48,7 +48,7 @@ namespace yny_003.Web.Member
             }
             if (System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(txtThrPwd + member.Salt, "MD5").ToUpper() != member.SecPsd)
             {
-                return "转出会员的资金密码不正确";
+                return "转出员工的资金密码不正确";
             }
 
             return BLL.ChangeMoney.ZZMoneyChange(money, txtFromMID, TModel.MID, "ZZ", txtCurrencyType);

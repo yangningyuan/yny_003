@@ -225,7 +225,7 @@ function money_convert() {
 function member_activate() {
     var txtMID = $.trim($('#txtMID').val());
     if (txtMID == '') {
-        zx_alert('请输入要激活的会员账号');
+        zx_alert('请输入要激活的员工账号');
         return;
     }
     zx_member_post('activate', { txtMID: txtMID, level: $('#txtLevel').val() }, function (result) {
@@ -240,7 +240,7 @@ function levelChange() {
 function member_regidit() {
     var txtMID = $.trim($('#txtMID').val());
     if (txtMID == '') {
-        zx_alert('请输入会员账号');
+        zx_alert('请输入员工账号');
     }
     if (!/^(\d|[a-zA-Z]){6,30}$/.test(txtMID) || !/\d+/.test(txtMID)) {
         zx_alert('用户名由字母和数字组成，至少六位，最长30位');
@@ -248,7 +248,7 @@ function member_regidit() {
     }
     var txtMName = $.trim($('#txtMName').val());
     if (txtMName == '') {
-        zx_alert('会员昵称不能为空');
+        zx_alert('员工昵称不能为空');
         return false;
     }
     var txtTel = $.trim($('#txtTel').val());

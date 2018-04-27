@@ -137,7 +137,7 @@ namespace yny_003.Web.Member
         }
 
         /// <summary>
-        /// 注册会员
+        /// 注册员工
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -86,7 +86,7 @@ namespace yny_003.Model
         /// </summary>
         public decimal B_OutFloat { get; set; }
         /// <summary>
-        /// 一个身份信息可注册会员数
+        /// 一个身份信息可注册员工数
         /// </summary>
         public int B_MaxRegister { get; set; }
 

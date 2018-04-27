@@ -152,9 +152,9 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 更新会员参数值
+        /// 更新员工参数值
         /// </summary>
-        /// <param name="mid">会员账号</param>
+        /// <param name="mid">员工账号</param>
         /// <param name="ConfigValue">参数值</param>
         /// <param name="ConfigName">参数名称</param>
         /// <param name="MyHs"></param>

@@ -43,7 +43,7 @@ function GetSetting(smid) {
 }
 
 function LoadZtree(smid) {
-    if (smid == "请输入会员账号") {
+    if (smid == "请输入员工账号") {
         smid = "";
     }
     $("#treeDemo").html("");

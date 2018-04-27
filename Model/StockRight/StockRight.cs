@@ -45,7 +45,7 @@ namespace yny_003.Model
             get { return _id; }
         }
         /// <summary>
-        /// 会员帐号
+        /// 员工帐号
         /// </summary>
         public string MID
         {

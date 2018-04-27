@@ -120,7 +120,7 @@
         function TestEmail() {
             var regex = new RegExp("^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|){1,10}$");
             if ($('#txtname').val() == "") {
-                v5.error('会员账号不能为空', '1', 'true');
+                v5.error('员工账号不能为空', '1', 'true');
                 return false;
             } else if ($('#txtpwd').val() == "" || $('#txtpwd').val().length < 6) {
                 v5.error('登录密码应至少6个字母或数字', '1', 'true');

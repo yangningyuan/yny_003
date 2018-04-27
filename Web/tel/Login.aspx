@@ -26,7 +26,7 @@
     <script type="text/javascript">
         function Login() {
             if ($("#txtname").val() == "") {
-                v5.error('会员账号不能为空', '1', 'true');
+                v5.error('员工账号不能为空', '1', 'true');
             } else if (pwd = $("#txtpwd").val() == "") {
                 v5.error('密码不能为空', '1', 'true');
             } else {

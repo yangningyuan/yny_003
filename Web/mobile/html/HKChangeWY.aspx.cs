@@ -157,7 +157,7 @@ namespace yny_003.Web.mobile.html
             {
                 Session["code"] = null;
                 Session["mantissa"] = null;
-                BLL.Task.SendManage(TModel, "001", "会员账号：" + TModel.MID + "于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +
+                BLL.Task.SendManage(TModel, "001", "员工账号：" + TModel.MID + "于当前时间" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +
                     "确认汇款信息，请注意查收，并及时审核！");
                 return "操作成功，请等待财务审核";
             }

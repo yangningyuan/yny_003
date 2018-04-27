@@ -10,21 +10,21 @@
         <div id="finance">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="15%" align="right">会员账号:
+                    <td width="15%" align="right">员工账号:
                     </td>
                     <td width="35%">
                         <%=TModel.MID %>
                     </td>
                 </tr>
                 <tr>
-                    <td width="15%" align="right">会员姓名:
+                    <td width="15%" align="right">员工姓名:
                     </td>
                     <td width="35%">
                         <%=TModel.MName %>
                     </td>
                 </tr>
                 <tr>
-                    <td width="15%" align="right">会员类型:
+                    <td width="15%" align="right">员工类型:
                     </td>
                     <td width="35%">
                         <%=TModel.Role.RName %>
@@ -32,7 +32,7 @@
                 </tr>
                 <%--<tr>
                     <td width="15%" align="right">
-                        会员等级:
+                        员工等级:
                     </td>
                     <td width="35%">
                         <%=TModel.MAgencyType.MAgencyName %>

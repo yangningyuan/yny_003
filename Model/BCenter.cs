@@ -36,7 +36,7 @@ namespace yny_003.Model
         private DateTime? _validtime;
         private string _img;
         /// <summary>
-        /// 会员帐号
+        /// 员工帐号
         /// </summary>
         public string MID
         {

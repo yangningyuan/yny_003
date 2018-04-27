@@ -24,7 +24,7 @@ namespace yny_003
         /// </summary>
         O_SHXXHK,
         /// <summary>
-        /// 升级会员
+        /// 升级员工
         /// </summary>
         O_SJHY,
         /// <summary>
@@ -40,7 +40,7 @@ namespace yny_003
         /// </summary>
         O_JTFH,
         /// <summary>
-        /// 修改会员资料
+        /// 修改员工资料
         /// </summary>
         O_XGHYZL
     }

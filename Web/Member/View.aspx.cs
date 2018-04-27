@@ -31,7 +31,7 @@ namespace yny_003.Web.Member
 
         public string ChangeString(string str)
         {
-            return str.Replace("会员", "");
+            return str.Replace("员工", "");
         }
     }
 }

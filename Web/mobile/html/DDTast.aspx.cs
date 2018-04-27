@@ -9,6 +9,7 @@ namespace yny_003.Web.mobile.html
 {
     public partial class DDTast : BasePage
     {
+        protected Model.C_CarTast cartast = null;
         protected override void SetPowerZone()
         {
             Spare2.DataSource = BLL.C_Car.GetList(" IsDelete = 0 and CType='牵引车' order by ID");
@@ -42,6 +43,7 @@ namespace yny_003.Web.mobile.html
         protected override void SetValue(string id)
         {
             Model.C_CarTast c = BLL.C_CarTast.GetModel(int.Parse(id));
+            cartast = c;
             Name.Value = c.Name;
             TType.Value = c.TType.ToString();
 

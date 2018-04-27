@@ -503,7 +503,7 @@ $(function() {
             for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
                 html += '<li class="item-content item-link create-actions">' +
                     '<div class="item-inner">' +
-                    '<div class="item-title">李梦龙</div><div class="item-after">黄金会员</div>' +
+                    '<div class="item-title">李梦龙</div><div class="item-after">黄金员工</div>' +
                     '</div></li>';
             }
             // 添加新条目

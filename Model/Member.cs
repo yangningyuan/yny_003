@@ -10,21 +10,21 @@ namespace yny_003.Model
         public static string MD5 = "SUBSTRING(sys.fn_VarBinToHexStr(hashbytes('MD5', replace(isnull(MID,'')+isnull(Tel,'')+isnull(Email,'')+isnull(Bank,'')+isnull(Branch,'')+isnull(BankNumber,'')+isnull(BankCardName,'')+isnull(Password,'')+isnull(SecPsd,'')+isnull(Salt,''),' ',''))),3,32) ";
         public static string UpThrPsd = "; update member set ThrPsd= " + MD5;
 
-        #region 会员基本资料
+        #region 员工基本资料
         /// <summary>
         /// 充值ID
         /// </summary>
         public int ID { get; set; }
         /// <summary>
-        /// 会员账号
+        /// 员工账号
         /// </summary>
         public string MID { get; set; }
         /// <summary>
-        /// 会员账号
+        /// 员工账号
         /// </summary>
         public string FMID { get; set; }
         /// <summary>
-        /// 会员姓名
+        /// 员工姓名
         /// </summary>
         public string MName { get; set; }
         /// <summary>
@@ -156,13 +156,13 @@ namespace yny_003.Model
         #endregion
 
         /// <summary>
-        /// 会员角色
+        /// 员工角色
         /// </summary>
         public string RoleCode { get; set; }
         public Model.Roles Role = new Roles();
 
         /// <summary>
-        /// 会员代理级别
+        /// 员工代理级别
         /// </summary>
         public string AgencyCode { get; set; }
         public Model.SHMoney MAgencyType = new SHMoney();
@@ -172,7 +172,7 @@ namespace yny_003.Model
         public string RegistAgency { get; set; }
 
         /// <summary>
-        /// 会员配置信息
+        /// 员工配置信息
         /// </summary>
         public MemberConfig MConfig { get; set; }
 

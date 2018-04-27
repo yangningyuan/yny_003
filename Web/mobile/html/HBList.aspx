@@ -28,7 +28,7 @@
     <table class=" table table-striped table-bordered ">
         <thead>
             <tr>
-                <th>会员账号</th>
+                <th>员工账号</th>
                 <th>转账金额</th>
                 <th>币种</th>
                 <th>转账时间</th>

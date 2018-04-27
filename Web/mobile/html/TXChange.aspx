@@ -9,7 +9,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">会员ID</div>
+                            <div class="item-title label">员工ID</div>
                             <div class="item-input">
                                 <%=TModel.MID %>
                             </div>
@@ -19,7 +19,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">会员姓名</div>
+                            <div class="item-title label">员工姓名</div>
                             <div class="item-input">
                                 <%=TModel.MName %>
                             </div>

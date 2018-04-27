@@ -72,14 +72,14 @@
                 <input id="hdBankCode" type="hidden" runat="server" />
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="15%" align="right">会员账号:
+                        <td width="15%" align="right">员工账号:
                         </td>
                         <td width="35%">
                             <input id="txtMID" runat="server" class="normal_input" type="text" readonly="readonly" />
                         </td>
                     </tr>
                     <tr>
-                        <td width="15%" align="right">会员姓名:
+                        <td width="15%" align="right">员工姓名:
                         </td>
                         <td width="35%">
                             <input id="txtMName" maxlength="30" runat="server" class="normal_input" type="text" />
@@ -215,7 +215,7 @@
         });
         function checkChange() {
             if ($('#txtMName').val() == '') {
-                v5.error('会员姓名不能为空', '1', 'true');
+                v5.error('员工姓名不能为空', '1', 'true');
             } else if ($('#txtBranch').val() == '') {
                 v5.error('请输入开户支行', '1', 'true');
             } else if ($('#txtBankCardName').val() == '') {

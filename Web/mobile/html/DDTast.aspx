@@ -41,6 +41,29 @@
                         </div>
                     </div>
                 </li>
+
+                 <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">供应商或客户</div>
+                            <div class="item-input">
+                                <%=cartast.SupplierName %><br />
+                                <div style="color: red; width:100%; font-size:10px;">【联系人：<%=cartast.SupplierTelName %>】<br />【联系方式：<%=cartast.SupplierTel %>】</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">地址</div>
+                            <div class="item-input">
+                                <%=cartast.SupplierAddress %>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
                 <li>
                     <div class="item-content">
                         <div class="item-inner">

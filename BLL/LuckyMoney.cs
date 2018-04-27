@@ -56,7 +56,7 @@ namespace yny_003.BLL
             model.CreateTime = DateTime.Now;
             //是否有效
             model.isValid = 0;
-            //会员MID
+            //员工MID
             model.MID = mid;
             //分红次数
             model.FHTimes = 0;
@@ -209,13 +209,13 @@ namespace yny_003.BLL
         #region  ExtensionMethod
 
         /// <summary>
-        /// 得到分页会员信息实体列表
+        /// 得到分页员工信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>
         /// <param name="pageSize">页大小</param>
         /// <param name="count">out类型总计</param>
-        /// <returns>返回会员List集合</returns>
+        /// <returns>返回员工List集合</returns>
         public static List<Model.LuckyMoney> GetLuckyMoneyEntityList(string strWhere, int pageIndex, int pageSize, out int count)
         {
             List<Model.LuckyMoney> LuckyMoneyList = new List<Model.LuckyMoney>();
@@ -230,13 +230,13 @@ namespace yny_003.BLL
         }
 
         /// <summary>
-        /// 得到分页会员信息实体列表
+        /// 得到分页员工信息实体列表
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>
         /// <param name="pageSize">页大小</param>
         /// <param name="count">out类型总计</param>
-        /// <returns>返回会员List集合</returns>
+        /// <returns>返回员工List集合</returns>
         public static List<Model.LuckyMoney> GetLuckyMoneyEntityListQ(string strWhere, int pageIndex, int pageSize, out int count)
         {
             List<Model.LuckyMoney> LuckyMoneyList = new List<Model.LuckyMoney>();
@@ -303,7 +303,7 @@ namespace yny_003.BLL
                     Model.Member member = DAL.Member.GetModel(mid);
                     if (member == null)
                     {
-                        throw new Exception("会员不存在");
+                        throw new Exception("员工不存在");
                     }
                     if (member.IsClock)
                     {

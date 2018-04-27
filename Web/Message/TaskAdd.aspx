@@ -15,7 +15,7 @@
                   { %>
                 <tr>
                     <td width="25%" align="right">
-                        会员账号：
+                        员工账号：
                     </td>
                     <td width="75%" style="height: 40px;">
                         <select id="ddlAdmin" style="display: none;" runat="server" onclick="$('#txtMID').val($(this).val());">

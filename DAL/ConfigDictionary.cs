@@ -145,7 +145,7 @@ namespace yny_003.DAL
         /// <summary>
         /// 得到见点奖
         /// </summary>
-        /// <param name="mid">推荐会员账号</param>
+        /// <param name="mid">推荐员工账号</param>
         /// <returns></returns>
         public static Model.ConfigDictionary GetConfigDictionary(int Level, string DType, string DKey)
         {
@@ -175,7 +175,7 @@ namespace yny_003.DAL
         /// <summary>
         /// 得到见点奖
         /// </summary>
-        /// <param name="mid">推荐会员账号</param>
+        /// <param name="mid">推荐员工账号</param>
         /// <returns></returns>
         public static Model.ConfigDictionary GetAgentsDictionary(string DType, string DKey)
         {

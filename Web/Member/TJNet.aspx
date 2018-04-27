@@ -9,7 +9,7 @@
     <script type="text/javascript" src="plugin/jOrgChart/jquery.jOrgChart.js"></script>
     <script type="text/javascript">
         var level = 1;
-        var defalutinfo = "请输入会员账号,层级";
+        var defalutinfo = "请输入员工账号,层级";
         GetAjaxTJInfo($('#txtMid').val());
     </script>
     <style type="text/css">
@@ -42,8 +42,8 @@
         <div class="control">
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="GetAjaxTJInfo($('#txtMid').val())" /><input
-                    id="txtMid" runat="server" value="请输入会员账号" onfocus="if (value =='请输入会员账号'){value =''}"
-                    onblur="if (value ==''){value='请输入会员账号'}" type="text" class="sinput" /><input id="txtLevel"
+                    id="txtMid" runat="server" value="请输入员工账号" onfocus="if (value =='请输入员工账号'){value =''}"
+                    onblur="if (value ==''){value='请输入员工账号'}" type="text" class="sinput" /><input id="txtLevel"
                         runat="server" value="3" onfocus="if (value =='层级'){value =''}" onblur="if (value ==''){value='层级'}"
                         type="text" class="sinput" style="width: 100px;" /></div>
             <div class="cheeckbox">

@@ -26,7 +26,7 @@ namespace yny_003.Model
         public string EPJXRemark { get; set; }
 
         /// <summary>
-        /// 会员账号
+        /// 员工账号
         /// </summary>
         public string EPJXMID { get; set; }
 

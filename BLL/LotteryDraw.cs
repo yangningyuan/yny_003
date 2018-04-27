@@ -194,7 +194,7 @@ namespace yny_003.BLL
             }
             if (!string.IsNullOrWhiteSpace(mid) && BLL.Member.GetModelByMID(mid) == null)
             {
-                return "指定会员不存在";
+                return "指定员工不存在";
             }
             Hashtable MyHs = new Hashtable();
             for (int i = 0; i < count; i++)

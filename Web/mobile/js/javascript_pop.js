@@ -1,7 +1,7 @@
 ﻿var cidList = new Array(); // 选择行数据
 var typeList = ""; // 奖金类型
 var mKey = ""; // 关键字
-var defaultKye = '请输入会员账号,截止日期,开始日期,请输入奖金来源,请输入标题,请输入报单中心,服务名称或编码,订单号,请输入关键内容,请输入发件会员账号,请输入收件会员账号,产品名称或编码,请输入菜单名称,请输入推荐会员账号,会员账号或名称,请输入接点会员账号,请输入流水号';
+var defaultKye = '请输入员工账号,截止日期,开始日期,请输入奖金来源,请输入标题,请输入报单中心,服务名称或编码,订单号,请输入关键内容,请输入发件员工账号,请输入收件员工账号,产品名称或编码,请输入菜单名称,请输入推荐员工账号,员工账号或名称,请输入接点员工账号,请输入流水号';
 var tState = ''; // 状态
 //var startDate = ''; //时间
 //var endDate = ''; //时间
@@ -564,7 +564,7 @@ function GetAjaxInfo(mkey) {
         type: "POST",
         dataType: "text",
         url: '/Handler/Structure.ashx',      //确认到一般处理程序请求数据
-        data: "mkey=" + mkey + "&level=" + level + "&color=" + color,    //确认两个参数：mid(根会员账号)，level(显示层数)                
+        data: "mkey=" + mkey + "&level=" + level + "&color=" + color,    //确认两个参数：mid(根员工账号)，level(显示层数)                
         success: function (data) {
             $("#chart").html("");
             if (data != '') {
@@ -588,7 +588,7 @@ function GetAjaxInfoB(mkey) {
         type: "POST",
         dataType: "text",
         url: '/Handler/StructureB.ashx',      //确认到一般处理程序请求数据
-        data: "mkey=" + mkey + "&level=" + level + "&color=" + color,    //确认两个参数：mid(根会员账号)，level(显示层数)                
+        data: "mkey=" + mkey + "&level=" + level + "&color=" + color,    //确认两个参数：mid(根员工账号)，level(显示层数)                
         success: function (data) {
             $("#chart").html("");
             if (data != '') {
@@ -613,7 +613,7 @@ function GetAjaxInfoB(mkey) {
 //        type: "POST",
 //        dataType: "text",
 //        url: '/Handler/TJNet.ashx',      //确认到一般处理程序请求数据
-//        data: "mkey=" + mkey + "&level=" + level,    //确认两个参数：mid(根会员账号)，level(显示层数)                
+//        data: "mkey=" + mkey + "&level=" + level,    //确认两个参数：mid(根员工账号)，level(显示层数)                
 //        success: function (data) {
 //            $("#chart").html("");
 //            if (data != '') {
@@ -639,7 +639,7 @@ function GetAjaxTJInfo(mkey) {
         type: "POST",
         dataType: "json",
         url: '/Handler/TJNet.ashx',      //确认到一般处理程序请求数据
-        data: "mkey=" + mkey + "&level=" + level,    //确认两个参数：mid(根会员账号)，level(显示层数)                
+        data: "mkey=" + mkey + "&level=" + level,    //确认两个参数：mid(根员工账号)，level(显示层数)                
         success: function (data) {
             $("#treeDemo").html("");
             if (data.data != '') {
@@ -682,7 +682,7 @@ function ChangeTitle(jjtitlelist, tables, lasttitle, role) {
     var jjtypes = jjtitlelist.split('|');
     var title = '<tr><th width="80px">全选</th><th>序号</th>';
     //if (role == 'TRUE')
-    title = title + '<th>会员账号</th><th>会员级别</th>';
+    title = title + '<th>员工账号</th><th>员工级别</th>';
     for (var i = 0; i < jjtypes.length - 1; i++) {
         title += '<th>' + jjtypes[i] + '</th>';
     }

@@ -616,12 +616,12 @@ namespace yny_003.Web.AjaxM
                 try
                 {
                     string TelCode = new Random().Next(421339, 999999).ToString();
-                    string Msg = "尊敬的会员：您好，您的邮箱验证码为[" + TelCode + "]，请及时注册，谢谢![" + BLL.WebBase.Model.EmailTitle + "]";
+                    string Msg = "尊敬的员工：您好，您的邮箱验证码为[" + TelCode + "]，请及时注册，谢谢![" + BLL.WebBase.Model.EmailTitle + "]";
                     Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Email = Request["pram"], SContent = Msg, SMSKey = TelCode };
                     string error = "";
                     if (BLL.Email.Insert(model, ref error))
                     {
-                        Msg = "尊敬的会员：" + memberModel.MID + "，您推广的新会员的邮箱验验证码已成功发送至他的邮箱,请通知他注意查收!";
+                        Msg = "尊敬的员工：" + memberModel.MID + "，您推广的新员工的邮箱验验证码已成功发送至他的邮箱,请通知他注意查收!";
                         BLL.Task.ManageSend(memberModel, Msg);
                         Response.Write("发送成功");
                     }
@@ -685,12 +685,12 @@ namespace yny_003.Web.AjaxM
                 try
                 {
                     string TelCode = new Random().Next(421339, 999999).ToString();
-                    string Msg = "尊敬的会员：您好，您的手机验证码为[" + TelCode + "]，请及时重置密码，谢谢!";
+                    string Msg = "尊敬的员工：您好，您的手机验证码为[" + TelCode + "]，请及时重置密码，谢谢!";
                     Model.SMS model = new Model.SMS { SType = Model.SMSType.CZMM, Tel = tel, SContent = Msg, SMSKey = TelCode };
                     string error = "";
                     if (BLL.SMS.Insert(model, ref error))
                     {
-                        //Msg = "尊敬的会员：" + memberModel.MID + "，您推广的新会员的手机验证码已成功发送至他的手机,请通知他注意查收!";
+                        //Msg = "尊敬的员工：" + memberModel.MID + "，您推广的新员工的手机验证码已成功发送至他的手机,请通知他注意查收!";
                         //BLL.Task.ManageSend(memberModel, Msg);
                         Response.Write("发送成功");
                     }
@@ -713,12 +713,12 @@ namespace yny_003.Web.AjaxM
             try
             {
                 string TelCode = new Random().Next(421339, 999999).ToString();
-                string Msg = "尊敬的会员：" + memberModel.MID + ",您好，您的验证码为[" + TelCode + "]，请及时修改资金密码，谢谢!";
+                string Msg = "尊敬的员工：" + memberModel.MID + ",您好，您的验证码为[" + TelCode + "]，请及时修改资金密码，谢谢!";
                 Model.SMS model = new Model.SMS { SType = Model.SMSType.MMYZ, Email = memberModel.Email, Tel = memberModel.Tel, SContent = Msg, SMSKey = TelCode, MID = memberModel.MID };
                 string error = "";
                 if (BLL.SMS.Insert(model, ref error) || BLL.Email.Insert(model, ref error))
                 {
-                    Msg = "尊敬的会员：" + memberModel.MID + "，您修改资金密码的验证码已成功发送至您的手机或邮箱,请注意查收!";
+                    Msg = "尊敬的员工：" + memberModel.MID + "，您修改资金密码的验证码已成功发送至您的手机或邮箱,请注意查收!";
                     BLL.Task.ManageSend(memberModel, Msg);
                     Response.Write("发送成功");
                 }
@@ -740,12 +740,12 @@ namespace yny_003.Web.AjaxM
                 try
                 {
                     string TelCode = new Random().Next(421339, 999999).ToString();
-                    string Msg = "尊敬的会员：您好，您的手机验证码为[" + TelCode + "]，请及时注册，谢谢!";
+                    string Msg = "尊敬的员工：您好，您的手机验证码为[" + TelCode + "]，请及时注册，谢谢!";
                     Model.SMS model = new Model.SMS { SType = Model.SMSType.ZCYZ, Tel = Request["pram"], SContent = Msg, SMSKey = TelCode };
                     string error = "";
                     if (BLL.SMS.Insert(model, ref error))
                     {
-                        //Msg = "尊敬的会员：" + memberModel.MID + "，您推广的新会员的手机验证码已成功发送至他的手机,请通知他注意查收!";
+                        //Msg = "尊敬的员工：" + memberModel.MID + "，您推广的新员工的手机验证码已成功发送至他的手机,请通知他注意查收!";
                         //BLL.Task.ManageSend(memberModel, Msg);
                         Response.Write("发送成功");
                     }
@@ -1341,7 +1341,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 得到会员姓名,转移货币用
+        /// 得到员工姓名,转移货币用
         /// </summary>
         private void getMName()
         {
@@ -1362,7 +1362,7 @@ namespace yny_003.Web.AjaxM
             return;
         }
         /// <summary>
-        /// 得到会员姓名,转移货币用
+        /// 得到员工姓名,转移货币用
         /// </summary>
         private void FindMJB()
         {
@@ -1385,7 +1385,7 @@ namespace yny_003.Web.AjaxM
 
 
         /// <summary>
-        /// 得到主司机会员姓名
+        /// 得到主司机员工姓名
         /// </summary>
         private void GetCarSJ1()
         {
@@ -1412,7 +1412,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 得到会员姓名
+        /// 得到员工姓名
         /// </summary>
         private void GetCarSJ2()
         {
@@ -1439,7 +1439,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 得到会员姓名
+        /// 得到员工姓名
         /// </summary>
         private void getgooddanwei()
         {
@@ -1474,7 +1474,7 @@ namespace yny_003.Web.AjaxM
             return;
         }
         /// <summary>
-        /// 得到会员姓名
+        /// 得到员工姓名
         /// </summary>
         private void getsudetalis()
         {
@@ -1509,7 +1509,7 @@ namespace yny_003.Web.AjaxM
             return;
         }
         /// <summary>
-        /// 得到会员姓名,转移货币用
+        /// 得到员工姓名,转移货币用
         /// </summary>
         private void FindMGP()
         {
@@ -1530,7 +1530,7 @@ namespace yny_003.Web.AjaxM
             return;
         }
         /// <summary>
-        /// 得到会员姓名,转移货币用
+        /// 得到员工姓名,转移货币用
         /// </summary>
         private void FindMHB()
         {
@@ -1551,7 +1551,7 @@ namespace yny_003.Web.AjaxM
             return;
         }
         /// <summary>
-        /// 得到会员姓名,转移货币用
+        /// 得到员工姓名,转移货币用
         /// </summary>
         private void FindMCW()
         {
@@ -1716,7 +1716,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 审核会员
+        /// 审核员工
         /// </summary>
         private void ShMemberSelf()
         {
@@ -1743,7 +1743,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 审核会员
+        /// 审核员工
         /// </summary>
         private void ShMember()
         {
@@ -1872,7 +1872,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 删除会员
+        /// 删除员工
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>
@@ -1888,7 +1888,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 删除会员
+        /// 删除员工
         /// </summary>
         /// <param name="mid"></param>
         /// <returns></returns>
@@ -1904,7 +1904,7 @@ namespace yny_003.Web.AjaxM
         }
 
         /// <summary>
-        /// 判断两个会员是否有推荐或被推荐关系
+        /// 判断两个员工是否有推荐或被推荐关系
         /// </summary>
         public void IsCanChangeByMember()
         {

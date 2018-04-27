@@ -24,7 +24,7 @@ namespace yny_003.Web.Member
             foreach (Model.Roles item in BLL.Roles.RolsList.Values.ToList().Where(emp => emp.VState).ToList())
                 ddlMemberType.Items.Add(new ListItem(item.RName, item.RType));//角色
 
-            ////会员级别
+            ////员工级别
             //ddlSHMoney.DataSource = BLL.Configuration.Model.SHMoneyTable;
             //ddlSHMoney.DataTextField = "MAgencyName";
             //ddlSHMoney.DataValueField = "MAgencyType";
@@ -149,7 +149,7 @@ namespace yny_003.Web.Member
                         //txtGQCount.Value = value.MConfig.GQCount.ToString();
                     }
 
-                    ////绑定会员的密保问题
+                    ////绑定员工的密保问题
                     //Model.Sys_SQ_Answer objAns = new BLL.Sys_SQ_Answer().GetList("MID=" + value.ID + " and IsDeleted=0").FirstOrDefault();
                     //if (objAns != null)
                     //{

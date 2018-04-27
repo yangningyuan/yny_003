@@ -413,7 +413,7 @@ namespace yny_003.DAL
         #region  ExtensionMethod
 
         /// <summary>
-        /// 获取分红会员
+        /// 获取分红员工
         /// </summary>
         /// <returns></returns>
         public static DataTable GetDFHMember()
@@ -426,7 +426,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到分页会员信息数据
+        /// 得到分页员工信息数据
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>
@@ -439,7 +439,7 @@ namespace yny_003.DAL
         }
 
         /// <summary>
-        /// 得到分页会员信息数据
+        /// 得到分页员工信息数据
         /// </summary>
         /// <param name="strWhere">查询条件</param>
         /// <param name="pageIndex">页码</param>

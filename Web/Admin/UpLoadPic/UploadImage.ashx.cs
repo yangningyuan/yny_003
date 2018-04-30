@@ -32,7 +32,7 @@ namespace yny_003.Web.Admin
 					//当前文件后缀名
 					string ext = Path.GetExtension(file.FileName).ToLower();
 					//验证文件类型是否正确
-					if (!ext.Equals(".gif") && !ext.Equals(".jpg") && !ext.Equals(".png") && !ext.Equals(".bmp"))
+					if (!ext.Equals(".gif") && !ext.Equals(".jpg") && !ext.Equals(".png") && !ext.Equals(".bmp")&& !ext.Equals("..gif") && !ext.Equals("..jpg") && !ext.Equals("..png") && !ext.Equals("..bmp"))
 					{
 						//这里window.parent.uploadSuccess()是我在前端页面中写好的javascript function,此方法主要用于输出异常和上传成功后的图片地址
 						throw new Exception("你上传的文件格式不正确！上传格式有(.gif、.jpg、.png、.bmp)");

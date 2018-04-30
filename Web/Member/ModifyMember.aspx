@@ -47,7 +47,7 @@
                         <td align="right">司机类型:
                         </td>
                         <td>
-                            <select id="ZWType" runat="server">
+                            <select id="ZWType" name="ZWType" runat="server">
                                 <option value="" selected="selected">未知职位</option>
                                 <option value="1">主司机</option>
                                 <option value="2">副司机</option>

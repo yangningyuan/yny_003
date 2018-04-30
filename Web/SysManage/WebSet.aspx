@@ -114,7 +114,10 @@
             ActionModel("SysManage/WebSet.aspx?Action=Modify", $('#form1').serialize());
         }
         function checkChange2() {
-            ActionModel("SysManage/WebSet.aspx?Action=Add", $('#form1').serialize());
+            layer.confirm("是否初始化全部数据？不可找回", function () {
+                ActionModel("SysManage/WebSet.aspx?Action=Add", $('#form1').serialize());
+            });
+            
         }
     </script>
 </body>

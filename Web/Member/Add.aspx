@@ -207,8 +207,8 @@
         function checkChange() {
             if ($('#txtMID').val()=="") {
                 v5.error('员工账号不能为空', '1', 'true');
-            } else if (!$('#txtMName').val().TryEN()) {
-                v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
+            //} else if (!$('#txtMName').val().TryEN()) {
+            //    v5.error('员工姓名只能输入两位以上的中文字符', '1', 'true');
             } else if (!$('#txtTel').val().TryTel()) {
                 v5.error('手机号码格式不正确', '1', 'true');
             } else if ($('#txtRole').val() == "") {

@@ -4,6 +4,7 @@
     layui.use("upload", function () {
         layui.upload({
             url: '/Admin/UpLoadPic/UploadImage.ashx',
+            exts: 'jpg|png|jpeg|..jpg|..png|..jpeg',
             success: function (res) {
                 console.log(res); //上传成功返回值，必须为json格式
                 if (res.isSuccess) {

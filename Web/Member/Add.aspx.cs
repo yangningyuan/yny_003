@@ -18,6 +18,16 @@ namespace yny_003.Web.Member
             {
                 //txtMTJ.Attributes.Add("readonly", "readonly");
             }
+
+            var topmid= BLL.CommonBase.GetSingle(" select top 1 MID from Member where MID<>'admin' order by MCreateDate desc; ");
+            if (topmid != null)
+            {
+                txtMID.Value = (Convert.ToInt32(topmid.ToString()) + 1).ToString();
+            }
+            else {
+                txtMID.Value = "1001";
+            }
+
             //if (!string.IsNullOrEmpty(Request.QueryString["mid"]))
             //{
             //    if (string.IsNullOrEmpty(txtMBD.Value))
@@ -77,6 +87,7 @@ namespace yny_003.Web.Member
                 model.Tel = Request.Form["txtTel"].Trim();
                 model.RoleCode = "Notactive";
                 model.AgencyCode = "001";
+                model.FMID = Request.Form["ZWType"];
                 model.MAgencyType = BLL.Configuration.Model.SHMoneyList[model.AgencyCode];
                 model.IsClock = false;
                 model.IsClose = false;

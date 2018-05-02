@@ -9,7 +9,23 @@ namespace yny_003.Web.Car
 {
 	public partial class AddCar : BasePage
 	{
-		protected override string btnModify_Click()
+
+        protected override void SetPowerZone()
+        {
+            if (string.IsNullOrEmpty(Request.QueryString["id"]))
+            {
+                BXDate.Value = DateTime.Now.ToString();
+                YYZDate.Value = DateTime.Now.ToString();
+                BYDate.Value = DateTime.Now.ToString();
+                GJYDate.Value = DateTime.Now.ToString();
+                AQFDate.Value = DateTime.Now.ToString();
+                BXDate.Value = DateTime.Now.ToString();
+                BXDate.Value = DateTime.Now.ToString();
+
+            }
+            
+        }
+        protected override string btnModify_Click()
 		{
 			Model.C_Car c = new Model.C_Car();
 			c.PZCode = Request.Form["PZCode"];

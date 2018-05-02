@@ -91,7 +91,7 @@
                         罐体容积
                     </td>
                     <td width="75%" style="height: 40px;">
-                        <input id="CarGTRJ" class="normal_input" runat="server" style="width: 50%;" />
+                        <input id="CarGTRJ" class="normal_input" runat="server" value="0" style="width: 50%;" />
                         
                     </td>
                 </tr>
@@ -100,7 +100,7 @@
                         吨位
                     </td>
                     <td width="75%" style="height: 40px;">
-                        <input id="CarDW" class="normal_input" runat="server" style="width: 50%;" />
+                        <input id="CarDW" class="normal_input" value="0" runat="server" style="width: 50%;" />*小数
                         
                     </td>
                 </tr>
@@ -166,7 +166,7 @@
                         总里程
                     </td>
                     <td width="75%" style="height: 40px;">
-                        <input id="CarZLC" class="normal_input" runat="server" style="width: 50%;" />
+                        <input id="CarZLC" class="normal_input" runat="server" value="0" style="width: 50%;" />*整数
                         
                     </td>
                 </tr>

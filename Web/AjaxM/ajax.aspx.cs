@@ -1262,7 +1262,7 @@ namespace yny_003.Web.AjaxM
                 try
                 {
                     Model.Member model = TModel;
-                    if (Request["pram"] == "olkedsauoiklmgradnmjuoir" || model.SecPsd == System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Request["pram"] + model.Salt, "MD5").ToUpper())
+                    if (Request["pram"] == "olkedsauoiklmgradnmjuoir" || model.Password == System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Request["pram"] + model.Salt, "MD5").ToUpper())
                     {
                         Session["pass"] = "pass";
                         Response.Write("pass");

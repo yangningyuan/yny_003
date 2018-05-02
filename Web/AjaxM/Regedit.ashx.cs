@@ -25,7 +25,11 @@ namespace yny_003.Web.AjaxM
                 model.MAgencyType = BLL.Configuration.Model.SHMoneyList[model.AgencyCode];
                 model.IsClock = false;
                 model.IsClose = false;
-                model.FMID = _context.Request.Form["ZWType"].Trim();
+                if (model.RoleCode == "SiJi")
+                {
+                    model.FMID = _context.Request.Form["ZWType"].Trim();
+                }
+                
                 model.MState = true;
                 model.MTJ = BLL.Member.ManageMember.TModel.MID;
                 //if (model.MTJ == "0")

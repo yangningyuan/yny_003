@@ -49,6 +49,28 @@ namespace yny_003.Model
 		private string _spare3;
 
         /// <summary>
+        /// 交强险
+        /// </summary>
+        public DateTime JQXDate { get; set; }
+
+        /// <summary>
+        /// 三责险
+        /// </summary>
+        public DateTime SZXDate { get; set; }
+
+        /// <summary>
+        /// 承运险
+        /// </summary>
+        public DateTime CYXDate { get; set; }
+        /// <summary>
+        /// 车辆入户时间
+        /// </summary>
+        public DateTime CLRHDate { get; set; }
+        /// <summary>
+        /// 车辆技术等级评定时间
+        /// </summary>
+        public DateTime CLJJPDDate { get; set; }
+        /// <summary>
         /// 车辆类型 牵引车 挂车
         /// </summary>
         public string CType { get; set; }

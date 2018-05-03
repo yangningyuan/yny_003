@@ -324,7 +324,7 @@ function RunAjaxByListReload(state, ajaxKey, keys) {
 
 function ActionModel(acturl, actdata, url, showtime, title) {
 	//document.write(actdata);
-	verifypsd2(function () {
+	verifypsd(function () {
 		$.ajax({
 			type: 'post',
 			url: acturl,

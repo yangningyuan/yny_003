@@ -113,6 +113,8 @@
                              <option value="#93">#93</option>
                              <option value="#95">#95</option>
                              <option value="#97">#97</option>
+                             <option value="柴油">柴油</option>
+                             <option value="天然气">天然气</option>
                             </select>
                     </td>
                 </tr>
@@ -161,6 +163,56 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'AQFDate\')}' })" />
                     </td>
                 </tr>
+                <hr />
+
+
+                  <tr>
+                    <td align="right">
+                        交强险到期日期
+                    </td>
+                    <td style="padding: 15px;">
+                        <input type="text" runat="server"  name="JQXDate"  id="JQXDate" placeholder="交强险到期日期"
+                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'JQXDate\')}' })" />
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        三责险到期日期
+                    </td>
+                    <td style="padding: 15px;">
+                        <input type="text" runat="server"  name="SZXDate"  id="SZXDate" placeholder="三责险到期日期"
+                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'SZXDate\')}' })" />
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        承运险到期日期
+                    </td>
+                    <td style="padding: 15px;">
+                        <input type="text" runat="server"  name="CYXDate"  id="CYXDate" placeholder="承运险到期日期"
+                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'CYXDate\')}' })" />
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        车辆入户时间日期
+                    </td>
+                    <td style="padding: 15px;">
+                        <input type="text" runat="server"  name="CLRHDate"  id="CLRHDate" placeholder="车辆入户时间日期"
+                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'CLRHDate\')}' })" />
+                    </td>
+                </tr>
+                  <tr>
+                    <td align="right">
+                        车辆技术等级评定时间
+                    </td>
+                    <td style="padding: 15px;">
+                        <input type="text" runat="server"  name="CLJJPDDate"  id="CLJJPDDate" placeholder="车辆技术等级评定时间"
+                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'CLJJPDDate\')}' })" />
+                    </td>
+                </tr>
+
+
                   <tr>
                     <td width="15%" align="right">
                         总里程
@@ -197,7 +249,7 @@
             //if ($('#txtName').val() == '') {
             //    v5.error('经费项目名称不能为空', '1', 'ture');
             //} else {
-                ActionModel("Car/AddCar.aspx?Action=Modify", $('#form1').serialize(), "Car/CarList.aspx");
+            ActionModelpwd("Car/AddCar.aspx?Action=Modify", $('#form1').serialize(), "Car/CarList.aspx");
             //}
         }
     </script>

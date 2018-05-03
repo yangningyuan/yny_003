@@ -130,7 +130,7 @@
             //if ($('#txtName').val() == '') {
             //    v5.error('经费项目名称不能为空', '1', 'ture');
             //} else {
-            ActionModel("Car/AddSupplier.aspx?Action=Modify", $('#form1').serialize(), "Car/SupplierList.aspx");
+            ActionModelpwd("Car/AddSupplier.aspx?Action=Modify", $('#form1').serialize(), "Car/SupplierList.aspx");
             //}
         }
     </script>

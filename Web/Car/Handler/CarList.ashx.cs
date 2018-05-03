@@ -58,7 +58,14 @@ namespace yny_003.Web.Car.Handler
 				sb.Append("<br/>保养到期时间:" + ListNotice[i].BYDate);
 				sb.Append("<br/>罐检验到期时间:" + ListNotice[i].GJYDate);
 				sb.Append("<br/>安全阀检验到期日期:" + ListNotice[i].AQFDate);
-				sb.Append("<br/>燃油类型:" + ListNotice[i].RYType);
+
+                sb.Append("<br/>交强险到期日期:" + ListNotice[i].JQXDate);
+                sb.Append("<br/>三责险到期日期:" + ListNotice[i].SZXDate);
+                sb.Append("<br/>承运险到期日期:" + ListNotice[i].CYXDate);
+                sb.Append("<br/>车辆入户时间日期:" + ListNotice[i].CLRHDate);
+                sb.Append("<br/>车辆技术等级评定时间:" + ListNotice[i].CLJJPDDate);
+
+                sb.Append("<br/>燃油类型:" + ListNotice[i].RYType);
 				sb.Append("<br/>备注:" + ListNotice[i].Remark);
 				sb.Append("≌");
 			}

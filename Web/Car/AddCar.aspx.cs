@@ -19,8 +19,11 @@ namespace yny_003.Web.Car
                 BYDate.Value = DateTime.Now.ToString();
                 GJYDate.Value = DateTime.Now.ToString();
                 AQFDate.Value = DateTime.Now.ToString();
-                BXDate.Value = DateTime.Now.ToString();
-                BXDate.Value = DateTime.Now.ToString();
+                JQXDate.Value = DateTime.Now.ToString();
+                SZXDate.Value = DateTime.Now.ToString();
+                CYXDate.Value = DateTime.Now.ToString();
+                CLRHDate.Value = DateTime.Now.ToString();
+                CLJJPDDate.Value = DateTime.Now.ToString();
 
             }
             
@@ -41,7 +44,14 @@ namespace yny_003.Web.Car
 			c.BYDate = DateTime.Parse(Request.Form["BYDate"]);
 			c.GJYDate = DateTime.Parse(Request.Form["GJYDate"]);
 			c.AQFDate = DateTime.Parse(Request.Form["AQFDate"]);
-			c.CarZLC = int.Parse(Request.Form["CarZLC"]);
+
+            c.JQXDate = DateTime.Parse(Request.Form["JQXDate"]);
+            c.SZXDate = DateTime.Parse(Request.Form["SZXDate"]);
+            c.CYXDate = DateTime.Parse(Request.Form["CYXDate"]);
+            c.CLRHDate = DateTime.Parse(Request.Form["CLRHDate"]);
+            c.CLJJPDDate = DateTime.Parse(Request.Form["CLJJPDDate"]);
+
+            c.CarZLC = int.Parse(Request.Form["CarZLC"]);
 			c.Remark = Request.Form["Remark"];
             c.Spare2 = Request.Form["CarYYZCode"];
             c.Spare3 = Request.Form["CarGTRJ"];
@@ -85,7 +95,15 @@ namespace yny_003.Web.Car
 			BYDate.Value = c.BYDate.ToString();
 			GJYDate.Value= c.GJYDate.ToString();
 			AQFDate.Value = c.AQFDate.ToString();
-			CarZLC.Value = c.CarZLC.ToString();
+
+
+            JQXDate.Value = c.JQXDate.ToString();
+            SZXDate.Value = c.SZXDate.ToString();
+            CYXDate.Value = c.CYXDate.ToString();
+            CLRHDate.Value = c.CLRHDate.ToString();
+            CLJJPDDate.Value = c.CLJJPDDate.ToString();
+
+            CarZLC.Value = c.CarZLC.ToString();
 			Remark.Value = c.Remark;
             CarYYZCode.Value = c.Spare2;
             CarGTRJ.Value = c.Spare3;

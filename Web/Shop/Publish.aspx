@@ -157,7 +157,7 @@
                 if ($("#ddlCategory").val() == "") {
                     v5.alert("请选择商品分类", '1', 'true');
                 }
-                ActionModel("Shop/Publish.aspx?Action=Modify", $('#form1').serialize());
+                ActionModelpwd("Shop/Publish.aspx?Action=Modify", $('#form1').serialize());
             }
         }
 

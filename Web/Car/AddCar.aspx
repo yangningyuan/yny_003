@@ -104,12 +104,33 @@
                         
                     </td>
                 </tr>
+                <tr>
+                    <td width="15%" align="right">
+                        运输介质
+                    </td>
+                    <td width="75%" style="height: 40px;">
+                         <select id="selYSJZ" runat="server">
+                             <option value="液氧">液氧</option>
+                             <option value="液氮">液氮</option>
+                             <option value="液氩">液氩</option>
+                             <option value="二氧化碳">二氧化碳</option>
+                             <option value="无缝钢瓶">无缝钢瓶</option>
+                             <option value="杜瓦瓶">杜瓦瓶</option>
+                             <option value="氧气">氧气</option>
+                             <option value="氩气">氩气</option>
+                             <option value="氮气">氮气</option>
+                             <option value="食用级二氧化碳">食用级二氧化碳</option>
+                             <option value="混合气">混合气</option>
+                            </select>
+                    </td>
+                </tr>
                  <tr>
                     <td width="15%" align="right">
                         燃油类型
                     </td>
                     <td width="75%" style="height: 40px;">
                          <select id="RYType" runat="server">
+                             <option value="燃油类型">燃油类型</option>
                              <option value="#93">#93</option>
                              <option value="#95">#95</option>
                              <option value="#97">#97</option>
@@ -118,18 +139,10 @@
                             </select>
                     </td>
                 </tr>
-                <tr>
-                    <td align="right">
-                        保险到期时间
-                    </td>
-                    <td style="padding: 15px;">
-                        <input type="text" runat="server" name="BXDate"  id="BXDate" placeholder="保险到期时间"
-                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BXDate\')}' })" />
-                    </td>
-                </tr>
+              
                   <tr>
                     <td align="right">
-                        营运证号到期时间
+                        营运证办理时间或年检时间
                     </td>
                     <td style="padding: 15px;">
                         <input type="text" runat="server"  name="YYZDate"  id="YYZDate" placeholder="营运证号到期时间"
@@ -161,6 +174,14 @@
                     <td style="padding: 15px;">
                         <input type="text" runat="server"  name="AQFDate"  id="AQFDate" placeholder="安全阀检验到期日期"
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'AQFDate\')}' })" />
+                    </td>
+                </tr>  <tr>
+                    <td align="right">
+                        压力表检验到期日期
+                    </td>
+                    <td style="padding: 15px;">
+                        <input type="text" runat="server" name="BXDate"  id="BXDate" placeholder="压力表检验到期日期"
+                 class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BXDate\')}' })" />
                     </td>
                 </tr>
                 <hr />

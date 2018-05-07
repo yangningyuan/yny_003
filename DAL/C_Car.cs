@@ -66,9 +66,9 @@ namespace yny_003.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into C_Car(");
-			strSql.Append("PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate)");
+			strSql.Append("PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate,YSJZ)");
 			strSql.Append(" values (");
-			strSql.Append("@PZCode,@CarType,@CarBrand,@CarEngine,@CarCJCode,@CarXSZCode,@CarDW,@RYType,@BXDate,@YYZDate,@BYDate,@GJYDate,@AQFDate,@CarZLC,@Remark,@IsDelete,@CreateDate,@Spare1,@Spare2,@Spare3,@CType,@JQXDate,@SZXDate,@CYXDate,@CLRHDate,@CLJJPDDate)");
+			strSql.Append("@PZCode,@CarType,@CarBrand,@CarEngine,@CarCJCode,@CarXSZCode,@CarDW,@RYType,@BXDate,@YYZDate,@BYDate,@GJYDate,@AQFDate,@CarZLC,@Remark,@IsDelete,@CreateDate,@Spare1,@Spare2,@Spare3,@CType,@JQXDate,@SZXDate,@CYXDate,@CLRHDate,@CLJJPDDate,@YSJZ)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@PZCode", SqlDbType.VarChar,50),
@@ -95,7 +95,8 @@ namespace yny_003.DAL
                     new SqlParameter("@SZXDate", SqlDbType.DateTime),
                     new SqlParameter("@CYXDate", SqlDbType.DateTime),
                     new SqlParameter("@CLRHDate", SqlDbType.DateTime),
-                    new SqlParameter("@CLJJPDDate", SqlDbType.DateTime)
+                    new SqlParameter("@CLJJPDDate", SqlDbType.DateTime),
+                    new SqlParameter("@YSJZ", SqlDbType.VarChar,50)
             };
 			parameters[0].Value = model.PZCode;
 			parameters[1].Value = model.CarType;
@@ -124,6 +125,7 @@ namespace yny_003.DAL
             parameters[23].Value = model.CYXDate;
             parameters[24].Value = model.CLRHDate;
             parameters[25].Value = model.CLJJPDDate;
+            parameters[26].Value = model.YSJZ;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -171,7 +173,8 @@ namespace yny_003.DAL
             strSql.Append("SZXDate=@SZXDate,");
             strSql.Append("CYXDate=@CYXDate,");
             strSql.Append("CLRHDate=@CLRHDate,");
-            strSql.Append("CLJJPDDate=@CLJJPDDate ");
+            strSql.Append("CLJJPDDate=@CLJJPDDate, ");
+            strSql.Append("YSJZ=@YSJZ ");
             strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@PZCode", SqlDbType.VarChar,50),
@@ -200,6 +203,7 @@ namespace yny_003.DAL
                     new SqlParameter("@CYXDate", SqlDbType.DateTime),
                     new SqlParameter("@CLRHDate", SqlDbType.DateTime),
                     new SqlParameter("@CLJJPDDate", SqlDbType.DateTime),
+                    new SqlParameter("@YSJZ", SqlDbType.VarChar,50),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.PZCode;
 			parameters[1].Value = model.CarType;
@@ -228,9 +232,10 @@ namespace yny_003.DAL
             parameters[23].Value = model.CYXDate;
             parameters[24].Value = model.CLRHDate;
             parameters[25].Value = model.CLJJPDDate;
+            parameters[26].Value = model.YSJZ;
 
 
-            parameters[26].Value = model.ID;
+            parameters[27].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -275,7 +280,8 @@ namespace yny_003.DAL
             strSql.Append("SZXDate=@SZXDate,");
             strSql.Append("CYXDate=@CYXDate,");
             strSql.Append("CLRHDate=@CLRHDate,");
-            strSql.Append("CLJJPDDate=@CLJJPDDate ");
+            strSql.Append("CLJJPDDate=@CLJJPDDate, ");
+            strSql.Append("YSJZ=@YSJZ ");
             strSql.Append(" where ID=@ID");
             strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -305,6 +311,7 @@ namespace yny_003.DAL
                     new SqlParameter("@CYXDate", SqlDbType.DateTime),
                     new SqlParameter("@CLRHDate", SqlDbType.DateTime),
                     new SqlParameter("@CLJJPDDate", SqlDbType.DateTime),
+                    new SqlParameter("@YSJZ", SqlDbType.VarChar,50),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
             parameters[0].Value = model.PZCode;
             parameters[1].Value = model.CarType;
@@ -332,7 +339,8 @@ namespace yny_003.DAL
             parameters[23].Value = model.CYXDate;
             parameters[24].Value = model.CLRHDate;
             parameters[25].Value = model.CLJJPDDate;
-            parameters[26].Value = model.ID;
+            parameters[26].Value = model.YSJZ;
+            parameters[27].Value = model.ID;
 
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
@@ -388,7 +396,7 @@ namespace yny_003.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate from C_Car ");
+			strSql.Append("select  top 1 ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate,YSJZ from C_Car ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -414,7 +422,7 @@ namespace yny_003.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate from C_Car ");
+            strSql.Append("select  top 1 ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate,YSJZ from C_Car ");
             strSql.Append(" where PZCode=@PZCode");
             SqlParameter[] parameters = {
                     new SqlParameter("@PZCode", SqlDbType.VarChar,50)
@@ -568,6 +576,10 @@ namespace yny_003.DAL
                 {
                     model.CLJJPDDate = DateTime.Parse(row["CLJJPDDate"].ToString());
                 }
+                if (row["YSJZ"] != null)
+                {
+                    model.YSJZ = row["YSJZ"].ToString();
+                }
             }
 			return model;
 		}
@@ -578,7 +590,7 @@ namespace yny_003.DAL
 		public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate ");
+			strSql.Append("select ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate,YSJZ ");
 			strSql.Append(" FROM C_Car ");
 			if(strWhere.Trim()!="")
 			{
@@ -598,7 +610,7 @@ namespace yny_003.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate ");
+			strSql.Append(" ID,PZCode,CarType,CarBrand,CarEngine,CarCJCode,CarXSZCode,CarDW,RYType,BXDate,YYZDate,BYDate,GJYDate,AQFDate,CarZLC,Remark,IsDelete,CreateDate,Spare1,Spare2,Spare3,CType,JQXDate,SZXDate,CYXDate,CLRHDate,CLJJPDDate,YSJZ ");
 			strSql.Append(" FROM C_Car ");
 			if(strWhere.Trim()!="")
 			{

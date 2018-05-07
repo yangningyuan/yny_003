@@ -146,10 +146,10 @@ namespace yny_003.Model
 			set{ _rytype=value;}
 			get{return _rytype;}
 		}
-		/// <summary>
-		/// 保险到期时间
-		/// </summary>
-		public DateTime BXDate
+        /// <summary>
+        /// 压力表检验到期日期
+        /// </summary>
+        public DateTime BXDate
 		{
 			set{ _bxdate=value;}
 			get{return _bxdate;}
@@ -242,8 +242,12 @@ namespace yny_003.Model
 			set{ _spare3=value;}
 			get{return _spare3;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 运输介质
+        /// </summary>
+        public string YSJZ { get; set; }
+        #endregion Model
 
-	}
+    }
 }
 

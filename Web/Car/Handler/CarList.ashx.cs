@@ -53,8 +53,8 @@ namespace yny_003.Web.Car.Handler
                 sb.Append("<br/>营运证号:" + ListNotice[i].Spare2);
                 sb.Append("<br/>罐体容积:" + ListNotice[i].Spare3);
                 sb.Append("<br/>车辆类型:" + ListNotice[i].CType);
-                sb.Append("<br/>保险到期时间:" + ListNotice[i].BXDate);
-				sb.Append("<br/>营运证号到期时间:" + ListNotice[i].YYZDate);
+                sb.Append("<br/>压力表检验到期日期:" + ListNotice[i].BXDate);
+				sb.Append("<br/>营运证办理时间或年检时间:" + ListNotice[i].YYZDate);
 				sb.Append("<br/>保养到期时间:" + ListNotice[i].BYDate);
 				sb.Append("<br/>罐检验到期时间:" + ListNotice[i].GJYDate);
 				sb.Append("<br/>安全阀检验到期日期:" + ListNotice[i].AQFDate);
@@ -66,7 +66,8 @@ namespace yny_003.Web.Car.Handler
                 sb.Append("<br/>车辆技术等级评定时间:" + ListNotice[i].CLJJPDDate);
 
                 sb.Append("<br/>燃油类型:" + ListNotice[i].RYType);
-				sb.Append("<br/>备注:" + ListNotice[i].Remark);
+                sb.Append("<br/>运输介质:" + ListNotice[i].YSJZ);
+                sb.Append("<br/>备注:" + ListNotice[i].Remark);
 				sb.Append("≌");
 			}
 			var info = new { PageData = Traditionalized(sb), TotalCount = count };

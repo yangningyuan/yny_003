@@ -21,7 +21,7 @@
 
         <div class="buttons-tab">
             <input type="hidden" value="bx" id="state" runat="server" />
-            <a href="javascript:void(0)" onclick="$('#state').val('bx'); dianji(this); " class="tab-link active button requery">保险</a>
+            <a href="javascript:void(0)" onclick="$('#state').val('bx'); dianji(this); " class="tab-link active button requery">压力表</a>
             <a href="javascript:void(0)" onclick="$('#state').val('yy'); dianji(this); " class="tab-link button requery">营运</a>
             <a href="javascript:void(0)" onclick="$('#state').val('by'); dianji(this); " class="tab-link button requery">保养</a>
             <a href="javascript:void(0)" onclick="$('#state').val('gj'); dianji(this); " class="tab-link button requery">罐检</a>

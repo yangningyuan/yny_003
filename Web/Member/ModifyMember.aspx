@@ -55,6 +55,19 @@
                             </select>
                         </td>
                     </tr>
+                       <tr>
+
+                        <td align="right">从业证书:
+                        </td>
+                        <td>
+                            <input id="txtAddress" runat="server" class="normal_input" type="text" maxlength="18" />
+                        </td>
+                        <td align="right">
+                        </td>
+                        <td>
+                           
+                        </td>
+                    </tr>
                     <tr style="display: none;">
 
 

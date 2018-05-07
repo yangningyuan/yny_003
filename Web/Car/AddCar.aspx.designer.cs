@@ -130,6 +130,15 @@ namespace yny_003.Web.Car {
         protected global::System.Web.UI.HtmlControls.HtmlInputText CarDW;
         
         /// <summary>
+        /// selYSJZ 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selYSJZ;
+        
+        /// <summary>
         /// RYType 控件。
         /// </summary>
         /// <remarks>
@@ -137,15 +146,6 @@ namespace yny_003.Web.Car {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect RYType;
-        
-        /// <summary>
-        /// BXDate 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText BXDate;
         
         /// <summary>
         /// YYZDate 控件。
@@ -182,6 +182,15 @@ namespace yny_003.Web.Car {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText AQFDate;
+        
+        /// <summary>
+        /// BXDate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText BXDate;
         
         /// <summary>
         /// JQXDate 控件。

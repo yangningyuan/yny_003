@@ -127,6 +127,13 @@
                             <input type="radio" name="ZWType" value="1">主司机<input type="radio" name="ZWType" value="2">副司机<input type="radio" name="ZWType" value="3">押运员
                         </td>
                     </tr>
+                      <tr style="display:none;" id="strzwadd">
+                        <td align="right">从业资格证书:
+                        </td>
+                        <td>
+                            <input id="txtAddress" name="txtAddress" class="normal_input" type="text" maxlength="18" />
+                        </td>
+                    </tr>
                     <tr>
                         <td align="right">登录密码:
                         </td>
@@ -185,9 +192,11 @@
             var index = objS.selectedIndex;
 
             if (objS.options[index].value == "SiJi") {
-                document.getElementById("strzwtype").style.display = "";
+                document.getElementById("strzwtype").style.display = ""; 
+                document.getElementById("strzwadd").style.display = "";
             } else {
                 document.getElementById("strzwtype").style.display = "none";
+                document.getElementById("strzwadd").style.display = "none";
             }
         }
         

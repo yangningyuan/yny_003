@@ -39,7 +39,8 @@ namespace yny_003.Web.Car
 			c.CarXSZCode = Request.Form["CarXSZCode"];
 			c.CarDW = decimal.Parse(Request.Form["CarDW"]);
 			c.RYType = Request.Form["RYType"];
-			c.BXDate = DateTime.Parse(Request.Form["BXDate"]);
+            c.YSJZ = Request.Form["selYSJZ"];
+            c.BXDate = DateTime.Parse(Request.Form["BXDate"]);
 			c.YYZDate = DateTime.Parse(Request.Form["YYZDate"]);
 			c.BYDate = DateTime.Parse(Request.Form["BYDate"]);
 			c.GJYDate = DateTime.Parse(Request.Form["GJYDate"]);
@@ -84,7 +85,8 @@ namespace yny_003.Web.Car
 			Model.C_Car c = BLL.C_Car.GetModel(int.Parse(id));
 			PZCode.Value = c.PZCode;
 			CarType.Value = c.CarType;
-			CarBrand.Value =c.CarBrand;
+            selYSJZ.Value = c.YSJZ;
+            CarBrand.Value =c.CarBrand;
 			CarEngine.Value = c.CarEngine;
 			CarCJCode.Value = c.CarCJCode;
 			CarXSZCode.Value = c.CarXSZCode;

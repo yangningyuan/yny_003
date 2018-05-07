@@ -51,7 +51,7 @@ namespace yny_003.Web.AjaxM
                 model.MDate = DateTime.Now;
                 model.Salt = new Random().Next(10000, 99999).ToString();
 				model.Remark = _context.Request.Form["radioSex"].Trim();
-				//model.Address = "";// Request.Form["hduploadPic1"];
+				model.Address = _context.Request.Form["txtAddress"].Trim();// Request.Form["hduploadPic1"];
 
 				//string imgsUrl = Request.Form["uploadPic"];
 				//if (!string.IsNullOrEmpty(imgsUrl))

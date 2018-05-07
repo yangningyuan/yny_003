@@ -71,7 +71,7 @@ namespace yny_003.Web.Member
                 model.IsClose = Request.Form["chkIsClose"] == "on";
                 //model.IsClock = Request.Form["chkIsClock"] == "on";
                 //model.AgencyCode = Request.Form["ddlSHMoney"];
-                //model.Address = Request.Form["txtAddress"];
+                model.Address = Request.Form["txtAddress"];
                 model.NumID = Request.Form["txtNumID"];
                 //model.Country = Request.Form["txtCountry"];
                 //model.QQ = Request.Form["txtQQ"];
@@ -127,7 +127,7 @@ namespace yny_003.Web.Member
 					//txtMSH.Value = value.MSH;
 					txtNumID.Value = value.NumID;
                     //txtQQ.Value = value.QQ;
-                    //txtAddress.Value = value.Address;
+                    txtAddress.Value = value.Address;
                     ddlMemberType.Value = value.RoleCode.ToString();
                     //chkIsClock.Checked = value.IsClock;
                     chkIsClose.Checked = value.IsClose;

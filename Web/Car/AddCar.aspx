@@ -270,7 +270,7 @@
             //if ($('#txtName').val() == '') {
             //    v5.error('经费项目名称不能为空', '1', 'ture');
             //} else {
-            ActionModelpwd("Car/AddCar.aspx?Action=Modify", $('#form1').serialize(), "Car/CarList.aspx");
+            ActionModel("Car/AddCar.aspx?Action=Modify", $('#form1').serialize(), "Car/CarList.aspx");
             //}
         }
     </script>

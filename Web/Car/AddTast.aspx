@@ -99,14 +99,14 @@
 
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="display:none;">
                         <td width="15%" align="right">客户联系人
                         </td>
                         <td width="75%" style="height: 40px;">
                             <input id="SupplierTelName" class="normal_input" runat="server" style="width: 50%;" />
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="display:none;">
                         <td width="15%" align="right">客户电话
                         </td>
                         <td width="75%" style="height: 40px;">
@@ -114,7 +114,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" id="jhstr">交货时间
+                        <td align="right" id="jhstr">调度派遣车辆时间
                         </td>
                         <td style="padding: 15px;">
                             <input type="text" runat="server" name="ComDate" id="ComDate" placeholder=""
@@ -248,13 +248,13 @@
     <script type="text/javascript">
         $(function () {
             if ($("#TType").val() == "1") {
-                document.getElementById("jhstr").innerHTML = "装车时间";
+                document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
                 document.getElementById("gysstr").style.display = "";
                 document.getElementById("khstr").style.display = "none";
                 document.getElementById("kcstr").style.display = "none";
                 getsudetalis($("#SupplierName").val());
             } else if ($("#TType").val() == "2") {
-                document.getElementById("jhstr").innerHTML = "卸车时间";
+                document.getElementById("jhstr").innerHTML = "卸车业务派遣时间";
                 document.getElementById("gysstr").style.display = "none";
                 document.getElementById("khstr").style.display = "";
                 document.getElementById("kcstr").style.display = "none";

@@ -82,7 +82,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label"  id="jhstr">交货时间</div>
+                            <div class="item-title label"  id="jhstr">调度派遣车辆时间</div>
                             <div class="item-input">
                                 <input type="text" id="ComDate" name="ComDate"  class="laydate-icon"  runat="server" >
                             </div>
@@ -129,7 +129,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">副驾驶</div>
+                            <div class="item-title label">押运员</div>
                             <div class="item-input">
                                 <select id="CarSJ2" runat="server"   onchange="setViewSiJi2(this[selectedIndex].value)">
                             </select>

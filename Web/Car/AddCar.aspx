@@ -51,7 +51,7 @@
                         
                     </td>
                 </tr>
-                 <tr>
+                 <tr id="gc1">
                     <td width="15%" align="right">
                         发动机号
                     </td>
@@ -60,7 +60,7 @@
                         
                     </td>
                 </tr>
-                 <tr>
+                 <tr id="gc2">
                     <td width="15%" align="right">
                         车架号
                     </td>
@@ -68,7 +68,7 @@
                         <input id="CarCJCode" class="normal_input" runat="server" style="width: 50%;" />
                     </td>
                 </tr>
-                  <tr>
+                  <tr  id="gc3">
                     <td width="15%" align="right">
                         行驶证号
                     </td>
@@ -149,7 +149,7 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'YYZDate\')}' })" />
                     </td>
                 </tr>
-                 <tr>
+                 <tr  id="gc4">
                     <td align="right">
                         保养到期时间
                     </td>
@@ -158,7 +158,7 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'BYDate\')}' })" />
                     </td>
                 </tr>
-                 <tr>
+                 <tr id="qyc1">
                     <td align="right">
                         罐检验到期时间
                     </td>
@@ -167,7 +167,7 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'GJYDate\')}' })" />
                     </td>
                 </tr>
-                   <tr>
+                   <tr  id="qyc2">
                     <td align="right">
                         安全阀检验到期日期
                     </td>
@@ -175,7 +175,7 @@
                         <input type="text" runat="server"  name="AQFDate"  id="AQFDate" placeholder="安全阀检验到期日期"
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'AQFDate\')}' })" />
                     </td>
-                </tr>  <tr>
+                </tr>  <tr  id="qyc3">
                     <td align="right">
                         压力表检验到期日期
                     </td>
@@ -187,7 +187,7 @@
                 <hr />
 
 
-                  <tr>
+                  <tr  id="gc5">
                     <td align="right">
                         交强险到期日期
                     </td>
@@ -196,7 +196,7 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'JQXDate\')}' })" />
                     </td>
                 </tr>
-                  <tr>
+                  <tr id="gc6">
                     <td align="right">
                         三责险到期日期
                     </td>
@@ -205,7 +205,7 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'SZXDate\')}' })" />
                     </td>
                 </tr>
-                  <tr>
+                  <tr id="gc7">
                     <td align="right">
                         承运险到期日期
                     </td>
@@ -216,14 +216,14 @@
                 </tr>
                   <tr>
                     <td align="right">
-                        车辆入户时间日期
+                        罐（压力容器购置日期）
                     </td>
                     <td style="padding: 15px;">
                         <input type="text" runat="server"  name="CLRHDate"  id="CLRHDate" placeholder="车辆入户时间日期"
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'CLRHDate\')}' })" />
                     </td>
                 </tr>
-                  <tr>
+                  <tr  id="gc8">
                     <td align="right">
                         车辆技术等级评定时间
                     </td>
@@ -234,7 +234,7 @@
                 </tr>
 
 
-                  <tr>
+                  <tr  id="gc9">
                     <td width="15%" align="right">
                         总里程
                     </td>
@@ -265,7 +265,72 @@
         </div>
     </div>
     <script type="text/javascript">
-        
+
+        $("#CType").click(function () {
+            if ($("#CType").val() == "挂车") {
+                document.getElementById("gc1").style.display = "none";
+                document.getElementById("gc2").style.display = "none";
+                document.getElementById("gc3").style.display = "none";
+                document.getElementById("gc4").style.display = "none";
+                document.getElementById("gc5").style.display = "none";
+                document.getElementById("gc6").style.display = "none";
+                document.getElementById("gc7").style.display = "none";
+                document.getElementById("gc8").style.display = "none";
+                document.getElementById("gc9").style.display = "none";
+
+                document.getElementById("qyc1").style.display = "";
+                document.getElementById("qyc2").style.display = "";
+                document.getElementById("qyc3").style.display = "";
+            } else if ($("#CType").val() == "牵引车") {
+                document.getElementById("qyc1").style.display = "none";
+                document.getElementById("qyc2").style.display = "none";
+                document.getElementById("qyc3").style.display = "none";
+
+                document.getElementById("gc1").style.display = "";
+                document.getElementById("gc2").style.display = "";
+                document.getElementById("gc3").style.display = "";
+                document.getElementById("gc4").style.display = "";
+                document.getElementById("gc5").style.display = "";
+                document.getElementById("gc6").style.display = "";
+                document.getElementById("gc7").style.display = "";
+                document.getElementById("gc8").style.display = "";
+                document.getElementById("gc9").style.display = "";
+            } 
+        });
+
+        $(function () {
+            if ($("#CType").val() == "挂车") {
+                document.getElementById("gc1").style.display = "none";
+                document.getElementById("gc2").style.display = "none";
+                document.getElementById("gc3").style.display = "none";
+                document.getElementById("gc4").style.display = "none";
+                document.getElementById("gc5").style.display = "none";
+                document.getElementById("gc6").style.display = "none";
+                document.getElementById("gc7").style.display = "none";
+                document.getElementById("gc8").style.display = "none";
+                document.getElementById("gc9").style.display = "none";
+
+                document.getElementById("qyc1").style.display = "";
+                document.getElementById("qyc2").style.display = "";
+                document.getElementById("qyc3").style.display = "";
+                
+            } else if ($("#CType").val() == "牵引车") {
+                document.getElementById("qyc1").style.display = "none";
+                document.getElementById("qyc2").style.display = "none";
+                document.getElementById("qyc3").style.display = "none";
+
+                document.getElementById("gc1").style.display = "";
+                document.getElementById("gc2").style.display = "";
+                document.getElementById("gc3").style.display = "";
+                document.getElementById("gc4").style.display = "";
+                document.getElementById("gc5").style.display = "";
+                document.getElementById("gc6").style.display = "";
+                document.getElementById("gc7").style.display = "";
+                document.getElementById("gc8").style.display = "";
+                document.getElementById("gc9").style.display = "";
+               
+            }
+        });
         function checkChange() {
             //if ($('#txtName').val() == '') {
             //    v5.error('经费项目名称不能为空', '1', 'ture');

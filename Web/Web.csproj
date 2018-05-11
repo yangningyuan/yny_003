@@ -250,6 +250,7 @@
     <Content Include="Car\AddSupplier.aspx" />
     <Content Include="Car\AddTast.aspx" />
     <Content Include="Car\CarList.aspx" />
+    <Content Include="Car\CarYJ.aspx" />
     <Content Include="Car\CostList.aspx" />
     <Content Include="Car\DDTast.aspx" />
     <Content Include="Car\LoanApplyList.aspx" />
@@ -1464,6 +1465,13 @@
     <Compile Include="Car\CarList.aspx.designer.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\CarYJ.aspx.cs">
+      <DependentUpon>CarYJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\CarYJ.aspx.designer.cs">
+      <DependentUpon>CarYJ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\CostList.aspx.cs">
       <DependentUpon>CostList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1477,6 +1485,10 @@
     </Compile>
     <Compile Include="Car\DDTast.aspx.designer.cs">
       <DependentUpon>DDTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\Handler\CarYJ.ashx.cs">
+      <DependentUpon>CarYJ.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\Handler\CostList2.ashx.cs">
       <DependentUpon>CostList2.ashx</DependentUpon>
@@ -2743,6 +2755,7 @@
     <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.ttf" />
     <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.woff" />
     <Content Include="Car\Handler\CostList2.ashx" />
+    <Content Include="Car\Handler\CarYJ.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

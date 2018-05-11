@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 </li>
-                  <li>
+                  <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">客户联系人</div>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </li>
-                  <li>
+                  <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">客户电话</div>
@@ -123,7 +123,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label"  id="jhstr">交货时间</div>
+                            <div class="item-title label"  id="jhstr">调度派遣车辆时间</div>
                             <div class="item-input">
                                 <input type="text" id="ComDate" name="ComDate"  class="laydate-icon"  runat="server" >
                             </div>

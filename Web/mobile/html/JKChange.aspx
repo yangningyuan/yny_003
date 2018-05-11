@@ -19,9 +19,9 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">投资金额</div>
+                            <div class="item-title label">借款金额</div>
                             <div class="item-input">
-                                <input type="text" value="" name="txtMHB" id="txtMHB" placeholder="请输入投资金额">
+                                <input type="text" value="" name="txtMHB" id="txtMHB" placeholder="请输入借款金额">
                             </div>
                         </div>
                     </div>

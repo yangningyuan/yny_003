@@ -240,6 +240,10 @@ namespace yny_003.Web.AjaxM
                     getsudetalis();
                     break;
 
+                case "Del_Car":
+                    Del_Car();
+                    break;
+
             }
         }
 
@@ -1956,6 +1960,22 @@ namespace yny_003.Web.AjaxM
             jsonBuilder.Append("]");
             // jsonBuilder.Append("}");
             return jsonBuilder.ToString();
+        }
+
+        /// <summary>
+        /// 删除报单中心
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
+        public void Del_Car()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                Response.Write(BLL.C_Car.DeleteCarList((Request["pram"])));
+                return;
+            }
+            Response.Write("");
+            return;
         }
     }
 }

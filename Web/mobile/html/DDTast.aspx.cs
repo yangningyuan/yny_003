@@ -23,13 +23,13 @@ namespace yny_003.Web.mobile.html
             CSpare2.DataBind();
 
             CarSJ1.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID='1' AND IsClock=0 AND IsClose=0  order by ID");
-            CarSJ1.DataTextField = "MID";
+            CarSJ1.DataTextField = "MName";
             CarSJ1.DataValueField = "MID";
             CarSJ1.DataBind();
             CarSJ1.Items.Insert(0, "--请选择--");
 
             CarSJ2.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID IN('2','3') AND IsClock=0 AND IsClose=0  order by ID");
-            CarSJ2.DataTextField = "MID";
+            CarSJ2.DataTextField = "MName";
             CarSJ2.DataValueField = "MID";
             CarSJ2.DataBind();
             CarSJ2.Items.Insert(0, "--请选择--");

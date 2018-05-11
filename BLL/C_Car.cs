@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using yny_003.Model;
 using System.Collections;
+using DBUtility;
 
 namespace yny_003.BLL
 {
@@ -176,18 +177,37 @@ namespace yny_003.BLL
 		{
 			return DAL.C_Car.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		//{
-			//return dal.GetList(PageSize,PageIndex,strWhere);
-		//}
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+        public static string DeleteCarList(string midlist)
+        {
+            string[] arr = midlist.Split(',');
+            int succ = 0;
+            int erro = 0;
+            foreach (string mid in arr)
+            {
+                if (DbHelperSQL.ExecuteSql(string.Format("update c_car set IsDelete=1 where ID={0}", mid)) > 0)
+                {
+                    succ++;
+                }
+                else
+                {
+                    erro++;
+                }
+            }
+            return "成功：" + succ.ToString() + " , 失败：" + erro.ToString();
+        }
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        //public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
+        //{
+        //return dal.GetList(PageSize,PageIndex,strWhere);
+        //}
 
-		#endregion  ExtensionMethod
-	}
+        #endregion  BasicMethod
+        #region  ExtensionMethod
+
+        #endregion  ExtensionMethod
+    }
 }
 

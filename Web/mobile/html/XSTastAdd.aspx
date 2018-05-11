@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </li>
-                  <li>
+                  <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">客户联系人</div>
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </li>
-                  <li>
+                  <li style="display:none;">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">客户电话</div>
@@ -125,7 +125,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label"  id="jhstr">交货时间</div>
+                            <div class="item-title label"  id="jhstr">调度派遣车辆时间</div>
                             <div class="item-input">
                                 <input type="text" id="ComDate" name="ComDate"  class="laydate-icon"  runat="server" >
                             </div>
@@ -227,13 +227,13 @@
 <script type="text/javascript">
         $(function () {
             if ($("#TType").val() == "1") {
-                document.getElementById("jhstr").innerHTML = "装车时间";
+                document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
                 document.getElementById("gysstr").style.display = "";
                 document.getElementById("khstr").style.display = "none";
                 document.getElementById("kcstr").style.display = "none";
                 getsudetalis($("#SupplierName").val());
             } else if ($("#TType").val() == "2") {
-                document.getElementById("jhstr").innerHTML = "卸车时间";
+                document.getElementById("jhstr").innerHTML = "卸车业务派遣时间";
                 document.getElementById("gysstr").style.display = "none";
                 document.getElementById("khstr").style.display = "";
                 document.getElementById("kcstr").style.display = "none";

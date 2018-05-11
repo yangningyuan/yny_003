@@ -84,7 +84,7 @@
                   <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">到达时间</div>
+                            <div class="item-title label"><%=cartast.TType.ToString().Replace("1","实际装车时间").Replace("2","实际卸车时间") %></div>
                             <div class="item-input">
                                 <%=cartast.ComDate %>
                             </div>

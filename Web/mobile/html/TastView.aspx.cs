@@ -55,8 +55,8 @@ namespace yny_003.Web.mobile.html
 					order = BLL.Order.GetModel(cartast.OCode);
 					listord2 = order.OrderDetail;
 				}
-				if (listord2.Sum(m => m.ReCount) <= 0)
-					return "未查询到实际装车/卸车数量，不能完成";
+				//if (listord2.Sum(m => m.ReCount) <= 0)
+				//	return "未查询到实际装车/卸车数量，不能完成";
 			}
             Hashtable MyHs = new Hashtable();
             Model.C_Car c1= BLL.C_Car.GetModelByCode(cartast.Spare2);

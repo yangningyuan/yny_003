@@ -12,12 +12,15 @@ namespace yny_003.Web.mobile.html
 	{
 		protected Model.Order order = null;
 		protected Model.C_CarTast cartast = null;
+        protected Model.C_Supplier supplier = null;
 		protected List<Model.OrderDetail> listord = null;
 		protected List<Model.C_CostDetalis> listcost = null;
 		protected override void SetValue(string id)
 		{
 			cartast = BLL.C_CarTast.GetModel(int.Parse(id));
-			cid.Value = id;
+            supplier = BLL.C_Supplier.GetModel(int.Parse(cartast.SupplierName));
+
+            cid.Value = id;
 			if (!string.IsNullOrEmpty(cartast.OCode))
 			{
 				order = BLL.Order.GetModel(cartast.OCode);

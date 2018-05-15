@@ -240,7 +240,7 @@
                 document.getElementById("kcstr").style.display = "none";
                 getsudetalis($("#SupplierName").val());
             } else if ($("#TType").val() == "2") {
-                document.getElementById("jhstr").innerHTML = "卸车时间";
+                document.getElementById("jhstr").innerHTML = "卸车业务派遣时间";
                 document.getElementById("gysstr").style.display = "none";
                 document.getElementById("khstr").style.display = "";
                 document.getElementById("kcstr").style.display = "none";
@@ -271,7 +271,7 @@
                     document.getElementById("khstr").style.display = "none";
                     document.getElementById("kcstr").style.display = "none";
                 } else if ($("#TType").val() == "2") {
-                    document.getElementById("jhstr").innerHTML = "卸车时间";
+                    document.getElementById("jhstr").innerHTML = "卸车业务派遣时间";
                     document.getElementById("gysstr").style.display = "none";
                     document.getElementById("khstr").style.display = "";
                     document.getElementById("kcstr").style.display = "none";

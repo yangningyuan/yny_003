@@ -15,7 +15,7 @@
             <div class="search-time">
                 <input type="text" placeholder="开始时间" id="begin_time" runat="server" class="laydate-icon" />
                 <input type="text" placeholder="结束时间" id="end_time" runat="server" class="laydate-icon" />
-                <button type="button" class="requery searchh">查询</button>
+                <button type="button" class="requery searchh">查询</button>   
             </div>
         <div class="buttons-tab">
             <input type="hidden" value="-1" id="state" runat="server" />

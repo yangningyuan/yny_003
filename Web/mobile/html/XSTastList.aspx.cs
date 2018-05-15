@@ -51,6 +51,8 @@ namespace yny_003.Web.mobile.html
             return jss.Serialize(new { Items = list, TotalCount = totalCount });
         }
 
+        
+
         protected override string btnAdd_Click()
         {
             Model.C_CarTast cd = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["cid"]));

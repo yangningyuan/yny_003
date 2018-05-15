@@ -214,7 +214,7 @@
                  class="daycash_input"   onclick="WdatePicker({ stateDate: '#F{$dp.$D(\'CYXDate\')}' })" />
                     </td>
                 </tr>
-                  <tr>
+                  <tr id="qyc6">
                     <td align="right">
                         罐（压力容器购置日期）
                     </td>
@@ -281,10 +281,12 @@
                 document.getElementById("qyc1").style.display = "";
                 document.getElementById("qyc2").style.display = "";
                 document.getElementById("qyc3").style.display = "";
+                document.getElementById("qyc6").style.display = "";
             } else if ($("#CType").val() == "牵引车") {
                 document.getElementById("qyc1").style.display = "none";
                 document.getElementById("qyc2").style.display = "none";
                 document.getElementById("qyc3").style.display = "none";
+                document.getElementById("qyc6").style.display = "none";
 
                 document.getElementById("gc1").style.display = "";
                 document.getElementById("gc2").style.display = "";
@@ -313,11 +315,13 @@
                 document.getElementById("qyc1").style.display = "";
                 document.getElementById("qyc2").style.display = "";
                 document.getElementById("qyc3").style.display = "";
+                document.getElementById("qyc6").style.display = "";
                 
             } else if ($("#CType").val() == "牵引车") {
                 document.getElementById("qyc1").style.display = "none";
                 document.getElementById("qyc2").style.display = "none";
                 document.getElementById("qyc3").style.display = "none";
+                document.getElementById("qyc6").style.display = "none";
 
                 document.getElementById("gc1").style.display = "";
                 document.getElementById("gc2").style.display = "";

@@ -292,11 +292,12 @@
                 document.getElementById("gooddanwei3").innerHTML = info;
             }
 
-                function checkChange() {
+            function checkChange() {
+                
                     if ($('#SupplierName').val() == '--请选择--') {
-                        v5.error('供应商或客户不能为空', '1', 'ture');
+                        layer.msg('供应商或客户不能为空');
                     } else if ($('#txtGood').val() == '--请选择--') {
-                        v5.error('货物不能为空', '1', 'ture');
+                        layer.msg('货物不能为空');
                     } else{
                     ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/XSTastList.aspx");
                     }

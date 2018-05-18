@@ -34,6 +34,28 @@ namespace yny_003.DAL
             else
                 return null;
         }
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static Model.OrderDetail GetModelCode(string CODE)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * ");
+            strSql.Append("  from OrderDetail ");
+            strSql.Append(" where OrderCode=@OrderCode ");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@OrderCode", SqlDbType.VarChar,200)            };
+            parameters[0].Value = CODE;
+
+
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                return TranEntity(ds.Tables[0].Rows[0]);
+            else
+                return null;
+        }
 
         /// <summary>
         /// 增加一条数据

@@ -15,6 +15,11 @@ namespace yny_003.BLL
             return yny_003.DAL.OrderDetail.GetModel(obj);
         }
 
+        public static Model.OrderDetail GetModelCode(string code)
+        {
+            return yny_003.DAL.OrderDetail.GetModelCode(code);
+        }
+
         public static Hashtable Insert(Model.OrderDetail model, Hashtable MyHs)
         {
             return yny_003.DAL.OrderDetail.Insert(model, MyHs);

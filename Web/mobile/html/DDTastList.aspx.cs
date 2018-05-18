@@ -40,7 +40,7 @@ namespace yny_003.Web.mobile.html
             //}
             var list = listchange.Select(item => new
             {
-                Name = item.SupplierTelName,
+                Name = getsupplier(item.SupplierName),
                 //SupplierName = item.SupplierName,
                 SupplierTel = item.SupplierTel,
                 CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:ss"),
@@ -48,7 +48,14 @@ namespace yny_003.Web.mobile.html
             });
             return jss.Serialize(new { Items = list, TotalCount = totalCount });
         }
-
+        protected string getsupplier(string id)
+        {
+            Model.C_Supplier supp = BLL.C_Supplier.GetModel(Convert.ToInt32(id));
+            if (supp != null)
+                return supp.Name;
+            else
+                return "";
+        }
         protected override string btnAdd_Click()
         {
             Model.C_CarTast cd = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["cid"]));

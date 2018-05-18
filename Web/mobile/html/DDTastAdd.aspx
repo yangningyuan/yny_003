@@ -245,13 +245,13 @@
             }
         });
 
-        $("#SupplierName").click(function () {
+        $("#SupplierName").change(function () {
             getsudetalis($("#SupplierName").val());
         });
-        $("#SupplierName2").click(function () {
+        $("#SupplierName2").change(function () {
             getsudetalis($("#SupplierName2").val());
         });
-        $("#SupplierName3").click(function () {
+        $("#SupplierName3").change(function () {
             getsudetalis($("#SupplierName3").val());
         });
 
@@ -287,7 +287,7 @@
                 var info = RunAjaxGetKey('getgooddanwei', gid);
                 document.getElementById("gooddanwei").innerHTML = info;
                 document.getElementById("gooddanwei2").innerHTML = info;
-                document.getElementById("gooddanwei3").innerHTML = info;
+                document.getElementById("gooddanwei3").innerHTML = "元";
             }
 
                 function checkChange() {

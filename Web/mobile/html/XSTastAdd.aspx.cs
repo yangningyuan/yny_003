@@ -60,7 +60,30 @@ namespace yny_003.Web.mobile.html
             }
             if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
-                Name.Value = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.QueryString["id"])).Name;
+                Model.C_CarTast ct = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.QueryString["id"]));
+                Name.Value =ct.Name;
+                
+                sid.Value = ct.SupplierName;
+                if (ct.TType == 1)
+                {
+                    SupplierName.Value = ct.SupplierName;
+                }
+                else if (ct.TType == 2)
+                {
+                    SupplierName2.Value = ct.SupplierName;
+                }
+                else {
+                    SupplierName3.Value = ct.SupplierName;
+                }
+                SupplierAddress.Value = ct.SupplierAddress;
+
+                Model.OrderDetail od= BLL.OrderDetail.GetModelCode(ct.OCode);
+                if (od != null)
+                {
+                    txtGood.Value = od.GId.ToString();
+                    txtGoodCount.Value = od.GCount.ToString();
+                    txtGoodPrice.Value = od.BuyPrice.ToString();
+                }
             }
             //ocode.Disabled = true;
         }

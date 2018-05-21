@@ -38,7 +38,7 @@ namespace yny_003.Web.mobile.html
 				Name = item.Name,
 				//SupplierName = item.SupplierName,
 				SupplierTel = item.SupplierTel,
-				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:ss"),
+				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
 				dhtml = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>"
 
 			});

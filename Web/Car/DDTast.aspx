@@ -136,7 +136,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">副驾驶
+                        <td align="right">押运员
                         </td>
                         <td style="padding: 15px;">
                             <%--<input id="CarSJ2" class="normal_input" runat="server" style="width: 10%;"  onblur="setViewSiJi2($('#CarSJ2').val());"  />--%>

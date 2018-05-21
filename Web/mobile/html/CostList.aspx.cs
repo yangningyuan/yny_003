@@ -22,7 +22,7 @@ namespace yny_003.Web.mobile.html
 			{
 				Money = item.CostMoney,
 				Remark = item.Remark,
-				CreateDate = item.CareteDate.ToString("yyyy-MM-dd HH:ss"),
+				CreateDate = item.CareteDate.ToString("yyyy-MM-dd HH:mm"),
 				dhtml = (item.IsDelete.ToString().Replace("0", "<a class=\"button button-fill button-success\" href=\"Javascript:delCost('" + item.ID + "')\">删除</a>").Replace("1","已删除").Replace("2","已审核"))
 
 			});

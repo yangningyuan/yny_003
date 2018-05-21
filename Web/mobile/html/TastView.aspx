@@ -53,7 +53,7 @@
                         <div class="item-inner">
                             <div class="item-title label">主司机</div>
                             <div class="item-input">
-                                <input type="text" value="<%=cartast.CarSJ1%>" disabled="disabled">
+                                <input type="text" value="<%=zhusiji%>" disabled="disabled">
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <div class="item-inner">
                             <div class="item-title label">副司机</div>
                             <div class="item-input">
-                                <input type="text" value="<%=cartast.CarSJ2%>" disabled="disabled">
+                                <input type="text" value="<%=fusiji%>" disabled="disabled">
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                   <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label"><%=cartast.TType.ToString().Replace("1","实际装车时间").Replace("2","实际卸车时间") %></div>
+                            <div class="item-title label"><%=cartast.TType.ToString().Replace("1","实际装车时间").Replace("2","调度派遣车辆时间") %></div>
                             <div class="item-input">
                                 <%=cartast.ComDate %>
                             </div>

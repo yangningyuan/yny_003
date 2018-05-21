@@ -146,9 +146,9 @@
                         else {
                             %>
                                 <div class="col-25 row-tab">
-                                    <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/DDTastList.aspx','我的待办');">
+                                    <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/DDTastList.aspx','待调度');">
                                         <i class="iconfont">&#xe653;</i>
-                                        我的待办
+                                        待调度
                                     </a>
                                 </div>
                      <div class="col-25 row-tab">

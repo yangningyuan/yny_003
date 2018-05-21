@@ -184,7 +184,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right">副驾驶
+                        <td align="right">押运员
                         </td>
                         <td style="padding: 15px;">
                             <%--<input id="CarSJ2" class="normal_input" runat="server" style="width: 10%;"  onblur="setViewSiJi2($('#CarSJ2').val());"  />--%>
@@ -234,7 +234,7 @@
     <script type="text/javascript">
         $(function () {
             if ($("#TType").val() == "1") {
-                document.getElementById("jhstr").innerHTML = "装车时间";
+                document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
                 document.getElementById("gysstr").style.display = "";
                 document.getElementById("khstr").style.display = "none";
                 document.getElementById("kcstr").style.display = "none";
@@ -266,7 +266,7 @@
 
             $("#TType").click(function () {
                 if ($("#TType").val() == "1") {
-                    document.getElementById("jhstr").innerHTML = "装车时间";
+                    document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
                     document.getElementById("gysstr").style.display = "";
                     document.getElementById("khstr").style.display = "none";
                     document.getElementById("kcstr").style.display = "none";

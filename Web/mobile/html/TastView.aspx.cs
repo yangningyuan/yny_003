@@ -15,6 +15,8 @@ namespace yny_003.Web.mobile.html
         protected Model.C_Supplier supplier = null;
 		protected List<Model.OrderDetail> listord = null;
 		protected List<Model.C_CostDetalis> listcost = null;
+        protected string zhusiji = "";
+        protected string fusiji = "";
 		protected override void SetValue(string id)
 		{
 			cartast = BLL.C_CarTast.GetModel(int.Parse(id));
@@ -34,7 +36,14 @@ namespace yny_003.Web.mobile.html
 			{
 				anbtn.Visible = false;
 			 }
-		}
+
+            Model.Member zm = BLL.Member.GetModelByMID(cartast.CarSJ1);
+            if (zm != null)
+                zhusiji = zm.MName;
+            Model.Member fm = BLL.Member.GetModelByMID(cartast.CarSJ2);
+            if (fm != null)
+                fusiji = fm.MName;
+        }
 
 		protected override string btnAdd_Click()
 		{

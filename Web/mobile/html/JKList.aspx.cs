@@ -22,7 +22,7 @@ namespace yny_003.Web.mobile.html
 			{
 				Money = item.Money,
 				RealMoney = item.RealMoney,
-				CareteDate = item.CareteDate.ToString("yyyy-MM-dd HH:ss"),
+				CareteDate = item.CareteDate.ToString("yyyy-MM-dd HH:mm"),
 				FFType = item.FFType,
 				SPMID =( string.IsNullOrEmpty( item.SPMID)?"未审批":item.SPMID)
 			});

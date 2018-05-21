@@ -22,7 +22,7 @@ namespace yny_003.Web.mobile.html
 			{
 				CPCode = item.CarCode,
 				EType = item.EType,
-				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:ss"),
+				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
 				dhtml = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/BXView.aspx?id="+item.ID+"','我要报修');\">详情</a>"
 
 			});

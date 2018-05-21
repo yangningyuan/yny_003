@@ -280,7 +280,7 @@
 
             $("#TType").click(function () {
                 if ($("#TType").val() == "1") {
-                    document.getElementById("jhstr").innerHTML = "装车时间";
+                    document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
                     document.getElementById("gysstr").style.display = "";
                     document.getElementById("khstr").style.display = "none";
                     document.getElementById("kcstr").style.display = "none";

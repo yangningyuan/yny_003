@@ -21,16 +21,16 @@ namespace yny_003.Web.mobile.html
 			List<Model.C_CarTast> listchange = null;
 
 			listchange = BLL.C_CarTast.GetList(where, CurrentPage, ItemsPerPage, out totalCount);
-            if (!string.IsNullOrEmpty(state))
-            {
-                if (state == "0"&&listchange.Count>0)
-                {
+            //if (!string.IsNullOrEmpty(state))
+            //{
+            //    if (state == "0"&&listchange.Count>0)
+            //    {
                     
-                    Model.C_CarTast ct= listchange.ToList().OrderByDescending(m => m.Prot).FirstOrDefault();
-                    listchange.Clear();
-                    listchange.Add(ct);
-                }
-            }
+            //        Model.C_CarTast ct= listchange.ToList().OrderByDescending(m => m.Prot).FirstOrDefault();
+            //        listchange.Clear();
+            //        listchange.Add(ct);
+            //    }
+            //}
             
 
             var list = listchange.Select(item => new

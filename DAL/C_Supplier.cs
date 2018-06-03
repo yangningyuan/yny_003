@@ -20,6 +20,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
 using System.Collections.Generic;
+using System.Collections;
 
 namespace yny_003.DAL
 {
@@ -187,11 +188,75 @@ namespace yny_003.DAL
 				return false;
 			}
 		}
-
-		/// <summary>
-		/// 删除一条数据
+        /// <summary>
+		/// 更新一条数据
 		/// </summary>
-		public static bool Delete(int ID)
+		public static Hashtable Update(yny_003.Model.C_Supplier model, Hashtable MyHs)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update C_Supplier set ");
+            strSql.Append("Type=@Type,");
+            strSql.Append("Name=@Name,");
+            strSql.Append("SHCode=@SHCode,");
+            strSql.Append("UserCode=@UserCode,");
+            strSql.Append("ZQDate=@ZQDate,");
+            strSql.Append("ZZValue=@ZZValue,");
+            strSql.Append("TelName=@TelName,");
+            strSql.Append("Tel=@Tel,");
+            strSql.Append("Address=@Address,");
+            strSql.Append("Remark=@Remark,");
+            strSql.Append("QCMoney=@QCMoney,");
+            strSql.Append("OverMoney=@OverMoney,");
+            strSql.Append("IsDelete=@IsDelete,");
+            strSql.Append("CreateDate=@CreateDate,");
+            strSql.Append("Spare1=@Spare1,");
+            strSql.Append("Spare2=@Spare2,");
+            strSql.Append("Spare3=@Spare3");
+            strSql.Append(" where ID=@ID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@Type", SqlDbType.Int,4),
+                    new SqlParameter("@Name", SqlDbType.VarChar,50),
+                    new SqlParameter("@SHCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@UserCode", SqlDbType.VarChar,50),
+                    new SqlParameter("@ZQDate", SqlDbType.Int,4),
+                    new SqlParameter("@ZZValue", SqlDbType.VarChar,250),
+                    new SqlParameter("@TelName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Tel", SqlDbType.VarChar,50),
+                    new SqlParameter("@Address", SqlDbType.VarChar,250),
+                    new SqlParameter("@Remark", SqlDbType.VarChar,1000),
+                    new SqlParameter("@QCMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@OverMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@IsDelete", SqlDbType.Int,4),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@Spare1", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare2", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare3", SqlDbType.VarChar,250),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
+            parameters[0].Value = model.Type;
+            parameters[1].Value = model.Name;
+            parameters[2].Value = model.SHCode;
+            parameters[3].Value = model.UserCode;
+            parameters[4].Value = model.ZQDate;
+            parameters[5].Value = model.ZZValue;
+            parameters[6].Value = model.TelName;
+            parameters[7].Value = model.Tel;
+            parameters[8].Value = model.Address;
+            parameters[9].Value = model.Remark;
+            parameters[10].Value = model.QCMoney;
+            parameters[11].Value = model.OverMoney;
+            parameters[12].Value = model.IsDelete;
+            parameters[13].Value = model.CreateDate;
+            parameters[14].Value = model.Spare1;
+            parameters[15].Value = model.Spare2;
+            parameters[16].Value = model.Spare3;
+            parameters[17].Value = model.ID;
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();

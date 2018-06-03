@@ -78,6 +78,25 @@ namespace yny_003.Web.mobile.html
                 BLL.C_Car.Update(c2, MyHs);
             }
             BLL.C_CarTast.Update(cartast, MyHs);
+
+            if (cartast.TType == 1 || cartast.TType == 2)
+            {
+                Model.Account acc = new Model.Account();
+                acc.CID = cartast.ID;
+                acc.CName = cartast.Name;
+                acc.AType = cartast.TType == 1 ? 0 : 1;
+                acc.SupplierID =Convert.ToInt32( cartast.SupplierName);
+                supplier = BLL.C_Supplier.GetModel(int.Parse(cartast.SupplierName));
+                acc.SupplierName = supplier.Name;
+                acc.TotalMoney = order.TotalPrice;
+                acc.ReMoney = 0;
+                acc.CreateDate = DateTime.Now;
+                acc.AStutas = 0;
+                acc.comDate = DateTime.MaxValue;
+                BLL.Account.Add(acc,MyHs);
+            }
+            
+
             if (BLL.CommonBase.RunHashtable(MyHs))
 			{
 				return "结束任务成功";

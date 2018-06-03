@@ -19,6 +19,8 @@ using System.Data;
 using System.Collections.Generic;
 
 using yny_003.Model;
+using System.Collections;
+
 namespace yny_003.BLL
 {
 	/// <summary>
@@ -62,11 +64,17 @@ namespace yny_003.BLL
 		{
 			return DAL.C_Supplier.Update(model);
 		}
-
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public static bool Delete(int ID)
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public static Hashtable Update(yny_003.Model.C_Supplier model, Hashtable MyHs)
+        {
+            return DAL.C_Supplier.Update(model, MyHs);
+        }
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public static bool Delete(int ID)
 		{
 			
 			return DAL.C_Supplier.Delete(ID);

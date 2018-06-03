@@ -182,6 +182,7 @@ namespace yny_003.Web.Car
                             c.OCode = order.Code;
                             BLL.Order.Insert(order, MyHs);
 
+
                             if (!string.IsNullOrEmpty(error))
                             {
                                 return error;

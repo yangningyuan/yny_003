@@ -245,6 +245,10 @@
     <Content Include="autoaspx\minute.aspx" />
     <Content Include="Admin\pop\images\home_main.png" />
     <Content Include="Admin\pop\images\uploadify-cancel.png" />
+    <Content Include="Car\AccountDetails.aspx" />
+    <Content Include="Car\AccountDetailsDown.aspx" />
+    <Content Include="Car\AccountDownList.aspx" />
+    <Content Include="Car\AccountUPList.aspx" />
     <Content Include="Car\AddCar.aspx" />
     <Content Include="Car\AddCost.aspx" />
     <Content Include="Car\AddSupplier.aspx" />
@@ -1430,6 +1434,34 @@
     <Compile Include="autoaspx\minute.aspx.designer.cs">
       <DependentUpon>minute.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\AccountDetails.aspx.cs">
+      <DependentUpon>AccountDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AccountDetails.aspx.designer.cs">
+      <DependentUpon>AccountDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\AccountDetailsDown.aspx.cs">
+      <DependentUpon>AccountDetailsDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AccountDetailsDown.aspx.designer.cs">
+      <DependentUpon>AccountDetailsDown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\AccountDownList.aspx.cs">
+      <DependentUpon>AccountDownList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AccountDownList.aspx.designer.cs">
+      <DependentUpon>AccountDownList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\AccountUPList.aspx.cs">
+      <DependentUpon>AccountUPList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AccountUPList.aspx.designer.cs">
+      <DependentUpon>AccountUPList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\AddCar.aspx.cs">
       <DependentUpon>AddCar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1485,6 +1517,14 @@
     </Compile>
     <Compile Include="Car\DDTast.aspx.designer.cs">
       <DependentUpon>DDTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\Handler\AccountDownList.ashx.cs">
+      <DependentUpon>AccountDownList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\AccountUPList.ashx.cs">
+      <DependentUpon>AccountUPList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\Handler\CarYJ.ashx.cs">
       <DependentUpon>CarYJ.ashx</DependentUpon>
@@ -2756,6 +2796,8 @@
     <Content Include="Admin\assets\font-awesome\font\fontawesome-webfontf77b.woff" />
     <Content Include="Car\Handler\CostList2.ashx" />
     <Content Include="Car\Handler\CarYJ.ashx" />
+    <Content Include="Car\Handler\AccountUPList.ashx" />
+    <Content Include="Car\Handler\AccountDownList.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

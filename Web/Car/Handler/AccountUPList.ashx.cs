@@ -24,9 +24,9 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and CName like '%" + HttpUtility.UrlDecode(context.Request["CName"]) + "%'";
             }
-            if (!string.IsNullOrEmpty(context.Request["SupplierName"]))
+            if (context.Request["SupplierName"] != "--请选择--")
             {
-                strWhere += " and  SupplierName like '%" + context.Request["SupplierName"] + "%'";
+                strWhere += " and  SupplierID like '%" + context.Request["SupplierName"] + "%'";
             }
          
             int count;
@@ -46,12 +46,17 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].ReMoney + "~");
          
                 sb.Append((ListNotice[i].AStutas==0? "未结账": "已结账") + "~");
+                sb.Append((ListNotice[i].Spare == "1" ? "<span style='color:green;'>已开发票</span>" : "<span style='color:red;'>未开发票</span>") + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].comDate) + "~");
                
                 if (ListNotice[i].AStutas == 0)
                 {
                     sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/AccountDetails.aspx?id=" + ListNotice[i].ID + "','结账');onclickMenu()\">结账</div>");
+                }
+                if (string.IsNullOrEmpty(ListNotice[i].Spare))
+                {
+                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"execfp('" + ListNotice[i].ID + "')\">开发票</div>");
                 }
                 sb.Append("≌");
                 sb.Append("≠");

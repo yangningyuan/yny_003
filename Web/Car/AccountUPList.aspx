@@ -12,6 +12,9 @@
         {
             ActionModel("Car/AccountUPList.aspx?Action=Add", "tid=" + id);
         }
+        function execfp(id) {
+            ActionModel("Car/AccountUPList.aspx?Action=Other", "cid=" + id);
+        }
     </script>
 </head>
 <body><div id="distr">
@@ -44,7 +47,8 @@
             <div class="search" id="DivSearch" runat="server">
                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
-                 <input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入供应商名称" type="text" class="sinput" />
+                 <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
+            </select>
 
             <%--    <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
                 <input id="CarSJ2" name="txtKey" data-name="txtKey" placeholder="请输入副司机" type="text" class="sinput" />
@@ -69,6 +73,8 @@
                     <th>已付金额
                     </th>
                     <th>状态
+                    </th>
+                    <th>发票状态
                     </th>
                     <th>任务时间
                     </th>

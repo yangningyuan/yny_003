@@ -35,14 +35,22 @@ namespace yny_003.Web.mobile.html
 
             var list = listchange.Select(item => new
 			{
-				Name = item.Name,
-				//SupplierName = item.SupplierName,
-				SupplierTel = item.SupplierTel,
+				Name = getsupplier(item.SupplierName),
+                //SupplierName = item.SupplierName,
+                SupplierTel = item.SupplierTel,
 				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
 				dhtml = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>"
 
 			});
 			return jss.Serialize(new { Items = list, TotalCount = totalCount });
 		}
-	}
+        protected string getsupplier(string id)
+        {
+            Model.C_Supplier supp = BLL.C_Supplier.GetModel(Convert.ToInt32(id));
+            if (supp != null)
+                return supp.Name;
+            else
+                return "";
+        }
+    }
 }

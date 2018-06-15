@@ -59,7 +59,7 @@ namespace yny_003.Web.Car.Handler
                     sb.Append("<div class=\"pay btn btn-success\" onclick=\"execfp('" + ListNotice[i].ID + "')\">开发票</div>");
                 }
                 sb.Append("≌");
-                sb.Append("≠");
+                
                
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

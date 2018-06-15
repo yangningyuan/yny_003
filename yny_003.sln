@@ -133,6 +133,7 @@ Global
 		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Debug|x86.ActiveCfg = Debug|x86
 		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Debug|x86.Build.0 = Debug|x86
 		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Release|Any CPU.ActiveCfg = Release|x86
+		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Release|Any CPU.Build.0 = Release|x86
 		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Release|Mixed Platforms.Build.0 = Release|x86
 		{8F422608-5366-44AA-9781-05BC9FBE0D54}.Release|x86.ActiveCfg = Release|x86
@@ -143,6 +144,7 @@ Global
 		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Debug|x86.ActiveCfg = Debug|x86
 		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Debug|x86.Build.0 = Debug|x86
 		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Release|Any CPU.ActiveCfg = Release|x86
+		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Release|Any CPU.Build.0 = Release|x86
 		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Release|Mixed Platforms.Build.0 = Release|x86
 		{4D710967-5070-4FBC-B95F-0A6F4077F69A}.Release|x86.ActiveCfg = Release|x86
@@ -153,6 +155,7 @@ Global
 		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Debug|x86.ActiveCfg = Debug|x86
 		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Debug|x86.Build.0 = Debug|x86
 		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Release|Any CPU.ActiveCfg = Release|x86
+		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Release|Any CPU.Build.0 = Release|x86
 		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Release|Mixed Platforms.Build.0 = Release|x86
 		{AB5F1FDD-8F69-48F2-872C-0BAD3BE6FD73}.Release|x86.ActiveCfg = Release|x86
@@ -160,47 +163,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 13
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://192.168.1.200:8080/tfs/%E7%9B%B4%E9%94%80
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = BLL\\BLL.csproj
-		SccProjectName1 = BLL
-		SccLocalPath1 = BLL
-		SccProjectUniqueName2 = CommonBLL\\CommonBLL.csproj
-		SccProjectName2 = CommonBLL
-		SccLocalPath2 = CommonBLL
-		SccProjectUniqueName3 = CommonDAL\\CommonDAL.csproj
-		SccProjectName3 = CommonDAL
-		SccLocalPath3 = CommonDAL
-		SccProjectUniqueName4 = CommonModel\\CommonModel.csproj
-		SccProjectName4 = CommonModel
-		SccLocalPath4 = CommonModel
-		SccProjectUniqueName5 = DAL\\DAL.csproj
-		SccProjectName5 = DAL
-		SccLocalPath5 = DAL
-		SccProjectUniqueName6 = DBUtility\\DBUtility.csproj
-		SccProjectName6 = DBUtility
-		SccLocalPath6 = DBUtility
-		SccProjectUniqueName7 = MMMChangeDay\\MMMChangeDay.csproj
-		SccProjectName7 = MMMChangeDay
-		SccLocalPath7 = MMMChangeDay
-		SccProjectUniqueName8 = MMMChangeHour\\MMMChangeHour.csproj
-		SccProjectName8 = MMMChangeHour
-		SccLocalPath8 = MMMChangeHour
-		SccProjectUniqueName9 = MMMChangeMinute\\MMMChangeMinute.csproj
-		SccProjectName9 = MMMChangeMinute
-		SccLocalPath9 = MMMChangeMinute
-		SccProjectUniqueName10 = Model\\Model.csproj
-		SccProjectName10 = Model
-		SccLocalPath10 = Model
-		SccProjectUniqueName11 = Web\\Web.csproj
-		SccProjectName11 = Web
-		SccLocalPath11 = Web
-		SccProjectUniqueName12 = 文档\\文档.csproj
-		SccProjectName12 = 文档
-		SccLocalPath12 = 文档
 	EndGlobalSection
 EndGlobal

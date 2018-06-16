@@ -91,6 +91,7 @@
     <Compile Include="StockRight\StockRight.cs" />
     <Compile Include="StockRight\StockRightConfig.cs" />
     <Compile Include="StockRight\StockRightConfiguration.cs" />
+    <Compile Include="SubAccount.cs" />
     <Compile Include="Sys_SecurityQuestion.cs" />
     <Compile Include="Sys_SQ_Answer.cs" />
     <Compile Include="TicketBonus.cs" />

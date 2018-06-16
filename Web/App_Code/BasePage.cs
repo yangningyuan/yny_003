@@ -302,8 +302,8 @@ namespace yny_003.Web
             }
             //else
             //    TModel = null;
-            if (!IsPostBack)
-            {
+            //if (!IsPostBack)
+            //{
                 if (!WebModel.WebState || !TestCloseTime())
                 {
                     if ((TModel == null || !TModel.Role.Super) && !Context.Request.Url.AbsolutePath.ToUpper().Contains("MQL/LOGIN.ASPX"))
@@ -320,7 +320,7 @@ namespace yny_003.Web
                 {
                     VerifyPower();
                 }
-            }
+            //}
         }
 
         /// <summary>

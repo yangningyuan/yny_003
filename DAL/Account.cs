@@ -218,6 +218,7 @@ namespace yny_003.DAL
         /// </summary>
         public static Hashtable Update(yny_003.Model.Account model, Hashtable MyHs)
         {
+            string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Account set ");
             strSql.Append("CID=@CID,");
@@ -234,6 +235,7 @@ namespace yny_003.DAL
             strSql.Append("Spare3=@Spare3,");
             strSql.Append("comDate=@comDate");
             strSql.Append(" where ID=@ID");
+            strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
                     new SqlParameter("@CID", SqlDbType.Int,4),
                     new SqlParameter("@CName", SqlDbType.VarChar,50),

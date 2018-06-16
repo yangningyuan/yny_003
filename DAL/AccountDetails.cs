@@ -97,6 +97,40 @@ namespace yny_003.DAL
 				return Convert.ToInt32(obj);
 			}
 		}
+
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public static Hashtable Add(yny_003.Model.AccountDetails model,Hashtable MyHs)
+        {
+            string guid = Guid.NewGuid().ToString();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into AccountDetails(");
+            strSql.Append("AID,CName,TotalMoney,ReMoney,PayMoney,CreateDate,Spare,Spare1)");
+            strSql.Append(" values (");
+            strSql.Append("@AID,@CName,@TotalMoney,@ReMoney,@PayMoney,@CreateDate,@Spare,@Spare1)");
+            strSql.AppendFormat(" ;select '{0}'", guid);
+            SqlParameter[] parameters = {
+                    new SqlParameter("@AID", SqlDbType.Int,4),
+                    new SqlParameter("@CName", SqlDbType.VarChar,50),
+                    new SqlParameter("@TotalMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@ReMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@PayMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,250),
+                    new SqlParameter("@Spare1", SqlDbType.VarChar,250)};
+            parameters[0].Value = model.AID;
+            parameters[1].Value = model.CName;
+            parameters[2].Value = model.TotalMoney;
+            parameters[3].Value = model.ReMoney;
+            parameters[4].Value = model.PayMoney;
+            parameters[5].Value = model.CreateDate;
+            parameters[6].Value = model.Spare;
+            parameters[7].Value = model.Spare1;
+
+            MyHs.Add(strSql.ToString(), parameters);
+            return MyHs;
+        }
         /// <summary>
         /// 更新一条数据
         /// </summary>

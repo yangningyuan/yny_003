@@ -100,7 +100,7 @@ namespace yny_003.Model
 			get{return _spare;}
 		}
 		/// <summary>
-		/// 
+		/// 总单号
 		/// </summary>
 		public string Spare1
 		{

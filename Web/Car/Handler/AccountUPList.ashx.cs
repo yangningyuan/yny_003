@@ -52,7 +52,7 @@ namespace yny_003.Web.Car.Handler
                
                 if (ListNotice[i].AStutas == 0)
                 {
-                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/AccountDetails.aspx?id=" + ListNotice[i].ID + "','结账');onclickMenu()\">结账</div>");
+                    //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/AccountDetails.aspx?id=" + ListNotice[i].ID + "','结账');onclickMenu()\">结账</div>");
                 }
                 if (string.IsNullOrEmpty(ListNotice[i].Spare))
                 {

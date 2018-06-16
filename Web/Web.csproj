@@ -259,8 +259,10 @@
     <Content Include="Car\DDTast.aspx" />
     <Content Include="Car\LoanApplyList.aspx" />
     <Content Include="Car\ModifyTast.aspx" />
+    <Content Include="Car\SubAccount.aspx" />
     <Content Include="Car\SupplierList.aspx" />
     <Content Include="Car\TastList.aspx" />
+    <Content Include="Car\upjiezhang.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
     <Content Include="login\css\style1.css" />
@@ -1538,6 +1540,10 @@
       <DependentUpon>LoanApplyList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Car\Handler\SubAccount.ashx.cs">
+      <DependentUpon>SubAccount.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Car\Handler\SupplierList.ashx.cs">
       <DependentUpon>SupplierList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1555,6 +1561,13 @@
     </Compile>
     <Compile Include="Car\ModifyTast.aspx.designer.cs">
       <DependentUpon>ModifyTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\SubAccount.aspx.cs">
+      <DependentUpon>SubAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\SubAccount.aspx.designer.cs">
+      <DependentUpon>SubAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\SupplierList.aspx.cs">
       <DependentUpon>SupplierList.aspx</DependentUpon>
@@ -1581,6 +1594,13 @@
     </Compile>
     <Compile Include="Car\TastList.aspx.designer.cs">
       <DependentUpon>TastList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\upjiezhang.aspx.cs">
+      <DependentUpon>upjiezhang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\upjiezhang.aspx.designer.cs">
+      <DependentUpon>upjiezhang.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Handler\TJTree.ashx.cs">
       <DependentUpon>TJTree.ashx</DependentUpon>
@@ -2798,6 +2818,7 @@
     <Content Include="Car\Handler\CarYJ.ashx" />
     <Content Include="Car\Handler\AccountUPList.ashx" />
     <Content Include="Car\Handler\AccountDownList.ashx" />
+    <Content Include="Car\Handler\SubAccount.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

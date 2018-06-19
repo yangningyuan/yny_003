@@ -249,10 +249,12 @@
     <Content Include="Car\AccountDetailsDown.aspx" />
     <Content Include="Car\AccountDownList.aspx" />
     <Content Include="Car\AccountUPList.aspx" />
+    <Content Include="Car\AddAccountBank.aspx" />
     <Content Include="Car\AddCar.aspx" />
     <Content Include="Car\AddCost.aspx" />
     <Content Include="Car\AddSupplier.aspx" />
     <Content Include="Car\AddTast.aspx" />
+    <Content Include="Car\BankAccountList.aspx" />
     <Content Include="Car\CarList.aspx" />
     <Content Include="Car\CarYJ.aspx" />
     <Content Include="Car\CostList.aspx" />
@@ -1464,6 +1466,13 @@
     <Compile Include="Car\AccountUPList.aspx.designer.cs">
       <DependentUpon>AccountUPList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\AddAccountBank.aspx.cs">
+      <DependentUpon>AddAccountBank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\AddAccountBank.aspx.designer.cs">
+      <DependentUpon>AddAccountBank.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\AddCar.aspx.cs">
       <DependentUpon>AddCar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1491,6 +1500,13 @@
     </Compile>
     <Compile Include="Car\AddTast.aspx.designer.cs">
       <DependentUpon>AddTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\BankAccountList.aspx.cs">
+      <DependentUpon>BankAccountList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\BankAccountList.aspx.designer.cs">
+      <DependentUpon>BankAccountList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\CarList.aspx.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
@@ -1526,6 +1542,10 @@
     </Compile>
     <Compile Include="Car\Handler\AccountUPList.ashx.cs">
       <DependentUpon>AccountUPList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\BankAccountList.ashx.cs">
+      <DependentUpon>BankAccountList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\Handler\CarYJ.ashx.cs">
@@ -2819,6 +2839,7 @@
     <Content Include="Car\Handler\AccountUPList.ashx" />
     <Content Include="Car\Handler\AccountDownList.ashx" />
     <Content Include="Car\Handler\SubAccount.ashx" />
+    <Content Include="Car\Handler\BankAccountList.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

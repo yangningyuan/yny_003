@@ -64,7 +64,6 @@
 
                 %>
                 <tr onclick="trClick(this)">
-
                     <td></td>
                     <td></td>
                     <td></td>
@@ -93,12 +92,39 @@
                             </td>
                         </tr>
                         <tr>
+                            <td width="15%" align="right">支付金额
+                            </td>
+                            <td width="75%" style="height: 40px;">
+                                <input id="PayMoney" class="normal_input" runat="server" style="width: 50%;" />
+                            </td>
+                        </tr>
+                        <tr>
                             <td width="15%" align="right">付款方式
                             </td>
                             <td width="75%" style="height: 40px;">
-                                <select id="JZType" runat="server">
-                                    <option value="1">余额付款</option>
-                                    <option value="2">卡付</option>
+                                <input type="radio" name="JZType" value="1" checked="checked" onclick="fkjsnone()" />余额支付
+                                <input type="radio" name="JZType" value="2" onclick="fkjs()" />账户卡支付
+                                <input type="radio" name="JZType" value="3" onclick="fkjs()" />账户卡+余额支付
+                            </td>
+                        </tr>
+
+                        <tr style="display: none;" id="fkview">
+                            <td width="15%" align="right">请选择付款卡
+                            </td>
+                            <td width="75%" style="height: 40px;">
+
+                                <select id="FKAccount" name="FKAccount">
+                                    <%
+                                        if (listbank != null)
+                                        {
+                                            for (int i = 0; i < listbank.Count; i++)
+                                            {
+                                    %>
+                                    <option value="<%=listbank[i].ID %>"><%=listbank[i].AccountName %></option>
+                                    <%
+                                            }
+                                        }
+                                    %>
                                 </select>
                             </td>
                         </tr>
@@ -151,7 +177,10 @@
         function subaccChange() {
             if ($('#UserName').val() == '') {
                 v5.error('经办人不能为空', '1', 'ture');
-            } else {
+            } else if ($("#FKAccount").val() == '') {
+                v5.error('付款卡不能为空', '1', 'ture');
+            }
+            else {
                 //ActionModel("/car/upjiezhang.aspx?Action=Modify", $('#form1').serialize(), "Car/AccountUPList.aspx");
                 $.ajax({
                     type: 'post',
@@ -161,18 +190,27 @@
                         v5.alert(info, '1', 'true');
                         setTimeout(function () {
                             //window.parent.location.reload(); //刷新父页面
-                            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-                            parent.layer.close(index);  // 关闭layer
-                            //if (info == '注册成功') {
-                            setTimeout(function () {
-                                parent.callhtml('/Car/AccountUPList.aspx', '付款单列表'); onclickMenu();
-                            }, 1000);
-                            
-                            //}
+
+                            if (info == '结账成功') {
+                                var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                                parent.layer.close(index);  // 关闭layer
+
+                                setTimeout(function () {
+                                    parent.callhtml('/Car/AccountUPList.aspx', '付款单列表'); onclickMenu();
+                                }, 1000);
+
+                            }
                         }, 1000);
                     }
                 });
             }
+        }
+
+        function fkjs() {
+            document.getElementById("fkview").style.display = "";
+        }
+        function fkjsnone() {
+            document.getElementById("fkview").style.display = "none";
         }
     </script>
 </body>

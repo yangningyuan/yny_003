@@ -41,8 +41,9 @@ namespace yny_003.Web.Car.Handler
                 sb.Append((ListNotice[i].SuppType.ToString().Replace("1", "供应商").Replace("2", "客户")) + "~");
 
                 sb.Append(ListNotice[i].SuppName + "~");
-                sb.Append((ListNotice[i].JZType.ToString().Replace("1", "余额支付").Replace("2", "卡付")) + "~");
+                sb.Append((ListNotice[i].JZType.ToString().Replace("1", "余额支付").Replace("2", "卡付").Replace("3","卡付+余额付款")) + "~");
                 sb.Append((ListNotice[i].PayMoney) + "~");
+                sb.Append((ListNotice[i].Balance) + "~");
                 sb.Append((ListNotice[i].UserName) + "~");
 
                 sb.Append((ListNotice[i].CreateDate) + "~");

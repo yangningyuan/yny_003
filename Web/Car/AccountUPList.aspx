@@ -17,8 +17,7 @@
         }
     </script>
 </head>
-<body><div id="distr">
-    </div>
+<body>
     <div id="mempay">
         <div class="control">
             <div class="select">

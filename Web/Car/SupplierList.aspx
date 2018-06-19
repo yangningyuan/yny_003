@@ -10,7 +10,8 @@
         SearchByCondition();
     </script>
 </head>
-<body> <div id="distr">
+<body>
+    <div id="distr">
     </div>
     <div id="mempay">
         <div class="control">
@@ -66,5 +67,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function ShowAccount(id) {
+          
+                layer.open({
+                    type: 2,
+                    title: '账户详情',
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['60%', '50%'],
+                    content: '/car/upjiezhang.aspx?suppid=' + $("#SupplierName").val() + '&cid=' + cidList.join(',') //iframe的url
+                });
+            }
+        
+    </script>
 </body>
 </html>

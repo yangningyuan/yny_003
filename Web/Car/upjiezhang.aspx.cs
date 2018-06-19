@@ -15,17 +15,22 @@ namespace yny_003.Web.Car
         protected string suppname = "";
         protected decimal totalmoney = 0;
         protected List<Model.Account> listacc = null;
+        protected List<Model.C_SuppBank> listbank = null;
         protected override void SetPowerZone()
         {
-             cid= Request.QueryString["cid"];
-            listacc = BLL.Account.GetModelList(" id in("+cid+"); ");
+            listbank = BLL.C_SuppBank.GetModelList("1=1");
+
+
+
+            cid = Request.QueryString["cid"];
+            listacc = BLL.Account.GetModelList(" id in(" + cid + "); ");
             hcid.Value = cid;
-            
-            decimal money = listacc.Sum(a=>a.TotalMoney);
+
+            decimal money = listacc.Sum(a => a.TotalMoney);
             htotalmoney.Value = money.ToString();
             totalmoney = money;
             Random rd = new Random();
-            string xx= rd.Next(10000, 99999).ToString();
+            string xx = rd.Next(10000, 99999).ToString();
             acode = DateTime.Now.ToString("yyyyMMddHHmmss") + xx;
             Model.C_Supplier supplier = BLL.C_Supplier.GetModel(Convert.ToInt32(Request.QueryString["suppid"]));
             suppname = supplier.Name;
@@ -41,13 +46,21 @@ namespace yny_003.Web.Car
             Model.C_Supplier supplier = BLL.C_Supplier.GetModel(Convert.ToInt32(Request.Form["hsuppid"]));
             if (Request.Form["JZType"] == "1")//如若抵扣
             {
-                if (Convert.ToDecimal(Request.Form["htotalmoney"])> supplier.OverMoney)
+                if (Convert.ToDecimal(Request.Form["htotalmoney"]) > supplier.OverMoney)
                 {
                     return "预付款不足，不能结账";
                 }
+                
                 supplier.OverMoney -= Convert.ToDecimal(Request.Form["htotalmoney"]);
                 BLL.C_Supplier.Update(supplier, MyHs);
             }
+
+            decimal blanmoney = 0;
+            if (Request.Form["JZType"] == "3")
+            {
+                blanmoney = supplier.OverMoney;
+            }
+            
             foreach (var ac in listaccx)
             {
                 if (ac.AStutas == 1)
@@ -58,10 +71,34 @@ namespace yny_003.Web.Car
                 c.CName = ac.CName;
                 c.TotalMoney = ac.TotalMoney;
                 c.ReMoney = ac.ReMoney;
-                c.PayMoney =ac.TotalMoney;
-                c.Spare = "";
+                c.PayMoney = ac.TotalMoney;
+
                 c.Spare1 = Request.Form["hacode"];
+                if (Request.Form["JZType"] == "2")
+                {
+                    if (Convert.ToDecimal(Request.Form["htotalmoney"]) > Convert.ToDecimal(Request.Form["PayMoney"]))
+                    {
+                        return "付款金额不能低于结账金额";
+                    }
+                    Model.C_SuppBank suppbank = BLL.C_SuppBank.GetModel(Convert.ToInt32(Request.Form["FKAccount"]));
+                    c.Spare = suppbank.AccountName;
+                }
                 
+                if (Request.Form["JZType"] == "3")
+                {
+                    if (Convert.ToDecimal(Request.Form["htotalmoney"]) > Convert.ToDecimal(Request.Form["PayMoney"]))
+                    {
+                        return "付款金额不能低于结账金额";
+                    }
+                    if (supplier.OverMoney >= Convert.ToDecimal(Request.Form["PayMoney"]))
+                    {
+                        return "余额足够结账，请选择余额结账";
+                    }
+                    else {
+                        Model.C_SuppBank suppbank = BLL.C_SuppBank.GetModel(Convert.ToInt32(Request.Form["FKAccount"]));
+                        c.Spare = suppbank.AccountName;
+                    }
+                }
 
                 ac.comDate = DateTime.Now;
                 ac.AStutas = 1;
@@ -69,15 +106,30 @@ namespace yny_003.Web.Car
                 BLL.Account.Update(ac, MyHs);
                 BLL.AccountDetails.Add(c, MyHs);
             }
+
+            if (Request.Form["JZType"] == "2")
+            {
+                decimal money = Convert.ToDecimal(Request.Form["PayMoney"]) - Convert.ToDecimal(Request.Form["htotalmoney"]);
+                supplier.OverMoney += money;
+                BLL.C_Supplier.Update(supplier, MyHs);
+            }
+            if (Request.Form["JZType"] == "3")
+            {
+                decimal money = Convert.ToDecimal(Request.Form["PayMoney"]) - Convert.ToDecimal(Request.Form["htotalmoney"]);
+                supplier.OverMoney = money;
+                BLL.C_Supplier.Update(supplier, MyHs);
+            }
+
             Model.SubAccount account = new Model.SubAccount();
             account.ACode = Request.Form["hacode"];
             account.PayMoney = Convert.ToDecimal(Request.Form["htotalmoney"]);
             account.SuppID = supplier.ID;
             account.SuppName = supplier.Name;
             account.SuppType = supplier.Type;
-            account.JZType =Convert.ToInt32( Request.Form["JZType"]);
+            account.Balance = blanmoney;
+            account.JZType = Convert.ToInt32(Request.Form["JZType"]);
             account.UserName = Request.Form["UserName"];
-            BLL.SubAccount.Add(account,MyHs);
+            BLL.SubAccount.Add(account, MyHs);
 
             if (BLL.CommonBase.RunHashtable(MyHs))
             {

@@ -68,6 +68,7 @@
     <Compile Include="C_LoanApply.cs" />
     <Compile Include="C_Mileage.cs" />
     <Compile Include="C_Security.cs" />
+    <Compile Include="C_SuppBank.cs" />
     <Compile Include="C_Supplier.cs" />
     <Compile Include="C_Violation.cs" />
     <Compile Include="DepartType.cs" />

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Security;
 using CommonBLL;
 using Newtonsoft.Json;
+using DBUtility;
 
 namespace yny_003.Web.AjaxM
 {
@@ -243,7 +244,9 @@ namespace yny_003.Web.AjaxM
                 case "Del_Car":
                     Del_Car();
                     break;
-
+                case "Del_AccountBank":
+                    Del_AccountBank();
+                    break;
             }
         }
 
@@ -1247,6 +1250,38 @@ namespace yny_003.Web.AjaxM
                 {
                     //
                     Response.Write(BllModel.Del_ChangeMoney(Request["pram"]));
+                    return;
+                }
+                catch
+                {
+                    Response.Write("");
+                    return;
+                }
+            }
+            Response.Write("");
+            return;
+        }
+
+        private void Del_AccountBank()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                try
+                {
+                    //
+                    StringBuilder strSql = new StringBuilder();
+                    strSql.Append("delete from C_SuppBank ");
+                    strSql.Append(" where ID in (" + Request["pram"] + ")");
+
+                    int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+                    if (rows > 0)
+                    {
+                        Response.Write("删除成功");
+                    }
+                    else
+                    {
+                        Response.Write("删除失败");
+                    }
                     return;
                 }
                 catch

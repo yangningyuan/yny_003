@@ -25,7 +25,7 @@ namespace yny_003.Web.mobile.html
 
 		protected override string btnAdd_Click()
 		{
-			try
+			try 
 			{
 				Model.C_CarTast cartast = BLL.C_CarTast.GetModel(int.Parse(Request.Form["cid"]));
 				if (cartast.TState == 1)
@@ -34,7 +34,7 @@ namespace yny_003.Web.mobile.html
 				Model.OrderDetail ord = BLL.OrderDetail.GetList(" ordercode='" + cartast.OCode + "' and  code='" + Request.Form["txtGoodList"] + "' ").FirstOrDefault();
 				if (ord != null)
 				{
-					if (money <= 0 || (ord.ReCount + money) > ord.GCount)
+					if (money <= 0)
 					{
 						return "输入数量有误或此商品已不可调度";
 					}

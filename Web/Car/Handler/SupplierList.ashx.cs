@@ -41,8 +41,8 @@ namespace yny_003.Web.Car.Handler
 				sb.Append(ListNotice[i].QCMoney + "~");
 				sb.Append(ListNotice[i].OverMoney + "~");
 				sb.Append((ListNotice[i].CreateDate) + "~");
-				//sb.Append("<div class=\"pay btn btn-success\" onclick=\"v5.show('OJ/ObjSubList.aspx?id=" + ListNotice[i].ID + "', '查看详情', 'url', 360, 240)\">查看详情</div>");
-				sb.Append("≌");
+                //sb.Append("<div class=\"pay btn btn-success\" onclick=\"ShowAccount('"+ListNotice[i].ID+"')\">查看账户</div>");
+                sb.Append("≌");
 				sb.Append("≠");
 				////数量
 				sb.Append("9");

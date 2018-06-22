@@ -49,7 +49,7 @@ namespace yny_003.Web.Car.Handler
                 sb.Append((ListNotice[i].CreateDate) + "~");
 
 
-                sb.Append("<div class=\"pay btn btn-success\" onclick=\"ReSubAccount('" + ListNotice[i].ID + "')\">回滚</div>");
+                sb.Append("<div class=\"pay btn btn-success\" onclick=\"ReSubAccount('" + ListNotice[i].ID + "')\">反结账</div>");
 
                 sb.Append("≌");
 

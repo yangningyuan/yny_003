@@ -132,18 +132,18 @@ namespace yny_003.Model
 			set{ _remark=value;}
 			get{return _remark;}
 		}
-		/// <summary>
-		/// 期初金额
-		/// </summary>
-		public decimal QCMoney
+        /// <summary>
+        /// 欠款额度
+        /// </summary>
+        public decimal QCMoney
 		{
 			set{ _qcmoney=value;}
 			get{return _qcmoney;}
 		}
-		/// <summary>
-		/// 欠款额度
-		/// </summary>
-		public decimal OverMoney
+        /// <summary>
+        /// 期初金额
+        /// </summary>
+        public decimal OverMoney
 		{
 			set{ _overmoney=value;}
 			get{return _overmoney;}

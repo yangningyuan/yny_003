@@ -12,8 +12,8 @@
     </script>
 </head>
 <body>
-    <div id="distr">
-    </div>
+  <%--  <div id="distr">
+    </div>--%>
     <div id="mempay">
         <div class="control">
             <div class="select">
@@ -69,7 +69,6 @@
                     </th>
                     <th>经办人
                     </th>
-                  
                     <th>结账时间
                     </th>
                     <th>操作
@@ -89,5 +88,26 @@
             </div>
         </div>
     </div>
+    <script>
+        function ReSubAccount(oid)
+        {
+            layer.confirm("确认反结账吗？", function () {
+                $.ajax({
+                    type: 'post',
+                    url: '/car/SubAccount.aspx?Action=Modify',
+                    data: { oid: oid },
+                    success: function (info) {
+                        v5.alert(info, '1', 'true');
+                        setTimeout(function () {
+                            //window.parent.location.reload(); //刷新父页面
+                            if (info == '反结账成功') {
+                                parent.callhtml('/Car/SubAccount.aspx', '付款单列表'); onclickMenu();
+                            }
+                        }, 1000);
+                    }
+                });
+            });
+        }
+    </script>
 </body>
 </html>

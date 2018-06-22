@@ -82,7 +82,7 @@
                 </tr>
                 <tr>
                     <td width="15%" align="right">
-                        期初金额
+                        欠款金额
                     </td>
                     <td width="75%" style="height: 40px;">
                         <input id="QCMoney" class="normal_input" value="0" runat="server" style="width: 20%;" />
@@ -90,7 +90,7 @@
                 </tr>
                 <tr>
                     <td width="15%" align="right">
-                        欠款金额
+                        期初金额
                     </td>
                     <td width="75%" style="height: 40px;">
                         <input id="OverMoney" class="normal_input" value="0" runat="server" style="width: 20%;" />

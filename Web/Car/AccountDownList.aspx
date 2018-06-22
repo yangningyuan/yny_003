@@ -82,7 +82,7 @@
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
-                    <%--<a href="javascript:void(0);" title="" onclick="RunAjaxByList('','Del_Obj',',');">删除</a>--%>
+                    <a href="javascript:void(0);" title="" onclick="subjiezhang()">结账</a>
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
@@ -91,5 +91,27 @@
             </div>
         </div>
     </div>
+    <script>
+        function subjiezhang()
+        {
+            //iframe层
+            if ($("#SupplierName").val() == "--请选择--")
+            {
+                v5.error('请选择客户', '1', 'ture');
+            }
+            else if (cidList.join(',') == "") {
+                v5.error('请选择数据', '1', 'ture');
+            } else {
+                layer.open({
+                    type: 2,
+                    title: '收款单结账',
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['80%', '70%'],
+                    content: '/car/downjiezhang.aspx?suppid=' + $("#SupplierName").val() + '&cid=' + cidList.join(',') //iframe的url
+                });
+            }
+        }
+    </script>
 </body>
 </html>

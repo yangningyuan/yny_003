@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace yny_003.Web.Car
 {
-    public partial class upjiezhang : BasePage
+    public partial class downjiezhang : BasePage
     {
         protected string cid = "";
         protected string acode = "";
@@ -52,7 +52,7 @@ namespace yny_003.Web.Car
                 {
                     return "预付款不足，不能结账";
                 }
-                
+
                 supplier.OverMoney -= Convert.ToDecimal(Request.Form["htotalmoney"]);
                 BLL.C_Supplier.Update(supplier, MyHs);
             }
@@ -62,7 +62,7 @@ namespace yny_003.Web.Car
             {
                 blanmoney = supplier.OverMoney;
             }
-            
+
             foreach (var ac in listaccx)
             {
                 if (ac.AStutas == 1)
@@ -80,17 +80,17 @@ namespace yny_003.Web.Car
                 {
                     if (Convert.ToDecimal(Request.Form["htotalmoney"]) > Convert.ToDecimal(Request.Form["PayMoney"]))
                     {
-                        return "付款金额不能低于结账金额";
+                        return "收款金额不能低于结账金额";
                     }
                     Model.C_SuppBank suppbank = BLL.C_SuppBank.GetModel(Convert.ToInt32(Request.Form["FKAccount"]));
                     c.Spare = suppbank.AccountName;
                 }
-                
+
                 if (Request.Form["JZType"] == "3")
                 {
-                    if (Convert.ToDecimal(Request.Form["htotalmoney"]) >blanmoney + Convert.ToDecimal(Request.Form["PayMoney"]))
+                    if (Convert.ToDecimal(Request.Form["htotalmoney"]) > blanmoney + Convert.ToDecimal(Request.Form["PayMoney"]))
                     {
-                        return "付款金额不能低于结账金额";
+                        return "收款金额不能低于结账金额";
                     }
                     if (supplier.OverMoney >= Convert.ToDecimal(Request.Form["PayMoney"]))
                     {
@@ -117,7 +117,7 @@ namespace yny_003.Web.Car
             }
             if (Request.Form["JZType"] == "3")
             {
-                decimal money = (Convert.ToDecimal(Request.Form["PayMoney"])+blanmoney) - Convert.ToDecimal(Request.Form["htotalmoney"]);
+                decimal money = (Convert.ToDecimal(Request.Form["PayMoney"]) + blanmoney) - Convert.ToDecimal(Request.Form["htotalmoney"]);
                 supplier.OverMoney = money;
                 BLL.C_Supplier.Update(supplier, MyHs);
             }

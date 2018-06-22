@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="upjiezhang.aspx.cs" Inherits="yny_003.Web.Car.upjiezhang" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="downjiezhang.aspx.cs" Inherits="yny_003.Web.Car.downjiezhang" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,7 @@
 <body style="background: url();">
 
     <div>
-        <span>付款单号：<%=acode %></span><span style="float: right;">单位名称：<%=suppname %></span><span style="float: right;">余额：<%=blanmoney %>&nbsp;&nbsp;&nbsp;</span>
+        <span>收款单号：<%=acode %></span><span style="float: right;">单位名称：<%=suppname %></span><span style="float: right;">余额：<%=blanmoney %>&nbsp;&nbsp;&nbsp;</span>
         <table cellpadding="0" cellspacing="0" class="tabcolor table table-bordered table-hover" id="Result" style="background-color: rgb(252, 252, 252);">
             <tbody>
                 <tr>
@@ -34,7 +34,7 @@
                     </th>
                     <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">发票
                     </th>
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">应付款
+                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">应收款
                     </th>
                     <%--<th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">已付款
                     </th>--%>
@@ -68,7 +68,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>付款总额：</td>
+                    <td>收款总额：</td>
                     <td><%= totalmoney%></td>
                     <%--<td></td>--%>
                 </tr>
@@ -92,14 +92,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="15%" align="right">支付金额
+                            <td width="15%" align="right">收款金额
                             </td>
                             <td width="75%" style="height: 40px;">
                                 <input id="PayMoney" class="normal_input" runat="server" style="width: 50%;" />
                             </td>
                         </tr>
                         <tr>
-                            <td width="15%" align="right">付款方式
+                            <td width="15%" align="right">收款方式
                             </td>
                             <td width="75%" style="height: 40px;">
                                 <input type="radio" name="JZType" value="1" checked="checked" onclick="fkjsnone()" />余额支付
@@ -109,7 +109,7 @@
                         </tr>
 
                         <tr style="display: none;" id="fkview">
-                            <td width="15%" align="right">请选择付款卡
+                            <td width="15%" align="right">请选择收款卡
                             </td>
                             <td width="75%" style="height: 40px;">
 
@@ -178,13 +178,13 @@
             if ($('#UserName').val() == '') {
                 v5.error('经办人不能为空', '1', 'ture');
             } else if ($("#FKAccount").val() == '') {
-                v5.error('付款卡不能为空', '1', 'ture');
+                v5.error('收款卡不能为空', '1', 'ture');
             }
             else {
                 //ActionModel("/car/upjiezhang.aspx?Action=Modify", $('#form1').serialize(), "Car/AccountUPList.aspx");
                 $.ajax({
                     type: 'post',
-                    url: '/car/upjiezhang.aspx?Action=Modify',
+                    url: '/car/downjiezhang.aspx?Action=Modify',
                     data: $('#form1').serialize(),
                     success: function (info) {
                         v5.alert(info, '1', 'true');

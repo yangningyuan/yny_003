@@ -104,7 +104,16 @@ namespace yny_003.BLL
 			return DAL.Account.GetModel(ID);
 		}
 
-    
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public static yny_003.Model.Account GetModelName(string ID)
+        {
+
+            return DAL.Account.GetModelName(ID);
+        }
+
+
 
         /// <summary>
         /// 获得数据列表

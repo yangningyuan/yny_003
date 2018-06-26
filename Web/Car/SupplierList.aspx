@@ -18,6 +18,13 @@
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>
             </div>
+
+             <select id="SType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
+                                <option value="">类型</option>
+                                <option value="1">供应商</option>
+                                <option value="2">客户</option>
+                            </select>
+
             <div class="pay" onclick="UpDateByID('Car/AddSupplier.aspx?','修改客户信息',900,470);">
                 修改客户信息
             </div>

@@ -22,11 +22,12 @@ namespace yny_003.Web.Car
 			c.Tel = Request.Form["Tel"];
 			c.Address = Request.Form["Address"];
 			c.QCMoney =decimal.Parse( Request.Form["QCMoney"]);
-			c.OverMoney = decimal.Parse( Request.Form["OverMoney"]);
+			
 			c.Remark = Request.Form["Remark"];
 			if (string.IsNullOrEmpty(Request.Form["fid"]))
 			{
-				if (BLL.C_Supplier.Add(c) > 0)
+                c.OverMoney = decimal.Parse(Request.Form["OverMoney"]);
+                if (BLL.C_Supplier.Add(c) > 0)
 				{
 					return "添加成功";
 				}
@@ -60,6 +61,7 @@ namespace yny_003.Web.Car
 			Address.Value = c.Address;
 			QCMoney.Value = c.QCMoney.ToString();
 			OverMoney.Value = c.OverMoney.ToString();
+            
 			Remark.Value = c.Remark;
 			fid.Value = c.ID.ToString();
 		}

@@ -21,7 +21,12 @@ namespace yny_003.Web.Car.Handler
 			{
 				strWhere += " and IsDelete='" + context.Request["tState"] + "'";
 			}
-			if (!string.IsNullOrEmpty(context.Request["nTitle"]))
+
+            if (!string.IsNullOrEmpty(context.Request["SType"]))
+            {
+                strWhere += " and Type=" + context.Request["SType"] + "";
+            }
+            if (!string.IsNullOrEmpty(context.Request["nTitle"]))
 			{
 				strWhere += " and Name like '%" + HttpUtility.UrlDecode(context.Request["nTitle"]) + "%'";
 			}

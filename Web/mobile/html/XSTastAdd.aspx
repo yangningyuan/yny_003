@@ -126,7 +126,7 @@
                         <div class="item-inner">
                             <div class="item-title label" id="jhstr">调度派遣车辆时间</div>
                             <div class="item-input">
-                                <input type="text" id="ComDate" name="ComDate" class="laydate-icon" runat="server">
+                                <input type="text" id="ComDate" name="ComDate" class="laydate-icon"  onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" runat="server">
                             </div>
                         </div>
                     </div>
@@ -213,16 +213,12 @@
     </div>
 </div>
 <script>
-    var start = {
-        elem: '#ComDate',
-        format: 'YYYY-MM-DD',
-        min: '2009-06-16', //设定最小日期为当前日期
-        max: '2099-06-16', //最大日期
-        istoday: false,
-        choose: function (datas) {
-        }
-    };
-    laydate(start);
+    //laydate({
+    //    elem: '#ComDate',
+    //    event: 'focus'
+    //});
+    
+  
 </script>
 <script type="text/javascript">
     //setTimeout(function () {

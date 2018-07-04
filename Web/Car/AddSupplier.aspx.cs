@@ -37,7 +37,9 @@ namespace yny_003.Web.Car
 			}
 			else {
 				c.ID = int.Parse(Request.Form["fid"]);
-				if (BLL.C_Supplier.Update(c))
+                Model.C_Supplier csu = BLL.C_Supplier.GetModel(c.ID);
+                c.OverMoney = csu.OverMoney;
+                if (BLL.C_Supplier.Update(c))
 				{
 					return "修改成功";
 				}

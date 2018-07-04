@@ -8,16 +8,19 @@
         tState = '0';
         tUrl = "Car/Handler/SubAccount.ashx";
         SearchByCondition();
-       
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "SuppLExcel");
+        }
     </script>
 </head>
 <body>
-  <%--  <div id="distr">
+    <%--  <div id="distr">
     </div>--%>
     <div id="mempay">
         <div class="control">
             <div class="select">
-              <%--  <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>--%>
+                <%--  <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>--%>
             </div>
 
             <%--  <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
@@ -26,7 +29,7 @@
                                 <option value="1">已完成</option>
                                 <option value="2">已取消</option>
                             </select>--%>
-            
+
 
             <%--  <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
@@ -36,9 +39,10 @@
             </div>--%>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入结账编号" type="text" class="sinput" />
-                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
-            </select>
+                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                </select>
                 <%--<input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入客户名称" type="text" class="sinput" />--%>
 
                 <%--    <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
@@ -61,7 +65,7 @@
                     </th>
                     <th>客户名称
                     </th>
-                     <th>付款类型
+                    <th>付款类型
                     </th>
                     <th>付款总金额
                     </th>
@@ -89,8 +93,7 @@
         </div>
     </div>
     <script>
-        function ReSubAccount(oid)
-        {
+        function ReSubAccount(oid) {
             layer.confirm("确认反结账吗？", function () {
                 $.ajax({
                     type: 'post',

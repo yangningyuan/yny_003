@@ -108,14 +108,22 @@ namespace yny_003.BLL
 		/// </summary>
 		public static yny_003.Model.C_CarTast GetModel(string code)
 		{
-
 			return DAL.C_CarTast.GetModel(code);
 		}
 
-		/// <summary>
-		/// 获得数据列表
+        /// <summary>
+		/// 得到一个对象实体
 		/// </summary>
-		public static DataSet GetList(string strWhere)
+		public static yny_003.Model.C_CarTast GetModelname(string name)
+        {
+
+            return DAL.C_CarTast.GetModelname(name);
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataSet GetList(string strWhere)
 		{
 			return DAL.C_CarTast.GetList(strWhere);
 		}

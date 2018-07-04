@@ -8,6 +8,7 @@
         tState = '0';
         tUrl = "Car/Handler/SupplierList.ashx";
         SearchByCondition();
+        
     </script>
 </head>
 <body>
@@ -32,8 +33,9 @@
                 新增客户信息
             </div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
-                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入名称" type="text" class="sinput" />
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+               
+                <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入名称" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">

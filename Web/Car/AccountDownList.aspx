@@ -13,6 +13,10 @@
         } function execfp(id) {
             ActionModel("Car/AccountUPList.aspx?Action=Other", "cid=" + id);
         }
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "AccountDownList");
+        }
     </script>
 </head>
 <body>
@@ -39,6 +43,7 @@
             </div>--%>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
                 <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
             </select>
@@ -64,6 +69,10 @@
                     </th>
                     <th>应收总金额
                     </th>
+                    <th>
+                        商品数量
+                    </th>
+                    <th>商品单价</th>
                     <th>已收金额
                     </th>
                     <th>状态
@@ -100,7 +109,14 @@
                 v5.error('请选择客户', '1', 'ture');
             }
             else if (cidList.join(',') == "") {
-                v5.error('请选择数据', '1', 'ture');
+                layer.open({
+                    type: 2,
+                    title: '收款单结账',
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['50%', '45%'],
+                    content: '/car/downjiezhang2.aspx?suppid=' + $("#SupplierName").val() + '&cid=' + cidList.join(',') //iframe的url
+                });
             } else {
                 layer.open({
                     type: 2,

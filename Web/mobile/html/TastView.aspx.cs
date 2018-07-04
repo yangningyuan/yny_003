@@ -48,6 +48,7 @@ namespace yny_003.Web.mobile.html
 		protected override string btnAdd_Click()
 		{
 			Model.C_CarTast cartast= BLL.C_CarTast.GetModel(int.Parse(Request.Form["cid"]));
+            decimal retotalMoney = 0;//实际总额
 			if (cartast.TState == 1)
 				return "状态已改变,请勿重复提交";
 			cartast.TState = 1;
@@ -63,6 +64,9 @@ namespace yny_003.Web.mobile.html
 				{
 					order = BLL.Order.GetModel(cartast.OCode);
 					listord2 = order.OrderDetail;
+                    Model.OrderDetail od= BLL.OrderDetail.GetModelCode(cartast.OCode);
+                    if (od != null)
+                        retotalMoney = od.ReCount * od.BuyPrice;
 				}
 				//if (listord2.Sum(m => m.ReCount) <= 0)
 				//	return "未查询到实际装车/卸车数量，不能完成";
@@ -88,7 +92,7 @@ namespace yny_003.Web.mobile.html
                 acc.SupplierID =Convert.ToInt32( cartast.SupplierName);
                 supplier = BLL.C_Supplier.GetModel(int.Parse(cartast.SupplierName));
                 acc.SupplierName = supplier.Name;
-                acc.TotalMoney = order.TotalPrice;
+                acc.TotalMoney = retotalMoney;
                 acc.ReMoney = 0;
                 acc.CreateDate = DateTime.Now;
                 acc.AStutas = 0;

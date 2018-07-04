@@ -43,6 +43,18 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].SupplierName + "~");
 
                 sb.Append(ListNotice[i].TotalMoney + "~");
+                Model.C_CarTast tast = BLL.C_CarTast.GetModelname(ListNotice[i].CName);
+                string shuliang = "";
+                string jiage = "";
+                if (!string.IsNullOrWhiteSpace(tast.OCode))
+                {
+                    Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                    shuliang = od.ReCount.ToString();
+                    jiage = od.BuyPrice.ToString();
+                }
+
+                sb.Append(shuliang + "~");
+                sb.Append(jiage + "~");
                 sb.Append(ListNotice[i].ReMoney + "~");
          
                 sb.Append((ListNotice[i].AStutas==0? "未结账": "已结账") + "~");

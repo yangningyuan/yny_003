@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="downjiezhang.aspx.cs" Inherits="yny_003.Web.Car.downjiezhang" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="upjiezhang2.aspx.cs" Inherits="yny_003.Web.Car.upjiezhang2" %>
 
 <!DOCTYPE html>
 
@@ -18,63 +18,9 @@
 </head>
 <body style="background: url();">
 
-    <div>
-        <span>收款单号：<%=acode %></span><span style="float: right;">单位名称：<%=suppname %></span><span style="float: right;">余额：<%=blanmoney %>&nbsp;&nbsp;&nbsp;</span>
-        <table cellpadding="0" cellspacing="0" class="tabcolor table table-bordered table-hover" id="Result" style="background-color: rgb(252, 252, 252);">
-            <tbody>
-                <tr>
-
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">序号
-                    </th>
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">类型
-                    </th>
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">单位
-                    </th>
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">任务时间
-                    </th>
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">发票
-                    </th>
-                    <th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">应收款
-                    </th>
-                    <%--<th style="background-color: rgb(199, 42, 37); color: rgb(255, 255, 255);">已付款
-                    </th>--%>
-                </tr>
-                <%
-                    if (listacc != null)
-                    {
-                        int index = 0;
-                        foreach (var item in listacc)
-                        {
-                            index++;
-                %>
-                <tr onclick="trClick(this)">
-
-                    <td><% =index%></td>
-                    <td><%=item.AType.ToString().Replace("0","装车").Replace("1","卸车") %></td>
-                    <td><%=item.SupplierName %>&nbsp;</td>
-                    <td><%=item.CreateDate %></td>
-                    <td><%=item.Spare == "1" ? "<span style='color:green;'>已开发票</span>" : "<span style='color:red;'>未开发票</span>" %></td>
-                    <td><%=item.TotalMoney %></td>
-                    <%--<td><%=item.ReMoney %></td>--%>
-                </tr>
-                <%
-                        }
-
-                    }
-
-                %>
-                <tr onclick="trClick(this)">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>收款总额：</td>
-                    <td><%= totalmoney%></td>
-                    <%--<td></td>--%>
-                </tr>
-            </tbody>
-        </table>
-        <span></span>
+    <div style="padding:20px;">
+        <span>付款单号：<%=acode %></span><span style="float: right;">单位名称：<%=suppname %></span><span style="float: right;">余额：<%=blanmoney %>&nbsp;&nbsp;&nbsp;</span>
+        
         <br />
         <div id="mempay" style="float: left;  width:100%;">
             <div id="finance"  style="background-color:#EEEEEE; ">
@@ -90,7 +36,7 @@
                             <td width="24%" style="height: 40px;">
                                 <input id="UserName" class="normal_input" runat="server" style="width: 50%;" />
                             </td>
-                             <td width="24%" align="right">收款金额
+                             <td width="24%" align="right">付款金额
                             </td>
                             <td width="24%" style="height: 40px;">
                                 <input id="PayMoney" class="normal_input" runat="server" style="width: 50%;" />
@@ -98,16 +44,16 @@
                         </tr>
                      
                         <tr>
-                            <td width="24%" align="right">收款方式
+                            <td width="24%" align="right">付款方式
                             </td>
                             <td width="24%" style="height: 40px;">
-                                <input type="radio" name="JZType" value="1" checked="checked" onclick="fkjsnone()" />余额支付
-                                <input type="radio" name="JZType" value="2" onclick="fkjs()" />账户卡支付
-                                <input type="radio" name="JZType" value="3" onclick="fkjs()" />账户卡+余额支付
+                                <%--<input type="radio" name="JZType" value="1" checked="checked" onclick="fkjsnone()" />余额支付--%>
+                                <input type="radio" name="JZType" value="2"  checked="checked" />账户卡支付
+                                <input type="radio" name="JZType" value="3"  />账户卡+余额支付
                             </td>
-                             <td width="24%" align="right"  style="display: none;" id="fkview">请选择收款卡
+                             <td width="24%" align="right"  id="fkview">请选择付款卡
                             </td>
-                            <td width="24%"  style="display: none;" id="fkviewi">
+                            <td width="24%" >
 
                                 <select id="FKAccount" name="FKAccount">
                                     <%
@@ -179,13 +125,13 @@
             if ($('#UserName').val() == '') {
                 v5.error('经办人不能为空', '1', 'ture');
             } else if ($("#FKAccount").val() == '') {
-                v5.error('收款卡不能为空', '1', 'ture');
+                v5.error('付款卡不能为空', '1', 'ture');
             }
             else {
                 //ActionModel("/car/upjiezhang.aspx?Action=Modify", $('#form1').serialize(), "Car/AccountUPList.aspx");
                 $.ajax({
                     type: 'post',
-                    url: '/car/downjiezhang.aspx?Action=Modify',
+                    url: '/car/upjiezhang2.aspx?Action=Modify',
                     data: $('#form1').serialize(),
                     success: function (info) {
                         v5.alert(info, '1', 'true');
@@ -207,15 +153,7 @@
             }
         }
 
-        function fkjs() {
-            document.getElementById("fkview").style.display = "";
-            document.getElementById("fkviewi").style.display = "";
-        }
-        function fkjsnone() {
-            document.getElementById("fkview").style.display = "none";
-            document.getElementById("fkviewi").style.display = "none";
-        }
-
+    
         
     </script>
 </body>

@@ -466,10 +466,36 @@ namespace yny_003.DAL
 				return null;
 			}
 		}
-		/// <summary>
-		/// 获得数据列表
+        /// <summary>
+		/// 得到一个对象实体
 		/// </summary>
-		public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+		public static yny_003.Model.C_CarTast GetModelname(string name)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ID,Name,TType,SupplierName,SupplierAddress,SupplierTelName,SupplierTel,CarID,CarSJ1,CarSJ2,CostType,BDImg,TState,IsDelete,Spare1,Spare2,CreateDate,OCode,CSpare2,ComDate,XSMID,DDMID,Prot from C_CarTast ");
+            strSql.Append(" where Name=@Name");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@Name", SqlDbType.VarChar,50)
+            };
+            parameters[0].Value = name;
+
+            yny_003.Model.C_CarTast model = new yny_003.Model.C_CarTast();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
 		{
 			return DAL.CommonBase.GetTable("C_CarTast", "ID", "Prot desc,ID desc,ComDate desc", strWhere, pageIndex, pageSize, out count);
 		}

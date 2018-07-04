@@ -76,43 +76,38 @@
         </table>
         <span></span>
         <br />
-        <div id="mempay" style="float: right;">
-            <div id="finance">
+        <div id="mempay" style="float: left; width:100%;">
+            <div id="finance" style="background-color:#EEEEEE; ">
                 <form id="form1" runat="server">
                     <input type="hidden" id="hcid" name="hcid" runat="server" />
                     <input type="hidden" id="htotalmoney" name="htotalmoney" runat="server" />
                     <input type="hidden" id="hsuppid" name="hsuppid" runat="server" />
                     <input type="hidden" id="hacode" name="hacode" runat="server" />
-                    <table cellpadding="0" cellspacing="0">
+                    <table cellpadding="0" cellspacing="0" >
                         <tr>
-                            <td width="15%" align="right">经办人
+                            <td width="24%" align="right">经办人
                             </td>
-                            <td width="75%" style="height: 40px;">
+                            <td width="24%" style="height: 40px;">
                                 <input id="UserName" class="normal_input" runat="server" style="width: 50%;" />
                             </td>
-                        </tr>
-                        <tr>
-                            <td width="15%" align="right">支付金额
+                             <td width="24%" align="right">支付金额
                             </td>
-                            <td width="75%" style="height: 40px;">
+                            <td width="24%" style="height: 40px;">
                                 <input id="PayMoney" class="normal_input" runat="server" style="width: 50%;" />
                             </td>
                         </tr>
+                       
                         <tr>
-                            <td width="15%" align="right">付款方式
+                            <td width="24%" align="right">付款方式
                             </td>
-                            <td width="75%" style="height: 40px;">
+                            <td width="24%" style="height: 40px;">
                                 <input type="radio" name="JZType" value="1" checked="checked" onclick="fkjsnone()" />余额支付
                                 <input type="radio" name="JZType" value="2" onclick="fkjs()" />账户卡支付
                                 <input type="radio" name="JZType" value="3" onclick="fkjs()" />账户卡+余额支付
                             </td>
-                        </tr>
-
-                        <tr style="display: none;" id="fkview">
-                            <td width="15%" align="right">请选择付款卡
+                                 <td width="24%" align="right"   style="display: none;" id="fkview">请选择付款卡
                             </td>
-                            <td width="75%" style="height: 40px;">
-
+                            <td width="24%"   style="display: none;" id="ifkview">
                                 <select id="FKAccount" name="FKAccount">
                                     <%
                                         if (listbank != null)
@@ -128,16 +123,22 @@
                                 </select>
                             </td>
                         </tr>
+
+                       <br />
                         <br />
                         <br />
                         <tr>
-
-                            <td width="15%" align="right"></td>
-                            <td width="75%" align="left">
+                             <td></td>
+                            <td></td>
+                            <td width="24%" align="right"></td>
+                            <td width="24%" align="left">
 
                                 <input type="button" class="pay btn btn-success" value="结账" onclick="subaccChange();" />
                             </td>
+                           
                         </tr>
+                        <tr></tr>
+                        <tr></tr>
                     </table>
                 </form>
             </div>
@@ -208,9 +209,11 @@
 
         function fkjs() {
             document.getElementById("fkview").style.display = "";
+            document.getElementById("ifkview").style.display = "";
         }
         function fkjsnone() {
             document.getElementById("fkview").style.display = "none";
+            document.getElementById("ifkview").style.display = "none";
         }
 
         

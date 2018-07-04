@@ -24,6 +24,7 @@ namespace yny_003.Web.Car
 
 
             cid = Request.QueryString["cid"];
+            
             listacc = BLL.Account.GetModelList(" id in(" + cid + "); ");
             hcid.Value = cid;
 

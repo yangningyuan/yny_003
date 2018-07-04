@@ -260,12 +260,14 @@
     <Content Include="Car\CostList.aspx" />
     <Content Include="Car\DDTast.aspx" />
     <Content Include="Car\downjiezhang.aspx" />
+    <Content Include="Car\downjiezhang2.aspx" />
     <Content Include="Car\LoanApplyList.aspx" />
     <Content Include="Car\ModifyTast.aspx" />
     <Content Include="Car\SubAccount.aspx" />
     <Content Include="Car\SupplierList.aspx" />
     <Content Include="Car\TastList.aspx" />
     <Content Include="Car\upjiezhang.aspx" />
+    <Content Include="Car\upjiezhang2.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
     <Content Include="login\css\style1.css" />
@@ -1544,6 +1546,13 @@
     <Compile Include="Car\downjiezhang.aspx.designer.cs">
       <DependentUpon>downjiezhang.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\downjiezhang2.aspx.cs">
+      <DependentUpon>downjiezhang2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\downjiezhang2.aspx.designer.cs">
+      <DependentUpon>downjiezhang2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\Handler\AccountDownList.ashx.cs">
       <DependentUpon>AccountDownList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1562,6 +1571,10 @@
     </Compile>
     <Compile Include="Car\Handler\CostList2.ashx.cs">
       <DependentUpon>CostList2.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\ExportExcel.ashx.cs">
+      <DependentUpon>ExportExcel.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\Handler\LoanApplyList.ashx.cs">
@@ -1629,6 +1642,13 @@
     </Compile>
     <Compile Include="Car\upjiezhang.aspx.designer.cs">
       <DependentUpon>upjiezhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\upjiezhang2.aspx.cs">
+      <DependentUpon>upjiezhang2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\upjiezhang2.aspx.designer.cs">
+      <DependentUpon>upjiezhang2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Handler\TJTree.ashx.cs">
       <DependentUpon>TJTree.ashx</DependentUpon>
@@ -2848,6 +2868,7 @@
     <Content Include="Car\Handler\AccountDownList.ashx" />
     <Content Include="Car\Handler\SubAccount.ashx" />
     <Content Include="Car\Handler\BankAccountList.ashx" />
+    <Content Include="Car\Handler\ExportExcel.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

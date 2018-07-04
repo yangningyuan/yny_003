@@ -70,6 +70,7 @@ namespace yny_003.Web.Car.Handler
                 string goodsname = "";
                 string goodscount = "";
                 string goodsrecount = "";
+                string goodsprice = "";
                 Model.Goods goods = new Model.Goods();
                 if (!string.IsNullOrEmpty(ListNotice[i].OCode)) //装车  卸车
                 {
@@ -80,6 +81,7 @@ namespace yny_003.Web.Car.Handler
                         goodsname = goods.GName;
                         goodscount = item.GCount.ToString();
                         goodsrecount = item.ReCount.ToString();
+                        goodsprice = item.BuyPrice.ToString();
                     }
                 }
                 sb.Append(goodsname + "~");
@@ -117,6 +119,7 @@ namespace yny_003.Web.Car.Handler
                     if(goods!=null)
                     {
                         sb.Append("<br/>实际数量:" + goodsrecount + goods.Unit);
+                        sb.Append("<br/>价格:" + goodsprice);
                         sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", goods.GName, goodscount, goods.Unit));
                     }
                 }

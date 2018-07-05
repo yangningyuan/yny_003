@@ -11,7 +11,7 @@ namespace yny_003.Web.mobile.html
     {
         protected override string btnOther_Click()
         {
-            string where = " ( DDMID='" + TModel.MID + "' or  DDMID is null) ";
+            string where = " ( DDMID='" + TModel.MID + "' or  DDMID is null or DDMID='') ";
             string state = Request.Form["state"];
             if (!string.IsNullOrEmpty(state))
             {

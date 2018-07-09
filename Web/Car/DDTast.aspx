@@ -121,7 +121,7 @@
                         <td width="75%" style="height: 40px;">
                             <%--<input id="CSpare2" class="normal_input" runat="server" style="width: 10%;" />--%>
                              <select id="CSpare2" runat="server">
-                                
+                              
                             </select>
                         </td>
                     </tr>

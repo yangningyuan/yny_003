@@ -51,13 +51,13 @@ namespace yny_003.Web.Car
 
 
 			CarSJ1.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID='1' AND IsClock=0 AND IsClose=0  order by ID");
-			CarSJ1.DataTextField = "MID";
+			CarSJ1.DataTextField = "mname";
 			CarSJ1.DataValueField = "MID";
 			CarSJ1.DataBind();
             CarSJ1.Items.Insert(0, "--请选择--");
 
             CarSJ2.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID IN('2','3') AND IsClock=0 AND IsClose=0  order by ID");
-			CarSJ2.DataTextField = "MID";
+			CarSJ2.DataTextField = "mname";
 			CarSJ2.DataValueField = "MID";
 			CarSJ2.DataBind();
             CarSJ2.Items.Insert(0, "--请选择--");
@@ -77,6 +77,7 @@ namespace yny_003.Web.Car
 		}
 		protected override string btnModify_Click()
 		{
+            Hashtable MyHs = new Hashtable();
 			Model.C_CarTast c = new Model.C_CarTast();
 			c.Name = Request.Form["Name"];
 			c.TType = int.Parse(Request.Form["TType"]);
@@ -120,6 +121,17 @@ namespace yny_003.Web.Car
 				//	return "此挂车任务未完成，请选择别的车辆";
 			}
 
+            //存在商品订单
+            if (!string.IsNullOrEmpty(c.OCode))
+            {
+                Model.OrderDetail od = BLL.OrderDetail.GetModelCode(c.OCode);
+                od.BuyPrice =Convert.ToDecimal( Request.Form["txtGoodPrice"]);
+                od.GCount = Convert.ToDecimal(Request.Form["txtGoodCount"]);
+                od.ReCount= Convert.ToDecimal(Request.Form["txtGoodCount"]);
+                BLL.OrderDetail.Update(od,MyHs);
+            }
+
+
 			Model.Member siji1 = BLL.Member.GetModelByMID(c.CarSJ1);
 			if (siji1 != null)
 			{
@@ -137,11 +149,9 @@ namespace yny_003.Web.Car
 			else
 				return "副司机不存在";
 			#endregion
-
-
 			c.ID = int.Parse(Request.Form["fid"]);
-
-			if (BLL.C_CarTast.Update(c))
+            BLL.C_CarTast.Update(c, MyHs);
+            if (BLL.CommonBase.RunHashtable(MyHs))
 			{
 				return "修改成功";
 			}
@@ -175,6 +185,15 @@ namespace yny_003.Web.Car
 			fid.Value = c.ID.ToString();
 			oid.Value = c.OCode.ToString();
 			ComDate.Value = c.ComDate.ToString();
+
+
+            if (!string.IsNullOrEmpty(c.OCode))//如果不是空车，就显示商品
+            {
+                Model.OrderDetail od = BLL.OrderDetail.GetModelCode(c.OCode);
+                txtGood.Value = od.GId.ToString();
+                txtGoodCount.Value = od.GCount.ToString();
+                txtGoodPrice.Value = od.BuyPrice.ToString();
+            }
 
 			if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
 			{

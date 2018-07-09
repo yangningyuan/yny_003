@@ -21,6 +21,10 @@ namespace yny_003.Web.mobile.html
             CSpare2.DataTextField = "PZCode";
             CSpare2.DataValueField = "PZCode";
             CSpare2.DataBind();
+            ListItem lt = new ListItem();
+            lt.Value = "";
+            lt.Text = "空项";
+            CSpare2.Items.Insert(0, lt);
 
             CarSJ1.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID='1' AND IsClock=0 AND IsClose=0  order by ID");
             CarSJ1.DataTextField = "MName";

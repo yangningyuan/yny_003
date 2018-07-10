@@ -94,7 +94,7 @@
                         <div class="item-inner">
                             <div class="item-title label">派遣牵引车辆</div>
                             <div class="item-input">
-                                  <select id="Spare2" runat="server">
+                                  <select id="Spare2" name="Spare2" runat="server">
                                 
                             </select>
                             </div>
@@ -106,7 +106,7 @@
                         <div class="item-inner">
                             <div class="item-title label">派遣挂车（可空）</div>
                             <div class="item-input">
-                                <select id="CSpare2" runat="server">
+                                <select id="CSpare2" name="CSpare2" runat="server">
                                 
                             </select>
                             </div>
@@ -118,7 +118,7 @@
                         <div class="item-inner">
                             <div class="item-title label">主驾驶</div>
                             <div class="item-input">
-                               <select id="CarSJ1" runat="server"   onchange="setViewSiJi1(this[selectedIndex].value)">
+                               <select id="CarSJ1" name="CarSJ1" runat="server"   onchange="setViewSiJi1(this[selectedIndex].value)">
                             </select>
                             <span id="sjview1" style="font-size:10px;"></span>
 
@@ -131,7 +131,7 @@
                         <div class="item-inner">
                             <div class="item-title label">押运员</div>
                             <div class="item-input">
-                                <select id="CarSJ2" runat="server"   onchange="setViewSiJi2(this[selectedIndex].value)">
+                                <select id="CarSJ2" name="CarSJ2" runat="server"   onchange="setViewSiJi2(this[selectedIndex].value)">
                             </select>
                             <span id="sjview2" style="font-size:10px;"></span>
 
@@ -164,6 +164,20 @@
     laydate(start);
 </script>
  <script type="text/javascript">
+     $(function () {
+         setTimeout(function () {
+             var objSelect = document.getElementById("CSpare2");
+             objSelect.options.add(new Option("空项", ""), 0);
+
+             var objSelect2 = document.getElementById("CarSJ1");
+             objSelect2.options.add(new Option("--请选择--", ""), 0);
+
+             var objSelect3 = document.getElementById("CarSJ2");
+             objSelect3.options.add(new Option("--请选择--", ""), 0);
+
+         }, 300);
+     });
+
                 function checkChange() {
                     ActionModel("Car/DDTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/DDTastList.aspx");
                 }

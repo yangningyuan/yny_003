@@ -21,28 +21,38 @@ namespace yny_003.Web.mobile.html
             CSpare2.DataTextField = "PZCode";
             CSpare2.DataValueField = "PZCode";
             CSpare2.DataBind();
-            ListItem lt = new ListItem();
-            lt.Value = "";
-            lt.Text = "空项";
-            CSpare2.Items.Insert(0, lt);
+            //ListItem lt = new ListItem();
+            //lt.Value = "";
+            //lt.Text = "空项";
+            //CSpare2.Items.Insert(0, lt);
 
             CarSJ1.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID='1' AND IsClock=0 AND IsClose=0  order by ID");
             CarSJ1.DataTextField = "MName";
             CarSJ1.DataValueField = "MID";
+            //CarSJ1.Items.Insert(0, "--请选择--");
             CarSJ1.DataBind();
-            CarSJ1.Items.Insert(0, "--请选择--");
+            
 
             CarSJ2.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID IN('2','3') AND IsClock=0 AND IsClose=0  order by ID");
             CarSJ2.DataTextField = "MName";
             CarSJ2.DataValueField = "MID";
             CarSJ2.DataBind();
-            CarSJ2.Items.Insert(0, "--请选择--");
+            //CarSJ2.Items.Insert(0, "--请选择--");
             if (!string.IsNullOrEmpty(Request.QueryString["oid"]))
             {
                 ocode.Value = Request.QueryString["oid"];
                 oid.Value = Request.QueryString["oid"];
-
             }
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+            {
+                string id = Request.QueryString["id"];
+                Model.C_CarTast car = BLL.C_CarTast.GetModel(Convert.ToInt32(id));
+                Spare2.Value = car.Spare2.ToString();
+                CSpare2.Value = car.CSpare2.ToString();
+                CarSJ1.Value = car.CarSJ1.ToString();
+                CarSJ2.Value = car.CarSJ2.ToString();
+            }
+            
         }
         protected override void SetValue(string id)
         {
@@ -67,7 +77,7 @@ namespace yny_003.Web.mobile.html
             {
                 ocode.Value = Request.QueryString["oid"];
             }
-            if (c.TState != -1)
+            if (c.TState != -1&&c.TState!=0)
             {
                 subview.Visible = false;
             }

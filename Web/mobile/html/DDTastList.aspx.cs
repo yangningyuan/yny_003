@@ -44,7 +44,8 @@ namespace yny_003.Web.mobile.html
                 //SupplierName = item.SupplierName,
                 SupplierTel = item.SupplierTel,
                 CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
-                dhtml = (item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + item.ID + "','调度');\">调度</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "") + ("<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
+                //dhtml = (item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + item.ID + "','调度');\">调度</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "") + ("<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
+                dhtml = htmldetails(item)
             });
             return jss.Serialize(new { Items = list, TotalCount = totalCount });
         }
@@ -55,6 +56,23 @@ namespace yny_003.Web.mobile.html
                 return supp.Name;
             else
                 return "";
+        }
+
+        protected static string htmldetails(Model.C_CarTast tast)
+        {
+            string xxx = "";
+            if (tast.TState == -1)
+            {
+                xxx = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + tast.ID + "','调度');\">调度</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + tast.ID + "');\">取消</a><a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + tast.ID + "','详情');\">详情</a>";
+            }
+            else if (tast.TState == 0)
+            {
+                xxx = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + tast.ID + "','修改');\">修改</a><a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + tast.ID + "','详情');\">详情</a>";
+            }
+            else {
+                xxx = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + tast.ID + "','详情');\">详情</a>";
+            }
+            return xxx;
         }
         protected override string btnAdd_Click()
         {

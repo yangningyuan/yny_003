@@ -17,17 +17,17 @@ namespace yny_003.Web.mobile.html
             txtGood.DataBind();
             txtGood.Items.Insert(0, "--请选择--");
 
-            SupplierName.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0  and Type=1 order by ID");
+            SupplierName.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0 and (Spare3 is null or Spare3='')  and Type=1 order by ID");
             SupplierName.DataTextField = "Name";
             SupplierName.DataValueField = "ID";
             SupplierName.DataBind();
             SupplierName.Items.Insert(0, "--请选择--");
-            SupplierName2.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0  and Type=2  order by ID");
+            SupplierName2.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0 and (Spare3 is null or Spare3='')  and Type=2  order by ID");
             SupplierName2.DataTextField = "Name";
             SupplierName2.DataValueField = "ID";
             SupplierName2.DataBind();
             SupplierName2.Items.Insert(0, "--请选择--");
-            SupplierName3.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0  order by ID");
+            SupplierName3.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0 and (Spare3 is null or Spare3='')  order by ID");
             SupplierName3.DataTextField = "Name";
             SupplierName3.DataValueField = "ID";
             SupplierName3.DataBind();

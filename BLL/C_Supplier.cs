@@ -20,6 +20,7 @@ using System.Collections.Generic;
 
 using yny_003.Model;
 using System.Collections;
+using DBUtility;
 
 namespace yny_003.BLL
 {
@@ -166,18 +167,68 @@ namespace yny_003.BLL
 		{
 			return DAL.C_Supplier.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
 		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		//public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		//{
-			//return dal.GetList(PageSize,PageIndex,strWhere);
-		//}
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+        public static string Del_C_Supplier(string midlist)
+        {
+            string[] arr = midlist.Split(',');
+            int succ = 0;
+            int erro = 0;
+            foreach (string mid in arr)
+            {
+                Model.C_Supplier supp= BLL.C_Supplier.GetModel(Convert.ToInt32(mid));
+                if (supp == null)
+                {
+                    erro++;
+                    continue;
+                }
 
-		#endregion  ExtensionMethod
-	}
+                if (Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where SupplierName='"+supp.ID+"';")) > 0)
+                {
+                    erro++;
+                    continue;
+                }
+
+                if (DbHelperSQL.ExecuteSql(string.Format("update C_Supplier set IsDelete=1 where ID={0}", mid)) > 0)
+                {
+                    succ++;
+                }
+                else
+                {
+                    erro++;
+                }
+            }
+            return "成功：" + succ.ToString() + " , 失败：" + erro.ToString();
+        }
+        public static string Close_C_Supplier(string midlist)
+        {
+            string[] arr = midlist.Split(',');
+            int succ = 0;
+            int erro = 0;
+            foreach (string mid in arr)
+            {
+                if (DbHelperSQL.ExecuteSql(string.Format("update C_Supplier set Spare3='-1' where ID={0}", mid)) > 0)
+                {
+                    succ++;
+                }
+                else
+                {
+                    erro++;
+                }
+            }
+            return "成功：" + succ.ToString() + " , 失败：" + erro.ToString();
+        }
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        //public static DataSet GetList(int PageSize,int PageIndex,string strWhere)
+        //{
+        //return dal.GetList(PageSize,PageIndex,strWhere);
+        //}
+
+        #endregion  BasicMethod
+        #region  ExtensionMethod
+
+        #endregion  ExtensionMethod
+    }
 }
 

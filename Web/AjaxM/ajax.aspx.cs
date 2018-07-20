@@ -122,6 +122,8 @@ namespace yny_003.Web.AjaxM
                 case "Del_ObjSub":
                     Del_ObjSub();
                     break;
+
+              
                 case "Del_DepartType":
                     Del_DepartType();
                     break;
@@ -246,6 +248,13 @@ namespace yny_003.Web.AjaxM
                     break;
                 case "Del_AccountBank":
                     Del_AccountBank();
+                    break;
+
+                case "Del_C_Supplier":
+                    Del_C_Supplier();
+                    break;
+                case "Close_C_Supplier":
+                    Close_C_Supplier();
                     break;
             }
         }
@@ -2007,6 +2016,38 @@ namespace yny_003.Web.AjaxM
             if (!string.IsNullOrEmpty(Request["pram"]))
             {
                 Response.Write(BLL.C_Car.DeleteCarList((Request["pram"])));
+                return;
+            }
+            Response.Write("");
+            return;
+        }
+
+        /// <summary>
+        /// 删除客户信息
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
+        public void Del_C_Supplier()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                Response.Write(BLL.C_Supplier.Del_C_Supplier((Request["pram"])));
+                return;
+            }
+            Response.Write("");
+            return;
+        }
+
+        /// <summary>
+        /// 删除客户信息
+        /// </summary>
+        /// <param name="mid"></param>
+        /// <returns></returns>
+        public void Close_C_Supplier()
+        {
+            if (!string.IsNullOrEmpty(Request["pram"]))
+            {
+                Response.Write(BLL.C_Supplier.Close_C_Supplier((Request["pram"])));
                 return;
             }
             Response.Write("");

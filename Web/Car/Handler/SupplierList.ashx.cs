@@ -46,6 +46,7 @@ namespace yny_003.Web.Car.Handler
 				sb.Append(ListNotice[i].QCMoney + "~");
 				sb.Append(ListNotice[i].OverMoney + "~");
 				sb.Append((ListNotice[i].CreateDate) + "~");
+                sb.Append(((ListNotice[i].Spare3=="-1"?"是":"否")) + "~");
                 //sb.Append("<div class=\"pay btn btn-success\" onclick=\"ShowAccount('"+ListNotice[i].ID+"')\">查看账户</div>");
                 sb.Append("≌");
 				sb.Append("≠");

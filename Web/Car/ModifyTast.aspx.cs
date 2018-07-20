@@ -54,13 +54,13 @@ namespace yny_003.Web.Car
 			CarSJ1.DataTextField = "mname";
 			CarSJ1.DataValueField = "MID";
 			CarSJ1.DataBind();
-            CarSJ1.Items.Insert(0, "--请选择--");
+            //CarSJ1.Items.Insert(0, "--请选择--");
 
             CarSJ2.DataSource = BLL.Member.ManageMember.GetMemberEntityList("  RoleCode='SiJi' AND FMID IN('2','3') AND IsClock=0 AND IsClose=0  order by ID");
 			CarSJ2.DataTextField = "mname";
 			CarSJ2.DataValueField = "MID";
 			CarSJ2.DataBind();
-            CarSJ2.Items.Insert(0, "--请选择--");
+            //CarSJ2.Items.Insert(0, "--请选择--");
 
             binddata(Request.QueryString["id"]);
 
@@ -100,9 +100,10 @@ namespace yny_003.Web.Car
 			c.CSpare2 = Request.Form["CSpare2"];
 			c.CarSJ1 = Request.Form["CarSJ1"];
 			c.CarSJ2 = Request.Form["CarSJ2"];
+           
 			//c.CostType = int.Parse(Request.Form["CostType"]);
 			c.BDImg = Request.Form["uploadurl"];
-			//c.OCode = Request.Form["ocode"];
+			c.OCode = Request.Form["ocode"];
 			c.Spare1 = Request.Form["Spare1"];
 			c.ComDate = DateTime.Parse(Request.Form["ComDate"]);
 
@@ -140,14 +141,20 @@ namespace yny_003.Web.Car
 			}
 			else
 				return "主司机不存在";
-			Model.Member siji2 = BLL.Member.GetModelByMID(c.CarSJ2);
-			if (siji2 != null)
-			{
-				if (siji2.FMID != "2" && siji2.FMID != "3")
-					return "此司机不是副司机";
-			}
-			else
-				return "副司机不存在";
+
+            if (!string.IsNullOrEmpty(c.CarSJ2))
+            {
+                Model.Member siji2 = BLL.Member.GetModelByMID(c.CarSJ2);
+                if (siji2 != null)
+                {
+                    if (siji2.FMID != "2" && siji2.FMID != "3")
+                        return "此司机不是副司机";
+                }
+                else
+                    return "副司机不存在";
+            }
+
+              
 			#endregion
 			c.ID = int.Parse(Request.Form["fid"]);
             BLL.C_CarTast.Update(c, MyHs);

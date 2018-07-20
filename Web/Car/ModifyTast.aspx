@@ -233,6 +233,21 @@
     </div>
     <script type="text/javascript">
         $(function () {
+            setTimeout(function () {
+                var objSelect = document.getElementById("CSpare2");
+                objSelect.options.add(new Option("空项", ""), 0);
+
+                //var objSelect2 = document.getElementById("CarSJ1");
+                //objSelect2.options.add(new Option("--请选择--", ""), 0);
+
+                var objSelect3 = document.getElementById("CarSJ2");
+                objSelect3.options.add(new Option("空项", ""), 0);
+
+            }, 300);
+        });
+
+
+        $(function () {
             if ($("#TType").val() == "1") {
                 document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
                 document.getElementById("gysstr").style.display = "";
@@ -305,7 +320,7 @@
                 //if ($('#txtName').val() == '') {
                 //    v5.error('经费项目名称不能为空', '1', 'ture');
                 //} else {
-                ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "Car/TastList.aspx");
+                ActionModel("Car/ModifyTast.aspx?Action=Modify", $('#form1').serialize(), "Car/TastList.aspx");
                 //}
             }
             function setViewSiJi1(realobj) {

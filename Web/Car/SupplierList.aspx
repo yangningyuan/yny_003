@@ -59,6 +59,8 @@
                     </th>
                     <th>创建日期
                     </th>
+                    <th>是否停用
+                    </th>
                     <th>操作
                     </th>
                 </tr>
@@ -67,7 +69,9 @@
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
-                    <a href="javascript:void(0);" title="" onclick="RunAjaxByList('','Del_Obj',',');">删除</a>
+                    <a href="javascript:void(0);" title="" onclick="RunAjaxByList('','Del_C_Supplier',',');">删除</a>
+
+                    <a href="javascript:void(0);" style="background-color:#808080;" title="" onclick="RunAjaxByList('','Close_C_Supplier',',');">停用</a>
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">

@@ -64,6 +64,7 @@ namespace yny_003.Web.Car.Handler
                 sb.Append((ListNotice[i].Spare == "1" ? "<span style='color:green;'>已开发票</span>" : "<span style='color:red;'>未开发票</span>") + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].comDate) + "~");
+                sb.Append((ListNotice[i].Spare2) + "~");
 
                 if (ListNotice[i].AStutas == 0)
                 {
@@ -72,6 +73,7 @@ namespace yny_003.Web.Car.Handler
                 if (string.IsNullOrEmpty(ListNotice[i].Spare))
                 {
                     sb.Append("<div class=\"pay btn btn-success\" onclick=\"execfp('" + ListNotice[i].ID + "')\">开发票</div>");
+                    
                 }
                 sb.Append("≌");
               

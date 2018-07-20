@@ -50,6 +50,7 @@
                 <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
                 <input id="CarSJ2" name="txtKey" data-name="txtKey" placeholder="请输入副司机" type="text" class="sinput" />
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />
+                <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入挂车牌号" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">

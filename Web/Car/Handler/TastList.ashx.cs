@@ -112,10 +112,15 @@ namespace yny_003.Web.Car.Handler
                 ////数量
                 sb.Append("10");
                 sb.Append("≠");
-                //内容(买家信息				
+                //内容(买家信息
+
+                Model.Member mc1= BLL.Member.GetModelByMID(ListNotice[i].CarSJ1);
+                Model.Member mc2 = BLL.Member.GetModelByMID(ListNotice[i].CarSJ2);
+
+
                 sb.Append("供应商地址:" + ListNotice[i].SupplierAddress);
-                sb.Append("<br/>主司机:" + ListNotice[i].CarSJ1);
-                sb.Append("<br/>副司机:" + ListNotice[i].CarSJ2);
+                sb.Append("<br/>主司机:" +(mc1!=null?mc1.MName:"") );
+                sb.Append("<br/>副司机:" + (mc2 != null ? mc2.MName : ""));
 
                 if (!string.IsNullOrEmpty(ListNotice[i].OCode)) //装车  卸车
                 {

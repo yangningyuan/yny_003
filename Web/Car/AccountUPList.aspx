@@ -47,7 +47,7 @@
             <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
                 新增任务
             </div>--%>
-            <div class="pay btn btn-success" onclick="UpDateByID('Car/ModifyAccount.aspx?','修改付款单',900,470);">
+            <div class="pay btn btn-success" onclick="UpDateByID('Car/ModifyAccount.aspx?type=uplist','修改付款单',900,470);">
                 修改付款单
             </div>
             <div class="search" id="DivSearch" runat="server">

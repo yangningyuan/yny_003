@@ -13,6 +13,7 @@
             <form id="form1">
                 <input type="hidden" id="fid" runat="server" />
                 <input type="hidden" id="oid" runat="server" />
+                <input type="hidden" id="type" runat="server" />
                 <table cellpadding="0" cellspacing="0">
                     <tr style="display: none;">
                         <td width="15%" align="right"><input runat="server" id="Hidden1" type="hidden" />
@@ -83,6 +84,8 @@
                         <td width="75%" align="left">
 
                             <input type="button" class="normal_btnok" value="修改" runat="server" onclick="checkChange();" />
+
+                            <input type="button" class="normal_btnok" value="返回" runat="server" onclick="ReChange();" />
                         </td>
                     </tr>
                 </table>
@@ -98,7 +101,19 @@
                     ActionModel("Car/ModifyAccount.aspx?Action=Modify", $('#form1').serialize());
                     //}
                 }
-          
+
+                function ReChange()
+                {
+                    var type = $("#type").val();
+                   
+                    if (type == "1") {
+                        callhtml('/Car/AccountDownList.aspx', '收款单列表'); onclickMenu()
+                    } else {
+                        callhtml('/Car/AccountUPList.aspx', '付款单列表'); onclickMenu()
+                    }
+                    
+                }
+               
     </script>
 </body>
 </html>

@@ -23,8 +23,8 @@ namespace yny_003.Web.Car
                 Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
                 Model.Goods goods = BLL.Goods.GetModel(od.GId);
                 GoodName.Value = goods.GName;
-                txtGoodCount.Value = od.ReCount.ToString();
-                txtGoodPrice.Value = od.BuyPrice.ToString();
+                txtGoodCount.Value = c.OrderCount.ToString();
+                txtGoodPrice.Value = c.OrderPrice.ToString();
             }
             Remark.Value = c.Spare2.ToString();
 
@@ -42,15 +42,17 @@ namespace yny_003.Web.Car
                 decimal price = Convert.ToDecimal(Request.Form["txtGoodPrice"]);
                 string remark = Request.Form["Remark"];
 
-                Model.C_CarTast tast = BLL.C_CarTast.GetModel(acc.CID);
-                if (!string.IsNullOrEmpty(tast.OCode))
-                {
-                    Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
-                    Model.Goods goods = BLL.Goods.GetModel(od.GId);
-                    od.ReCount = count;
-                    od.BuyPrice = price;
-                    BLL.OrderDetail.Update(od,MyHs);
-                }
+                //Model.C_CarTast tast = BLL.C_CarTast.GetModel(acc.CID);
+                //if (!string.IsNullOrEmpty(tast.OCode))
+                //{
+                //    Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                //    Model.Goods goods = BLL.Goods.GetModel(od.GId);
+                //    od.ReCount = count;
+                //    od.BuyPrice = price;
+                //    BLL.OrderDetail.Update(od,MyHs);
+                //}
+                acc.OrderCount = count;
+                acc.OrderPrice = price;
                 acc.TotalMoney = count * price;
                 acc.Spare2 = remark;
                 BLL.Account.Update(acc, MyHs);

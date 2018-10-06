@@ -38,7 +38,7 @@ namespace yny_003.Web.mobile.html
 					{
 						return "输入数量有误或此商品已不可调度";
 					}
-					ord.ReCount += money;
+					ord.ReCount = money;
 					if (BLL.OrderDetail.Update(ord))
 					{
 						return "调度成功";

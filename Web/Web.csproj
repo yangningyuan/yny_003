@@ -255,6 +255,7 @@
     <Content Include="Car\AddSupplier.aspx" />
     <Content Include="Car\AddTast.aspx" />
     <Content Include="Car\BankAccountList.aspx" />
+    <Content Include="Car\CarExcel.aspx" />
     <Content Include="Car\CarList.aspx" />
     <Content Include="Car\CarYJ.aspx" />
     <Content Include="Car\CostList.aspx" />
@@ -264,9 +265,12 @@
     <Content Include="Car\LoanApplyList.aspx" />
     <Content Include="Car\ModifyAccount.aspx" />
     <Content Include="Car\ModifyTast.aspx" />
+    <Content Include="Car\SiJi1Excel.aspx" />
+    <Content Include="Car\SiJi2Excel.aspx" />
     <Content Include="Car\SubAccount.aspx" />
     <Content Include="Car\SupplierList.aspx" />
     <Content Include="Car\TastList.aspx" />
+    <Content Include="Car\TastList2.aspx" />
     <Content Include="Car\upjiezhang.aspx" />
     <Content Include="Car\upjiezhang2.aspx" />
     <Content Include="login\css\bootstrap.css" />
@@ -349,6 +353,7 @@
     <Content Include="mobile\html\HKChangeFlow.aspx" />
     <Content Include="mobile\html\HKChangeWY.aspx" />
     <Content Include="mobile\html\HKList.aspx" />
+    <Content Include="mobile\html\IfBDImgAdd.aspx" />
     <Content Include="mobile\html\index.aspx" />
     <Content Include="mobile\html\InvestApply.aspx" />
     <Content Include="mobile\html\InvestList.aspx" />
@@ -434,6 +439,7 @@
     <Content Include="mobile\img\zc.png" />
     <Content Include="mobile\img\zs.png" />
     <Content Include="mobile\img\zz.png" />
+    <Content Include="mobile\img\_20180922122730.png" />
     <Content Include="mobile\js\ai.js" />
     <Content Include="mobile\js\ajax.js" />
     <Content Include="mobile\js\bootstrap.min.js" />
@@ -1404,6 +1410,9 @@
     <Compile Include="Admin\UpLoadPic\IbeaconHandler.ashx.cs">
       <DependentUpon>IbeaconHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\UpLoadPic\upload.ashx.cs">
+      <DependentUpon>upload.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UpLoadPic\UploadImage.ashx.cs">
       <DependentUpon>UploadImage.ashx</DependentUpon>
     </Compile>
@@ -1512,6 +1521,13 @@
     <Compile Include="Car\BankAccountList.aspx.designer.cs">
       <DependentUpon>BankAccountList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Car\CarExcel.aspx.cs">
+      <DependentUpon>CarExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\CarExcel.aspx.designer.cs">
+      <DependentUpon>CarExcel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Car\CarList.aspx.cs">
       <DependentUpon>CarList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1566,6 +1582,10 @@
       <DependentUpon>BankAccountList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Car\Handler\CarExcelList.ashx.cs">
+      <DependentUpon>CarExcelList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Car\Handler\CarYJ.ashx.cs">
       <DependentUpon>CarYJ.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1582,12 +1602,24 @@
       <DependentUpon>LoanApplyList.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Car\Handler\SiJi1ListExcel.ashx.cs">
+      <DependentUpon>SiJi1ListExcel.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\SiJi2ListExcel.ashx.cs">
+      <DependentUpon>SiJi2ListExcel.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Car\Handler\SubAccount.ashx.cs">
       <DependentUpon>SubAccount.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\Handler\SupplierList.ashx.cs">
       <DependentUpon>SupplierList.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\Handler\TastList2.ashx.cs">
+      <DependentUpon>TastList2.ashx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Car\LoanApplyList.aspx.cs">
@@ -1610,6 +1642,20 @@
     </Compile>
     <Compile Include="Car\ModifyTast.aspx.designer.cs">
       <DependentUpon>ModifyTast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\SiJi1Excel.aspx.cs">
+      <DependentUpon>SiJi1Excel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\SiJi1Excel.aspx.designer.cs">
+      <DependentUpon>SiJi1Excel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\SiJi2Excel.aspx.cs">
+      <DependentUpon>SiJi2Excel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\SiJi2Excel.aspx.designer.cs">
+      <DependentUpon>SiJi2Excel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\SubAccount.aspx.cs">
       <DependentUpon>SubAccount.aspx</DependentUpon>
@@ -1643,6 +1689,13 @@
     </Compile>
     <Compile Include="Car\TastList.aspx.designer.cs">
       <DependentUpon>TastList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\TastList2.aspx.cs">
+      <DependentUpon>TastList2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\TastList2.aspx.designer.cs">
+      <DependentUpon>TastList2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Car\upjiezhang.aspx.cs">
       <DependentUpon>upjiezhang.aspx</DependentUpon>
@@ -1897,6 +1950,13 @@
     </Compile>
     <Compile Include="mobile\html\HKList.aspx.designer.cs">
       <DependentUpon>HKList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobile\html\IfBDImgAdd.aspx.cs">
+      <DependentUpon>IfBDImgAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\html\IfBDImgAdd.aspx.designer.cs">
+      <DependentUpon>IfBDImgAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="mobile\html\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -2877,6 +2937,11 @@
     <Content Include="Car\Handler\SubAccount.ashx" />
     <Content Include="Car\Handler\BankAccountList.ashx" />
     <Content Include="Car\Handler\ExportExcel.ashx" />
+    <Content Include="Admin\UpLoadPic\upload.ashx" />
+    <Content Include="Car\Handler\CarExcelList.ashx" />
+    <Content Include="Car\Handler\SiJi1ListExcel.ashx" />
+    <Content Include="Car\Handler\SiJi2ListExcel.ashx" />
+    <Content Include="Car\Handler\TastList2.ashx" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodes.php" />
     <None Include="plugin\ztree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="plugin\ztree\demo\en\asyncData\getNodes.php" />

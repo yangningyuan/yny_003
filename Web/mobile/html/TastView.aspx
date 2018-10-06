@@ -61,7 +61,7 @@
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">副司机</div>
+                            <div class="item-title label">押运员</div>
                             <div class="item-input">
                                 <input type="text" value="<%=fusiji%>" disabled="disabled">
                             </div>
@@ -109,6 +109,7 @@
                             <div class="item-input">
                             </div>
                              <div class="item-input"><a class="button" style="float:right;" href="javascript:pcallhtml('/mobile/html/BDImgAdd.aspx?id=<%=cartast.ID %>','上传磅单图片');">上传</a></div>
+                            <%--<div class="item-input"><a class="button" style="float:right;" href="/mobile/html/BDImgAdd.aspx?id=<%=cartast.ID %>">上传</a></div>--%>
                         </div>
                     </div>
                 </li>

@@ -1474,7 +1474,7 @@ namespace yny_003.Web.AjaxM
                     if (mm1 == null)
                         result = "此司机不存在";
                     if (mm1.FMID != "2" && mm1.FMID != "3")
-                        result = "此司机不是副司机";
+                        result = "此司机不是押运员";
 
                     result = string.Format("姓名：{0}，联系电话：{1}", mm1.MName, mm1.Tel);
 

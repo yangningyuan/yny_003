@@ -17,12 +17,12 @@ namespace yny_003.Web.Car.Handler
 		{
 			base.ProcessRequest(context);
 			string strWhere = "'1'='1' ";
-			if (context.Request["tState"] == "0")
+			if (string.IsNullOrEmpty(context.Request["tState"] ))
 			{
-				strWhere += " and SPMID='' ";
+				strWhere += " and SPMID="+ context.Request["tState"] + " ";
 			}
 			else {
-				strWhere += " and SPMID!='' ";
+				strWhere += " and SPMID="+ context.Request["tState"] + " ";
 			}
 			if (!string.IsNullOrEmpty(context.Request["nTitle"]))
 			{

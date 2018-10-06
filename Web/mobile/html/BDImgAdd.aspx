@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BDImgAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.BDImgAdd" %>
 
-<script>
+<iframe  style="width:100%;height:100%;" src="/mobile/html/IfBDImgAdd.aspx?id=<%=cartast.ID %>"></iframe>
+
+<%--<script>
     layui.use("upload", function () {
         layui.upload({
             url: '/Admin/UpLoadPic/UploadImage.ashx',
@@ -23,7 +25,7 @@
         <form id="form1">
             <input type="hidden" id="cid" runat="server" />
             <ul>
-                <!-- Text inputs -->
+              
                 <li>
                     <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
@@ -44,15 +46,23 @@
                     </div>
                 </li>
 
-               
+
                 <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">上传磅单图片</div>
                             <div class="item-input">
-                                <input type="file" name="upload" capture="camera" class="layui-upload-file">
+                              
+                                
+                                <input id="fileOne<%=rdstr %>" type="file" capture="camera" class="layui-upload-file" />
+                                <input id="btnOne" value="上传到服务器" type="button" style="display: none;" />
+                                <canvas id="canvasOne" width="1200" height="1200" style="display: none;"></canvas>
+                                <input id="DataUrl" type="text" style="display: none;" />
+                                <img id="DataImg" src="" style="width: 100px; height: 100px;" />
                                 <input type="hidden" id="uploadurl" name="uploadurl" runat="server" />
-                                <img id="upimage" height="50px" />
+
+                                <input runat="server" id="roam" />
+
                             </div>
                         </div>
                     </div>
@@ -69,14 +79,70 @@
     </div>
 
 </div>
+<script>
+    //读取本地文件
+    var inputOne = document.getElementById('fileOne<%=rdstr%>');
+    inputOne.onchange = function () {
+        //1.获取选中的文件列表
+        var fileList = inputOne.files;
+        var file = fileList[0];
+        //读取文件内容
+        var reader = new FileReader();
+        if (file)
+        {
+            reader.readAsDataURL(file);
+        }
+        reader.onload = function (e) {
+            //将结果显示到canvas
+            showCanvas(reader.result);
+        }
+    }
+    var canvas = document.getElementById('canvasOne');
+    var ctx = canvas.getContext('2d');
+    //指定图片内容显示
+    function showCanvas(dataUrl) {
+        //$("#DataUrl").val(dataUrl);
+
+        var c = document.getElementById("canvasOne");
+        var cxt=c.getContext("2d");  
+        c.height=c.height;  
+
+        //加载图片
+        var img = new Image();
+        img.onload = function () {
+            //缩小图片
+            ctx.scale(0.4, 0.4);
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+        }
+        img.src = dataUrl;
+        setTimeout(function () {
+            upLoad();
+        }, 300);
+
+    }
+
+    function upLoad() {
+        var data = canvas.toDataURL('image/jpeg', 1);
+        $("#DataUrl").val(data);
+        document.getElementById("DataImg").src = data;
+        $.ajax({
+            type: "POST", //提交方式 
+            url: "/Admin/UpLoadPic/upload.ashx",//路径 
+            data: {
+                "address": data
+            },//数据，这里使用的是Json格式进行传输 
+            success: function (result) {//返回数据根据结果进行相应的处理 
+                $("#uploadurl").val(result);
+            }
+        });
+    }
+</script>
+
 <script type="text/javascript">
     function checkChange() {
-        //if ($('#txtMHB').val().trim() == "") {
-        //    layer.msg("费用金额不能为空");
-        //    return;
-        //} else
+       
         {
             ActionModel("mobile/html/BDImgAdd.aspx?Action=add", $('#form1').serialize(), "/mobile/html/TastView.aspx?id=" + $("#cid").val());
         }
     }
-</script>
+</script>--%>

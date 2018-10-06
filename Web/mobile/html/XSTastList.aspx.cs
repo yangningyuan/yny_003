@@ -43,7 +43,7 @@ namespace yny_003.Web.mobile.html
             {
                 Name = getsupplier(item.SupplierName),
                 //SupplierName = item.SupplierName,
-                SupplierTel = item.SupplierTel,
+                SupplierTel = htmlGoodName(item.OCode),
                 CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
                 dhtml =( item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/XSTastAdd.aspx?id=" + item.ID + "','修改');\">修改</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "")+("<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
 
@@ -58,7 +58,17 @@ namespace yny_003.Web.mobile.html
             else
                 return "";
         }
-        
+        protected static string htmlGoodName(string ordercode)
+        {
+            if (!string.IsNullOrEmpty(ordercode))
+            {
+                int goodid = BLL.OrderDetail.GetModelCode(ordercode).GId;
+                return BLL.Goods.GetModel(goodid).GName;
+            }
+            else {
+                return "";
+            }
+        }
 
         protected override string btnAdd_Click()
         {

@@ -23,8 +23,8 @@
                 新增费用类型
             </div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
-                    id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入费用名称" type="text" class="sinput" />
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入费用名称" type="text" class="sinput" />
             </div>
         </div>
         <div class="ui_table">

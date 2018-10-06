@@ -78,6 +78,27 @@
                         </div>
                     </div>
                 </li>
+
+                  <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">商品名称</div>
+                            <div class="item-input">
+                                <%=goodname %>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                  <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">商品数量</div>
+                            <div class="item-input">
+                                <%=goodcount %>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                
                 <li>
                     <div class="item-content">

@@ -16,7 +16,7 @@ namespace yny_003.Web.Car.Handler
         public override void ProcessRequest(HttpContext context)
         {
             base.ProcessRequest(context);
-            string strWhere = "'1'='1' ";
+            string strWhere = "'1'='1'  ";
             if (!string.IsNullOrEmpty(context.Request["tState"]))
             {
                 strWhere += " and IsDelete='" + context.Request["tState"] + "'";
@@ -37,6 +37,24 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and TType='" + context.Request["TType"] + "' ";
             }
+
+            if (!string.IsNullOrEmpty(context.Request["startDate"]))
+            {
+                strWhere += " and CreateDate>='" + context.Request["startDate"] + " 00:00:00' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["endDate"]))
+            {
+                strWhere += " and CreateDate<='" + context.Request["endDate"] + " 23:59:59' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["startDate2"]))
+            {
+                strWhere += " and ComDate>='" + context.Request["startDate2"] + " 00:00:00' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["endDate2"]))
+            {
+                strWhere += " and ComDate<='" + context.Request["endDate2"] + " 23:59:59' ";
+            }
+
             if (!string.IsNullOrEmpty(context.Request["CarSJ1"]))
             {
                 strWhere += " and CarSJ1 in(select MID from Member where RoleCode='SiJi' and MName like '%" + context.Request["CarSJ1"] + "%' AND FMID='1' AND IsClock=0 AND IsClose=0) ";
@@ -62,13 +80,13 @@ namespace yny_003.Web.Car.Handler
             {
                 sb.Append(ListNotice[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
-                //sb.Append(ListNotice[i].Name + "~");
+                sb.Append(ListNotice[i].Name + "~");
                 sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
                 sb.Append(ListNotice[i].Prot + "~");
                 //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
                 sb.Append(BLL.C_Supplier.GetModel(Convert.ToInt32(ListNotice[i].SupplierName)).Name + "~");
-                sb.Append(ListNotice[i].SupplierTel + "~");
-               
+                //sb.Append(ListNotice[i].SupplierTel + "~");
+
                 sb.Append(ListNotice[i].Spare2 + "~");
                 sb.Append(ListNotice[i].CSpare2 + "~");
                 string goodsname = "";
@@ -81,7 +99,7 @@ namespace yny_003.Web.Car.Handler
                     List<Model.OrderDetail> odlist = BLL.OrderDetail.GetList(" ordercode='" + ListNotice[i].OCode.ToString() + "'; ");
                     foreach (Model.OrderDetail item in odlist)
                     {
-                         goods = BLL.Goods.GetModel(item.GId);
+                        goods = BLL.Goods.GetModel(item.GId);
                         goodsname = goods.GName;
                         goodscount = item.GCount.ToString();
                         goodsrecount = item.ReCount.ToString();
@@ -94,17 +112,33 @@ namespace yny_003.Web.Car.Handler
                 //sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].ComDate) + "~");
-                sb.Append((ListNotice[i].TState.ToString().Replace("-1","待调度").Replace("0", "未完成").Replace("1", "已完成").Replace("2", "已取消")) + "~");
-                if (ListNotice[i].TState != 2&&ListNotice[i].TState!=1)
+                sb.Append((Model.C_CarTast.statename(ListNotice[i].TState)) + "~");
+
+                //装车
+                if (ListNotice[i].TType == 1)
                 {
-                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"celTast('" + ListNotice[i].ID + "')\">取消任务</div>");
+                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"callhtml('/Car/TastList2.aspx?tcode=" + ListNotice[i].Name + "','装车列表');onclickMenu()\" > 装车列表</div>");
+                }
+
+                if (ListNotice[i].TState != 2 && ListNotice[i].TState != 1 && TModel.Role.IsAdmin)
+                {
+                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"celTast('" + ListNotice[i].ID + "')\">取消任务</div>");
                     //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");
                 }
                 else if (ListNotice[i].TState == -1 && TModel.Role.DiaoDu)
                 {
-                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/DDTast.aspx?id="+ListNotice[i].ID+"','调度');onclickMenu()\">调度</div>");
+                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/DDTast.aspx?id=" + ListNotice[i].ID + "','调度');onclickMenu()\">调度</div>");
                     //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");
                 }
+                if (ListNotice[i].TState == 1)
+                {
+                    sb.Append("<div class=\"pay btn btn-success\" onclick=\"SetBJTast('" + ListNotice[i].ID + "')\">错误标记</div>");
+                }
+                if (ListNotice[i].TState == -2)
+                {
+                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"SetCelTast('" + ListNotice[i].ID + "')\">取消标记</div>");
+                }
+               
 
 
                 sb.Append("≌");
@@ -120,7 +154,7 @@ namespace yny_003.Web.Car.Handler
 
                 sb.Append("供应商地址:" + ListNotice[i].SupplierAddress);
                 sb.Append("<br/>主司机:" +(mc1!=null?mc1.MName:"") );
-                sb.Append("<br/>副司机:" + (mc2 != null ? mc2.MName : ""));
+                sb.Append("<br/>押运员:" + (mc2 != null ? mc2.MName : ""));
 
                 if (!string.IsNullOrEmpty(ListNotice[i].OCode)) //装车  卸车
                 {

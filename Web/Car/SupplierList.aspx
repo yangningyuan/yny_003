@@ -8,7 +8,10 @@
         tState = '0';
         tUrl = "Car/Handler/SupplierList.ashx";
         SearchByCondition();
-        
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "客户供应商统计报表Excel");
+        }
     </script>
 </head>
 <body>
@@ -34,7 +37,7 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-               
+               <input type="button" value="客户供应商统计报表Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入名称" type="text" class="sinput" />
             </div>
         </div>

@@ -27,7 +27,7 @@ namespace yny_003.Web.Car.Handler
             }
             if (context.Request["SupplierName"]!= "--请选择--")
             {
-                strWhere += " and  SupplierID like '%" + context.Request["SupplierName"] + "%'";
+                strWhere += " and  SupplierID =" + context.Request["SupplierName"] + " ";
             }
 
             int count;
@@ -45,18 +45,18 @@ namespace yny_003.Web.Car.Handler
 
                 sb.Append(ListNotice[i].TotalMoney + "~");
 
-                Model.C_CarTast tast= BLL.C_CarTast.GetModelname(ListNotice[i].CName);
-                string shuliang = "";
-                string jiage = "";
-                if (!string.IsNullOrWhiteSpace(tast.OCode))
-                {
-                    Model.OrderDetail od= BLL.OrderDetail.GetModelCode(tast.OCode);
-                    shuliang = od.ReCount.ToString();
-                    jiage = od.BuyPrice.ToString();
-                }
+                //Model.C_CarTast tast= BLL.C_CarTast.GetModelname(ListNotice[i].CName);
+                //string shuliang = "";
+                //string jiage = "";
+                //if (!string.IsNullOrWhiteSpace(tast.OCode))
+                //{
+                //    Model.OrderDetail od= BLL.OrderDetail.GetModelCode(tast.OCode);
+                //    shuliang = od.ReCount.ToString();
+                //    jiage = od.BuyPrice.ToString();
+                //}
 
-                sb.Append(shuliang + "~");
-                sb.Append(jiage + "~");
+                sb.Append(ListNotice[i].OrderCount + "~");
+                sb.Append(ListNotice[i].OrderPrice + "~");
 
                 sb.Append(ListNotice[i].ReMoney + "~");
 

@@ -65,9 +65,9 @@ namespace yny_003.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Account(");
-			strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate)");
+			strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice)");
 			strSql.Append(" values (");
-			strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate)");
+			strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate,@OrderCount,@OrderPrice)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@CID", SqlDbType.Int,4),
@@ -82,7 +82,7 @@ namespace yny_003.DAL
 					new SqlParameter("@Spare", SqlDbType.VarChar,50),
 					new SqlParameter("@Spare2", SqlDbType.VarChar,50),
 					new SqlParameter("@Spare3", SqlDbType.Int,4),
-					new SqlParameter("@comDate", SqlDbType.DateTime)};
+					new SqlParameter("@comDate", SqlDbType.DateTime),new SqlParameter("@OrderCount", SqlDbType.Decimal,9),new SqlParameter("@OrderPrice", SqlDbType.Decimal,9)};
 			parameters[0].Value = model.CID;
 			parameters[1].Value = model.CName;
 			parameters[2].Value = model.AType;
@@ -96,8 +96,10 @@ namespace yny_003.DAL
 			parameters[10].Value = model.Spare2;
 			parameters[11].Value = model.Spare3;
 			parameters[12].Value = model.comDate;
+            parameters[13].Value = model.OrderCount;
+            parameters[14].Value = model.OrderPrice;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
 				return 0;
@@ -116,9 +118,9 @@ namespace yny_003.DAL
             string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into Account(");
-            strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate)");
+            strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice)");
             strSql.Append(" values (");
-            strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate)");
+            strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate,@OrderCount,@OrderPrice)");
             strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
                     new SqlParameter("@CID", SqlDbType.Int,4),
@@ -133,7 +135,7 @@ namespace yny_003.DAL
                     new SqlParameter("@Spare", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare2", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare3", SqlDbType.Int,4),
-                    new SqlParameter("@comDate", SqlDbType.DateTime)};
+                    new SqlParameter("@comDate", SqlDbType.DateTime),new SqlParameter("@OrderCount", SqlDbType.Decimal,9),new SqlParameter("@OrderPrice", SqlDbType.Decimal,9)};
             parameters[0].Value = model.CID;
             parameters[1].Value = model.CName;
             parameters[2].Value = model.AType;
@@ -147,6 +149,8 @@ namespace yny_003.DAL
             parameters[10].Value = model.Spare2;
             parameters[11].Value = model.Spare3;
             parameters[12].Value = model.comDate;
+            parameters[13].Value = model.OrderCount;
+            parameters[14].Value = model.OrderPrice;
 
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
@@ -171,8 +175,10 @@ namespace yny_003.DAL
 			strSql.Append("Spare=@Spare,");
 			strSql.Append("Spare2=@Spare2,");
 			strSql.Append("Spare3=@Spare3,");
-			strSql.Append("comDate=@comDate");
-			strSql.Append(" where ID=@ID");
+			strSql.Append("comDate=@comDate,");
+            strSql.Append("OrderCount=@OrderCount,");
+            strSql.Append("OrderPrice=@OrderPrice");
+            strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@CID", SqlDbType.Int,4),
 					new SqlParameter("@CName", SqlDbType.VarChar,50),
@@ -187,7 +193,9 @@ namespace yny_003.DAL
 					new SqlParameter("@Spare2", SqlDbType.VarChar,50),
 					new SqlParameter("@Spare3", SqlDbType.Int,4),
 					new SqlParameter("@comDate", SqlDbType.DateTime),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+                    new SqlParameter("@OrderCount", SqlDbType.Decimal,9),
+                    new SqlParameter("@OrderPrice", SqlDbType.Decimal,9),
+                    new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.CID;
 			parameters[1].Value = model.CName;
 			parameters[2].Value = model.AType;
@@ -201,7 +209,9 @@ namespace yny_003.DAL
 			parameters[10].Value = model.Spare2;
 			parameters[11].Value = model.Spare3;
 			parameters[12].Value = model.comDate;
-			parameters[13].Value = model.ID;
+            parameters[13].Value = model.OrderCount;
+            parameters[14].Value = model.OrderPrice;
+            parameters[15].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -233,7 +243,9 @@ namespace yny_003.DAL
             strSql.Append("Spare=@Spare,");
             strSql.Append("Spare2=@Spare2,");
             strSql.Append("Spare3=@Spare3,");
-            strSql.Append("comDate=@comDate");
+            strSql.Append("comDate=@comDate,");
+            strSql.Append("OrderCount=@OrderCount,");
+            strSql.Append("OrderPrice=@OrderPrice");
             strSql.Append(" where ID=@ID");
             strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -250,6 +262,8 @@ namespace yny_003.DAL
                     new SqlParameter("@Spare2", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare3", SqlDbType.Int,4),
                     new SqlParameter("@comDate", SqlDbType.DateTime),
+                    new SqlParameter("@OrderCount", SqlDbType.Decimal,9),
+                    new SqlParameter("@OrderPrice", SqlDbType.Decimal,9),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
             parameters[0].Value = model.CID;
             parameters[1].Value = model.CName;
@@ -264,7 +278,9 @@ namespace yny_003.DAL
             parameters[10].Value = model.Spare2;
             parameters[11].Value = model.Spare3;
             parameters[12].Value = model.comDate;
-            parameters[13].Value = model.ID;
+            parameters[13].Value = model.OrderCount;
+            parameters[14].Value = model.OrderPrice;
+            parameters[15].Value = model.ID;
 
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
@@ -320,7 +336,7 @@ namespace yny_003.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate from Account ");
+			strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice from Account ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -345,7 +361,7 @@ namespace yny_003.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate from Account ");
+            strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice from Account ");
             strSql.Append(" where CName=@CName");
             SqlParameter[] parameters = {
                     new SqlParameter("@CName", SqlDbType.VarChar,50)
@@ -428,7 +444,16 @@ namespace yny_003.DAL
 				{
 					model.comDate=DateTime.Parse(row["comDate"].ToString());
 				}
-			}
+
+                if (row["OrderCount"] != null && row["OrderCount"].ToString() != "")
+                {
+                    model.OrderCount = decimal.Parse(row["OrderCount"].ToString());
+                }
+                if (row["OrderPrice"] != null && row["OrderPrice"].ToString() != "")
+                {
+                    model.OrderPrice = decimal.Parse(row["OrderPrice"].ToString());
+                }
+            }
 			return model;
 		}
 
@@ -438,7 +463,7 @@ namespace yny_003.DAL
         public static DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate ");
+			strSql.Append("select ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice ");
 			strSql.Append(" FROM Account ");
 			if(strWhere.Trim()!="")
 			{
@@ -479,7 +504,7 @@ namespace yny_003.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate ");
+			strSql.Append(" ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice ");
 			strSql.Append(" FROM Account ");
 			if(strWhere.Trim()!="")
 			{

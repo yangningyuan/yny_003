@@ -37,7 +37,7 @@ namespace yny_003.Web.Car.Handler
 				sb.Append(ListNotice[i].Remark + "~");
 				//sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
 				sb.Append(ListNotice[i].CostMoney + "~");
-				sb.Append(("<img src=\""+ ListNotice[i].CostImgUrl + "\" width='100px;' height='100px' />") + "~");
+				sb.Append(("<a href='"+ ListNotice[i].CostImgUrl + "'><img src=\""+ ListNotice[i].CostImgUrl + "\" width='100px;' height='100px' /></a>") + "~");
 				sb.Append((ListNotice[i].CareteDate) + "~");
 				sb.Append((ListNotice[i].IsDelete==0? "<div class=\"pay btn btn-success\" onclick=\"shcost('" + ListNotice[i].ID + "')\">审核</div>":""));
 				sb.Append("≌");

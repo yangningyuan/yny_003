@@ -25,7 +25,7 @@ namespace yny_003.Web.Shop.Handler
             {
                 strWhere += " and Status = " + context.Request["tState"] + " ";
             }
-            if (!string.IsNullOrEmpty(context.Request["mKey"]))
+            if (context.Request["mKey"]!= "--请选择--")
             {
                 if (memberModel.Role.Super)
                 {
@@ -49,7 +49,14 @@ namespace yny_003.Web.Shop.Handler
             {
                 sb.Append(List[i].Id + "~");
                 sb.Append(List[i].Code + "~");
-                sb.Append(List[i].MID + "~");
+
+                string suppname = "";
+                if (!string.IsNullOrEmpty(List[i].MID)&&List[i].MID!= "--请选择--")
+                {
+                    suppname = BLL.C_Supplier.GetModel(Convert.ToInt32(List[i].MID)).Name;
+                }
+
+                sb.Append(suppname + "~");
 				sb.Append(List[i].ExpressCompany + "~");
 				sb.Append(List[i].TotalPrice + "~");
                 //sb.Append((List[i].DisCountTotalPrice).ToFixedString() + "~");
@@ -73,7 +80,7 @@ namespace yny_003.Web.Shop.Handler
 						//    resu += "<input type='button' value='发货' class='btn btn-success btn-sm' onclick='sendOrder(" + List[i].Id + ")' />";
 						//}
 						Model.C_CarTast tast= BLL.C_CarTast.GetModel(List[i].Code);
-						resu +="<input type='button' value='任务详情' class='btn btn-success btn-sm' onclick=\"callhtml('/Car/AddTast.aspx?oid=" + List[i].Code + "&id="+List[i].Id+"','调度任务详情');\" />";
+						//resu +="<input type='button' value='任务详情' class='btn btn-success btn-sm' onclick=\"callhtml('/Car/AddTast.aspx?oid=" + List[i].Code + "&id="+List[i].Id+"','调度任务详情');\" />";
 						resu += "<input type='button' value='订单详情' class='btn btn-success btn-sm' onclick=\"callhtml('/Shop/ShowOrder.aspx?id=" + List[i].Code + "','订单详情');\" />";
 						break;
                     //case 3:

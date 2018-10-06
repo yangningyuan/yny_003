@@ -13,6 +13,17 @@
         {
             ActionModel("Car/TastList.aspx?Action=Add", "tid="+id);
         }
+        function SetBJTast(id) {
+            ActionModel("Car/TastList.aspx?Action=Modify", "tid=" + id);
+        }
+        function SetCelTast(id) {
+            ActionModel("Car/TastList.aspx?Action=Other", "tid=" + id);
+        }
+
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "任务列表统计报表Excel");
+        }
     </script>
 </head>
 <body><div id="distr">
@@ -29,7 +40,7 @@
                                 <option value="1">已完成</option>
                                 <option value="2">已取消</option>
                             </select>
-            <select id="TType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
+                            <select id="TType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
                                 <option value="">任务类型</option>
                                 <option value="1">装车</option>
                                 <option value="2">卸车</option>
@@ -44,13 +55,29 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-                <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务名称" type="text" class="sinput" style="display:none;" />
+                <input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />
+                <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务单号" type="text" class="sinput" />
                 <input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入单位名称" type="text" class="sinput" />
 
                 <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
-                <input id="CarSJ2" name="txtKey" data-name="txtKey" placeholder="请输入副司机" type="text" class="sinput" />
+                <input id="CarSJ2" name="txtKey" data-name="txtKey" placeholder="请输入押运员" type="text" class="sinput" />
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />
                 <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入挂车牌号" type="text" class="sinput" />
+
+                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
+                     class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate" placeholder="截止创建日期"
+                     class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate\')}' })" />
+
+
+                 <input type="text" name="txtKey" data-name="txtKey" id="startDate2" placeholder="开始完成日期"
+                     class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate2\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate2" placeholder="截止完成日期"
+                     class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
             </div>
         </div>
         <div class="ui_table">
@@ -60,16 +87,16 @@
                     </th>
                     <th>序号
                     </th>
-                   <%-- <th>任务名称
-                    </th>--%>
+                    <th>任务单号
+                    </th>
                     <th>任务类型
                     </th>
                     <th>比重
                     </th>
                     <th>单位名称
                     </th>
-                    <th>联系电话
-                    </th>
+                 <%--   <th>联系电话
+                    </th>--%>
                    
                     <th>派遣车辆
                     </th>

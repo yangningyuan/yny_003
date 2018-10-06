@@ -11,14 +11,23 @@ namespace yny_003.Web.mobile.html
 	{
 		protected Model.C_CarTast cartast = null;
 		protected List<Model.C_CostDetalis> listcost = null;
+        protected string rdstr = "";
 		protected override void SetValue(string id)
 		{
 			cartast = BLL.C_CarTast.GetModel(int.Parse(id));
 			listcost = BLL.C_CostDetalis.GetModelList(" CID=" + cartast.ID);
-			cid.Value = id;
+			//cid.Value = id;
 		}
 
-		protected override string btnAdd_Click()
+        protected override void SetPowerZone()
+        {
+            Random rd = new Random();
+            int cc= rd.Next(1000,9999);
+            //roam.Value = cc.ToString();
+            rdstr = cc.ToString();
+        }
+
+        protected override string btnAdd_Click()
 		{
 			try
 			{

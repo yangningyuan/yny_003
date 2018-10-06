@@ -78,8 +78,9 @@ namespace yny_003.Web.Car
 		protected override string btnModify_Click()
 		{
             Hashtable MyHs = new Hashtable();
-			Model.C_CarTast c = new Model.C_CarTast();
-			c.Name = Request.Form["Name"];
+            Model.C_CarTast c= BLL.C_CarTast.GetModelname(Request.Form["Name"]);
+            //Model.C_CarTast c = new Model.C_CarTast();
+			//c.Name = Request.Form["Name"];
 			c.TType = int.Parse(Request.Form["TType"]);
 			if (c.TType == 1)
 			{
@@ -126,6 +127,7 @@ namespace yny_003.Web.Car
             if (!string.IsNullOrEmpty(c.OCode))
             {
                 Model.OrderDetail od = BLL.OrderDetail.GetModelCode(c.OCode);
+                od.GId = Convert.ToInt32(Request.Form["txtGood"]);
                 od.BuyPrice =Convert.ToDecimal( Request.Form["txtGoodPrice"]);
                 od.GCount = Convert.ToDecimal(Request.Form["txtGoodCount"]);
                 od.ReCount= Convert.ToDecimal(Request.Form["txtGoodCount"]);
@@ -148,10 +150,10 @@ namespace yny_003.Web.Car
                 if (siji2 != null)
                 {
                     if (siji2.FMID != "2" && siji2.FMID != "3")
-                        return "此司机不是副司机";
+                        return "此司机不是押运员";
                 }
                 else
-                    return "副司机不存在";
+                    return "押运员不存在";
             }
 
               
@@ -223,7 +225,7 @@ namespace yny_003.Web.Car
 			if (mm1 == null)
 				return "此司机不存在";
 			if (mm1.FMID != "2" && mm1.FMID != "3")
-				return "此司机不是副司机";
+				return "此司机不是押运员";
 			return string.Format("姓名：{0}，联系电话：{1}", mm1.MName, mm1.Tel);
 		}
 	}

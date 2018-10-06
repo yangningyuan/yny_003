@@ -41,7 +41,7 @@
         <thead>
             <tr>
                 <th>客户</th>
-                <th>联系方式</th>
+                <th>商品名称</th>
                 <th>时间</th>
                 <th>详情</th>
             </tr>

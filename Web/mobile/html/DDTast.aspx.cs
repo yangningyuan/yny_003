@@ -9,7 +9,7 @@ namespace yny_003.Web.mobile.html
 {
     public partial class DDTast : BasePage
     {
-        protected Model.C_CarTast cartast = null; protected Model.C_Supplier supplier = null;
+        protected Model.C_CarTast cartast = null; protected Model.C_Supplier supplier = null; protected string goodname = "";protected string goodcount = "";
         protected override void SetPowerZone()
         {
             Spare2.DataSource = BLL.C_Car.GetList(" IsDelete = 0 and CType='牵引车' order by ID");
@@ -51,6 +51,14 @@ namespace yny_003.Web.mobile.html
                 CSpare2.Value = car.CSpare2.ToString();
                 CarSJ1.Value = car.CarSJ1.ToString();
                 CarSJ2.Value = car.CarSJ2.ToString();
+
+                if (!string.IsNullOrEmpty(car.OCode))
+                {
+                    Model.OrderDetail od=  BLL.OrderDetail.GetModelCode(car.OCode);
+                    goodcount= od.GCount.ToString();
+                    Model.Goods good = BLL.Goods.GetModel(od.GId.ToString());
+                    goodname = good.GName;
+                }
             }
             
         }

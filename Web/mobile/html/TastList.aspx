@@ -9,8 +9,8 @@
    
       <form id="form1">
         <div class="buttons-tab">
-            <input type="hidden" value="0" id="state" runat="server" />
-            <a href="javascript:void(0)" onclick="$('#state').val('0'); dianji(this); " class="tab-link active button requery">未完成</a>
+            <input type="hidden" value="0,-2" id="state" runat="server" />
+            <a href="javascript:void(0)" onclick="$('#state').val('0,-2'); dianji(this); " class="tab-link active button requery">未完成</a>
             <a href="javascript:void(0)" onclick="$('#state').val('1'); dianji(this); " class="tab-link button requery">已完成</a>
             <a href="javascript:void(0)" onclick="$('#state').val('2'); dianji(this); " class="tab-link button requery">已取消</a>
         </div>
@@ -29,7 +29,7 @@
         <thead>
             <tr>
                 <th>客户</th>
-                <th>联系方式</th>
+                <th>商品名称</th>
                 <th>时间</th>
                 <th>详情</th>
             </tr>

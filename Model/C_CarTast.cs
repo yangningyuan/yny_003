@@ -15,6 +15,8 @@
 *└──────────────────────────────────┘
 */
 using System;
+using System.Collections.Generic;
+
 namespace yny_003.Model
 {
 	/// <summary>
@@ -63,6 +65,11 @@ namespace yny_003.Model
 		/// </summary>
 		public string CSpare2 { get; set; }
         /// <summary>
+        /// 任务TCode
+        /// </summary>
+        public string TCode { get; set; }
+
+        /// <summary>
         /// 商品订单号
         /// </summary>
         public string OCode { get; set; }
@@ -105,7 +112,9 @@ namespace yny_003.Model
 			}
 			return "";
 		}
-		
+
+
+       
 		/// <summary>
 		/// 供应商或客户
 		/// </summary>
@@ -179,17 +188,35 @@ namespace yny_003.Model
 			get{return _bdimg;}
 		}
         /// <summary>
-        /// 任务状态 0未完成  1完成,2.取消任务-1待调度
+        /// 任务状态 0未完成  1完成,2.取消任务-1待调度，-2。待纠正，此时允许司机端修改资料，相当于0状态
         /// </summary>
         public int TState
 		{
 			set{ _tstate=value;}
 			get{return _tstate;}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public int IsDelete
+
+        public static string statename(int state)
+        {
+            switch (state)
+            {
+                case 1:
+                    return "已完成";
+                case 2:
+                    return "取消任务";
+                case -1:
+                    return "待调度";
+                case 0:
+                    return "未完成";
+                case -2:
+                    return "待纠正";
+            }
+            return "";
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int IsDelete
 		{
 			set{ _isdelete=value;}
 			get{return _isdelete;}

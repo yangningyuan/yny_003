@@ -12,8 +12,8 @@ namespace yny_003.Web.Car
 		protected override string btnAdd_Click()
 		{
 			Model.C_CarTast cartast= BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["tid"]));
-			if (cartast.TState != 0)
-				return "此任务状态已改变，请刷新重试";
+			if (cartast.TState != 0&& cartast.TState != -1)
+				return "此任务状态不能取消";
 
 			cartast.TState = 2;
 			if (BLL.C_CarTast.Update(cartast))
@@ -21,5 +21,31 @@ namespace yny_003.Web.Car
 			else
 				return "取消失败";
 		}
-	}
+
+        protected override string btnModify_Click()
+        {
+            Model.C_CarTast cartast = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["tid"]));
+            if (cartast.TState != 1 )
+                return "此任务状态不能设为错误标记";
+
+            cartast.TState = -2;
+            if (BLL.C_CarTast.Update(cartast))
+                return "设置成功，司机端可以修改后提交";
+            else
+                return "设置失败";
+        }
+
+        protected override string btnOther_Click()
+        {
+            Model.C_CarTast cartast = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["tid"]));
+            if (cartast.TState != -2)
+                return "此任务状态不能取消错误标记";
+
+            cartast.TState = 1;
+            if (BLL.C_CarTast.Update(cartast))
+                return "取消成功";
+            else
+                return "取消失败";
+        }
+    }
 }

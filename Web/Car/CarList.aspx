@@ -9,6 +9,11 @@
         tState = '0';
         tUrl = "Car/Handler/CarList.ashx";
         SearchByCondition();
+
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "运输车辆信息统计报表Excel");
+        }
     </script>
 </head>
 <body>
@@ -26,7 +31,9 @@
                 新增车辆
             </div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />
+                <input
                     id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入车辆牌照" type="text" class="sinput" />
             </div>
         </div>

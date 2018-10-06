@@ -74,9 +74,584 @@ namespace yny_003.Web.Car.Handler
                     return AccountDownExcel();
                 case "AccountUPExcel"://结账统计
                     return AccountUPExcel();
+
+
+                case "运输车辆信息统计报表Excel":
+                    return 运输车辆信息统计报表();
+
+                case "任务列表统计报表Excel":
+                    return 任务列表统计报表Excel();
+
+                case "费用统计报表Excel":
+                    return 费用统计报表Excel();
+
+                case "借款统计报表Excel":
+                    return 借款统计报表Excel();
+
+                case "客户供应商统计报表Excel":
+                    return 客户供应商统计报表Excel();
+
+                case "车辆信息统计报表Excel":
+                    return 车辆信息统计报表Excel();
+                case "司机信息统计报表Excel":
+                    return 司机信息统计报表Excel();
+
             }
             return "非法操作";
         }
+
+        private string 车辆信息统计报表Excel()
+        {
+            try
+            {
+                string strWhere = "'1'='1' ";
+                if (!string.IsNullOrEmpty(_context.Request["tState"]))
+                {
+                    strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and PZCode like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%'";
+                }
+
+                string SQL2 = " ";
+
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    SQL2 += " and  CreateDate>'" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    SQL2 += " and CreateDate<'" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+
+                string TState = "";
+                if (!string.IsNullOrEmpty(_context.Request["TType"]))
+                {
+                    if (_context.Request["TType"] == "1")
+                    {
+                        TState = " and TState=1 ";
+                    }
+                    else {
+                        TState = " and TState in(-1,0,2) ";
+                    }
+                }
+
+                List<Model.C_Car> ListNotice = BLL.C_Car.GetModelList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "牌照" },
+                    { "a1", "车型" },
+                    { "a3", "装车次数" },
+                    { "a4", "卸车次数" },
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    a0 = (emp.PZCode),
+                    a1 = (emp.CarType),
+                    a3 = (GetCountByCPCode(SQL2, emp.PZCode,1, TState)),
+                    a4 = GetCountByCPCode(SQL2, emp.PZCode,2, TState),
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "车辆信息统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="SQL"></param>
+        /// <param name="CPCode">车牌</param>
+        /// <param name="Type">1，装车  2，卸车</param>
+        /// <returns></returns>
+        protected static int GetCountByCPCode(string SQL, string CPCode, int Type,string SQL2)
+        {
+            int count = 0;
+            if (Type == 1)
+            {
+                count = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT Count(*) FROM C_CarTast WHERE 1=1 and TType=" + Type + " " + SQL + " and (Spare2='" + CPCode + "' or CSpare2='" + CPCode + "')  " + SQL2 + " "));
+            }
+            else {
+                count = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT Count(*) FROM C_CarTast WHERE 1=1 and TType=" + Type + " " + SQL + " and (Spare2='" + CPCode + "' or CSpare2='" + CPCode + "')  " + SQL2 + " "));
+            }
+
+            return count;
+        }
+
+        private string 司机信息统计报表Excel()
+        {
+            try
+            {
+                
+                string strWhere = "'1'='1'  AND ROLECODE='SiJi' ";
+
+                if (!string.IsNullOrEmpty(_context.Request["mKey"]))
+                {
+                    strWhere += string.Format(" and ( MID='{0}' or MName='{0}') ", (_context.Request["mKey"]));
+                }
+                if (!string.IsNullOrEmpty(_context.Request["SiJiType"]))
+                {
+                    strWhere += string.Format(" and FMID={0} ", (_context.Request["SiJiType"]));
+                }
+
+                string SQL2 = " ";
+
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    SQL2 += " and  CreateDate>'" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    SQL2 += " and CreateDate<'" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+
+                string TState = "";
+                if (!string.IsNullOrEmpty(_context.Request["TType"]))
+                {
+                    if (_context.Request["TType"] == "1")
+                    {
+                        TState = " and TState=1 ";
+                    }
+                    else {
+                        TState = " and TState in(-1,0,2) ";
+                    }
+                }
+
+                int count;
+                List<Model.Member> ListMember = BllModel.GetMemberEntityList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "司机编号" },
+                    { "a1", "司机姓名" },
+                    { "a2", "司机类型" },
+                    { "a3", "装车次数" },
+                    { "a4", "卸车次数" },
+                    
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListMember.ForEach(emp => txobjlist.Add(new
+                {
+                    a0 = (emp.MID),
+                    a1 = (emp.MName),
+                    a2 = ((emp.FMID=="1"?"主司机":"押运员")),
+                    a3 = (GetCountBySJCode(SQL2, emp.MID,1, TState)),
+                    a4 = GetCountBySJCode(SQL2, emp.MID,2, TState),
+                   
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "司机信息统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+        protected static int GetCountBySJCode(string SQL, string CPCode,int Type,string SQL2)
+        {
+            int count = 0;
+
+            count = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT Count(*) FROM C_CarTast WHERE 1=1  " + SQL + " and (CarSJ1='" + CPCode + "' or CarSJ2='" + CPCode + "') and TType="+Type+ " " + SQL2 + " "));
+
+            return count;
+        }
+
+        private string 客户供应商统计报表Excel()
+        {
+            try
+            {
+                string strWhere = "'1'='1' ";
+                if (!string.IsNullOrEmpty(_context.Request["tState"]))
+                {
+                    strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
+                }
+
+                if (!string.IsNullOrEmpty(_context.Request["SType"]))
+                {
+                    strWhere += " and Type=" + _context.Request["SType"] + "";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and Name like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%'";
+                }
+                int count;
+                List<Model.C_Supplier> ListNotice = BLL.C_Supplier.GetModelList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a7", "类型" },
+                    { "a0", "客户名称" },
+                    { "a1", "联系人" },
+                    { "a2", "电话" },
+                    { "a3", "地址" },
+                    { "a4", "欠款额度" },
+                    { "a5", "期初金额" },
+                    { "a6", "创建日期" },
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    a7 = (emp.Type.ToString().Replace("1", "供应商").Replace("2", "客户")),
+                    a0 = (emp.Name),
+                    a1 = (emp.TelName),
+                    a2 = (emp.Tel),
+                    a3 = (emp.Address),
+                    a4 = emp.QCMoney,
+                    a5 = (emp.OverMoney),
+                    a6 = (emp.CreateDate),
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "客户供应商统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+
+        private string 借款统计报表Excel()
+        {
+            try
+            {
+                string strWhere = "'1'='1' ";
+                if (_context.Request["tState"] == "0")
+                {
+                    strWhere += " and SPMID='' ";
+                }
+                else {
+                    strWhere += " and SPMID!='' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and ApplyMID like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%'";
+                }
+                int count;
+                List<Model.C_LoanApply> ListNotice = BLL.C_LoanApply.GetModelList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "借款人" },
+                    { "a1", "借款金额" },
+                    //{ "a2", "实际金额" },
+                    { "a3", "借款发放方式" },
+                    { "a4", "说明" },
+                    { "a5", "创建日期" },
+                    { "a6", "审批人" },
+                    { "a7", "审批时间" },
+                    { "a8", "状态" },
+
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    //a0 = (emp.MID),
+                    //a1 = (emp.Remark),
+                    //a2 = (emp.CostMoney),
+                    //a3 = (emp.CareteDate),
+                    //a4 = emp.IsDelete.ToString().Replace("0", "未审核").Replace("1", "已删除").Replace("2", "已审核"),
+
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "借款统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+
+
+        private string 费用统计报表Excel()
+        {
+            try
+            {
+                string strWhere = "'1'='1' ";
+                if (!string.IsNullOrEmpty(_context.Request["tState"]))
+                {
+                    strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and Remark like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%'";
+                }
+                int count;
+                List<Model.C_CostDetalis> ListNotice = BLL.C_CostDetalis.GetModelList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "申请费用人" },
+                    { "a1", "费用类型" },
+                    { "a2", "费用金额" },
+                    { "a3", "费用时间" },
+                    { "a4", "状态" },
+                  
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    a0 = (emp.MID),
+                    a1 = (emp.Remark),
+                    a2 = (emp.CostMoney),
+                    a3 = (emp.CareteDate),
+                    a4 = emp.IsDelete.ToString().Replace("0","未审核").Replace("1","已删除").Replace("2","已审核"),
+                   
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "费用统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+
+
+
+        private string 任务列表统计报表Excel()
+        {
+            try
+            {
+                string strWhere = "'1'='1' ";
+                if (!string.IsNullOrEmpty(_context.Request["tState"]))
+                {
+                    strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and Name like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%'";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["SupplierName"]))
+                {
+                    strWhere += " and SupplierName in (select ID from C_Supplier where Name like '%" + _context.Request["SupplierName"] + "%')";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["coststate"]))
+                {
+                    strWhere += " and TState='" + _context.Request["coststate"] + "' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["TType"]))
+                {
+                    strWhere += " and TType='" + _context.Request["TType"] + "' ";
+                }
+
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    strWhere += " and CreateDate>='" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    strWhere += " and CreateDate<='" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["startDate2"]))
+                {
+                    strWhere += " and ComDate>='" + _context.Request["startDate2"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate2"]))
+                {
+                    strWhere += " and ComDate<='" + _context.Request["endDate2"] + " 23:59:59' ";
+                }
+
+                if (!string.IsNullOrEmpty(_context.Request["CarSJ1"]))
+                {
+                    strWhere += " and CarSJ1 in(select MID from Member where RoleCode='SiJi' and MName like '%" + _context.Request["CarSJ1"] + "%' AND FMID='1' AND IsClock=0 AND IsClose=0) ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["CarSJ2"]))
+                {
+                    strWhere += " and CarSJ2 in(select MID from Member where RoleCode='SiJi' and MName like '%" + _context.Request["CarSJ2"] + "%' AND FMID in('2','3') AND IsClock=0 AND IsClose=0) ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["Spare2"]))
+                {
+                    strWhere += " and Spare2 like '%" + _context.Request["Spare2"] + "%' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["CSpare2"]))
+                {
+                    strWhere += " and CSpare2 like '%" + _context.Request["CSpare2"] + "%' ";
+                }
+
+                int count;
+                List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetModelList(strWhere);
+
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "任务单号" },
+                    { "a1", "类型" },
+                    { "a2", "比重" },
+                    { "a3", "单位名称" },
+                    { "a4", "联系电话" },
+                    { "a5", "派遣车辆" },
+                    { "a6", "派遣挂车" },
+                    { "a7", "主司机" },
+                    { "a16", "主司机姓名" },
+                    { "a8", "押运员" },
+                    { "a17", "押运员姓名" },
+                    { "a9", "商品订单" },
+                    { "a10", "商品名称" },
+                    { "a12", "订单数量" },
+                    { "a11", "实际数量" },
+                      { "a13", "价格" },
+                      { "a14", "创建日期" },
+                      { "a15", "交货日期" },
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    a0 = (emp.Name),
+                    a1 = (Model.C_CarTast.typename(emp.TType)),
+                    a2 = (emp.Prot),
+                    a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
+                    a4 = emp.SupplierTel,
+                    a5 = (emp.Spare2),
+                    a6 = (emp.CSpare2),
+                    a7 = (emp.CarSJ1),
+                    a16 = (string.IsNullOrEmpty(emp.CarSJ1)?"": BLL.Member.GetModelByMID(emp.CarSJ1).MName),
+                    a8 = (emp.CarSJ2),
+                    a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
+                    a9 = (emp.OCode),
+                    a10 = (GoodName(emp.OCode)),
+                    a12 = (GoodOrder(emp.OCode).GCount),
+                    a11 = (GoodOrder(emp.OCode).ReCount),
+                    a13 = (GoodOrder(emp.OCode).BuyPrice),
+                    a14 = (emp.CreateDate),
+                    a15 = (emp.ComDate),
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "任务列表统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+
+        public static string GoodName(string ocode)
+        {
+
+            List<Model.OrderDetail> odlist = BLL.OrderDetail.GetList(" ordercode='" + ocode + "'; ");
+            foreach (Model.OrderDetail item in odlist)
+            {
+                Model.Goods goods = BLL.Goods.GetModel(item.GId);
+                return goods.GName;
+            }
+            return "";
+        }
+
+        public static Model.OrderDetail GoodOrder(string ocode)
+        {
+
+            List<Model.OrderDetail> odlist = BLL.OrderDetail.GetList(" ordercode='" + ocode + "'; ");
+            foreach (Model.OrderDetail item in odlist)
+            {
+                return item;
+            }
+            return new Model.OrderDetail();
+        }
+
+        private string 运输车辆信息统计报表()
+        {
+            try
+            {
+                string strWhere = "'1'='1' ";
+                if (!string.IsNullOrEmpty(_context.Request["tState"]))
+                {
+                    strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and PZCode like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%'";
+                }
+                int count;
+                List<Model.C_Car> ListNotice = BLL.C_Car.GetModelList(strWhere);
+
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a1", "车牌号" },
+                    { "a2", "车辆类型" },
+                    { "a3", "罐体检验" },
+                    { "a4", "压力表有效期" },
+                    { "a5", "安全阀有效期" },
+                    { "a6", "行 车 证" },
+                    { "a7", "营 运 证" },
+                    { "a8", "营运证办理时间或年检时间	" },
+                    { "a9", "保养到期时间" },
+                    { "a10", "交强险到期日期" },
+                    { "a11", "三责险到期日期" },
+                     { "a12", "承运险到期日期" },
+                      { "a13", "车辆技术等级评定时间" },
+                      { "a14", "总里程" },
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    a1 = (emp.PZCode),
+                    a2 = (emp.CType),
+                    a3 = emp.GJYDate,
+                    a4 = emp.BXDate,
+                    a5 = (emp.AQFDate),
+                    a6 = (emp.CarXSZCode),
+                    a7 = (emp.Spare2),
+                    a8 = (emp.YYZDate),
+                    a9 = (emp.BYDate),
+                    a10 = (emp.JQXDate),
+                    a11= (emp.SZXDate),
+                    a12 = (emp.CYXDate),
+                    a13= (emp.CLJJPDDate),
+                    a14= (emp.CarZLC),
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "运输车辆信息统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+
 
         private string AccountUPExcel()
         {
@@ -99,13 +674,13 @@ namespace yny_003.Web.Car.Handler
                 List<Model.Account> ListNotice = BLL.Account.GetModelList(strWhere);
 
                 Dictionary<string, string> cellheader = new Dictionary<string, string> {
-                    { "a1", "结账编号" },
-                    { "a2", "客户类型" },
-                    { "a3", "客户名称" },
-                    { "a4", "付款类型" },
-                    { "a5", "付款总金额" },
-                    { "a6", "余额付款金额" },
-                    { "a7", "经办人" },
+                   { "a1", "结账编号" },
+                    { "a2", "供应商名称" },
+                    { "a3", "应付总金额" },
+                    { "a4", "已付金额" },
+                    { "a5", "状态" },
+                    { "a6", "发票状态" },
+                    { "a7", "任务时间" },
                     { "a8", "结账时间" },
                 };
 
@@ -160,12 +735,12 @@ namespace yny_003.Web.Car.Handler
 
                 Dictionary<string, string> cellheader = new Dictionary<string, string> {
                     { "a1", "结账编号" },
-                    { "a2", "客户类型" },
-                    { "a3", "客户名称" },
-                    { "a4", "付款类型" },
-                    { "a5", "付款总金额" },
-                    { "a6", "余额付款金额" },
-                    { "a7", "经办人" },
+                    { "a2", "客户名称" },
+                    { "a3", "应收总金额" },
+                    { "a4", "已收金额" },
+                    { "a5", "状态" },
+                    { "a6", "发票状态" },
+                    { "a7", "任务时间" },
                     { "a8", "结账时间" },
                 };
 
@@ -1314,12 +1889,12 @@ namespace yny_003.Web.Car.Handler
                     { "mid", "会员帐号" },
                     { "Name", "会员姓名" },
                     { "Agency", "会员角色" },
-                    { "MHB", "现金币" },
-                    { "MCW", "库存" },
-                    { "MTJ", "推荐人" },
-                    { "IsClose", "锁定状态" },
-                    { "IsClock", "冻结状态"},
-                    { "MDate", "激活日期 " }
+                    { "NumID", "身份证号码" },
+                    { "CYZS", "从业证书" },
+                    { "Tel", "电话号码" },
+                    //{ "IsClose", "锁定状态" },
+                    //{ "IsClock", "冻结状态"},
+                    { "MDate", "新增日期 " }
                 };
 
                 List<object> txobjlist = new List<object>();
@@ -1328,23 +1903,23 @@ namespace yny_003.Web.Car.Handler
                     mid = emp.MID,
                     Name = emp.MName,
                     Agency = emp.Role.RName,
-                    MHB = emp.MConfig.MJJ.ToFixedString(),
-                    MCW = emp.MConfig.MCW.ToFixedString(),
-                    MTJ = emp.MTJ,
-                    IsClose = (emp.IsClose ? "已锁定" : "未锁定"),
-                    IsClock = (emp.IsClock ? "已冻结" : "未冻结"),
+                    NumID = emp.NumID,
+                    CYZS = emp.Address,
+                    Tel = emp.Tel,
+                    //IsClose = (emp.IsClose ? "已锁定" : "未锁定"),
+                    //IsClock = (emp.IsClock ? "已冻结" : "未冻结"),
                     MDate = emp.MDate.ToString("yyyy-MM-dd HH:mm"),
                 }
                 ));
 
                 // 3.进行Excel转换操作，并返回转换的文件下载链接
-                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "店铺列表");
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "从业人员信息管理报表");
 
                 System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
                 _context.Response.ContentType = "text/plain";
                 return js.Serialize(urlPath); // 返回Json格式的内容
             }
-            catch
+            catch(Exception e)
             {
                 return "导出失败";
             }

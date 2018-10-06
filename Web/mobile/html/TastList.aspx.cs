@@ -15,7 +15,7 @@ namespace yny_003.Web.mobile.html
 			string state = Request.Form["state"];
 			if (!string.IsNullOrEmpty(state))
 			{
-				where += " and TState=" + state + " ";
+				where += " and TState in(" + state + ") ";
 			}
 
 			List<Model.C_CarTast> listchange = null;
@@ -37,13 +37,24 @@ namespace yny_003.Web.mobile.html
 			{
 				Name = getsupplier(item.SupplierName),
                 //SupplierName = item.SupplierName,
-                SupplierTel = item.SupplierTel,
+                SupplierTel = htmlGoodName(item.OCode),
 				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
-				dhtml = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>"
+				dhtml =(item.TState==-2? "<a class=\"button button-fill  background_1\" style='background-color:red;' href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','纠错');\">纠错</a>" : "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
 
 			});
 			return jss.Serialize(new { Items = list, TotalCount = totalCount });
 		}
+        protected static string htmlGoodName(string ordercode)
+        {
+            if (!string.IsNullOrEmpty(ordercode))
+            {
+                int goodid = BLL.OrderDetail.GetModelCode(ordercode).GId;
+                return BLL.Goods.GetModel(goodid).GName;
+            }
+            else {
+                return "";
+            }
+        }
         protected string getsupplier(string id)
         {
             Model.C_Supplier supp = BLL.C_Supplier.GetModel(Convert.ToInt32(id));

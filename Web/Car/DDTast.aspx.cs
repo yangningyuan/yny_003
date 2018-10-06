@@ -89,10 +89,10 @@ namespace yny_003.Web.Car
             if (siji2 != null)
             {
                 if (siji2.FMID != "2" && siji2.FMID != "3")
-                    return "此司机不是副司机";
+                    return "此司机不是押运员";
             }
             else
-                return "副司机不存在";
+                return "押运员不存在";
             #endregion
 
             c.TState = 0;

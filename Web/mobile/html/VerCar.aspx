@@ -19,9 +19,9 @@
                  <li>
                     <div class="item-content">
                         <div class="item-inner">
-                            <div class="item-title label">副司机</div>
+                            <div class="item-title label">押运员</div>
                             <div class="item-input">
-                                <input type="text" value="" name="txtSIJI2" id="txtSIJI2" runat="server" placeholder="副司机"  readonly>
+                                <input type="text" value="" name="txtSIJI2" id="txtSIJI2" runat="server" placeholder="押运员"  readonly>
                             </div>
                         </div>
                     </div>

@@ -12,7 +12,7 @@
 
         // 导出Excel
         function exportExcel() {
-            ExportExcel("ChangeMoney/Handler/ExportExcel.ashx", "DPLBExcel");
+            ExportExcel("Car/Handler/ExportExcel.ashx", "DPLBExcel");
         }
         //setup();
     </script>
@@ -71,7 +71,7 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-                <%--<input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />--%>
+                <input type="button" value="从业人员信息管理报表" class="btn btn-success" onclick="exportExcel()" />
                 <input name="txtKey" data-name="txtKey" id="mKey" placeholder="账号" value="账号"
                     onfocus="if (value =='账号'){value =''}" onblur="if (value ==''){value='账号'}"
                     type="text" class="sinput" style="width: 120px;" />

@@ -12,6 +12,10 @@
         {
             ActionModel("Car/CostList2.aspx?Action=Other", "cid="+id, "Car/CostList2.aspx");
         }
+        // 导出Excel
+        function exportExcel() {
+            ExportExcel("Car/Handler/ExportExcel.ashx", "费用统计报表Excel");
+        }
     </script>
 </head>
 <body>
@@ -28,7 +32,10 @@
                 新增费用类型
             </div>--%>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" /><input
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                 <input type="button" value="费用统计报表" class="btn btn-success" onclick="exportExcel()" />
+                
+                <input
                     id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入费用名称" type="text" class="sinput" />
             </div>
         </div>

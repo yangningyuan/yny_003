@@ -34,10 +34,10 @@ namespace yny_003.Web.Associator.test
                         context.Response.End();
                     }
                     //验证文件的大小
-                    if (file.ContentLength > 4194304)
+                    if (file.ContentLength > 6144000)
                     {
                         //这里window.parent.uploadSuccess()是我在前端页面中写好的javascript function,此方法主要用于输出异常和上传成功后的图片地址 
-                        context.Response.Write("<script>window.parent.uploadSuccess('你上传的文件不能大于4MB!请重新上传！');</script>");
+                        context.Response.Write("<script>window.parent.uploadSuccess('你上传的文件不能大于6000KB!请重新上传！');</script>");
                         context.Response.End();
                     }
 

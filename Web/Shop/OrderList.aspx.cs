@@ -21,6 +21,12 @@ namespace yny_003.Web.Shop
             //{
             divOperator.InnerHtml = "";
             //}
+
+            mKey.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0  order by ID");
+            mKey.DataTextField = "Name";
+            mKey.DataValueField = "ID";
+            mKey.DataBind();
+            mKey.Items.Insert(0, "--请选择--");
         }
     }
 }

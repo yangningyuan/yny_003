@@ -40,6 +40,9 @@ namespace yny_003.Model
 		private string _spare2;
 		private int? _spare3;
 		private DateTime _comdate;
+
+        public decimal OrderCount { get; set; }
+        public decimal OrderPrice { get; set; }
 		/// <summary>
 		/// 
 		/// </summary>

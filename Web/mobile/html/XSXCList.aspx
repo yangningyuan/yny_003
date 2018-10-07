@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSTastList.aspx.cs" Inherits="yny_003.Web.mobile.html.XSTastList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSXCList.aspx.cs" Inherits="yny_003.Web.mobile.html.XSXCList" %>
 
 <div class="content content-padded pull-to-refresh-content" data-ptr-distance="55">
     <!-- 默认的下拉刷新层 -->
@@ -18,7 +18,6 @@
                 <button type="button" class="requery searchh">查询</button>
             </div>
 
-
         <div class="buttons-tab">
             <input type="hidden" value="-1" id="state" runat="server" />
             <a href="javascript:void(0)" onclick="$('#state').val('-1'); dianji(this); " class="tab-link active button requery">待调度</a>
@@ -29,7 +28,6 @@
     </form>
     <script type="text/x-jquery-tmpl" id="JKListTmpl">
         <tr>
-            
             <td>{{html Name}}</td>
             <td>${SupplierTel}</td>
             <td>${CreateDate}</td>
@@ -82,7 +80,7 @@
         $('#page_container').Paging({
             TemplateContainer: '#JKListTmpl',
             DataContainer: '#data_container',
-            DataUrl: '/mobile/html/XSTastList.aspx?Action=Other',
+            DataUrl: '/mobile/html/XSXCList.aspx?Action=Other',
             QueryContainer: '#form1',
             Rendered: function () {
                 window.MobileSelectAll();

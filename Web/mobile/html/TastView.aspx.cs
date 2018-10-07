@@ -17,7 +17,18 @@ namespace yny_003.Web.mobile.html
 		protected List<Model.C_CostDetalis> listcost = null;
         protected string zhusiji = "";
         protected string fusiji = "";
-		protected override void SetValue(string id)
+
+        //装车信息
+        protected string tcode = "";
+        protected Model.C_CarTast CTModel = new Model.C_CarTast();
+        protected Model.C_Supplier SuppModel = new Model.C_Supplier();
+        protected Model.OrderDetail OdModel = new Model.OrderDetail();
+        protected Model.Goods Good = new Model.Goods();
+        protected List<CarTast> XCList = new List<CarTast>();
+
+        
+
+        protected override void SetValue(string id)
 		{
 			cartast = BLL.C_CarTast.GetModel(int.Parse(id));
             supplier = BLL.C_Supplier.GetModel(int.Parse(cartast.SupplierName));
@@ -43,6 +54,42 @@ namespace yny_003.Web.mobile.html
             Model.Member fm = BLL.Member.GetModelByMID(cartast.CarSJ2);
             if (fm != null)
                 fusiji = fm.MName;
+
+            //装车信息
+            if (cartast.TType != 1)
+            {
+                xcView.Visible = false;
+                tcode = cartast.TCode;
+                CTModel = BLL.C_CarTast.GetModelname(tcode);
+                if (CTModel != null)
+                {
+                    SuppModel = BLL.C_Supplier.GetModel(Convert.ToInt32(CTModel.SupplierName));
+                    if (!string.IsNullOrEmpty(CTModel.OCode))
+                    {
+                        OdModel = BLL.OrderDetail.GetList(" ordercode='" + CTModel.OCode + "'; ").FirstOrDefault();
+                        Good = BLL.Goods.GetModel(OdModel.GId);
+                    }
+                }
+            }
+            else {
+                zcView.Visible = false;
+                List<Model.C_CarTast> carList = BLL.C_CarTast.GetModelList(" TCode='"+ cartast.Name+ "' ");
+                foreach (var item in carList)
+                {
+                    CarTast cModel = new CarTast();
+                    cModel.Code = item.Name;
+                    cModel.Supp = BLL.C_Supplier.GetModel(Convert.ToInt32(item.SupplierName)).Name;
+                    Model.OrderDetail XCod = BLL.OrderDetail.GetModelCode(item.OCode);
+                    if (XCod != null)
+                    {
+                        cModel.Count = XCod.GCount;
+                        cModel.ReCount = XCod.ReCount;
+                        cModel.GoodName = BLL.Goods.GetModel(Convert.ToInt32(XCod.GId)).GName;
+                    }
+                    cModel.CreateTime = item.CreateDate;
+                    XCList.Add(cModel);
+                }
+            }
         }
 
         protected object obj = new object();

@@ -5,6 +5,99 @@
         <form id="form1">
             <input type="hidden" id="bankauto" runat="server" />
             <input type="hidden" id="cid" runat="server" />
+
+              <div id="xcView" runat="server">
+                <table class=" table table-striped table-bordered " style="font-size:9px;">
+                    <thead>
+                        <tr>
+                            <th>客户</th>
+                            <th>商品名称</th>
+                            <th>卸车数量</th>
+                            <th>实际数量</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data_container">
+                        <%
+                            foreach (var item in XCList)
+                            {
+                        %>
+                        <tr>
+                            <td><%=item.Supp %></td>
+                            <td><%=item.GoodName %></td>
+                            <td><%=item.Count %></td>
+                            <td><%=item.ReCount %></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                    </tbody>
+                </table>
+            </div>
+
+            <ul id="zcView" runat="server">
+                <!-- 装车信息 -->
+                <li>
+                    <div class="item-content" style="background-color: #d7cece;">
+                        <div class="item-inner">
+                            <div class="item-title label">装车订单号</div>
+                            <input runat="server" id="Hidden2" type="hidden" />
+                            <div class="item-input">
+                                <input type="text" id="zcCode" name="zcCode" readonly="readonly" value="<%=tcode %>">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="item-content" style="background-color: #d7cece;">
+                        <div class="item-inner">
+                            <div class="item-title label">供货单位</div>
+                            <input runat="server" id="Hidden3" type="hidden" />
+                            <div class="item-input">
+                                <input type="text" id="Text2" readonly="readonly" value="<%=SuppModel.Name %>">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="item-content" style="background-color: #d7cece;">
+                        <div class="item-inner">
+                            <div class="item-title label">供货商品</div>
+                            <input runat="server" id="Hidden4" type="hidden" />
+                            <div class="item-input">
+                                <input type="text" id="Text3" readonly="readonly" value="<%=Good.GName%>">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="item-content" style="background-color: #d7cece;">
+                        <div class="item-inner">
+                            <div class="item-title label">供货数量</div>
+                            <input runat="server" id="Hidden5" type="hidden" />
+                            <div class="item-input">
+                                <input type="text" id="Text4" readonly="readonly" value="<%=OdModel.GCount%>">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="item-content" style="background-color: #d7cece;">
+                        <div class="item-inner">
+                            <div class="item-title label">实际供货数量</div>
+                            <input runat="server" id="Hidden6" type="hidden" />
+                            <div class="item-input">
+                                <input type="text" id="Text5" readonly="readonly" value="<%=OdModel.ReCount%>">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <br />
+
             <ul>
                 <!-- Text inputs -->
                 <li>
@@ -21,7 +114,7 @@
                         <div class="item-inner">
                             <div class="item-title label">任务名称</div>
                             <div class="item-input">
-                               <span style="color:red; font-size:10px;">【<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>】 <%=cartast.Name%></span>
+                                <span style="color: red; font-size: 10px;">【<%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>】 <%=cartast.Name%></span>
                             </div>
                         </div>
                     </div>
@@ -33,7 +126,10 @@
                             <div class="item-title label">供应商或客户</div>
                             <div class="item-input">
                                 <%=supplier!=null?supplier.Name:"" %><br />
-                                <div style="color: red; width:100%; font-size:10px;">【联系人：<%=cartast.SupplierTelName %>】<br />【联系方式：<%=cartast.SupplierTel %>】</div>
+                                <div style="color: red; width: 100%; font-size: 10px;">
+                                    【联系人：<%=cartast.SupplierTelName %>】<br />
+                                    【联系方式：<%=cartast.SupplierTel %>】
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,7 +177,7 @@
                     </div>
                 </li>
 
-                  <li>
+                <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label"><%=cartast.TType.ToString().Replace("1","实际装车时间").Replace("2","调度派遣车辆时间") %></div>
@@ -91,7 +187,7 @@
                         </div>
                     </div>
                 </li>
-               <%-- <li>
+                <%-- <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">费用类型</div>
@@ -101,35 +197,35 @@
                         </div>
                     </div>
                 </li>
-             --%>
-                 <li>
+                --%>
+                <li>
                     <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
                             <div class="item-title label"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>商品详情</div>
                             <div class="item-input">
                             </div>
-                             <div class="item-input"><a class="button" style="float:right;" href="javascript:pcallhtml('/mobile/html/BDImgAdd.aspx?id=<%=cartast.ID %>','上传磅单图片');">上传</a></div>
+                            <div class="item-input"><a class="button" style="float: right;" href="javascript:pcallhtml('/mobile/html/BDImgAdd.aspx?id=<%=cartast.ID %>','上传磅单图片');">上传</a></div>
                             <%--<div class="item-input"><a class="button" style="float:right;" href="/mobile/html/BDImgAdd.aspx?id=<%=cartast.ID %>">上传</a></div>--%>
                         </div>
                     </div>
                 </li>
-                   <li>
+                <li>
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">磅单图片</div>
                             <div class="item-input">
-                                <%  if (!string.IsNullOrEmpty(cartast.BDImg)) 
+                                <%  if (!string.IsNullOrEmpty(cartast.BDImg))
                                     {
-                                    %>
-                                        <img src="<%=cartast.BDImg %>" />
-                                    <%
-                                        }else {
-                                        %>
+                                %>
+                                <img src="<%=cartast.BDImg %>" />
+                                <%
+                                    }
+                                    else {
+                                %>
                                    请上传磅单图片，并与实际装车，卸车数量相符
                                 <%
-                                        }
-                                     %>
-                               
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>
@@ -140,11 +236,11 @@
                             <div class="item-title label"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车") %>商品详情</div>
                             <div class="item-input">
                             </div>
-                             <div class="item-input"><a class="button" style="float:right;" href="javascript:pcallhtml('/mobile/html/LoadGoods.aspx?id=<%=cartast.ID %>','添加装卸车商品');"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","") %></a></div>
+                            <div class="item-input"><a class="button" style="float: right;" href="javascript:pcallhtml('/mobile/html/LoadGoods.aspx?id=<%=cartast.ID %>','添加装卸车商品');"><%=cartast.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","") %></a></div>
                         </div>
                     </div>
                 </li>
-                <%  if (order!=null&& order.OrderDetail != null)
+                <%  if (order != null && order.OrderDetail != null)
                     {
                         foreach (var item in order.OrderDetail)
                         {
@@ -166,7 +262,7 @@
                         }
                     }
                 %>
-              <%--  <li>
+                <%--  <li>
                     <div class="item-content" style="background-color: powderblue">
                         <div class="item-inner">
                             <div class="item-title label">费用详情</div>
@@ -206,6 +302,8 @@
                     </div>
                 </div>
             </ul>
+
+          
         </form>
     </div>
 
@@ -215,12 +313,12 @@
         //layer.confirm(function () {
         //    //ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize());
         //});
-            
+
         layer.confirm('确定交付任务吗？', {
             btn: ['确定', '取消']//按钮
         }, function (index) {
             layer.close(index);
-            ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize(),"mobile/html/TastList.aspx");
+            ActionModel("mobile/html/TastView.aspx?Action=add", $('#form1').serialize(), "mobile/html/TastList.aspx");
         });
     }
 </script>

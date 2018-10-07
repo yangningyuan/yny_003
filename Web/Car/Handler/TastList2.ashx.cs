@@ -84,11 +84,12 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append(ListNotice[i].Name + "~");
+                sb.Append(ListNotice[i].TCode + "~");
                 sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
                 sb.Append(ListNotice[i].Prot + "~");
                 //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
                 sb.Append(BLL.C_Supplier.GetModel(Convert.ToInt32(ListNotice[i].SupplierName)).Name + "~");
-                sb.Append(ListNotice[i].SupplierTel + "~");
+                //sb.Append(ListNotice[i].SupplierTel + "~");
 
                 sb.Append(ListNotice[i].Spare2 + "~");
                 sb.Append(ListNotice[i].CSpare2 + "~");

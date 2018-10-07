@@ -41,11 +41,12 @@ namespace yny_003.Web.mobile.html
             //}
             var list = listchange.Select(item => new
             {
-                Name = getsupplier(item.SupplierName),
+                Name = getsupplier(item.SupplierName) + "<span style='color:" + (item.TType == 1 ? "red" : "green") + ";'>【" + item.TType.ToString().Replace("1", "装车").Replace("2", "卸车").Replace("3", "空车") + "】</span>",
                 //SupplierName = item.SupplierName,
                 SupplierTel = htmlGoodName(item.OCode),
                 CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
-                dhtml =( item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/XSTastAdd.aspx?id=" + item.ID + "','修改');\">修改</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "")+("<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
+                dhtml =( item.TState == -1 ? (item.TType==1?"<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/XSTastAdd.aspx?id=" + item.ID + "','修改');\">修改</a>": "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/XSXCTastModify.aspx?id=" + item.ID + "','修改');\">修改</a>")
+                +"<a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "")+("<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
 
             });
             return jss.Serialize(new { Items = list, TotalCount = totalCount });
@@ -73,6 +74,10 @@ namespace yny_003.Web.mobile.html
         protected override string btnAdd_Click()
         {
             Model.C_CarTast cd = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["cid"]));
+            int count= Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where TCode='"+cd.Name+"';"));
+            if (count > 0)
+                return "有卸车单数据关联，不能取消";
+
             if (cd.TState != -1)
                 return "状态已改变，请刷新重试";
             cd.TState = 2;

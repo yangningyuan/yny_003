@@ -1,23 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSTastList.aspx.cs" Inherits="yny_003.Web.mobile.html.XSTastList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSXCList2.aspx.cs" Inherits="yny_003.Web.mobile.html.XSXCList2" %>
 
 <div class="content content-padded pull-to-refresh-content" data-ptr-distance="55">
     <!-- 默认的下拉刷新层 -->
     <div class="pull-to-refresh-layer">
         <div class="preloader"></div>
         <div class="pull-to-refresh-arrow"></div>
+        
     </div>
    
       <form id="form1">
           <input type="hidden" name="txtKey" id="countdate" />
             <input name="txtKey" id="mKey" type="hidden" class="sinput" />
-
+          <input name="tcode" id="tcode" type="hidden" runat="server" class="sinput" />
             <div class="clear"></div>
+          <span id="zccode" runat="server" style="margin-bottom:5px; color:red; font-size:smaller;"></span>
             <div class="search-time">
-                <input type="text" placeholder="开始时间" id="begin_time" runat="server" class="laydate-icon" />
-                <input type="text" placeholder="结束时间" id="end_time" runat="server" class="laydate-icon" />
-                <button type="button" class="requery searchh">查询</button>
+                <%--<input type="text" placeholder="开始时间" id="begin_time" runat="server" class="laydate-icon" />
+                <input type="text" placeholder="结束时间" id="end_time" runat="server" class="laydate-icon" />--%>
+                <button type="button" class="addsearchh" onclick="pcallhtml('/mobile/html/XSXCTast.aspx?tcode=<%=code %>','添加卸车任务');" >添加卸车任务</button>
             </div>
-
 
         <div class="buttons-tab">
             <input type="hidden" value="-1" id="state" runat="server" />
@@ -29,7 +30,6 @@
     </form>
     <script type="text/x-jquery-tmpl" id="JKListTmpl">
         <tr>
-            
             <td>{{html Name}}</td>
             <td>${SupplierTel}</td>
             <td>${CreateDate}</td>
@@ -82,7 +82,7 @@
         $('#page_container').Paging({
             TemplateContainer: '#JKListTmpl',
             DataContainer: '#data_container',
-            DataUrl: '/mobile/html/XSTastList.aspx?Action=Other',
+            DataUrl: '/mobile/html/XSXCList2.aspx?Action=Other',
             QueryContainer: '#form1',
             Rendered: function () {
                 window.MobileSelectAll();

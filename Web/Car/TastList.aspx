@@ -50,8 +50,8 @@
             <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
-            <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
-                新增任务
+            <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增装车任务','url',900,470)">
+                新增装车任务
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
@@ -87,7 +87,7 @@
                     </th>
                     <th>序号
                     </th>
-                    <th>任务单号
+                    <th>装车单号
                     </th>
                     <th>任务类型
                     </th>

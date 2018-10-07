@@ -33,7 +33,6 @@
             <div class="select">
                  <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
             </div>
-               
                             <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
                                 <option value="">任务状态</option>
                                 <option value="0">未完成</option>
@@ -47,16 +46,16 @@
                                 <option value="3">空车</option>
                             </select>
                         
-            <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
+           <%-- <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
             <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
                 新增任务
-            </div>
+            </div>--%>
             <div class="search" id="DivSearch" runat="server">
                 <input type="hidden" id="tcode" value="" name="tcode" runat="server" data-name="txtKey" />
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-                <input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />
+                <%--<input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />--%>
                 <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务单号" type="text" class="sinput" />
                 <input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入单位名称" type="text" class="sinput" />
 
@@ -88,7 +87,7 @@
                     </th>
                     <th>序号
                     </th>
-                    <th>任务单号
+                    <th>卸车单号
                     </th>
                     <th>装车单号
                     </th>
@@ -98,8 +97,8 @@
                     </th>
                     <th>单位名称
                     </th>
-                    <th>联系电话
-                    </th>
+                    <%--<th>联系电话
+                    </th>--%>
                     <th>派遣车辆
                     </th>
                      <th>派遣挂车

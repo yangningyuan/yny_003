@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace yny_003.Web.mobile.html
 {
-    public partial class DDTastList : BasePage
+    public partial class XSXCList :BasePage
     {
         protected override string btnOther_Click()
         {
-            string where = " ( DDMID='" + TModel.MID + "' or  DDMID is null or DDMID='') ";
+            string where = " TType=1 and  ( XSMID='" + TModel.MID + "') ";
             string state = Request.Form["state"];
             if (!string.IsNullOrEmpty(state))
             {
@@ -25,6 +25,7 @@ namespace yny_003.Web.mobile.html
             {
                 where += " and CreateDate<'" + Request["end_time"] + " 23:59:59' ";
             }
+
             List<Model.C_CarTast> listchange = null;
 
             listchange = BLL.C_CarTast.GetList(where, CurrentPage, ItemsPerPage, out totalCount);
@@ -40,12 +41,12 @@ namespace yny_003.Web.mobile.html
             //}
             var list = listchange.Select(item => new
             {
-                Name = getsupplier(item.SupplierName) + "<span style='color:" + (item.TType == 1 ? "red" : "green") + ";'>【" + item.TType.ToString().Replace("1", "装车").Replace("2", "卸车").Replace("3", "空车") + "】</span>",
+                Name = getsupplier(item.SupplierName)+"<span style='color:"+(item.TType==1?"red":"green")+";'>【"+item.TType.ToString().Replace("1","装车").Replace("2","卸车").Replace("3","空车")+"】</span>",
                 //SupplierName = item.SupplierName,
                 SupplierTel = htmlGoodName(item.OCode),
                 CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),
-                //dhtml = (item.TState == -1 ? "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + item.ID + "','调度');\">调度</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + item.ID + "');\">取消</a>" : "") + ("<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
-                dhtml = htmldetails(item)
+                dhtml =  ("<a class=\"button button-fill btn-danger\" href=\"javascript:pcallhtml('/mobile/html/XSXCList2.aspx?code=" + item.Name + "','卸车');\">卸车</a><a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + item.ID + "','详情');\">详情</a>")
+
             });
             return jss.Serialize(new { Items = list, TotalCount = totalCount });
         }
@@ -57,7 +58,6 @@ namespace yny_003.Web.mobile.html
             else
                 return "";
         }
-
         protected static string htmlGoodName(string ordercode)
         {
             if (!string.IsNullOrEmpty(ordercode))
@@ -70,22 +70,6 @@ namespace yny_003.Web.mobile.html
             }
         }
 
-        protected static string htmldetails(Model.C_CarTast tast)
-        {
-            string xxx = "";
-            if (tast.TState == -1)
-            {
-                xxx = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + tast.ID + "','调度');\">调度</a><a class=\"button button-fill button-success\" href=\"Javascript:XSTastCel('" + tast.ID + "');\">取消</a><a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + tast.ID + "','详情');\">详情</a>";
-            }
-            else if (tast.TState == 0)
-            {
-                xxx = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/DDTast.aspx?id=" + tast.ID + "','修改');\">修改</a><a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + tast.ID + "','详情');\">详情</a>";
-            }
-            else {
-                xxx = "<a class=\"button button-fill button-success\" href=\"javascript:pcallhtml('/mobile/html/TastView.aspx?id=" + tast.ID + "','详情');\">详情</a>";
-            }
-            return xxx;
-        }
         protected override string btnAdd_Click()
         {
             Model.C_CarTast cd = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["cid"]));

@@ -7,8 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace yny_003.Web.mobile.html
 {
-    public partial class XSTastAdd : BasePage
-    { 
+    public partial class XSXCTastModify :BasePage
+    {
+
         //装车信息
         protected string tcode = "";
         protected Model.C_CarTast CTModel = new Model.C_CarTast();
@@ -16,29 +17,14 @@ namespace yny_003.Web.mobile.html
         protected Model.OrderDetail OdModel = new Model.OrderDetail();
         protected Model.Goods Good = new Model.Goods();
         protected List<CarTast> XCList = new List<CarTast>();
+
         protected override void SetPowerZone()
         {
-            //CostType.DataSource = BLL.C_CostType.GetList(" 1 = 1  order by ID");
-            //CostType.DataTextField = "Name";
-            //CostType.DataValueField = "ID";
-            //CostType.DataBind();
-
-
             txtGood.DataSource = BLL.Goods.GetList(" IsDeleted = 0 order by GID");
             txtGood.DataTextField = "GName";
             txtGood.DataValueField = "GID";
             txtGood.DataBind();
             txtGood.Items.Insert(0, "--请选择--");
-
-            //         Spare2.DataSource = BLL.C_Car.GetList(" IsDelete = 0 and CType='牵引车' order by ID");
-            //Spare2.DataTextField = "PZCode";
-            //Spare2.DataValueField = "PZCode";
-            //Spare2.DataBind();
-
-            //CSpare2.DataSource = BLL.C_Car.GetList(" IsDelete = 0 and CType='挂车' order by ID");
-            //CSpare2.DataTextField = "PZCode";
-            //CSpare2.DataValueField = "PZCode";
-            //CSpare2.DataBind();
 
             SupplierName.DataSource = BLL.C_Supplier.GetList(" IsDelete = 0 and (Spare3 is null or Spare3='')   and Type=1 order by ID");
             SupplierName.DataTextField = "Name";
@@ -68,8 +54,8 @@ namespace yny_003.Web.mobile.html
             if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
                 Model.C_CarTast ct = BLL.C_CarTast.GetModel(Convert.ToInt32(Request.QueryString["id"]));
-                Name.Value =ct.Name;
-                
+                Name.Value = ct.Name;
+
                 sid.Value = ct.SupplierName;
                 if (ct.TType == 1)
                 {
@@ -84,13 +70,15 @@ namespace yny_003.Web.mobile.html
                 }
                 SupplierAddress.Value = ct.SupplierAddress;
 
-                Model.OrderDetail od= BLL.OrderDetail.GetModelCode(ct.OCode);
+                Model.OrderDetail od = BLL.OrderDetail.GetModelCode(ct.OCode);
                 if (od != null)
                 {
                     txtGood.Value = od.GId.ToString();
                     txtGoodCount.Value = od.GCount.ToString();
                     txtGoodPrice.Value = od.BuyPrice.ToString();
                 }
+
+
 
 
                 //装车信息
@@ -128,6 +116,7 @@ namespace yny_003.Web.mobile.html
                         XCList.Add(cModel);
                     }
                 }
+
             }
             //ocode.Disabled = true;
         }

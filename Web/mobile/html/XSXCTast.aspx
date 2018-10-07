@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSTastAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.XSTastAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSXCTast.aspx.cs" Inherits="yny_003.Web.mobile.html.XSXCTast" %>
 
 <script>
     layui.use("upload", function () {
@@ -23,6 +23,7 @@
             <input type="hidden" id="fid" runat="server" />
             <input type="hidden" id="oid" runat="server" />
             <input type="hidden" id="sid" runat="server" />
+
             <div style="display: none;">
                 <td width="15%" align="right">商品订单号<input runat="server" id="Hidden1" type="hidden" />
                 </td>
@@ -31,99 +32,69 @@
                 </td>
             </div>
 
-
-            <div id="xcView" runat="server">
-                <table class=" table table-striped table-bordered " style="font-size:9px;">
-                    <thead>
-                        <tr>
-                            <th>客户</th>
-                            <th>商品名称</th>
-                            <th>卸车数量</th>
-                            <th>实际数量</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data_container">
-                        <%
-                            foreach (var item in XCList)
-                            {
-                        %>
-                        <tr>
-                            <td><%=item.Supp %></td>
-                            <td><%=item.GoodName %></td>
-                            <td><%=item.Count %></td>
-                            <td><%=item.ReCount %></td>
-                        </tr>
-                        <%
-                            }
-                        %>
-                    </tbody>
-                </table>
-            </div>
-
-            <ul id="zcView" runat="server">
+            <ul>
                 <!-- 装车信息 -->
                 <li>
-                    <div class="item-content" style="background-color: #d7cece;">
+                    <div class="item-content"  style="background-color:#d7cece;">
                         <div class="item-inner">
                             <div class="item-title label">装车订单号</div>
                             <input runat="server" id="Hidden2" type="hidden" />
                             <div class="item-input">
-                                <input type="text" id="zcCode" name="zcCode" readonly="readonly" value="<%=tcode %>">
+                                <input type="text" id="zcCode" name="zcCode" readonly="readonly" value="<%=tcode %>" >
                             </div>
                         </div>
                     </div>
                 </li>
 
-                <li>
-                    <div class="item-content" style="background-color: #d7cece;">
+                 <li>
+                    <div class="item-content"  style="background-color:#d7cece;">
                         <div class="item-inner">
                             <div class="item-title label">供货单位</div>
                             <input runat="server" id="Hidden3" type="hidden" />
                             <div class="item-input">
-                                <input type="text" id="Text2" readonly="readonly" value="<%=SuppModel.Name %>">
+                                <input type="text" id="Text2" readonly="readonly" value="<%=SuppModel.Name %>" >
                             </div>
                         </div>
                     </div>
                 </li>
-
+                
                 <li>
-                    <div class="item-content" style="background-color: #d7cece;">
+                    <div class="item-content"  style="background-color:#d7cece;">
                         <div class="item-inner">
                             <div class="item-title label">供货商品</div>
                             <input runat="server" id="Hidden4" type="hidden" />
                             <div class="item-input">
-                                <input type="text" id="Text3" readonly="readonly" value="<%=Good.GName%>">
+                                <input type="text" id="Text3" readonly="readonly" value="<%=Good.GName%>" >
                             </div>
                         </div>
                     </div>
                 </li>
 
                 <li>
-                    <div class="item-content" style="background-color: #d7cece;">
+                    <div class="item-content"  style="background-color:#d7cece;">
                         <div class="item-inner">
                             <div class="item-title label">供货数量</div>
                             <input runat="server" id="Hidden5" type="hidden" />
                             <div class="item-input">
-                                <input type="text" id="Text4" readonly="readonly" value="<%=OdModel.GCount%>">
+                                <input type="text" id="Text4" readonly="readonly" value="<%=OdModel.GCount%>" >
                             </div>
                         </div>
                     </div>
                 </li>
 
-                <li>
-                    <div class="item-content" style="background-color: #d7cece;">
+                 <li>
+                    <div class="item-content"  style="background-color:#d7cece;">
                         <div class="item-inner">
                             <div class="item-title label">实际供货数量</div>
                             <input runat="server" id="Hidden6" type="hidden" />
                             <div class="item-input">
-                                <input type="text" id="Text5" readonly="readonly" value="<%=OdModel.ReCount%>">
+                                <input type="text" id="Text5" readonly="readonly" value="<%=OdModel.ReCount%>" >
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
             <br />
-
             <ul>
                 <!-- Text inputs -->
                 <li>
@@ -143,9 +114,9 @@
                             <div class="item-title label">任务类型</div>
                             <div class="item-input">
                                 <select id="TType" runat="server">
-                                    <option value="1">装车</option>
-                                    <%--<option value="2">卸车</option>--%>
-                                    <%--<option value="3">空车</option>--%>
+                                    <%--<option value="1">装车</option>--%>
+                                    <option value="2">卸车</option>
+                                    <option value="3">空车</option>
                                 </select>
                             </div>
                         </div>
@@ -306,29 +277,8 @@
         </div>
     </div>
 </div>
-<script>
-    //laydate({
-    //    elem: '#ComDate',
-    //    event: 'focus'
-    //});
-    
-  
-</script>
 <script type="text/javascript">
-    //setTimeout(function () {
-        
-    //    if ($("#sid").val() != '') {
-    //        var info = RunAjaxGetKey('getsudetalis', $("#sid").val());
-    //        alert(info.split("^")[0]);
-    //        $("#SupplierAddress").val(info.split("^")[0]);
-    //        $("#SupplierTelName").val(info.split("^")[1]);
-    //        $("#SupplierTel").val(info.split("^")[2]);
-    //    }
-
-    //}, 300);
     $(function () {
-        
-
         if ($("#TType").val() == "1") {
             document.getElementById("jhstr").innerHTML = "装车业务派遣时间";
             document.getElementById("gysstr").style.display = "";
@@ -415,7 +365,7 @@
         if ($('#txtGood').val() == '--请选择--') {
             layer.msg('货物不能为空');
         } else {
-            ActionModel("Car/AddTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/XSTastList.aspx");
+            ActionModel("mobile/html/XSXCTast.aspx?Action=Modify", $('#form1').serialize(), "mobile/html/XSTastList.aspx");
         }
     }
     function setViewSiJi1(realobj) {
@@ -427,7 +377,6 @@
                 document.getElementById("sjview1").innerHTML = info;
             }
         });
-
     }
     function setViewSiJi2(realobj) {
         $.ajax({
@@ -438,6 +387,5 @@
                 document.getElementById("sjview2").innerHTML = info;
             }
         });
-
     }
 </script>

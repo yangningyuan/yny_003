@@ -136,9 +136,15 @@
                         </a>
                     </div>
                   <div class="col-25 row-tab">
-                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/XSTastAdd.aspx','添加任务');">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/XSTastAdd.aspx','添加装车单');">
                             <i class="iconfont">&#xe61f;</i>
-                            添加任务
+                            添加装车单
+                        </a>
+                    </div>
+                      <div class="col-25 row-tab">
+                        <a class="tab-item" href="javascript:void(0)" onclick="pcallhtml('/mobile/html/XSXCList.aspx','添加卸车单');">
+                            <i class="iconfont">&#xe61f;</i>
+                            添加卸车单
                         </a>
                     </div>
                     <%

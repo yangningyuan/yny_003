@@ -111,6 +111,8 @@ namespace yny_003.Web.Car
                     if (string.IsNullOrEmpty(Request.Form["fid"]))
                     {
 
+                       
+
                         Hashtable MyHs = new Hashtable();
 
                         if (c.TType != 3)//不是空车才能生成商品订单

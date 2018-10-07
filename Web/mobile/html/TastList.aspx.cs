@@ -35,7 +35,7 @@ namespace yny_003.Web.mobile.html
 
             var list = listchange.Select(item => new
 			{
-				Name = getsupplier(item.SupplierName),
+				Name = getsupplier(item.SupplierName) + "<span style='color:" + (item.TType == 1 ? "red" : "green") + ";'>【" + item.TType.ToString().Replace("1", "装车").Replace("2", "卸车").Replace("3", "空车") + "】</span>",
                 //SupplierName = item.SupplierName,
                 SupplierTel = htmlGoodName(item.OCode),
 				CreateDate = item.CreateDate.ToString("yyyy-MM-dd HH:mm"),

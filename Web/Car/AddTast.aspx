@@ -55,8 +55,8 @@
                         <td width="75%" style="height: 40px;">
                             <select id="TType" runat="server">
                                 <option value="1">装车</option>
-                                <option value="2">卸车</option>
-                                <option value="3">空车</option>
+                              <%--  <option value="2">卸车</option>
+                                <option value="3">空车</option>--%>
                             </select>
                         </td>
                     </tr>

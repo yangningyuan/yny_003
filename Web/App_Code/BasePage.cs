@@ -13,7 +13,15 @@ namespace yny_003.Web
     {
         public static readonly JavaScriptSerializer jss = new JavaScriptSerializer();
 
-        
+        public class CarTast
+        {
+            public string Code { get; set; }
+            public string GoodName { get; set; }
+            public string Supp { get; set; }
+            public decimal Count { get; set; }
+            public decimal ReCount { get; set; }
+            public DateTime CreateTime { get; set; }
+        }
         //protected Model.Member TModel;
         //protected BLL.Member BllModel
         //{

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSTastAdd.aspx.cs" Inherits="yny_003.Web.mobile.html.XSTastAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="XSXCTastModify.aspx.cs" Inherits="yny_003.Web.mobile.html.XSXCTastModify" %>
 
 <script>
     layui.use("upload", function () {
@@ -20,19 +20,7 @@
 <div class="content content-padded">
     <div class="list-block myinfo">
         <form id="form1">
-            <input type="hidden" id="fid" runat="server" />
-            <input type="hidden" id="oid" runat="server" />
-            <input type="hidden" id="sid" runat="server" />
-            <div style="display: none;">
-                <td width="15%" align="right">商品订单号<input runat="server" id="Hidden1" type="hidden" />
-                </td>
-                <td width="20%" style="height: 40px;">
-                    <input id="ocode" class="normal_input" runat="server" readonly="readonly" style="width: 30%;" />
-                </td>
-            </div>
-
-
-            <div id="xcView" runat="server">
+             <div id="xcView" runat="server">
                 <table class=" table table-striped table-bordered " style="font-size:9px;">
                     <thead>
                         <tr>
@@ -124,6 +112,18 @@
             </ul>
             <br />
 
+
+
+            <input type="hidden" id="fid" runat="server" />
+            <input type="hidden" id="oid" runat="server" />
+            <input type="hidden" id="sid" runat="server" />
+            <div style="display: none;">
+                <td width="15%" align="right">商品订单号<input runat="server" id="Hidden1" type="hidden" />
+                </td>
+                <td width="20%" style="height: 40px;">
+                    <input id="ocode" class="normal_input" runat="server" readonly="readonly" style="width: 30%;" />
+                </td>
+            </div>
             <ul>
                 <!-- Text inputs -->
                 <li>
@@ -144,8 +144,8 @@
                             <div class="item-input">
                                 <select id="TType" runat="server">
                                     <option value="1">装车</option>
-                                    <%--<option value="2">卸车</option>--%>
-                                    <%--<option value="3">空车</option>--%>
+                                    <option value="2">卸车</option>
+                                    <option value="3">空车</option>
                                 </select>
                             </div>
                         </div>

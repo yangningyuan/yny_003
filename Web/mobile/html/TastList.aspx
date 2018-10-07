@@ -18,7 +18,7 @@
     <script type="text/x-jquery-tmpl" id="JKListTmpl">
         <tr>
             
-            <td>${Name}</td>
+            <td>{{html Name}}</td>
             <td>${SupplierTel}</td>
             <td>${CreateDate}</td>
             <td>{{html dhtml}}</td>

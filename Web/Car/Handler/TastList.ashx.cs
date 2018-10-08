@@ -117,7 +117,7 @@ namespace yny_003.Web.Car.Handler
                 //装车
                 if (ListNotice[i].TType == 1)
                 {
-                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"callhtml('/Car/TastList2.aspx?tcode=" + ListNotice[i].Name + "','装车列表');onclickMenu()\" > 装车列表</div>");
+                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"callhtml('/Car/TastList2.aspx?tcode=" + ListNotice[i].Name + "','卸车列表');onclickMenu()\" style='background-color:cornflowerblue;'> 卸车列表</div>");
                 }
 
                 if (ListNotice[i].TState != 2 && ListNotice[i].TState != 1 && TModel.Role.IsAdmin)

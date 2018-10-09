@@ -28,7 +28,24 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and  SupplierID like '%" + context.Request["SupplierName"] + "%'";
             }
-         
+
+            if (!string.IsNullOrEmpty(context.Request["startDate"]))
+            {
+                strWhere += " and CreateDate>='" + context.Request["startDate"] + " 00:00:00' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["endDate"]))
+            {
+                strWhere += " and CreateDate<='" + context.Request["endDate"] + " 23:59:59' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["startDate2"]))
+            {
+                strWhere += " and ComDate>='" + context.Request["startDate2"] + " 00:00:00' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["endDate2"]))
+            {
+                strWhere += " and ComDate<='" + context.Request["endDate2"] + " 23:59:59' ";
+            }
+
             int count;
             List<Model.Account> ListNotice = BLL.Account.GetList(strWhere, pageIndex, pageSize, out count);
 

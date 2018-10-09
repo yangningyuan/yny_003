@@ -12,10 +12,17 @@ namespace yny_003.Web.Car
 		protected override string btnAdd_Click()
 		{
 			Model.C_CarTast cartast= BLL.C_CarTast.GetModel(Convert.ToInt32(Request.Form["tid"]));
-			if (cartast.TState != 0&& cartast.TState != -1)
+			if (cartast.TState != 0&& cartast.TState != -1 && cartast.TState != 1)
 				return "此任务状态不能取消";
-
 			cartast.TState = 2;
+
+            if (cartast.TType == 1)
+            {
+                int count = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where TCode='" + cartast.Name + "';"));
+                if (count > 0)
+                    return "有卸车关联任务，不能取消";
+            }
+
 			if (BLL.C_CarTast.Update(cartast))
 				return "取消成功";
 			else

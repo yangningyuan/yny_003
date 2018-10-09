@@ -73,7 +73,7 @@ namespace yny_003.Web.Car.Handler
             }
 
             int count;
-            List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetList(strWhere, pageIndex, pageSize, out count);
+            List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetList(strWhere, pageIndex, 15, out count);
 
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < ListNotice.Count; i++)
@@ -120,7 +120,7 @@ namespace yny_003.Web.Car.Handler
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"callhtml('/Car/TastList2.aspx?tcode=" + ListNotice[i].Name + "','卸车列表');onclickMenu()\" style='background-color:cornflowerblue;'> 卸车列表</div>");
                 }
 
-                if (ListNotice[i].TState != 2 && ListNotice[i].TState != 1 && TModel.Role.IsAdmin)
+                if (ListNotice[i].TState != 2 && TModel.Role.IsAdmin)
                 {
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"celTast('" + ListNotice[i].ID + "')\">取消任务</div>");
                     //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");

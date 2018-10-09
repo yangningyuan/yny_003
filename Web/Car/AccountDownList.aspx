@@ -53,6 +53,22 @@
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
                 <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
             </select>
+
+                <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate" placeholder="截止创建日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate\')}' })" />
+
+
+                <input type="text" name="txtKey" data-name="txtKey" id="startDate2" placeholder="开始完成日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate2\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate2" placeholder="截止完成日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
+
                 <%--<input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入客户名称" type="text" class="sinput" />--%>
 
                 <%--    <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />

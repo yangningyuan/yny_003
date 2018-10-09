@@ -222,7 +222,7 @@
             },//数据，这里使用的是Json格式进行传输 
             success: function (result) {//返回数据根据结果进行相应的处理 
                 if (result == "上传成功") {
-                    window.parent.StackPop();
+                    //window.parent.StackPop();
                     window.parent.StackPop();
                 } else {
                     layer.msg('上传有误，请联系管理员');

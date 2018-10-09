@@ -670,6 +670,23 @@ namespace yny_003.Web.Car.Handler
                 {
                     strWhere += " and  SupplierID like '%" + _context.Request["SupplierName"] + "%'";
                 }
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    strWhere += " and CreateDate>='" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    strWhere += " and CreateDate<='" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["startDate2"]))
+                {
+                    strWhere += " and ComDate>='" + _context.Request["startDate2"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate2"]))
+                {
+                    strWhere += " and ComDate<='" + _context.Request["endDate2"] + " 23:59:59' ";
+                }
+
                 int count;
                 List<Model.Account> ListNotice = BLL.Account.GetModelList(strWhere);
 
@@ -728,6 +745,23 @@ namespace yny_003.Web.Car.Handler
                 if (_context.Request["SupplierName"] != "--请选择--")
                 {
                     strWhere += " and  SupplierID like '%" + _context.Request["SupplierName"] + "%'";
+                }
+
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    strWhere += " and CreateDate>='" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    strWhere += " and CreateDate<='" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["startDate2"]))
+                {
+                    strWhere += " and ComDate>='" + _context.Request["startDate2"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate2"]))
+                {
+                    strWhere += " and ComDate<='" + _context.Request["endDate2"] + " 23:59:59' ";
                 }
 
                 int count;

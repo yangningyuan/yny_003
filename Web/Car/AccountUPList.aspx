@@ -8,8 +8,7 @@
         tState = '0';
         tUrl = "Car/Handler/AccountUPList.ashx";
         SearchByCondition();
-        function celTast(id)
-        {
+        function celTast(id) {
             ActionModel("Car/AccountUPList.aspx?Action=Add", "tid=" + id);
         }
         function execfp(id) {
@@ -25,10 +24,10 @@
     <div id="mempay">
         <div class="control">
             <div class="select">
-                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>
+                <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>
             </div>
-               
-                          <%--  <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
+
+            <%--  <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
                                 <option value="">任务状态</option>
                                 <option value="0">未完成</option>
                                 <option value="1">已完成</option>
@@ -40,8 +39,8 @@
                                 <option value="2">卸车</option>
                                 <option value="3">空车</option>
                             </select>--%>
-                        
-          <%--  <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
+
+            <%--  <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
             <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
@@ -51,13 +50,29 @@
                 修改付款单
             </div>
             <div class="search" id="DivSearch" runat="server">
-               <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
-                 <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
-            </select>
+                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                </select>
 
-            <%--    <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
+
+                <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate" placeholder="截止创建日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate\')}' })" />
+
+
+                <input type="text" name="txtKey" data-name="txtKey" id="startDate2" placeholder="开始完成日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate2\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate2" placeholder="截止完成日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
+
+                <%--    <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
                 <input id="CarSJ2" name="txtKey" data-name="txtKey" placeholder="请输入副司机" type="text" class="sinput" />
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />--%>
             </div>
@@ -69,7 +84,7 @@
                     </th>
                     <th>序号
                     </th>
-                   <%-- <th>任务名称
+                    <%-- <th>任务名称
                     </th>--%>
                     <th>任务编号
                     </th>
@@ -77,8 +92,7 @@
                     </th>
                     <th>应付总金额
                     </th>
-                      <th>
-                        商品数量
+                    <th>商品数量
                     </th>
                     <th>商品单价</th>
                     <th>已付金额
@@ -89,9 +103,9 @@
                     </th>
                     <th>任务时间
                     </th>
-                     <th>结账时间
+                    <th>结账时间
                     </th>
-                     <th>修改备注
+                    <th>修改备注
                     </th>
                     <th>操作
                     </th>
@@ -111,11 +125,9 @@
         </div>
     </div>
     <script>
-        function subjiezhang()
-        {
+        function subjiezhang() {
             //iframe层
-            if ($("#SupplierName").val() == "--请选择--")
-            {
+            if ($("#SupplierName").val() == "--请选择--") {
                 v5.error('请选择供应商', '1', 'ture');
             }
             else if (cidList.join(',') == "") {

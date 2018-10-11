@@ -45,7 +45,7 @@ namespace yny_003.Web.Car.Handler
                     TState = " and TState=1 ";
                 }
                 else {
-                    TState = " and TState in(-1,0,2) ";
+                    TState = " and TState in(-1,0) ";
                 }
             }
             int count;

@@ -18,7 +18,7 @@ namespace yny_003.Web.Car
 
             if (cartast.TType == 1)
             {
-                int count = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where TCode='" + cartast.Name + "';"));
+                int count = Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where TCode='" + cartast.Name + "' and TState!=2;"));
                 if (count > 0)
                     return "有卸车关联任务，不能取消";
             }

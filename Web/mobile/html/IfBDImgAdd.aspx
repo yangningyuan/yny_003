@@ -155,6 +155,12 @@
         //加载图片
         var img = new Image();
         img.onload = function () {
+
+            var imgwidth = img.width*0.4;
+            var imgheight = img.height*0.4;
+            c.height = imgheight;
+            c.width = imgwidth;
+
             //缩小图片
             ctx.scale(0.4, 0.4);
             ctx.drawImage(img, 0, 0, img.width, img.height);

@@ -79,7 +79,7 @@ namespace yny_003.Web.Car.Handler
             for (int i = 0; i < ListNotice.Count; i++)
             {
                 sb.Append(ListNotice[i].ID + "~");
-                sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
+                sb.Append((i + 1) + (pageIndex - 1) * 15 + "~");
                 sb.Append(ListNotice[i].Name + "~");
                 sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
                 sb.Append(ListNotice[i].Prot + "~");

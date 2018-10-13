@@ -117,7 +117,7 @@ namespace yny_003.Web.Car.Handler
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].ComDate) + "~");
                 sb.Append((Model.C_CarTast.statename(ListNotice[i].TState)) + "~");
-                if (ListNotice[i].TState != 2 && ListNotice[i].TState != 1 && TModel.Role.IsAdmin)
+                if (ListNotice[i].TState != 2 && TModel.Role.IsAdmin)
                 {
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"celTast('" + ListNotice[i].ID + "')\">取消任务</div>");
                     //sb.Append("<div class=\"pay btn btn-success\" onclick=\"callhtml('/Car/ModifyTast.aspx?id=" +ListNotice[i].ID +"','修改任务');onclickMenu()\">修改任务</div>");

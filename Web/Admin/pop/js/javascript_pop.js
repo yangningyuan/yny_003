@@ -8,7 +8,7 @@ var tState = ''; // 状态
 var tUrl = ''; //查询URL
 var tCondition = ''; //查询条件
 var pageIndex = 0; // 页面索引初始值
-var pageSize = 20; // 每页显示条数初始化，修改显示条数，修改这里即可
+var pageSize = 15; // 每页显示条数初始化，修改显示条数，修改这里即可
 var count = 0;
 var cur_pageIndex = 0; //当前页
 

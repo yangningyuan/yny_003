@@ -21,7 +21,7 @@
     <script src="/Admin/js/jquery-scroll.js"></script>
     <!--pop-->
     <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
-   
+
 </head>
 <body>
     <div id="container">
@@ -33,8 +33,8 @@
                 <%--<img src="/Admin/images/logo.png" alt="" style="">--%></a>
             <div class="top-nav">
                 <ul class="nav pull-right top-menu">
-                 
-                  
+
+
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-user"></i><span class="username"><%=TModel.MID %></span> <b class="caret"></b></a>
                         <ul class="dropdown-menu extended logout">
@@ -45,7 +45,7 @@
                             <li>
                                 <a href="javascript:void(0)" onclick="callhtml('/SecurityCenter/ModifyPwd.aspx','登录密码修改');onclickMenu()"><i class="icon-cog"></i>修改密码</a>
                             </li>--%>
-                         <%--   <li>
+                            <%--   <li>
                                 <a href="javascript:void(0)" onclick="callhtml('/Member/Structure.aspx','团队图谱');onclickMenu()"><i class="icon-bell-alt"></i>团队管理</a>
                             </li>--%>
                             <li>
@@ -90,11 +90,11 @@
                         <div class="row-fluid">
 
                             <div class="col-md-2">
-                                <a class="info-box blue-bg" >
+                                <a class="info-box blue-bg">
                                     <div class="leftb"><i class="fa fa-shopping-cart"></i></div>
                                     <div class="rightb">
-                                         <div class="count">空车数量</div>
-                                    <div class="title">100</div>
+                                        <div class="count">空车数量</div>
+                                        <div class="title"><%=空车数量 %></div>
                                     </div>
                                 </a>
                             </div>
@@ -102,28 +102,28 @@
                                 <a class="info-box green-bg">
                                     <div class="leftb"><i class="fa fa-user"></i></div>
                                     <div class="rightb">
-                                         <div class="count">非空车数量</div>
-                                    <div class="title">100</div>
+                                        <div class="count">非空车数量</div>
+                                        <div class="title"><%=非空车数量 %></div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                       <%-- <div class="col-md-2">
                             <a class="info-box jj">
                                 <div class="leftb"><i class="icon icon-lightbulb"></i></div>
                                 <div class="rightb">
-                                     <div class="count">本月违章</div>
+                                    <div class="count">本月违章</div>
                                     <div class="title">100起</div>
                                 </div>
                             </a>
-                        </div>
-                      
-                         <div class="col-md-2">
-                            <a class="info-box magenta-bg">
+                        </div>--%>
+
+                        <div class="col-md-2">
+                            <a class="info-box magenta-bg" onclick="callhtml('/Car/CarYJ.aspx','车辆预警');onclickMenu()">
                                 <div class="leftb"><i class="fa fa-refresh"></i></div>
                                 <div class="rightb">
-                                    <div class="count">本月总里程</div>
-                                    <div class="title">100KM</div>
+                                    <div class="count">车辆预警</div>
+                                    <div class="title"></div>
                                 </div>
                             </a>
                         </div>
@@ -132,20 +132,20 @@
                                 <div class="leftb"><i class="fa fa-refresh"></i></div>
                                 <div class="rightb">
                                     <div class="count">本月费用</div>
-                                    <div class="title">145400</div>
+                                    <div class="title"><%=本月费用 %></div>
                                 </div>
                             </a>
                         </div>
 
-                    <%--    <div class="col-md-2">
+                            <div class="col-md-2">
                             <a class="info-box jh">
                                 <div class="leftb"><i class="icon icon-lightbulb"></i></div>
                                 <div class="rightb">
                                     <div class="count">本月总里程</div>
-                                    <div class="title">600000KM</div>
+                                    <div class="title"><%=车辆里程 %>KM</div>
                                 </div>
                             </a>
-                        </div>--%>
+                        </div>
                     </div>
                 </div>
                 <div class="box1 col-md-8">
@@ -158,7 +158,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <div id="container1" style="height: 353px;" ></div>
+                                    <div id="container1" style="height: 353px;"></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -195,8 +195,8 @@
                                 <td>账号状态：<%=TModel.MState?"正常":"未激活" %></td>
 
                             </tr>
-                         
-                        
+
+
                         </tbody>
                     </table>
                 </div>
@@ -212,7 +212,7 @@
                                 <td>
                                     <ul class="recent-posts">
                                         <li>
-                                      <%--      <p style="color:white;"><%=notice!=null?notice.NContent:"" %></p>--%>
+                                            <%--      <p style="color:white;"><%=notice!=null?notice.NContent:"" %></p>--%>
                                         </li>
                                     </ul>
                                 </td>
@@ -228,7 +228,7 @@
     <script src="/Admin/js/jquery.nicescroll.js"></script>
     <script src="/Admin/js/common-scripts.js"></script>
 
-      <script src="/Admin/js/EPjs.js" type="text/javascript"></script>
+    <script src="/Admin/js/EPjs.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/pop.css" />
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/V5-UI.css" />
     <link rel="stylesheet" type="text/css" href="Admin/pop/css/next_page_search.css" />
@@ -240,7 +240,7 @@
     <script type="text/javascript" src="Admin/pop/js/linkage.js"></script>
 
     <link href="/plugin/layui/css/layui.css" rel="stylesheet" />
-        <script src="/plugin/layui/layui.js"></script>
+    <script src="/plugin/layui/layui.js"></script>
 
     <script type="text/javascript" src="Shop/js/shopJs.js"></script>
     <%--<script type="text/javascript" src="Module/Investment/js/invest.js"></script>--%>
@@ -253,7 +253,7 @@
     <script type="text/javascript" src="plugin/ZeroClipboard/ZeroClipboard.js"></script>
     <script type="text/javascript" src="plugin/kindeditor/kindeditor-min.js"></script>
     <script src="/Admin/pop/js/jquery.qrcode.min.js"></script>
-   
+
     <script type="text/javascript">
         KindEditor.ready(function (K) {
             window.KKKK = K;
@@ -295,7 +295,7 @@
                     text: '销售数量'
                 }
             },
-            
+
             plotOptions: {
                 series: {
                     label: {

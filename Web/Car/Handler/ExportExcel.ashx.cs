@@ -497,7 +497,7 @@ namespace yny_003.Web.Car.Handler
                 }
                 if (!string.IsNullOrEmpty(_context.Request["CSpare2"]))
                 {
-                    strWhere += " and CSpare2 like '%" + _context.Request["CSpare2"] + "%' ";
+                    strWhere += " and OCode in(select OrderCode from OrderDetail where GId in(select GID from Goods where GName='" + _context.Request["CSpare2"] + "')) ";
                 }
 
                 int count;

@@ -62,7 +62,7 @@
                 <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
                 <input id="CarSJ2" name="txtKey" data-name="txtKey" placeholder="请输入押运员" type="text" class="sinput" />
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />
-                <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入挂车牌号" type="text" class="sinput" />
+                <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
 
                  <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
                      class="daycash_input" style="width: 120px;"
@@ -133,5 +133,17 @@
             </div>
         </div>
     </div>
+       <script>
+           function subxiechedan(tid) {
+            layer.open({
+                type: 2,
+                title: '卸车单',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['80%', '80%'],
+                content: '/car/xiechedan.aspx?tid=' + tid
+            });
+        }
+    </script>
 </body>
 </html>

@@ -69,7 +69,7 @@ namespace yny_003.Web.Car.Handler
             }
             if (!string.IsNullOrEmpty(context.Request["CSpare2"]))
             {
-                strWhere += " and CSpare2 like '%" + context.Request["CSpare2"] + "%' ";
+                strWhere += " and OCode in(select OrderCode from OrderDetail where GId in(select GID from Goods where GName='"+ context.Request["CSpare2"] + "')) ";
             }
 
             int count;
@@ -117,7 +117,7 @@ namespace yny_003.Web.Car.Handler
                 //装车
                 if (ListNotice[i].TType == 1)
                 {
-                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"callhtml('/Car/TastList2.aspx?tcode=" + ListNotice[i].Name + "','卸车列表');onclickMenu()\" style='background-color:cornflowerblue;'> 卸车列表</div>");
+                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"subxiechedan('"+ ListNotice[i].Name+"')\" style ='background-color:cornflowerblue;'> 卸车列表</div>");
                 }
 
                 if (ListNotice[i].TState != 2 && TModel.Role.IsAdmin)

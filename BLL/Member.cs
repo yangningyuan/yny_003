@@ -514,6 +514,93 @@ namespace yny_003.BLL
             return DAL.ChangeMoney.GetAllTx(TModel.MID);
         }
 
+
+        public  string typename(int count)
+        {
+            switch (count)
+            {
+                case 1:
+                    return "装车";
+                case 2:
+                    return "卸车";
+                case 3:
+                    return "空车";
+            }
+            return "";
+        }
+
+        /// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public  string GetModelsub(string ID)
+        {
+
+            return DAL.C_Supplier.GetModel(Convert.ToInt32( ID)).Name;
+        }
+
+        public string getgoods(string ocode)
+        {
+            Model.Goods goods = new Model.Goods();
+            if (!string.IsNullOrEmpty(ocode)) //装车  卸车
+            {
+                List<Model.OrderDetail> odlist = BLL.OrderDetail.GetList(" ordercode='" + ocode + "'; ");
+                foreach (Model.OrderDetail item in odlist)
+                {
+                    goods = BLL.Goods.GetModel(item.GId);
+                    return goods.GName;
+                }
+                
+            }
+            return "";
+        }
+
+        public string getgoodsgcount(string ocode)
+        {
+            Model.Goods goods = new Model.Goods();
+            if (!string.IsNullOrEmpty(ocode)) //装车  卸车
+            {
+                List<Model.OrderDetail> odlist = BLL.OrderDetail.GetList(" ordercode='" + ocode + "'; ");
+                foreach (Model.OrderDetail item in odlist)
+                {
+                    goods = BLL.Goods.GetModel(item.GId);
+                   return item.GCount.ToString();
+                }
+            }
+            return "";
+        }
+        public string getgoodsrecount(string ocode)
+        {
+            Model.Goods goods = new Model.Goods();
+            if (!string.IsNullOrEmpty(ocode)) //装车  卸车
+            {
+                List<Model.OrderDetail> odlist = BLL.OrderDetail.GetList(" ordercode='" + ocode + "'; ");
+                foreach (Model.OrderDetail item in odlist)
+                {
+                    goods = BLL.Goods.GetModel(item.GId);
+                   return item.ReCount.ToString();
+                }
+            }
+            return "";
+        }
+
+        public  string statename(int state)
+        {
+            switch (state)
+            {
+                case 1:
+                    return "已完成";
+                case 2:
+                    return "取消任务";
+                case -1:
+                    return "待调度";
+                case 0:
+                    return "未完成";
+                case -2:
+                    return "待纠正";
+            }
+            return "";
+        }
+
         /// <summary>
         /// 得到员工对象
         /// </summary>

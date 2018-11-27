@@ -273,6 +273,7 @@
     <Content Include="Car\TastList2.aspx" />
     <Content Include="Car\upjiezhang.aspx" />
     <Content Include="Car\upjiezhang2.aspx" />
+    <Content Include="Car\xiechedan.aspx" />
     <Content Include="login\css\bootstrap.css" />
     <Content Include="login\css\login.css" />
     <Content Include="login\css\style1.css" />
@@ -1714,6 +1715,13 @@
     </Compile>
     <Compile Include="Car\upjiezhang2.aspx.designer.cs">
       <DependentUpon>upjiezhang2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Car\xiechedan.aspx.cs">
+      <DependentUpon>xiechedan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Car\xiechedan.aspx.designer.cs">
+      <DependentUpon>xiechedan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Handler\TJTree.ashx.cs">
       <DependentUpon>TJTree.ashx</DependentUpon>

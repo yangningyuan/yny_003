@@ -95,9 +95,125 @@ namespace yny_003.Web.Car.Handler
                     return 车辆信息统计报表Excel();
                 case "司机信息统计报表Excel":
                     return 司机信息统计报表Excel();
-
+                case "运输车辆交车记录统计报表Excel":
+                    return 运输车辆交车记录统计报表Excel();
+                case "商品统计报表Excel":
+                    return 商品统计报表Excel();
             }
             return "非法操作";
+        }
+
+        private string 商品统计报表Excel()
+        {
+            try
+            {
+                string strWhere = "'1'='1'  AND isdeleted=0 ";
+
+                string SQL2 = " ";
+
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    SQL2 += " and  CreateDate>'" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    SQL2 += " and CreateDate<'" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+
+                string TState = "";
+                if (!string.IsNullOrEmpty(_context.Request["TType"]))
+                {
+                    if (_context.Request["TType"] == "1")
+                    {
+                        TState = " and TState=1 ";
+                    }
+                    else {
+                        TState = " and TState in(-1,0) ";
+                    }
+                }
+
+                int count;
+                List<Model.Goods> ListMember = BLL.Goods.GetList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "商品名称" },
+                    { "a1", "装车数量" },
+                    { "a2", "卸车数量" },
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListMember.ForEach(emp => txobjlist.Add(new
+                {
+                    a0 = (emp.GName),
+                    a1 = (GetGoodsCountByOCode(SQL2, 1, emp.GID, TState)),
+                    a2 = (GetGoodsCountByOCode(SQL2, 2, emp.GID, TState))
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "商品统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
+        }
+
+        protected static decimal GetGoodsCountByOCode(string SQL, int Type, int gid, string SQL2)
+        {
+            decimal count = 0;
+            count = Convert.ToDecimal(BLL.CommonBase.GetSingle(" SELECT  ISNULL( SUM(RECOUNT),0) FROM OrderDetail WHERE gid=" + gid + " and OrderCode IN( SELECT OCODE FROM C_CarTast WHERE 1=1  " + SQL + " and TType=" + Type + " " + SQL2 + " )"));
+            return count;
+        }
+        private string 运输车辆交车记录统计报表Excel()
+        {
+            try
+            {
+                string strWhere = " '1'='1' and Type=1 ";
+
+                if (!string.IsNullOrEmpty(_context.Request["nTitle"]))
+                {
+                    strWhere += " and CarCode like '%" + HttpUtility.UrlDecode(_context.Request["nTitle"]) + "%' ";
+                }
+                int count;
+                List<Model.C_Mileage> ListNotice = BLL.C_Mileage.GetModelList(strWhere);
+                Dictionary<string, string> cellheader = new Dictionary<string, string> {
+                    { "a0", "牌照" },
+                    { "a1", "主司机" },
+                    { "a2", "押运员" },
+                    { "a3", "开始里程" },
+                    { "a4", "交车里程" },
+                    { "a5", "行驶里程" },
+                    { "a6", "交车日期" },
+                };
+
+                List<object> txobjlist = new List<object>();
+                ListNotice.ForEach(emp => txobjlist.Add(new
+                {
+                    a0 = (emp.CarCode),
+                    a1 = (emp.SIJI1),
+                    a2 = ((emp.SIJI2)),
+                    a3 = (emp.Mileage - emp.DiffCount),
+                    a4 = emp.Mileage,
+                    a5 = emp.DiffCount,
+                    a6 = emp.CreateDate
+                }
+                ));
+
+                // 3.进行Excel转换操作，并返回转换的文件下载链接
+                string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "运输车辆交车记录统计报表");
+
+                System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+                _context.Response.ContentType = "text/plain";
+                return js.Serialize(urlPath); // 返回Json格式的内容
+            }
+            catch (Exception)
+            {
+                return "导出失败";
+            }
         }
 
         private string 车辆信息统计报表Excel()
@@ -506,16 +622,16 @@ namespace yny_003.Web.Car.Handler
                 Dictionary<string, string> cellheader = new Dictionary<string, string> {
                     { "a0", "任务单号" },
                     { "a1", "类型" },
-                    { "a2", "比重" },
+                    //{ "a2", "比重" },
                     { "a3", "单位名称" },
-                    { "a4", "联系电话" },
+                    //{ "a4", "联系电话" },
                     { "a5", "派遣车辆" },
                     { "a6", "派遣挂车" },
-                    { "a7", "主司机" },
+                    //{ "a7", "主司机" },
                     { "a16", "主司机姓名" },
-                    { "a8", "押运员" },
+                    //{ "a8", "押运员" },
                     { "a17", "押运员姓名" },
-                    { "a9", "商品订单" },
+                    //{ "a9", "商品订单" },
                     { "a10", "商品名称" },
                     { "a12", "订单数量" },
                     { "a11", "实际数量" },
@@ -529,16 +645,16 @@ namespace yny_003.Web.Car.Handler
                 {
                     a0 = (emp.Name),
                     a1 = (Model.C_CarTast.typename(emp.TType)),
-                    a2 = (emp.Prot),
+                    //a2 = (emp.Prot),
                     a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
-                    a4 = emp.SupplierTel,
+                    //a4 = emp.SupplierTel,
                     a5 = (emp.Spare2),
                     a6 = (emp.CSpare2),
-                    a7 = (emp.CarSJ1),
+                    //a7 = (emp.CarSJ1),
                     a16 = (string.IsNullOrEmpty(emp.CarSJ1)?"": BLL.Member.GetModelByMID(emp.CarSJ1).MName),
-                    a8 = (emp.CarSJ2),
+                    //a8 = (emp.CarSJ2),
                     a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
-                    a9 = (emp.OCode),
+                    //a9 = (emp.OCode),
                     a10 = (GoodName(emp.OCode)),
                     a12 = (GoodOrder(emp.OCode).GCount),
                     a11 = (GoodOrder(emp.OCode).ReCount),

@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DBUtility;//Please add references
+using System.Collections.Generic;
+
 namespace yny_003.DAL
 {
 	/// <summary>
@@ -294,7 +296,25 @@ namespace yny_003.DAL
 			}
 			return model;
 		}
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public static DataTable GetTable(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            return DAL.CommonBase.GetTable("C_Mileage", "ID", "ID asc", strWhere, pageIndex, pageSize, out count);
+        }
+        public static List<Model.C_Mileage> GetList(string strWhere, int pageIndex, int pageSize, out int count)
+        {
+            List<Model.C_Mileage> list = new List<Model.C_Mileage>();
 
+            DataTable table = GetTable(strWhere, pageIndex, pageSize, out count);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                list.Add(DataRowToModel(table.Rows[i]));
+            }
+
+            return list;
+        }
         /// <summary>
         /// 获得数据列表
         /// </summary>

@@ -350,7 +350,7 @@
                     }
                 },
                 title: {
-                    text: '本月商品各项进货'
+                    text: '商品各项进货'
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -370,16 +370,7 @@
                     type: 'pie',
                     name: '进货占比',
                     data: [
-                        ['食品', 45.0],
-                        ['包装', 26.8],
-                        {
-                            name: '水产',
-                            y: 12.8,
-                            sliced: true,
-                            selected: true
-                        },
-                        ['家具', 8.5],
-                        ['电子产品', 6.9]
+                        <%=goodspic%>
                     ]
                 }]
             });

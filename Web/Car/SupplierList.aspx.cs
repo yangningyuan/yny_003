@@ -9,6 +9,10 @@ namespace yny_003.Web.Car
 {
 	public partial class SupplierList :BasePage
 	{
-		
-	}
+
+        //protected override string btnModify_Click()
+        //{
+        //    string xx= Request.Form["txtKey"];    
+        //}
+    }
 }

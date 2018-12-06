@@ -43,6 +43,14 @@
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入结账编号" type="text" class="sinput" />
                 <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
                 </select>
+
+                  <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />
+                <input type="text" name="txtKey" data-name="txtKey" id="endDate" placeholder="截止日期"
+                    class="daycash_input" style="width: 120px;"
+                    onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate\')}' })" />
+
                 <%--<input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入客户名称" type="text" class="sinput" />--%>
 
                 <%--    <input id="CarSJ1" name="txtKey" data-name="txtKey" placeholder="请输入主司机" type="text" class="sinput" />
@@ -72,6 +80,8 @@
                     <th>余额付款金额
                     </th>
                     <th>经办人
+                    </th>
+                    <th>备注
                     </th>
                     <th>结账时间
                     </th>

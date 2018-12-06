@@ -70,7 +70,17 @@
                                 </select>
                             </td>
                         </tr>
-
+                         <tr>
+                            <td width="24%" align="right">备注
+                            </td>
+                            <td width="24%" style="height: 40px;">
+                                <input id="txtRemark" class="normal_input" runat="server" style="width: 50%;" />
+                            </td>
+                             <td width="24%" align="right">
+                            </td>
+                            <td width="24%" style="height: 40px;">
+                            </td>
+                        </tr>
                           <br />
                         <br />
                         <br />

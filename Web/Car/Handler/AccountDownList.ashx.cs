@@ -29,7 +29,10 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and  SupplierID =" + context.Request["SupplierName"] + " ";
             }
-
+            if (!string.IsNullOrEmpty(context.Request["CSpare2"]))
+            {
+                strWhere += "AND CName in(select Name from C_CarTast  where OCode in(select OrderCode from OrderDetail where GId in(select GID from Goods where GName='" + context.Request["CSpare2"] + "'))) ";
+            }
             if (!string.IsNullOrEmpty(context.Request["startDate"]))
             {
                 strWhere += " and CreateDate>='" + context.Request["startDate"] + " 00:00:00' ";
@@ -71,7 +74,26 @@ namespace yny_003.Web.Car.Handler
                 //    shuliang = od.ReCount.ToString();
                 //    jiage = od.BuyPrice.ToString();
                 //}
-
+                Model.C_CarTast tast = BLL.C_CarTast.GetModelname(ListNotice[i].CName);
+                string GName = "";
+                string goodsrecount = "";
+                string goodsprice = "";
+                string goodscount = "";
+                Model.Goods g = null;
+                if (!string.IsNullOrWhiteSpace(tast.OCode))
+                {
+                    Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                    if (od != null)
+                    {
+                        goodsrecount = od.ReCount.ToString();
+                        goodscount = od.GCount.ToString();
+                        goodsprice = od.BuyPrice.ToString();
+                    }
+                     g= BLL.Goods.GetModel(od.GId);
+                    if (g != null)
+                        GName = g.GName;
+                }
+                sb.Append(GName + "~");
                 sb.Append(ListNotice[i].OrderCount + "~");
                 sb.Append(ListNotice[i].OrderPrice + "~");
 
@@ -90,10 +112,37 @@ namespace yny_003.Web.Car.Handler
                 if (string.IsNullOrEmpty(ListNotice[i].Spare))
                 {
                     sb.Append("<div class=\"pay btn btn-success\" onclick=\"execfp('" + ListNotice[i].ID + "')\">开发票</div>");
-                    
+                }
+                else {
+                    sb.Append("<div class=\"pay btn btn-danger\" onclick=\"celfp('" + ListNotice[i].ID + "')\">取消发票</div>");
                 }
                 sb.Append("≌");
-              
+                sb.Append("≠");
+                ////数量
+                sb.Append("10");
+                sb.Append("≠");
+                //内容(买家信息
+
+                Model.Member mc1 = BLL.Member.GetModelByMID(tast.CarSJ1);
+                Model.Member mc2 = BLL.Member.GetModelByMID(tast.CarSJ2);
+
+               
+                sb.Append("供应商地址:" + tast.SupplierAddress);
+                sb.Append("<br/>主司机:" + (mc1 != null ? mc1.MName : ""));
+                sb.Append("<br/>押运员:" + (mc2 != null ? mc2.MName : ""));
+
+                if (!string.IsNullOrEmpty(tast.OCode)) //装车  卸车
+                {
+                    sb.Append("<br/>商品订单:" + tast.OCode);
+                    if (g != null)
+                    {
+                        sb.Append("<br/>实际数量:" + goodsrecount + g.Unit);
+                        sb.Append("<br/>价格:" + goodsprice);
+                        sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", g.GName, goodscount, g.Unit));
+                    }
+                }
+                sb.Append("<br/>磅单图片:<a href='" + tast.BDImg + "' target='blank'><img src='" + tast.BDImg + "' width='5%' /></a>");
+                sb.Append("≌");
 
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

@@ -33,15 +33,34 @@ namespace yny_003.Web.Car.Handler
             int count;
             List<Model.C_Supplier> ListNotice = BLL.C_Supplier.GetList(strWhere, pageIndex, pageSize, out count);
 
+            decimal 期初额度= Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(OverMoney),0) from C_Supplier where "+strWhere+" "));
+            decimal 欠款额度 = Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(QCMoney),0) from C_Supplier where " + strWhere + " "));
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < ListNotice.Count; i++)
             {
 
-                if (pageIndex ==1&&i==0)
+                if (i==0)
                 {
                     sb.Append("~");
                     sb.Append("~");
                     sb.Append("<strong style='color:red;'>总计<strong>~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>" + 欠款额度 + "</strong>~");
+                    sb.Append("<strong style='color:red;'>" + 期初额度 + "</strong>~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("≌");
+                    sb.Append("≠");
+                    ////数量
+                    sb.Append("9");
+                    sb.Append("≠");
+                    sb.Append("≌");
+
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>本页合计<strong>~");
                     sb.Append("~");
                     //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
                     sb.Append("~");
@@ -50,6 +69,12 @@ namespace yny_003.Web.Car.Handler
                     sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.OverMoney) + "</strong>~");
                     sb.Append("~");
                     sb.Append("~");
+                    sb.Append("≌");
+
+                    sb.Append("≠");
+                    ////数量
+                    sb.Append("9");
+                    sb.Append("≠");
                     sb.Append("≌");
                 }
 
@@ -61,7 +86,7 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(ListNotice[i].Tel + "~");
                 sb.Append(ListNotice[i].Address + "~");
                 sb.Append((ListNotice[i].OverMoney > ListNotice[i].QCMoney? "<strong style='color:red;'>" + ListNotice[i].QCMoney + "</strong>" :ListNotice[i].QCMoney.ToString()) + "~");
-                sb.Append((ListNotice[i].OverMoney > ListNotice[i].QCMoney ? "<strong style='color:red;'>" + ListNotice[i].OverMoney + "</strong>" : ListNotice[i].QCMoney.ToString()) + "~");
+                sb.Append((ListNotice[i].OverMoney > ListNotice[i].QCMoney ? "<strong style='color:red;'>" + ListNotice[i].OverMoney + "</strong>" : ListNotice[i].OverMoney.ToString()) + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append(((ListNotice[i].Spare3 == "-1" ? "是" : "否")) + "~");
                 //sb.Append("<div class=\"pay btn btn-success\" onclick=\"ShowAccount('"+ListNotice[i].ID+"')\">查看账户</div>");

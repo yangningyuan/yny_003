@@ -786,6 +786,12 @@ namespace yny_003.Web.Car.Handler
                 {
                     strWhere += " and  SupplierID like '%" + _context.Request["SupplierName"] + "%'";
                 }
+
+                if (!string.IsNullOrEmpty(_context.Request["CSpare2"]))
+                {
+                    strWhere += "AND CName in(select Name from C_CarTast  where OCode in(select OrderCode from OrderDetail where GId in(select GID from Goods where GName='" + _context.Request["CSpare2"] + "'))) ";
+                }
+
                 if (!string.IsNullOrEmpty(_context.Request["startDate"]))
                 {
                     strWhere += " and CreateDate>='" + _context.Request["startDate"] + " 00:00:00' ";
@@ -809,6 +815,7 @@ namespace yny_003.Web.Car.Handler
                 Dictionary<string, string> cellheader = new Dictionary<string, string> {
                    { "a1", "结账编号" },
                     { "a2", "供应商名称" },
+                      { "a9", "商品名称" },
                     { "a3", "应付总金额" },
                     { "a4", "已付金额" },
                     { "a5", "状态" },
@@ -822,6 +829,7 @@ namespace yny_003.Web.Car.Handler
                 {
                     a1 = (emp.CName),
                     a2 = (emp.SupplierName),
+                    a9 = goodsName(emp.CName),
                     a3 = emp.TotalMoney,
                     a4 = emp.ReMoney,
                     a5 = (emp.AStutas == 0 ? "未结账" : "已结账"),
@@ -862,6 +870,10 @@ namespace yny_003.Web.Car.Handler
                 {
                     strWhere += " and  SupplierID like '%" + _context.Request["SupplierName"] + "%'";
                 }
+                if (!string.IsNullOrEmpty(_context.Request["CSpare2"]))
+                {
+                    strWhere += "AND CName in(select Name from C_CarTast  where OCode in(select OrderCode from OrderDetail where GId in(select GID from Goods where GName='" + _context.Request["CSpare2"] + "'))) ";
+                }
 
                 if (!string.IsNullOrEmpty(_context.Request["startDate"]))
                 {
@@ -886,6 +898,7 @@ namespace yny_003.Web.Car.Handler
                 Dictionary<string, string> cellheader = new Dictionary<string, string> {
                     { "a1", "结账编号" },
                     { "a2", "客户名称" },
+                    { "a9", "商品名称" },
                     { "a3", "应收总金额" },
                     { "a4", "已收金额" },
                     { "a5", "状态" },
@@ -899,6 +912,7 @@ namespace yny_003.Web.Car.Handler
                 {
                     a1 = (emp.CName),
                     a2 = (emp.SupplierName),
+                    a9= goodsName(emp.CName),
                     a3 = emp.TotalMoney,
                     a4 = emp.ReMoney,
                     a5 = (emp.AStutas == 0 ? "未结账" : "已结账"),
@@ -922,16 +936,40 @@ namespace yny_003.Web.Car.Handler
             }
         }
 
+        public string goodsName(string CName)
+        {
+            Model.C_CarTast tast = BLL.C_CarTast.GetModelname(CName);
+            string GName = "";
+            if (!string.IsNullOrWhiteSpace(tast.OCode))
+            {
+                Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                Model.Goods g = BLL.Goods.GetModel(od.GId);
+                if (g != null)
+                    GName = g.GName;
+            }
+            return GName;
+        }
+
         private string SuppLExcel()
         {
             try
             {
-                string strWhere = " ";
+                string strWhere = " 1=1 ";
 
                 if (!string.IsNullOrEmpty(_context.Request["CName"]))
                 {
                     strWhere += " and ACode like '%" + HttpUtility.UrlDecode(_context.Request["CName"]) + "%'";
                 }
+
+                if (!string.IsNullOrEmpty(_context.Request["startDate"]))
+                {
+                    strWhere += " and CreateDate>='" + _context.Request["startDate"] + " 00:00:00' ";
+                }
+                if (!string.IsNullOrEmpty(_context.Request["endDate"]))
+                {
+                    strWhere += " and CreateDate<='" + _context.Request["endDate"] + " 23:59:59' ";
+                }
+
                 //if (context.Request["SupplierName"] != "--请选择--")
                 //{
                 //    strWhere += " and  SupplierID like '%" + context.Request["SupplierName"] + "%'";
@@ -950,6 +988,7 @@ namespace yny_003.Web.Car.Handler
                     { "a5", "付款总金额" },
                     { "a6", "余额付款金额" },
                     { "a7", "经办人" },
+                    { "a9", "备注" },
                     { "a8", "结账时间" },
                 };
 
@@ -963,6 +1002,7 @@ namespace yny_003.Web.Car.Handler
                     a5= emp.PayMoney,
                     a6 = emp.Balance,
                     a7 = emp.UserName,
+                    a9 = emp.Spare2,
                     a8 = emp.CreateDate,
                 }
                 ));

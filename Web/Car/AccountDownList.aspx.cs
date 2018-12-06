@@ -28,5 +28,17 @@ namespace yny_003.Web.Car
             else
                 return "开票失败";
         }
+
+        protected override string btnAdd_Click()
+        {
+            Model.Account cd = BLL.Account.GetModel(Convert.ToInt32(Request.Form["cid"]));
+            if (string.IsNullOrEmpty(cd.Spare))
+                return "此单未开发票，请勿重复操作";
+            cd.Spare = "";
+            if (BLL.Account.Update(cd))
+                return "取消成功";
+            else
+                return "取消失败";
+        }
     }
 }

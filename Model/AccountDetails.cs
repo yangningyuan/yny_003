@@ -35,10 +35,11 @@ namespace yny_003.Model
 		private DateTime _createdate= DateTime.Now;
 		private string _spare;
 		private string _spare1;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int ID
+        public string Remark { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ID
 		{
 			set{ _id=value;}
 			get{return _id;}

@@ -129,7 +129,7 @@ namespace yny_003.Model
             get { return _spare; }
         }
         /// <summary>
-        ///  
+        ///  备注
         /// </summary>
         public string Spare2
         {

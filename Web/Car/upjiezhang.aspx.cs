@@ -74,6 +74,7 @@ namespace yny_003.Web.Car
                 c.CName = ac.CName;
                 c.TotalMoney = ac.TotalMoney;
                 c.ReMoney = ac.ReMoney;
+                c.Remark = Request.Form["Remark"];
                 c.PayMoney = ac.TotalMoney;
 
                 c.Spare1 = Request.Form["hacode"];
@@ -130,6 +131,7 @@ namespace yny_003.Web.Car
             account.SuppName = supplier.Name;
             account.SuppType = supplier.Type;
             account.Balance = blanmoney;
+            account.Spare2 = Request.Form["Remark"];
             account.JZType = Convert.ToInt32(Request.Form["JZType"]);
             account.UserName = Request.Form["UserName"];
             BLL.SubAccount.Add(account, MyHs);

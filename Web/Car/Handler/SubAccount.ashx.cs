@@ -16,11 +16,20 @@ namespace yny_003.Web.Car.Handler
         public override void ProcessRequest(HttpContext context)
         {
             base.ProcessRequest(context);
-            string strWhere = " ";
+            string strWhere = " 1=1 ";
 
             if (!string.IsNullOrEmpty(context.Request["CName"]))
             {
                 strWhere += " and ACode like '%" + HttpUtility.UrlDecode(context.Request["CName"]) + "%'";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["startDate"]))
+            {
+                strWhere += " and CreateDate>='" + context.Request["startDate"] + " 00:00:00' ";
+            }
+            if (!string.IsNullOrEmpty(context.Request["endDate"]))
+            {
+                strWhere += " and CreateDate<='" + context.Request["endDate"] + " 23:59:59' ";
             }
             //if (context.Request["SupplierName"] != "--请选择--")
             //{
@@ -45,7 +54,7 @@ namespace yny_003.Web.Car.Handler
                 sb.Append((ListNotice[i].PayMoney) + "~");
                 sb.Append((ListNotice[i].Balance) + "~");
                 sb.Append((ListNotice[i].UserName) + "~");
-
+                sb.Append((ListNotice[i].Spare2) + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
 
 

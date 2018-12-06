@@ -13,6 +13,11 @@
         } function execfp(id) {
             ActionModel("Car/AccountUPList.aspx?Action=Other", "cid=" + id);
         }
+        function celfp(id) {
+            ActionModel("Car/AccountDownList.aspx?Action=Add", "cid=" + id);
+        }
+
+
         // 导出Excel
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "AccountDownList");
@@ -20,7 +25,8 @@
     </script>
 </head>
 <body>
-   
+   <div id="distr">
+    </div>
     <div id="mempay">
         <div class="control">
             <div class="select">
@@ -45,12 +51,10 @@
                 修改收款单
             </div>
             <div class="search" id="DivSearch" runat="server">
-              
-
-
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
+                 <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
                 <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
             </select>
 
@@ -90,6 +94,8 @@
                     <th>客户名称
                     </th>
                     <th>应收总金额
+                    </th>
+                       <th>商品名称
                     </th>
                     <th>
                         商品数量

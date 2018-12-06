@@ -80,19 +80,23 @@ namespace yny_003.Web.Car.Handler
                 string goodsprice = "";
                 string goodscount = "";
                 Model.Goods g = null;
-                if (!string.IsNullOrWhiteSpace(tast.OCode))
+                if (tast != null)
                 {
-                    Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
-                    if (od != null)
+                    if (!string.IsNullOrWhiteSpace(tast.OCode))
                     {
-                        goodsrecount = od.ReCount.ToString();
-                        goodscount = od.GCount.ToString();
-                        goodsprice = od.BuyPrice.ToString();
+                        Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                        if (od != null)
+                        {
+                            goodsrecount = od.ReCount.ToString();
+                            goodscount = od.GCount.ToString();
+                            goodsprice = od.BuyPrice.ToString();
+                        }
+                        g = BLL.Goods.GetModel(od.GId);
+                        if (g != null)
+                            GName = g.GName;
                     }
-                     g= BLL.Goods.GetModel(od.GId);
-                    if (g != null)
-                        GName = g.GName;
                 }
+                
                 sb.Append(GName + "~");
                 sb.Append(ListNotice[i].OrderCount + "~");
                 sb.Append(ListNotice[i].OrderPrice + "~");
@@ -123,25 +127,26 @@ namespace yny_003.Web.Car.Handler
                 sb.Append("≠");
                 //内容(买家信息
 
-                Model.Member mc1 = BLL.Member.GetModelByMID(tast.CarSJ1);
-                Model.Member mc2 = BLL.Member.GetModelByMID(tast.CarSJ2);
-
-               
-                sb.Append("供应商地址:" + tast.SupplierAddress);
-                sb.Append("<br/>主司机:" + (mc1 != null ? mc1.MName : ""));
-                sb.Append("<br/>押运员:" + (mc2 != null ? mc2.MName : ""));
-
-                if (!string.IsNullOrEmpty(tast.OCode)) //装车  卸车
+                if (tast != null)
                 {
-                    sb.Append("<br/>商品订单:" + tast.OCode);
-                    if (g != null)
+                    Model.Member mc1 = BLL.Member.GetModelByMID(tast.CarSJ1);
+                    Model.Member mc2 = BLL.Member.GetModelByMID(tast.CarSJ2);
+                    sb.Append("供应商地址:" + tast.SupplierAddress);
+                    sb.Append("<br/>主司机:" + (mc1 != null ? mc1.MName : ""));
+                    sb.Append("<br/>押运员:" + (mc2 != null ? mc2.MName : ""));
+
+                    if (!string.IsNullOrEmpty(tast.OCode)) //装车  卸车
                     {
-                        sb.Append("<br/>实际数量:" + goodsrecount + g.Unit);
-                        sb.Append("<br/>价格:" + goodsprice);
-                        sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", g.GName, goodscount, g.Unit));
+                        sb.Append("<br/>商品订单:" + tast.OCode);
+                        if (g != null)
+                        {
+                            sb.Append("<br/>实际数量:" + goodsrecount + g.Unit);
+                            sb.Append("<br/>价格:" + goodsprice);
+                            sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", g.GName, goodscount, g.Unit));
+                        }
                     }
+                    sb.Append("<br/>磅单图片:<a href='" + tast.BDImg + "' target='blank'><img src='" + tast.BDImg + "' width='5%' /></a>");
                 }
-                sb.Append("<br/>磅单图片:<a href='" + tast.BDImg + "' target='blank'><img src='" + tast.BDImg + "' width='5%' /></a>");
                 sb.Append("≌");
 
             }

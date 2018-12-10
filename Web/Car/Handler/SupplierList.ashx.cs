@@ -38,46 +38,6 @@ namespace yny_003.Web.Car.Handler
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < ListNotice.Count; i++)
             {
-
-                if (i==0)
-                {
-                    sb.Append("~");
-                    sb.Append("~");
-                    sb.Append("<strong style='color:red;'>总计<strong>~");
-                    sb.Append("~");
-                    sb.Append("~");
-                    sb.Append("~");
-                    sb.Append("<strong style='color:red;'>" + 欠款额度 + "</strong>~");
-                    sb.Append("<strong style='color:red;'>" + 期初额度 + "</strong>~");
-                    sb.Append("~");
-                    sb.Append("~");
-                    sb.Append("≌");
-                    sb.Append("≠");
-                    ////数量
-                    sb.Append("9");
-                    sb.Append("≠");
-                    sb.Append("≌");
-
-                    sb.Append("~");
-                    sb.Append("~");
-                    sb.Append("<strong style='color:red;'>本页合计<strong>~");
-                    sb.Append("~");
-                    //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
-                    sb.Append("~");
-                    sb.Append( "~");
-                    sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.QCMoney) + "</strong>~");
-                    sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.OverMoney) + "</strong>~");
-                    sb.Append("~");
-                    sb.Append("~");
-                    sb.Append("≌");
-
-                    sb.Append("≠");
-                    ////数量
-                    sb.Append("9");
-                    sb.Append("≠");
-                    sb.Append("≌");
-                }
-
                 sb.Append(ListNotice[i].ID + "~");
                 sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
                 sb.Append((ListNotice[i].OverMoney > ListNotice[i].QCMoney ? "<strong style='color:red;'>" + ListNotice[i].Name + "</strong>" : ListNotice[i].Name.ToString()) + "~");
@@ -103,6 +63,48 @@ namespace yny_003.Web.Car.Handler
                 sb.Append("<br/>地址:" + ListNotice[i].Address);
                 sb.Append("<br/>备注:" + ListNotice[i].Remark);
                 sb.Append("≌");
+
+
+                if (ListNotice.Count==i+1)
+                {
+                   
+
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>本页合计<strong>~");
+                    sb.Append("~");
+                    //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.QCMoney) + "</strong>~");
+                    sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.OverMoney) + "</strong>~");
+                    sb.Append("<input type=\"hidden\" id=\"Sumqiankuan\" value='"+欠款额度+ "' /><input type=\"hidden\" id=\"Sumqichu\" value='" + 期初额度 + "' />~");
+                    sb.Append("~");
+                    sb.Append("≌");
+                    sb.Append("≠");
+                    ////数量
+                    //sb.Append("9");
+                    //sb.Append("≠");
+                    //sb.Append("≌");
+
+                    //sb.Append("~");
+                    //sb.Append("~");
+                    //sb.Append("<strong style='color:red;'>总计<strong>~");
+                    //sb.Append("~");
+                    //sb.Append("~");
+                    //sb.Append("~");
+                    //sb.Append("<strong style='color:red;'>" + 欠款额度 + "</strong>~");
+                    //sb.Append("<strong style='color:red;'>" + 期初额度 + "</strong>~");
+                    //sb.Append("~");
+                    //sb.Append("~");
+                    //sb.Append("≌");
+                    //sb.Append("≠");
+                    //////数量
+                    //sb.Append("9");
+                    //sb.Append("≠");
+                    //sb.Append("≌");
+                }
+
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };
 

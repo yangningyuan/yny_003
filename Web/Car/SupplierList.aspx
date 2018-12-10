@@ -23,11 +23,11 @@
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>
             </div>
 
-             <select id="SType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
-                                <option value="">类型</option>
-                                <option value="1">供应商</option>
-                                <option value="2">客户</option>
-                            </select>
+            <select id="SType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top: 8px;">
+                <option value="">类型</option>
+                <option value="1">供应商</option>
+                <option value="2">客户</option>
+            </select>
 
             <div class="pay" onclick="UpDateByID('Car/AddSupplier.aspx?','修改客户信息',900,470);">
                 修改客户信息
@@ -37,7 +37,7 @@
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-               <input type="button" value="客户供应商统计报表Excel" class="btn btn-success" onclick="exportExcel()" />
+                <input type="button" value="客户供应商统计报表Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入名称" type="text" class="sinput" />
             </div>
         </div>
@@ -70,14 +70,22 @@
             </table>
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">
+
+
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
                 <div class="pn">
                     <a href="javascript:void(0);" title="" onclick="RunAjaxByList('','Del_C_Supplier',',');">删除</a>
 
-                    <a href="javascript:void(0);" style="background-color:#808080;" title="" onclick="RunAjaxByList('','Close_C_Supplier',',');">停用</a>
+                    <a href="javascript:void(0);" style="background-color: #808080;" title="" onclick="RunAjaxByList('','Close_C_Supplier',',');">停用</a>
+
+
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
+                    </div>
+                    <div style="float: right; margin-top: -25px; margin-right: 20%;">
+                        <span style="color: red;">欠款总额度：<span id="qiank"></span>；</span>
+                        <span style="color: red;">期初总额度：<span id="qichu"></span>；</span>
                     </div>
                 </div>
             </div>
@@ -85,17 +93,22 @@
     </div>
     <script>
         function ShowAccount(id) {
-          
-                layer.open({
-                    type: 2,
-                    title: '账户详情',
-                    shadeClose: true,
-                    shade: 0.8,
-                    area: ['60%', '50%'],
-                    content: '/car/upjiezhang.aspx?suppid=' + $("#SupplierName").val() + '&cid=' + cidList.join(',') //iframe的url
-                });
-            }
-        
+            layer.open({
+                type: 2,
+                title: '账户详情',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['60%', '50%'],
+                content: '/car/upjiezhang.aspx?suppid=' + $("#SupplierName").val() + '&cid=' + cidList.join(',') //iframe的url
+            });
+        }
+
+        $(function () {
+            setTimeout(function () {
+                document.getElementById("qiank").innerHTML = $("#Sumqiankuan").val();
+                document.getElementById("qichu").innerHTML = $("#Sumqichu").val();
+            }, 200);
+        });
     </script>
 </body>
 </html>

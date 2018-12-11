@@ -49,6 +49,8 @@ namespace yny_003.Web.Car.Handler
             {
                 strWhere += " and ComDate<='" + context.Request["endDate2"] + " 23:59:59' ";
             }
+            decimal GCount = Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(TotalMoney),0) from Account where  " + strWhere + " "));
+            decimal ReCount = Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(OrderCount),0) from Account where  " + strWhere + " "));
 
             int count;
             List<Model.Account> ListNotice = BLL.Account.GetList(strWhere, pageIndex, pageSize, out count);
@@ -57,7 +59,7 @@ namespace yny_003.Web.Car.Handler
             for (int i = 0; i < ListNotice.Count; i++)
             {
                 sb.Append(ListNotice[i].ID + "~");
-                sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
+                sb.Append((i + 1) + (pageIndex - 1) * pageSize + "<input type=\"hidden\" id=\"Sum1\" value='" + GCount + "' /><input type=\"hidden\" id=\"Sum2\" value='" + ReCount + "' />~");
                 //sb.Append(ListNotice[i].Name + "~");
 
                 sb.Append(ListNotice[i].CName + "~");

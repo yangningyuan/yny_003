@@ -39,6 +39,8 @@
                 <tr>
                     <th width="4%">
                     </th>
+                    <th width="5%">序号
+                    </th>
                     <th width="30%">名称
                     </th>
                     <th>值

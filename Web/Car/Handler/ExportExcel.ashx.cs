@@ -35,7 +35,7 @@ namespace yny_003.Web.Car.Handler
                     return exportExcelKLT1();
                 case "TXExcel"://提现导出
                     return TXExcel();
-                
+
                 case "CZExcel"://充值
                     return CZExcel();
                 case "JJMXExcel"://奖金明细
@@ -266,8 +266,8 @@ namespace yny_003.Web.Car.Handler
                 {
                     a0 = (emp.PZCode),
                     a1 = (emp.CarType),
-                    a3 = (GetCountByCPCode(SQL2, emp.PZCode,1, TState)),
-                    a4 = GetCountByCPCode(SQL2, emp.PZCode,2, TState),
+                    a3 = (GetCountByCPCode(SQL2, emp.PZCode, 1, TState)),
+                    a4 = GetCountByCPCode(SQL2, emp.PZCode, 2, TState),
                 }
                 ));
 
@@ -290,7 +290,7 @@ namespace yny_003.Web.Car.Handler
         /// <param name="CPCode">车牌</param>
         /// <param name="Type">1，装车  2，卸车</param>
         /// <returns></returns>
-        protected static int GetCountByCPCode(string SQL, string CPCode, int Type,string SQL2)
+        protected static int GetCountByCPCode(string SQL, string CPCode, int Type, string SQL2)
         {
             int count = 0;
             if (Type == 1)
@@ -308,7 +308,7 @@ namespace yny_003.Web.Car.Handler
         {
             try
             {
-                
+
                 string strWhere = "'1'='1'  AND ROLECODE='SiJi' ";
 
                 if (!string.IsNullOrEmpty(_context.Request["mKey"]))
@@ -351,7 +351,7 @@ namespace yny_003.Web.Car.Handler
                     { "a2", "司机类型" },
                     { "a3", "装车次数" },
                     { "a4", "卸车次数" },
-                    
+
                 };
 
                 List<object> txobjlist = new List<object>();
@@ -359,10 +359,10 @@ namespace yny_003.Web.Car.Handler
                 {
                     a0 = (emp.MID),
                     a1 = (emp.MName),
-                    a2 = ((emp.FMID=="1"?"主司机":"押运员")),
-                    a3 = (GetCountBySJCode(SQL2, emp.MID,1, TState)),
-                    a4 = GetCountBySJCode(SQL2, emp.MID,2, TState),
-                   
+                    a2 = ((emp.FMID == "1" ? "主司机" : "押运员")),
+                    a3 = (GetCountBySJCode(SQL2, emp.MID, 1, TState)),
+                    a4 = GetCountBySJCode(SQL2, emp.MID, 2, TState),
+
                 }
                 ));
 
@@ -378,11 +378,11 @@ namespace yny_003.Web.Car.Handler
                 return "导出失败";
             }
         }
-        protected static int GetCountBySJCode(string SQL, string CPCode,int Type,string SQL2)
+        protected static int GetCountBySJCode(string SQL, string CPCode, int Type, string SQL2)
         {
             int count = 0;
 
-            count = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT Count(*) FROM C_CarTast WHERE 1=1  " + SQL + " and (CarSJ1='" + CPCode + "' or CarSJ2='" + CPCode + "') and TType="+Type+ " " + SQL2 + " "));
+            count = Convert.ToInt32(BLL.CommonBase.GetSingle("SELECT Count(*) FROM C_CarTast WHERE 1=1  " + SQL + " and (CarSJ1='" + CPCode + "' or CarSJ2='" + CPCode + "') and TType=" + Type + " " + SQL2 + " "));
 
             return count;
         }
@@ -525,7 +525,7 @@ namespace yny_003.Web.Car.Handler
                     { "a2", "费用金额" },
                     { "a3", "费用时间" },
                     { "a4", "状态" },
-                  
+
                 };
 
                 List<object> txobjlist = new List<object>();
@@ -535,8 +535,8 @@ namespace yny_003.Web.Car.Handler
                     a1 = (emp.Remark),
                     a2 = (emp.CostMoney),
                     a3 = (emp.CareteDate),
-                    a4 = emp.IsDelete.ToString().Replace("0","未审核").Replace("1","已删除").Replace("2","已审核"),
-                   
+                    a4 = emp.IsDelete.ToString().Replace("0", "未审核").Replace("1", "已删除").Replace("2", "已审核"),
+
                 }
                 ));
 
@@ -560,7 +560,7 @@ namespace yny_003.Web.Car.Handler
         {
             try
             {
-                string strWhere = "'1'='1' ";
+                string strWhere = "'1'='1' and TType=1 ";
                 if (!string.IsNullOrEmpty(_context.Request["tState"]))
                 {
                     strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
@@ -621,6 +621,7 @@ namespace yny_003.Web.Car.Handler
 
                 Dictionary<string, string> cellheader = new Dictionary<string, string> {
                     { "a0", "任务单号" },
+                    { "a18", "装车单号" },
                     { "a1", "类型" },
                     //{ "a2", "比重" },
                     { "a3", "单位名称" },
@@ -641,28 +642,87 @@ namespace yny_003.Web.Car.Handler
                 };
 
                 List<object> txobjlist = new List<object>();
-                ListNotice.ForEach(emp => txobjlist.Add(new
+                //ListNotice.ForEach(emp => txobjlist.Add(new
+                //{
+                //    a0 = (emp.Name),
+                //    a1 = (Model.C_CarTast.typename(emp.TType)),
+                //    //a2 = (emp.Prot),
+                //    a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
+                //    //a4 = emp.SupplierTel,
+                //    a5 = (emp.Spare2),
+                //    a6 = (emp.CSpare2),
+                //    //a7 = (emp.CarSJ1),
+                //    a16 = (string.IsNullOrEmpty(emp.CarSJ1)?"": BLL.Member.GetModelByMID(emp.CarSJ1).MName),
+                //    //a8 = (emp.CarSJ2),
+                //    a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
+                //    //a9 = (emp.OCode),
+                //    a10 = (GoodName(emp.OCode)),
+                //    a12 = (GoodOrder(emp.OCode).GCount),
+                //    a11 = (GoodOrder(emp.OCode).ReCount),
+                //    a13 = (GoodOrder(emp.OCode).BuyPrice),
+                //    a14 = (emp.CreateDate),
+                //    a15 = (emp.ComDate),
+                //}
+                //));
+
+                foreach (var emp in ListNotice)
                 {
-                    a0 = (emp.Name),
-                    a1 = (Model.C_CarTast.typename(emp.TType)),
-                    //a2 = (emp.Prot),
-                    a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
-                    //a4 = emp.SupplierTel,
-                    a5 = (emp.Spare2),
-                    a6 = (emp.CSpare2),
-                    //a7 = (emp.CarSJ1),
-                    a16 = (string.IsNullOrEmpty(emp.CarSJ1)?"": BLL.Member.GetModelByMID(emp.CarSJ1).MName),
-                    //a8 = (emp.CarSJ2),
-                    a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
-                    //a9 = (emp.OCode),
-                    a10 = (GoodName(emp.OCode)),
-                    a12 = (GoodOrder(emp.OCode).GCount),
-                    a11 = (GoodOrder(emp.OCode).ReCount),
-                    a13 = (GoodOrder(emp.OCode).BuyPrice),
-                    a14 = (emp.CreateDate),
-                    a15 = (emp.ComDate),
+                    txobjlist.Add(new
+                    {
+                        a0 = (emp.Name),
+                        a18 = (emp.TCode),
+                        a1 = (Model.C_CarTast.typename(emp.TType)),
+                        //a2 = (emp.Prot),
+                        a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
+                        //a4 = emp.SupplierTel,
+                        a5 = (emp.Spare2),
+                        a6 = (emp.CSpare2),
+                        //a7 = (emp.CarSJ1),
+                        a16 = (string.IsNullOrEmpty(emp.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp.CarSJ1).MName),
+                        //a8 = (emp.CarSJ2),
+                        a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
+                        //a9 = (emp.OCode),
+                        a10 = (GoodName(emp.OCode)),
+                        a12 = (GoodOrder(emp.OCode).GCount),
+                        a11 = (GoodOrder(emp.OCode).ReCount),
+                        a13 = (GoodOrder(emp.OCode).BuyPrice),
+                        a14 = (emp.CreateDate),
+                        a15 = (emp.ComDate),
+                    });
+
+                    if (emp.TType == 1)
+                    {
+                        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "'  ");
+                        foreach (var emp2 in xclist)
+                        {
+                            txobjlist.Add(new
+                            {
+                                a0 = (emp2.Name),
+                                a18 = (emp2.TCode),
+                                a1 = (Model.C_CarTast.typename(emp2.TType)),
+                                //a2 = (emp.Prot),
+                                a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp2.SupplierName)).Name),
+                                //a4 = emp.SupplierTel,
+                                a5 = (emp2.Spare2),
+                                a6 = (emp2.CSpare2),
+                                //a7 = (emp.CarSJ1),
+                                a16 = (string.IsNullOrEmpty(emp2.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp2.CarSJ1).MName),
+                                //a8 = (emp.CarSJ2),
+                                a17 = (string.IsNullOrEmpty(emp2.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp2.CarSJ2).MName),
+                                //a9 = (emp.OCode),
+                                a10 = (GoodName(emp2.OCode)),
+                                a12 = (GoodOrder(emp2.OCode).GCount),
+                                a11 = (GoodOrder(emp2.OCode).ReCount),
+                                a13 = (GoodOrder(emp2.OCode).BuyPrice),
+                                a14 = (emp2.CreateDate),
+                                a15 = (emp2.ComDate),
+                            });
+                        }
+                    }
+
+
                 }
-                ));
+
 
                 // 3.进行Excel转换操作，并返回转换的文件下载链接
                 string urlPath = ExcelHelper.EntityListToExcel2003(cellheader, txobjlist, "任务列表统计报表");
@@ -747,10 +807,10 @@ namespace yny_003.Web.Car.Handler
                     a8 = (emp.YYZDate),
                     a9 = (emp.BYDate),
                     a10 = (emp.JQXDate),
-                    a11= (emp.SZXDate),
+                    a11 = (emp.SZXDate),
                     a12 = (emp.CYXDate),
-                    a13= (emp.CLJJPDDate),
-                    a14= (emp.CarZLC),
+                    a13 = (emp.CLJJPDDate),
+                    a14 = (emp.CarZLC),
                 }
                 ));
 
@@ -816,6 +876,8 @@ namespace yny_003.Web.Car.Handler
                    { "a1", "结账编号" },
                     { "a2", "供应商名称" },
                       { "a9", "商品名称" },
+                        { "a10", "商品数量" },
+                    { "a11", "商品单价" },
                     { "a3", "应付总金额" },
                     { "a4", "已付金额" },
                     { "a5", "状态" },
@@ -830,6 +892,8 @@ namespace yny_003.Web.Car.Handler
                     a1 = (emp.CName),
                     a2 = (emp.SupplierName),
                     a9 = goodsName(emp.CName),
+                    a10 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).ReCount.ToString(),
+                    a11 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).BuyPrice.ToString(),
                     a3 = emp.TotalMoney,
                     a4 = emp.ReMoney,
                     a5 = (emp.AStutas == 0 ? "未结账" : "已结账"),
@@ -899,6 +963,8 @@ namespace yny_003.Web.Car.Handler
                     { "a1", "结账编号" },
                     { "a2", "客户名称" },
                     { "a9", "商品名称" },
+                    { "a10", "商品数量" },
+                    { "a11", "商品单价" },
                     { "a3", "应收总金额" },
                     { "a4", "已收金额" },
                     { "a5", "状态" },
@@ -912,7 +978,9 @@ namespace yny_003.Web.Car.Handler
                 {
                     a1 = (emp.CName),
                     a2 = (emp.SupplierName),
-                    a9= goodsName(emp.CName),
+                    a9 = goodsName(emp.CName),
+                    a10 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).ReCount.ToString(),
+                    a11 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).BuyPrice.ToString(),
                     a3 = emp.TotalMoney,
                     a4 = emp.ReMoney,
                     a5 = (emp.AStutas == 0 ? "未结账" : "已结账"),
@@ -948,6 +1016,15 @@ namespace yny_003.Web.Car.Handler
                     GName = g.GName;
             }
             return GName;
+        }
+        public Model.OrderDetail goodsOrderDetails(string CName)
+        {
+            Model.C_CarTast tast = BLL.C_CarTast.GetModelname(CName);
+            if (!string.IsNullOrWhiteSpace(tast.OCode))
+            {
+                return BLL.OrderDetail.GetModelCode(tast.OCode);
+            }
+            return new Model.OrderDetail();
         }
 
         private string SuppLExcel()
@@ -996,10 +1073,10 @@ namespace yny_003.Web.Car.Handler
                 ListNotice.ForEach(emp => txobjlist.Add(new
                 {
                     a1 = (emp.ACode),
-                    a2 =(emp.SuppType.ToString().Replace("1", "供应商").Replace("2", "客户")),
+                    a2 = (emp.SuppType.ToString().Replace("1", "供应商").Replace("2", "客户")),
                     a3 = emp.SuppName,
                     a4 = emp.JZType.ToString().Replace("1", "余额支付").Replace("2", "卡付").Replace("3", "卡付+余额付款"),
-                    a5= emp.PayMoney,
+                    a5 = emp.PayMoney,
                     a6 = emp.Balance,
                     a7 = emp.UserName,
                     a9 = emp.Spare2,
@@ -1018,7 +1095,7 @@ namespace yny_003.Web.Car.Handler
             {
                 return "导出失败";
             }
-            
+
         }
 
         #region func
@@ -1265,9 +1342,9 @@ namespace yny_003.Web.Car.Handler
                     a10 = "",
                 }
                 );
-               
-              
-               
+
+
+
                 txobjlist.Add(new
                 {
                     a1 = "商户流水号",
@@ -1285,17 +1362,17 @@ namespace yny_003.Web.Car.Handler
                 int i = 1;
                 orderlist.ForEach(emp => txobjlist.Add(new
                 {
-                    a1 = System.DateTime.Now.Ticks+""+i,
+                    a1 = System.DateTime.Now.Ticks + "" + i,
                     a2 = emp.CRemarks.Split('~')[4],
                     a3 = emp.CRemarks.Split('~')[5],
                     a4 = emp.CRemarks.Split('~')[2],
-                    a5 ="",
+                    a5 = "",
                     a6 = "",
                     a7 = "",
                     a8 = ((emp.Money - emp.TakeOffMoney - emp.ReBuyMoney)).ToFixedDecimal(0),
                     a9 = "2",
                     a10 = "备注",
-                    i=i+1,
+                    i = i + 1,
                 }
                 )
                 );
@@ -1360,7 +1437,7 @@ namespace yny_003.Web.Car.Handler
                     { "a3", "代付金额"},
                     { "a4", "" },
                     { "a5", "" },
-                    
+
 
                 };
                 List<object> txobjlist = new List<object>();
@@ -1371,7 +1448,7 @@ namespace yny_003.Web.Car.Handler
                     a3 = totalmoney,
                     a4 = "",
                     a5 = "",
-                   
+
                 }
                 );
                 txobjlist.Add(new
@@ -1399,9 +1476,9 @@ namespace yny_003.Web.Car.Handler
                     a1 = emp.CRemarks.Split('~')[5],
                     a2 = emp.CRemarks.Split('~')[4],
                     a3 = emp.CRemarks.Split('~')[3],
-                    a4 = ((emp.Money - emp.TakeOffMoney - emp.ReBuyMoney) ).ToFixedDecimal(0),
+                    a4 = ((emp.Money - emp.TakeOffMoney - emp.ReBuyMoney)).ToFixedDecimal(0),
                     a5 = "个人",
-                   
+
                 }
                 )
                 );
@@ -1419,7 +1496,7 @@ namespace yny_003.Web.Car.Handler
             }
         }
 
-       
+
         public string GetBankNum(string bank)
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
@@ -2109,7 +2186,7 @@ namespace yny_003.Web.Car.Handler
                 _context.Response.ContentType = "text/plain";
                 return js.Serialize(urlPath); // 返回Json格式的内容
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return "导出失败";
             }

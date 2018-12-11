@@ -22,6 +22,9 @@
     <!--pop-->
     <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
 
+    <link rel="stylesheet" href="/admin/css/viewer.min.css">
+    <script src="/admin/js/viewer.min.js"></script>
+
 </head>
 <body>
     <div id="container">
@@ -108,7 +111,7 @@
                                 </a>
                             </div>
                         </div>
-                       <%-- <div class="col-md-2">
+                        <%-- <div class="col-md-2">
                             <a class="info-box jj">
                                 <div class="leftb"><i class="icon icon-lightbulb"></i></div>
                                 <div class="rightb">
@@ -137,7 +140,7 @@
                             </a>
                         </div>
 
-                            <div class="col-md-2">
+                        <div class="col-md-2">
                             <a class="info-box jh">
                                 <div class="leftb"><i class="icon icon-lightbulb"></i></div>
                                 <div class="rightb">

@@ -72,6 +72,9 @@ namespace yny_003.Web.Car.Handler
                 strWhere += " and OCode in(select OrderCode from OrderDetail where GId in(select GID from Goods where GName='"+ context.Request["CSpare2"] + "')) ";
             }
 
+            decimal GCount = Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(GCount),0) from OrderDetail where OrderCode in(select OCode from C_CarTast where "+ strWhere + " )"));
+            decimal ReCount = Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(ReCount),0) from OrderDetail where OrderCode in(select OCode from C_CarTast where " + strWhere + " )"));
+
             int count;
             List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetList(strWhere, pageIndex, 15, out count);
 
@@ -79,7 +82,7 @@ namespace yny_003.Web.Car.Handler
             for (int i = 0; i < ListNotice.Count; i++)
             {
                 sb.Append(ListNotice[i].ID + "~");
-                sb.Append((i + 1) + (pageIndex - 1) * 15 + "~");
+                sb.Append((i + 1) + (pageIndex - 1) * 15 + "<input type=\"hidden\" id=\"Sum1\" value='" + GCount + "' /><input type=\"hidden\" id=\"Sum2\" value='" + ReCount + "' />~");
                 sb.Append(ListNotice[i].Name + "~");
                 sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
                 sb.Append(ListNotice[i].Prot + "~");
@@ -166,7 +169,7 @@ namespace yny_003.Web.Car.Handler
                         sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", goods.GName, goodscount, goods.Unit));
                     }
                 }
-                sb.Append("<br/>磅单图片:<a href='" + ListNotice[i].BDImg + "' target='blank'><img src='" + ListNotice[i].BDImg + "' width='5%' /></a>");
+                sb.Append("<br/>磅单图片:<img src='" + ListNotice[i].BDImg + "' width='5%' />");
                 sb.Append("≌");
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

@@ -154,6 +154,7 @@
     <Content Include="Admin\css\style-responsive.css" />
     <Content Include="Admin\css\style.css" />
     <Content Include="Admin\css\touchTouch.css" />
+    <Content Include="Admin\css\viewer.min.css" />
     <Content Include="Admin\find_password\css\bootstrap.css" />
     <Content Include="Admin\find_password\css\style.css" />
     <Content Include="Admin\find_password\find_password.htm" />
@@ -195,6 +196,7 @@
     <Content Include="Admin\js\pagination\autoPagination.js" />
     <Content Include="Admin\js\pagination\jquery.twbsPagination.js" />
     <Content Include="Admin\js\pagination\jquery.twbsPagination.min.js" />
+    <Content Include="Admin\js\viewer.min.js" />
     <Content Include="Admin\login\css\bootstrap.css" />
     <Content Include="Admin\login\css\login.css" />
     <Content Include="Admin\login\css\style1.css" />

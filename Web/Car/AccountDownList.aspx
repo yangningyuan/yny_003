@@ -22,13 +22,19 @@
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "AccountDownList");
         }
+        $(function () {
+            setTimeout(function () {
+                document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
+                document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
+            }, 200);
+        });
     </script>
 </head>
 <body>
    <div id="distr">
     </div>
     <div id="mempay">
-        <div class="control">
+        <div class="control" style="position: fixed;background-color: #000000;Z-INDEX: 9898888;">
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>
             </div>
@@ -39,8 +45,6 @@
                                 <option value="1">已完成</option>
                                 <option value="2">已取消</option>
                             </select>--%>
-            
-
             <%--  <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
@@ -80,7 +84,7 @@
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />--%>
             </div>
         </div>
-        <div class="ui_table">
+        <div class="ui_table" style="margin-top:105px;">
             <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                 <tr>
                     <th width="50px">全选
@@ -125,6 +129,9 @@
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
+                    </div><div style="float: right; margin-top: -25px; margin-right: 20%;">
+                        <span style="color: red;">下单总数量：<span id="HtmlSum1"></span>；</span>
+                        <span style="color: red;">实际总数量：<span id="HtmlSum2"></span>；</span>
                     </div>
                 </div>
             </div>

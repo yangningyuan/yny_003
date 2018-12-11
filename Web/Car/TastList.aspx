@@ -24,12 +24,19 @@
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "任务列表统计报表Excel");
         }
+
+        $(function () {
+            setTimeout(function () {
+                document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
+                document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
+            }, 200);
+        });
     </script>
 </head>
 <body><div id="distr">
     </div>
     <div id="mempay">
-        <div class="control">
+        <div class="control" style="position: fixed;background-color: #000000;Z-INDEX: 9898888;">
             <div class="select">
                  <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
             </div>
@@ -80,7 +87,7 @@
                     onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
             </div>
         </div>
-        <div class="ui_table">
+        <div class="ui_table" id="dowebok" style="margin-top: 145px;">
             <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                 <tr>
                     <th width="50px">全选
@@ -128,6 +135,9 @@
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
+                    </div> <div style="float: right; margin-top: -25px; margin-right: 20%;">
+                        <span style="color: red;">下单总数量：<span id="HtmlSum1"></span>；</span>
+                        <span style="color: red;">实际总数量：<span id="HtmlSum2"></span>；</span>
                     </div>
                 </div>
             </div>
@@ -143,7 +153,13 @@
                 area: ['80%', '80%'],
                 content: '/car/xiechedan.aspx?tid=' + tid
             });
-        }
+           }
+           $(function () {
+               setTimeout(function () {
+                   var viewer = new Viewer(document.getElementById('dowebok'));
+               }, 150);
+           });
+             
     </script>
 </body>
 </html>

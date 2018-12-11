@@ -55,81 +55,96 @@ namespace yny_003.Web.Car.Handler
 
             StringBuilder sb = new StringBuilder();
             sb.Append("" + "~");
+            sb.Append("" + "~");
             sb.Append("<span style='font-weight:900; color:red;'>调度统计</span>" + "~");
             sb.Append( "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("1" + "~");
             sb.Append("已完成装车任务总数量" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where TType=1 and TState=1 "+ SQL2 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("2" + "~");
             sb.Append("已完成卸车任务总数量" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select COUNT(*) from C_CarTast where TType=2 and TState=1 "+ SQL2 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("3" + "~");
             sb.Append("完成运输吨位总数" + "~");
             sb.Append(Convert.ToDecimal(BLL.CommonBase.GetSingle("select ISNULL(sum(ReCount),0) from OrderDetail where OrderCode in(select OCode from C_CarTast where TState=1 "+ SQL2 + " );")) + "");
             sb.Append("≌");
 
+            sb.Append("" + "~");
             sb.Append("" + "~");
             sb.Append("<span style='font-weight:900; color:red;'>财务统计</span>" + "~");
             sb.Append("");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("1" + "~");
             sb.Append("应付账款" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(totalmoney),0) from Account where AType=0  " + SQL2 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("2" + "~");
             sb.Append("应收账款" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(totalmoney),0) from Account where AType=1  " + SQL2 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("3" + "~");
             sb.Append("供应商余额" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(OverMoney),0) from C_Supplier where [type]='1' and IsDelete=0;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("4" + "~");
             sb.Append("客户余额" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(OverMoney),0) from C_Supplier where [type]='2' and IsDelete=0;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("5" + "~");
             sb.Append("收款总额" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(totalmoney),0) from Account where AType=1 and AStutas=1   " + SQL2 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("6" + "~");
             sb.Append("付款总额" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(totalmoney),0) from Account where AType=0 and AStutas=1 " + SQL2 + " ;")) + "");
             sb.Append("≌");
 
+            sb.Append("" + "~");
             sb.Append("" + "~");
             sb.Append("<span style='font-weight:900; color:red;'>费用统计</span>" + "~");
             sb.Append("");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("1" + "~");
             sb.Append("燃油费" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(costmoney),0) from C_CostDetalis where Remark='燃油费用' " + SQL3 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("2" + "~");
             sb.Append("违章罚款" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(costmoney),0) from C_CostDetalis where Remark='罚款' " + SQL3 + " ;")) + "");
             sb.Append("≌");
 
             sb.Append("" + "~");
+            sb.Append("3" + "~");
             sb.Append("过路费" + "~");
             sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(costmoney),0) from C_CostDetalis where Remark='过路费' "+ SQL3 + " ;")) + "");
             sb.Append("≌");
 
-
+            sb.Append("" + "~");
             sb.Append("" + "~");
             sb.Append("<span style='font-weight:900; color:red;'>各种商品统计</span>" + "~");
             sb.Append("");
@@ -137,9 +152,11 @@ namespace yny_003.Web.Car.Handler
 
             List<Model.Goods> listgoods= BLL.Goods.GetList(" IsDeleted=0");
 
+            int indexlevel = 1;
             foreach (var item in listgoods)
             {
                 sb.Append("" + "~");
+                sb.Append(""+ indexlevel++ + "~");
                 sb.Append(item.GName + "~");
                 sb.Append(Convert.ToInt32(BLL.CommonBase.GetSingle("select ISNULL(SUM(recount),0) from OrderDetail where GId ="+item.GID+" and OrderCode in(select OCode from C_CarTast where TState=1 "+ SQL2 + " );")) + "");
                 sb.Append("≌");

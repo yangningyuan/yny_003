@@ -9,9 +9,8 @@
         tUrl = "Car/Handler/TastList.ashx";
         SearchByCondition();
 
-        function celTast(id)
-        {
-            ActionModel("Car/TastList.aspx?Action=Add", "tid="+id);
+        function celTast(id) {
+            ActionModel("Car/TastList.aspx?Action=Add", "tid=" + id);
         }
         function SetBJTast(id) {
             ActionModel("Car/TastList.aspx?Action=Modify", "tid=" + id);
@@ -29,31 +28,32 @@
             setTimeout(function () {
                 document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
-            }, 200);
+            }, 500);
         });
     </script>
 </head>
-<body><div id="distr">
+<body>
+    <div id="distr">
     </div>
     <div id="mempay">
-        <div class="control" style="position: fixed;background-color: #000000;Z-INDEX: 9898888;">
+        <div class="control" style="position: fixed; background-color: #000000; z-index: 9898888;">
             <div class="select">
-                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
+                <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
             </div>
-               
-                            <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
-                                <option value="">任务状态</option>
-                                <option value="0">未完成</option>
-                                <option value="1">已完成</option>
-                                <option value="2">已取消</option>
-                            </select>
-                            <select id="TType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
-                                <option value="">任务类型</option>
-                                <option value="1">装车</option>
-                                <option value="2">卸车</option>
-                                <option value="3">空车</option>
-                            </select>
-                        
+
+            <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top: 8px;">
+                <option value="">任务状态</option>
+                <option value="0">未完成</option>
+                <option value="1">已完成</option>
+                <option value="2">已取消</option>
+            </select>
+            <select id="TType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top: 8px;">
+                <option value="">任务类型</option>
+                <option value="1">装车</option>
+                <option value="2">卸车</option>
+                <option value="3">空车</option>
+            </select>
+
             <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
@@ -71,62 +71,63 @@
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />
                 <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
 
-                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
-                     class="daycash_input" style="width: 120px;"
+                <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
+                    class="daycash_input" style="width: 120px;"
                     onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />
                 <input type="text" name="txtKey" data-name="txtKey" id="endDate" placeholder="截止创建日期"
-                     class="daycash_input" style="width: 120px;"
+                    class="daycash_input" style="width: 120px;"
                     onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate\')}' })" />
 
 
-                 <input type="text" name="txtKey" data-name="txtKey" id="startDate2" placeholder="开始完成日期"
-                     class="daycash_input" style="width: 120px;"
+                <input type="text" name="txtKey" data-name="txtKey" id="startDate2" placeholder="开始完成日期"
+                    class="daycash_input" style="width: 120px;"
                     onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate2\')}' })" />
                 <input type="text" name="txtKey" data-name="txtKey" id="endDate2" placeholder="截止完成日期"
-                     class="daycash_input" style="width: 120px;"
+                    class="daycash_input" style="width: 120px;"
                     onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
             </div>
         </div>
         <div class="ui_table" id="dowebok" style="margin-top: 145px;">
-            <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
-                <tr>
-                    <th width="50px">全选
-                    </th>
-                    <th>序号
-                    </th>
-                    <th>装车单号
-                    </th>
-                    <th>任务类型
-                    </th>
-                    <th>比重
-                    </th>
-                    <th>单位名称
-                    </th>
-                 <%--   <th>联系电话
-                    </th>--%>
-                   
-                    <th>派遣车辆
-                    </th>
-                     <th>派遣挂车
-                    </th>
-                     <th>商品
-                    </th>
-                    <th>下单数量
-                    </th>
-                    <th>实际数量
-                    </th>
-                    <%--<th>费用类型
-                    </th>--%>
-                    <th>创建日期
-                    </th>
-                    <th>交货日期
-                    </th>
-                     <th>任务状态
-                    </th>
-                    <th>操作
-                    </th>
-                </tr>
-            </table>
+            <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
+                <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
+                    <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
+                        <tr>
+                            <th width="50px">全选
+                            </th>
+                            <th>序号
+                            </th>
+                            <th>装车单号
+                            </th>
+                            <th>任务类型
+                            </th>
+                            <th>比重
+                            </th>
+                            <th>单位名称
+                            </th>
+
+                            <th>派遣车辆
+                            </th>
+                            <th>派遣挂车
+                            </th>
+                            <th>商品
+                            </th>
+                            <th>下单数量
+                            </th>
+                            <th>实际数量
+                            </th>
+
+                            <th>创建日期
+                            </th>
+                            <th>交货日期
+                            </th>
+                            <th>任务状态
+                            </th>
+                            <th>操作
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
@@ -135,7 +136,8 @@
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
-                    </div> <div style="float: right; margin-top: -25px; margin-right: 20%;">
+                    </div>
+                    <div style="float: right; margin-top: -25px; margin-right: 5%;">
                         <span style="color: red;">下单总数量：<span id="HtmlSum1"></span>；</span>
                         <span style="color: red;">实际总数量：<span id="HtmlSum2"></span>；</span>
                     </div>
@@ -143,8 +145,8 @@
             </div>
         </div>
     </div>
-       <script>
-           function subxiechedan(tid) {
+    <script>
+        function subxiechedan(tid) {
             layer.open({
                 type: 2,
                 title: '卸车单',
@@ -153,13 +155,13 @@
                 area: ['80%', '80%'],
                 content: '/car/xiechedan.aspx?tid=' + tid
             });
-           }
-           $(function () {
-               setTimeout(function () {
-                   var viewer = new Viewer(document.getElementById('dowebok'));
-               }, 150);
-           });
-             
+        }
+        $(function () {
+            setTimeout(function () {
+                var viewer = new Viewer(document.getElementById('dowebok'));
+            }, 500);
+        });
+
     </script>
 </body>
 </html>

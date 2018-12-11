@@ -1,6 +1,6 @@
 ﻿function changetabcolor(title) {
     if (title)
-    	$("#mempay").prepend("<div class=\"alert alert-danger\" style='margin-bottom:0px; margin-top:50px;'><strong>" + title + "</strong></div>");
+    	$("#mempay").prepend("<div class=\"alert alert-danger\" style='margin-bottom:0px; margin-top:50px; '><strong>" + title + "</strong></div>");
     $("#finance").find("table").addClass('table table-bordered table-striped table-white');
     $("#mempay .control").addClass('alert');
     $("#mempay .control .pay").addClass('btn btn-success');

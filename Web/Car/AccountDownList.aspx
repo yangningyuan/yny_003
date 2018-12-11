@@ -17,7 +17,6 @@
             ActionModel("Car/AccountDownList.aspx?Action=Add", "cid=" + id);
         }
 
-
         // 导出Excel
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "AccountDownList");
@@ -26,15 +25,15 @@
             setTimeout(function () {
                 document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
-            }, 200);
+            }, 500);
         });
     </script>
 </head>
 <body>
-   <div id="distr">
+    <div id="distr">
     </div>
     <div id="mempay">
-        <div class="control" style="position: fixed;background-color: #000000;Z-INDEX: 9898888;">
+        <div class="control" style="position: fixed; background-color: #000000; z-index: 9898888;">
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>
             </div>
@@ -51,16 +50,16 @@
             <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增任务','url',900,470)">
                 新增任务
             </div>--%>
-              <div class="pay btn btn-success" onclick="UpDateByID('Car/ModifyAccount.aspx?type=downlist','修改收款单',900,470);">
+            <div class="pay btn btn-success" onclick="UpDateByID('Car/ModifyAccount.aspx?type=downlist','修改收款单',900,470);">
                 修改收款单
             </div>
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
                 <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
-                 <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
-                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" >
-            </select>
+                <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
+                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                </select>
 
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
                     class="daycash_input" style="width: 120px;"
@@ -84,43 +83,44 @@
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />--%>
             </div>
         </div>
-        <div class="ui_table" style="margin-top:105px;">
-            <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
-                <tr>
-                    <th width="50px">全选
-                    </th>
-                    <th>序号
-                    </th>
-                    <%-- <th>任务名称
+        <div class="ui_table"  id="dowebok" style="margin-top: 105px;">
+            <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
+                <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
+                    <tr>
+                        <th width="50px">全选
+                        </th>
+                        <th>序号
+                        </th>
+                        <%-- <th>任务名称
                     </th>--%>
-                    <th>任务编号
-                    </th>
-                    <th>客户名称
-                    </th>
-                    <th>应收总金额
-                    </th>
-                       <th>商品名称
-                    </th>
-                    <th>
-                        商品数量
-                    </th>
-                    <th>商品单价</th>
-                    <th>已收金额
-                    </th>
-                    <th>状态
-                    </th>
-                    <th>发票状态
-                    </th>
-                    <th>任务时间
-                    </th>
-                    <th>结账时间
-                    </th>
-                    <th>修改备注
-                    </th>
-                    <th>操作
-                    </th>
-                </tr>
-            </table>
+                        <th>任务编号
+                        </th>
+                        <th>客户名称
+                        </th>
+                        <th>应收总金额
+                        </th>
+                        <th>商品名称
+                        </th>
+                        <th>商品数量
+                        </th>
+                        <th>商品单价</th>
+                        <th>已收金额
+                        </th>
+                        <th>状态
+                        </th>
+                        <th>发票状态
+                        </th>
+                        <th>任务时间
+                        </th>
+                        <th>结账时间
+                        </th>
+                        <th>修改备注
+                        </th>
+                        <th>操作
+                        </th>
+                    </tr>
+                </table>
+            </div>
             <div class="ui_table_control">
                 <em style="vertical-align: middle;">
                     <input type="checkbox" id="chkAll" onclick="SelectChk(this);" /></em>
@@ -129,7 +129,8 @@
                 </div>
                 <div class="pagebar">
                     <div id="Pagination">
-                    </div><div style="float: right; margin-top: -25px; margin-right: 20%;">
+                    </div>
+                    <div style="float: right; margin-top: -25px; margin-right: 5%;">
                         <span style="color: red;">下单总数量：<span id="HtmlSum1"></span>；</span>
                         <span style="color: red;">实际总数量：<span id="HtmlSum2"></span>；</span>
                     </div>
@@ -138,11 +139,9 @@
         </div>
     </div>
     <script>
-        function subjiezhang()
-        {
+        function subjiezhang() {
             //iframe层
-            if ($("#SupplierName").val() == "--请选择--")
-            {
+            if ($("#SupplierName").val() == "--请选择--") {
                 v5.error('请选择客户', '1', 'ture');
             }
             else if (cidList.join(',') == "") {
@@ -165,6 +164,11 @@
                 });
             }
         }
+        $(function () {
+            setTimeout(function () {
+                var viewer = new Viewer(document.getElementById('dowebok'));
+            }, 500);
+        });
     </script>
 </body>
 </html>

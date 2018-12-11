@@ -67,8 +67,6 @@ namespace yny_003.Web.Car.Handler
 
                 if (ListNotice.Count==i+1)
                 {
-                   
-
                     sb.Append("~");
                     sb.Append("~");
                     sb.Append("<strong style='color:red;'>本页合计<strong>~");

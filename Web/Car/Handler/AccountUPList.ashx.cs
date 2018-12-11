@@ -135,10 +135,27 @@ namespace yny_003.Web.Car.Handler
                             sb.Append(string.Format("<br/><span style='color:black; font-size:16px;'>{0}</span>&nbsp;&nbsp;&nbsp;<span style='color:red; font-size:20px;'>{1}</span><span style='color:green;'>{2}</span>", g.GName, goodscount, g.Unit));
                         }
                     }
-                    sb.Append("<br/>磅单图片:<a href='" + tast.BDImg + "' target='blank'><img src='" + tast.BDImg + "' width='5%' /></a>");
+                    sb.Append("<br/>磅单图片:<img src='" + tast.BDImg + "' width='5%' />");
                 }
                 
                 sb.Append("≌");
+
+
+                if (ListNotice.Count == i + 1)
+                {
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>本页合计<strong>~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.TotalMoney) + "</strong>~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>" + ListNotice.Sum(a => a.OrderCount) + "</strong>~");
+                    sb.Append("~");
+                    
+                    sb.Append("~");
+                    sb.Append("≌");
+                    sb.Append("≠");
+                }
 
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };

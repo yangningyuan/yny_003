@@ -78,6 +78,8 @@ namespace yny_003.Web.Car.Handler
             int count;
             List<Model.C_CarTast> ListNotice = BLL.C_CarTast.GetList(strWhere, pageIndex, 15, out count);
 
+            decimal sum1 = 0;
+            decimal sum2 = 0;
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < ListNotice.Count; i++)
             {
@@ -112,6 +114,14 @@ namespace yny_003.Web.Car.Handler
                 sb.Append(goodsname + "~");
                 sb.Append(goodscount + "~");
                 sb.Append(goodsrecount + "~");
+                if (!string.IsNullOrEmpty(goodscount))
+                {
+                    sum1 = sum1 + Convert.ToDecimal(goodscount);
+                }
+                if (!string.IsNullOrEmpty(goodsrecount))
+                {
+                    sum2 = sum2 + Convert.ToDecimal(goodsrecount);
+                }
                 //sb.Append(BLL.C_CostType.GetModel(ListNotice[i].CostType).Name + "~");
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].ComDate) + "~");
@@ -141,8 +151,6 @@ namespace yny_003.Web.Car.Handler
                 {
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"SetCelTast('" + ListNotice[i].ID + "')\">取消标记</div>");
                 }
-               
-
 
                 sb.Append("≌");
                 sb.Append("≠");
@@ -171,6 +179,26 @@ namespace yny_003.Web.Car.Handler
                 }
                 sb.Append("<br/>磅单图片:<img src='" + ListNotice[i].BDImg + "' width='5%' />");
                 sb.Append("≌");
+
+
+                if (ListNotice.Count == i + 1)
+                {
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>本页合计<strong>~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("<strong style='color:red;'>" +sum1 + "</strong>~");
+                    sb.Append("<strong style='color:red;'>" + sum2 + "</strong>~");
+                    sb.Append("~");
+                    sb.Append("~");
+                    sb.Append("≌");
+                    sb.Append("≠");
+                }
             }
             var info = new { PageData = Traditionalized(sb), TotalCount = count };
 

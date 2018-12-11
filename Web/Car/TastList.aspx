@@ -26,6 +26,9 @@
 
         $(function () {
             setTimeout(function () {
+                $("#divtitle").remove();
+            },50);
+            setTimeout(function () {
                 document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
             }, 500);
@@ -36,7 +39,8 @@
     <div id="distr">
     </div>
     <div id="mempay">
-        <div class="control" style="position: fixed; background-color: #000000; z-index: 9898888;">
+        <div class="control" style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;">
+            <div class="alert alert-danger" style="margin-bottom:0px; "><strong>任务列表</strong></div>
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
             </div>
@@ -87,7 +91,7 @@
                     onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
             </div>
         </div>
-        <div class="ui_table" id="dowebok" style="margin-top: 145px;">
+        <div class="ui_table" id="dowebok" style="margin-top: 230px;">
             <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                 <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                     <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">

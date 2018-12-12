@@ -21,7 +21,7 @@
     <script src="/Admin/js/jquery-scroll.js"></script>
     <!--pop-->
     <script type="text/javascript" src="/Admin/pop/js/MyValide.js"></script>
-
+    <script src="/Admin/pop/js/TableToExcel.js"></script>
     <link rel="stylesheet" href="/admin/css/viewer.min.css">
     <script src="/admin/js/viewer.min.js"></script>
 

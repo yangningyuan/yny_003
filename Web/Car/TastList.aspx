@@ -33,6 +33,13 @@
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
             }, 500);
         });
+
+        function seachTotal() {
+            setTimeout(function () {
+                document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
+                document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
+            }, 200);
+        }
     </script>
 </head>
 <body>
@@ -42,16 +49,16 @@
         <div class="control" style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;">
             <div class="alert alert-danger" style="margin-bottom:0px; "><strong>任务列表</strong></div>
             <div class="select">
-                <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
+                <a href="javascript:void(0);" onclick="SearchByState('0',this);seachTotal();" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
             </div>
 
-            <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top: 8px;">
+            <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition();seachTotal();" style="margin-top: 8px;">
                 <option value="">任务状态</option>
                 <option value="0">未完成</option>
                 <option value="1">已完成</option>
                 <option value="2">已取消</option>
             </select>
-            <select id="TType" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top: 8px;">
+            <select id="TType" name="txtKey" data-name="txtKey" onchange="SearchByCondition();seachTotal();" style="margin-top: 8px;">
                 <option value="">任务类型</option>
                 <option value="1">装车</option>
                 <option value="2">卸车</option>
@@ -65,7 +72,7 @@
                 新增装车任务
             </div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition(); seachTotal();" />
                 <input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />
                 <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务单号" type="text" class="sinput" />
                 <input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入单位名称" type="text" class="sinput" />

@@ -30,6 +30,12 @@
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
             }, 500);
         });
+        function seachTotal() {
+            setTimeout(function () {
+                document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
+                document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
+            }, 200);
+        }
     </script>
 </head>
 <body>
@@ -39,7 +45,7 @@
         <div class="control" style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;">
             <div class="alert alert-danger" style="margin-bottom:0px; "><strong>付款列表</strong></div>
             <div class="select">
-                <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>
+                <a href="javascript:void(0);" onclick="SearchByState('0',this);seachTotal();" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);seachTotal();" class="btn btn-success">已结账</a>
             </div>
 
             <%--  <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition()" style="margin-top:8px;">
@@ -65,11 +71,11 @@
                 修改付款单
             </div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition(); seachTotal();" />
                 <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
                 <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
-                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition();seachTotal();">
                 </select>
 
 

@@ -24,7 +24,7 @@
 
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
-                <input type="button" value="综合统计报表Excel" class="btn btn-success" onclick="exportExcel()" />
+                <input type="button" value="综合统计报表Excel" class="btn btn-success" onclick="javascript: tableToExcel('Result')" />
               
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始日期"
                     value="开始日期" onfocus="if (value =='开始日期'){value =''}" class="daycash_input" style="width: 120px;"

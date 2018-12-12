@@ -30,6 +30,14 @@
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
             }, 500);
         });
+
+        function seachTotal()
+        {
+            setTimeout(function () {
+                document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
+                document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
+            }, 200);
+        }
     </script>
 </head>
 <body>
@@ -58,11 +66,11 @@
                 修改收款单
             </div>
             <div class="search" id="DivSearch" runat="server">
-                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition()" />
+                <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition(); seachTotal();" />
                 <input type="button" value="导出Excel" class="btn btn-success" onclick="exportExcel()" />
                 <input id="CName" name="txtKey" data-name="txtKey" placeholder="请输入任务编号" type="text" class="sinput" />
                 <input id="CSpare2" name="txtKey" data-name="txtKey" placeholder="请输入商品" type="text" class="sinput" />
-                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition()">
+                <select id="SupplierName" runat="server" name="txtKey" data-name="txtKey" onchange="SearchByCondition();seachTotal();">
                 </select>
 
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始创建日期"
@@ -87,7 +95,7 @@
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />--%>
             </div>
         </div>
-        <div class="ui_table"  id="dowebok" style="margin-top: 155px;">
+        <div class="ui_table"  id="dowebok" style="margin-top: 195px;">
             <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                 <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                     <tr>

@@ -59,7 +59,14 @@ namespace yny_003.Web.Car.Handler
             for (int i = 0; i < ListNotice.Count; i++)
             {
                 sb.Append(ListNotice[i].ID + "~");
-                sb.Append((i + 1) + (pageIndex - 1) * pageSize + "<input type=\"hidden\" id=\"Sum1\" value='" + GCount + "' /><input type=\"hidden\" id=\"Sum2\" value='" + ReCount + "' />~");
+                if (i == 0)
+                {
+                    sb.Append((i + 1) + (pageIndex - 1) * pageSize + "<input type=\"hidden\" id=\"Sum1\" value='" + GCount + "' /><input type=\"hidden\" id=\"Sum2\" value='" + ReCount + "' />~");
+                }
+                else {
+                    sb.Append((i + 1) + (pageIndex - 1) * pageSize + "~");
+                }
+                
                 //sb.Append(ListNotice[i].Name + "~");
 
                 sb.Append(ListNotice[i].CName + "~");

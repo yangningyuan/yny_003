@@ -559,8 +559,8 @@ namespace yny_003.Web.Car.Handler
         private string 任务列表统计报表Excel()
         {
             try
-            {
-                string strWhere = "'1'='1' and TType=1 ";
+            {//
+                string strWhere = "'1'='1' and TType=1  ";
                 if (!string.IsNullOrEmpty(_context.Request["tState"]))
                 {
                     strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
@@ -639,6 +639,7 @@ namespace yny_003.Web.Car.Handler
                       { "a13", "价格" },
                       { "a14", "创建日期" },
                       { "a15", "交货日期" },
+                    {"a19","任务状态" }
                 };
 
                 List<object> txobjlist = new List<object>();
@@ -688,11 +689,12 @@ namespace yny_003.Web.Car.Handler
                         a13 = (GoodOrder(emp.OCode).BuyPrice),
                         a14 = (emp.CreateDate),
                         a15 = (emp.ComDate),
+                        a19=((Model.C_CarTast.statename(emp.TState))),
                     });
 
                     if (emp.TType == 1)
                     {
-                        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "'  ");
+                        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "' and TState!=2 ");
                         foreach (var emp2 in xclist)
                         {
                             txobjlist.Add(new
@@ -716,6 +718,7 @@ namespace yny_003.Web.Car.Handler
                                 a13 = (GoodOrder(emp2.OCode).BuyPrice),
                                 a14 = (emp2.CreateDate),
                                 a15 = (emp2.ComDate),
+                                a19 = ((Model.C_CarTast.statename(emp2.TState))),
                             });
                         }
                     }

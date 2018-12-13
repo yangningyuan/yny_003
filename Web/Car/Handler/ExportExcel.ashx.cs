@@ -847,7 +847,7 @@ namespace yny_003.Web.Car.Handler
                 }
                 if (_context.Request["SupplierName"] != "--请选择--")
                 {
-                    strWhere += " and  SupplierID like '%" + _context.Request["SupplierName"] + "%'";
+                    strWhere += " and  SupplierID = '" + _context.Request["SupplierName"] + "'";
                 }
 
                 if (!string.IsNullOrEmpty(_context.Request["CSpare2"]))
@@ -935,7 +935,7 @@ namespace yny_003.Web.Car.Handler
                 }
                 if (_context.Request["SupplierName"] != "--请选择--")
                 {
-                    strWhere += " and  SupplierID like '%" + _context.Request["SupplierName"] + "%'";
+                    strWhere += " and  SupplierID = '" + _context.Request["SupplierName"] + "'";
                 }
                 if (!string.IsNullOrEmpty(_context.Request["CSpare2"]))
                 {

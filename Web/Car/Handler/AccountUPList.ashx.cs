@@ -26,7 +26,7 @@ namespace yny_003.Web.Car.Handler
             }
             if (context.Request["SupplierName"] != "--请选择--")
             {
-                strWhere += " and  SupplierID like '%" + context.Request["SupplierName"] + "%'";
+                strWhere += " and  SupplierID = '" + context.Request["SupplierName"] + "'";
             }
 
             if (!string.IsNullOrEmpty(context.Request["CSpare2"]))

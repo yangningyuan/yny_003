@@ -105,7 +105,10 @@ namespace yny_003.Web.mobile.html
 
                 decimal recount = 0;
                 decimal reprice = 0;
-
+                string SJ1 = "";
+                string SJ2 = "";
+                string gname = "";
+                string unit = "";
                 if (cartast.TType == 1 || cartast.TType == 2)
                 {
                     if (string.IsNullOrEmpty(cartast.BDImg))
@@ -123,6 +126,14 @@ namespace yny_003.Web.mobile.html
                             retotalMoney = od.ReCount * od.BuyPrice;
                             recount = od.ReCount;
                             reprice = od.BuyPrice;
+
+                            Model.Goods mg= BLL.Goods.GetModel(od.GId);
+                            if (mg != null)
+                            {
+                                gname = mg.GName;
+                                unit = mg.Unit;
+                            }
+                            
                         }
                     }
                     if (listord2.Sum(m => m.ReCount) <= 0)
@@ -142,6 +153,13 @@ namespace yny_003.Web.mobile.html
 
                 if (cartast.TType == 1 || cartast.TType == 2)
                 {
+                    Model.Member mc1 = BLL.Member.GetModelByMID(cartast.CarSJ1);
+                    Model.Member mc2 = BLL.Member.GetModelByMID(cartast.CarSJ2);
+                    if (mc1 != null)
+                        SJ1 = mc1.MName;
+                    if (mc2 != null)
+                        SJ2= mc2.MName;
+
                     Model.Account acc = new Model.Account();
                     acc.CID = cartast.ID;
                     acc.CName = cartast.Name;
@@ -156,7 +174,10 @@ namespace yny_003.Web.mobile.html
                     acc.comDate = DateTime.MaxValue;
                     acc.OrderCount = recount;
                     acc.OrderPrice = reprice;
-
+                    acc.SJ1 = SJ1;
+                    acc.SJ2 = SJ2;
+                    acc.GName = gname;
+                    acc.Unit = unit;
                     BLL.Account.Add(acc, MyHs);
                 }
 

@@ -230,8 +230,38 @@ namespace yny_003.Web.Member
             }
             if (BLL.CommonBase.RunHashtable(MyHs))
             {
-                BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_XGHYZL, string.Format("修改{0}的资料", MemberModel.MID));
+                Hashtable MyHs2 = new Hashtable();
+                List<Model.Account> listaccount= BLL.Account.GetModelList("");
+                foreach (var item in listaccount)
+                {
+                    Model.C_CarTast tast = BLL.C_CarTast.GetModelname(item.CName);
+                    Model.Goods g = null;
+                    if (tast != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(tast.OCode))
+                        {
+                            Model.Member mc1 = BLL.Member.GetModelByMID(tast.CarSJ1);
+                            Model.Member mc2 = BLL.Member.GetModelByMID(tast.CarSJ2);
+                            if(mc1!=null)
+                                item.SJ1 = mc1.MName;
+                            if(mc2!=null)
+                                item.SJ2 = mc2.MName;
 
+                            Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                            g = BLL.Goods.GetModel(od.GId);
+                            if (g != null)
+                            {
+                                item.GName = g.GName;
+                                item.Unit = g.Unit;
+                            }
+                        }
+                    }
+                    BLL.Account.Update(item,MyHs2);
+                }
+
+                BLL.CommonBase.RunHashtable(MyHs2);
+
+                BLL.OperationRecordBLL.Add(TModel.MID, ChangeType.O_XGHYZL, string.Format("修改{0}的资料", MemberModel.MID));
                 return "操作成功";
             }
             return "操作失败";

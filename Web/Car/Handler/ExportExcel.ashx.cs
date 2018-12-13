@@ -894,9 +894,9 @@ namespace yny_003.Web.Car.Handler
                 {
                     a1 = (emp.CName),
                     a2 = (emp.SupplierName),
-                    a9 = goodsName(emp.CName),
-                    a10 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).ReCount.ToString(),
-                    a11 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).BuyPrice.ToString(),
+                    a9 = emp.GName,
+                    a10 = emp.OrderCount,
+                    a11 = emp.OrderPrice,
                     a3 = emp.TotalMoney,
                     a4 = emp.ReMoney,
                     a5 = (emp.AStutas == 0 ? "未结账" : "已结账"),
@@ -958,7 +958,6 @@ namespace yny_003.Web.Car.Handler
                 {
                     strWhere += " and ComDate<='" + _context.Request["endDate2"] + " 23:59:59' ";
                 }
-
                 int count;
                 List<Model.Account> ListNotice = BLL.Account.GetModelList(strWhere);
 
@@ -981,9 +980,9 @@ namespace yny_003.Web.Car.Handler
                 {
                     a1 = (emp.CName),
                     a2 = (emp.SupplierName),
-                    a9 = goodsName(emp.CName),
-                    a10 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).ReCount.ToString(),
-                    a11 = goodsOrderDetails(emp.CName) == null ? "" : goodsOrderDetails(emp.CName).BuyPrice.ToString(),
+                    a9 = emp.GName,
+                    a10 = emp.OrderCount,
+                    a11 = emp.OrderPrice,
                     a3 = emp.TotalMoney,
                     a4 = emp.ReMoney,
                     a5 = (emp.AStutas == 0 ? "未结账" : "已结账"),
@@ -1011,21 +1010,27 @@ namespace yny_003.Web.Car.Handler
         {
             Model.C_CarTast tast = BLL.C_CarTast.GetModelname(CName);
             string GName = "";
-            if (!string.IsNullOrWhiteSpace(tast.OCode))
+            if (tast != null)
             {
-                Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
-                Model.Goods g = BLL.Goods.GetModel(od.GId);
-                if (g != null)
-                    GName = g.GName;
-            }
+                if (!string.IsNullOrWhiteSpace(tast.OCode))
+                {
+                    Model.OrderDetail od = BLL.OrderDetail.GetModelCode(tast.OCode);
+                    Model.Goods g = BLL.Goods.GetModel(od.GId);
+                    if (g != null)
+                        GName = g.GName;
+                }
+            } 
             return GName;
         }
         public Model.OrderDetail goodsOrderDetails(string CName)
         {
             Model.C_CarTast tast = BLL.C_CarTast.GetModelname(CName);
-            if (!string.IsNullOrWhiteSpace(tast.OCode))
+            if (tast != null)
             {
-                return BLL.OrderDetail.GetModelCode(tast.OCode);
+                if (!string.IsNullOrWhiteSpace(tast.OCode))
+                {
+                    return BLL.OrderDetail.GetModelCode(tast.OCode);
+                }
             }
             return new Model.OrderDetail();
         }

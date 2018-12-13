@@ -44,6 +44,8 @@ namespace yny_003.Model
 		private int _isdelete;
 		private string _spare1;
 		private string _spare2;
+
+        public int SHInt { get; set; }
         /// <summary>
         /// 销售
         /// </summary>

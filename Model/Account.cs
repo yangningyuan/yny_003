@@ -41,6 +41,14 @@ namespace yny_003.Model
 		private int? _spare3;
 		private DateTime _comdate;
 
+        public string SJ1 { get; set; }
+
+        public string SJ2 { get; set; }
+
+        public string GName { get; set; }
+
+        public string Unit { get; set; }
+
         public decimal OrderCount { get; set; }
         public decimal OrderPrice { get; set; }
 		/// <summary>

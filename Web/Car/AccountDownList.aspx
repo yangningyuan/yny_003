@@ -22,9 +22,9 @@
             ExportExcel("Car/Handler/ExportExcel.ashx", "AccountDownList");
         }
         $(function () {
-            setTimeout(function () {
-                $("#divtitle").remove();
-            }, 50);
+            //setTimeout(function () {
+            //    $("#divtitle").remove();
+            //}, 50);
             setTimeout(function () {
                 document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
@@ -44,8 +44,8 @@
     <div id="distr">
     </div>
     <div id="mempay">
-        <div class="control" style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;">
-            <div class="alert alert-danger" style="margin-bottom:0px; "><strong>收款列表</strong></div>
+        <div class="control" <%--style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;"--%>>
+            <%--<div class="alert alert-danger" style="margin-bottom:0px; "><strong>收款列表</strong></div>--%>
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);" class="btn btn-danger">未结账</a> <a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已结账</a>
             </div>
@@ -95,7 +95,7 @@
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />--%>
             </div>
         </div>
-        <div class="ui_table"  id="dowebok" style="margin-top: 195px;">
+        <div class="ui_table" <%-- id="dowebok" style="margin-top: 195px;"--%>>
             <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                 <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                     <tr>

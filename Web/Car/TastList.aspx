@@ -8,7 +8,6 @@
         tState = '0';
         tUrl = "Car/Handler/TastList.ashx";
         SearchByCondition();
-
         function celTast(id) {
             ActionModel("Car/TastList.aspx?Action=Add", "tid=" + id);
         }
@@ -18,16 +17,20 @@
         function SetCelTast(id) {
             ActionModel("Car/TastList.aspx?Action=Other", "tid=" + id);
         }
-
+        function SHTast(id) {
+            v5.confirm("确认审核通过吗？", function () {
+                ActionModel("Car/TastList2.aspx?Action=Modify", "tid=" + id);
+            });
+        }
         // 导出Excel
         function exportExcel() {
             ExportExcel("Car/Handler/ExportExcel.ashx", "任务列表统计报表Excel");
         }
 
         $(function () {
-            setTimeout(function () {
-                $("#divtitle").remove();
-            },50);
+            //setTimeout(function () {
+            //    $("#divtitle").remove();
+            //},50);
             setTimeout(function () {
                 document.getElementById("HtmlSum1").innerHTML = $("#Sum1").val();
                 document.getElementById("HtmlSum2").innerHTML = $("#Sum2").val();
@@ -46,8 +49,8 @@
     <div id="distr">
     </div>
     <div id="mempay">
-        <div class="control" style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;">
-            <div class="alert alert-danger" style="margin-bottom:0px; "><strong>任务列表</strong></div>
+        <div class="control"<%-- style="position: fixed; background-color: #000000; margin-top:50px; z-index: 9898888;"--%>>
+            <%--<div class="alert alert-danger" style="margin-bottom:0px; "><strong>任务列表</strong></div>--%>
             <div class="select">
                 <a href="javascript:void(0);" onclick="SearchByState('0',this);seachTotal();" class="btn btn-danger">正常</a> <%--<a href="javascript:void(0)" onclick="SearchByState('1',this);" class="btn btn-success">已删除</a>--%>
             </div>
@@ -64,16 +67,17 @@
                 <option value="2">卸车</option>
                 <option value="3">空车</option>
             </select>
-
+            
             <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">
                 修改任务
             </div>
             <div class="pay" onclick="v5.show('Car/AddTast.aspx','新增装车任务','url',900,470)">
                 新增装车任务
             </div>
+            <input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />
             <div class="search" id="DivSearch" runat="server">
                 <input type="button" value="查询" class="ssubmit" onclick="SearchByCondition(); seachTotal();" />
-                <input type="button" value="运输车辆信息统计报表" class="btn btn-success" onclick="exportExcel()" />
+                
                 <input id="nTitle" name="txtKey" data-name="txtKey" placeholder="请输入任务单号" type="text" class="sinput" />
                 <input id="SupplierName" name="txtKey" data-name="txtKey" placeholder="请输入单位名称" type="text" class="sinput" />
 
@@ -98,7 +102,7 @@
                     onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
             </div>
         </div>
-        <div class="ui_table" id="dowebok" style="margin-top: 230px;">
+        <div class="ui_table"<%-- id="dowebok" style="margin-top: 50px;"--%>>
             <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                 <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                     <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
@@ -111,8 +115,8 @@
                             </th>
                             <th>任务类型
                             </th>
-                            <th>比重
-                            </th>
+                            <%--<th>比重
+                            </th>--%>
                             <th>单位名称
                             </th>
 
@@ -132,6 +136,8 @@
                             <th>交货日期
                             </th>
                             <th>任务状态
+                            </th>
+                            <th>审核状态
                             </th>
                             <th>操作
                             </th>

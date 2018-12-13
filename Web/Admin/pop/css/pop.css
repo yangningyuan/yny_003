@@ -36,6 +36,7 @@ select, textarea, input[type="text"], input[type="password"]
 {
     height: 34px;
     padding: 6px;
+	width:120px;
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;

@@ -24,104 +24,51 @@ using System.Collections;
 
 namespace yny_003.DAL
 {
-	/// <summary>
-	/// 数据访问类:Account
-	/// </summary>
-	public partial class Account
-	{
-		public Account()
-		{}
-		#region  BasicMethod
+    /// <summary>
+    /// 数据访问类:Account
+    /// </summary>
+    public partial class Account
+    {
+        public Account()
+        { }
+        #region  BasicMethod
 
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		public static int GetMaxId()
-		{
-		return DbHelperSQL.GetMaxID("ID", "Account"); 
-		}
+        /// <summary>
+        /// 得到最大ID
+        /// </summary>
+        public static int GetMaxId()
+        {
+            return DbHelperSQL.GetMaxID("ID", "Account");
+        }
 
         /// <summary>
         /// 是否存在该记录
         /// </summary>
         public static bool Exists(int ID)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from Account");
-			strSql.Append(" where ID=@ID");
-			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4)
-			};
-			parameters[0].Value = ID;
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from Account");
+            strSql.Append(" where ID=@ID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ID", SqlDbType.Int,4)
+            };
+            parameters[0].Value = ID;
 
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
-		}
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
 
 
         /// <summary>
         /// 增加一条数据
         /// </summary>
         public static int Add(yny_003.Model.Account model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into Account(");
-			strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice)");
-			strSql.Append(" values (");
-			strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate,@OrderCount,@OrderPrice)");
-			strSql.Append(";select @@IDENTITY");
-			SqlParameter[] parameters = {
-					new SqlParameter("@CID", SqlDbType.Int,4),
-					new SqlParameter("@CName", SqlDbType.VarChar,50),
-					new SqlParameter("@AType", SqlDbType.Int,4),
-					new SqlParameter("@SupplierID", SqlDbType.Int,4),
-					new SqlParameter("@SupplierName", SqlDbType.VarChar,250),
-					new SqlParameter("@TotalMoney", SqlDbType.Decimal,9),
-					new SqlParameter("@ReMoney", SqlDbType.Decimal,9),
-					new SqlParameter("@CreateDate", SqlDbType.DateTime),
-					new SqlParameter("@AStutas", SqlDbType.Int,4),
-					new SqlParameter("@Spare", SqlDbType.VarChar,50),
-					new SqlParameter("@Spare2", SqlDbType.VarChar,50),
-					new SqlParameter("@Spare3", SqlDbType.Int,4),
-					new SqlParameter("@comDate", SqlDbType.DateTime),new SqlParameter("@OrderCount", SqlDbType.Decimal,9),new SqlParameter("@OrderPrice", SqlDbType.Decimal,9)};
-			parameters[0].Value = model.CID;
-			parameters[1].Value = model.CName;
-			parameters[2].Value = model.AType;
-			parameters[3].Value = model.SupplierID;
-			parameters[4].Value = model.SupplierName;
-			parameters[5].Value = model.TotalMoney;
-			parameters[6].Value = model.ReMoney;
-			parameters[7].Value = model.CreateDate;
-			parameters[8].Value = model.AStutas;
-			parameters[9].Value = model.Spare;
-			parameters[10].Value = model.Spare2;
-			parameters[11].Value = model.Spare3;
-			parameters[12].Value = model.comDate;
-            parameters[13].Value = model.OrderCount;
-            parameters[14].Value = model.OrderPrice;
-
-            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
-
-        /// <summary>
-        /// 增加一条数据
-        /// </summary>
-        public static Hashtable Add(yny_003.Model.Account model,Hashtable MyHs)
         {
-            string guid = Guid.NewGuid().ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into Account(");
-            strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice)");
+            strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice,SJ1,SJ2,GName,Unit)");
             strSql.Append(" values (");
-            strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate,@OrderCount,@OrderPrice)");
-            strSql.AppendFormat(" ;select '{0}'", guid);
+            strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate,@OrderCount,@OrderPrice,@SJ1,@SJ2,@GName,@Unit)");
+            strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@CID", SqlDbType.Int,4),
                     new SqlParameter("@CName", SqlDbType.VarChar,50),
@@ -135,7 +82,12 @@ namespace yny_003.DAL
                     new SqlParameter("@Spare", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare2", SqlDbType.VarChar,50),
                     new SqlParameter("@Spare3", SqlDbType.Int,4),
-                    new SqlParameter("@comDate", SqlDbType.DateTime),new SqlParameter("@OrderCount", SqlDbType.Decimal,9),new SqlParameter("@OrderPrice", SqlDbType.Decimal,9)};
+                    new SqlParameter("@comDate", SqlDbType.DateTime),new SqlParameter("@OrderCount", SqlDbType.Decimal,9),new SqlParameter("@OrderPrice", SqlDbType.Decimal,9),
+                    new SqlParameter("@SJ1", SqlDbType.VarChar,50),
+                    new SqlParameter("@SJ2", SqlDbType.VarChar,50),
+                    new SqlParameter("@GName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Unit", SqlDbType.VarChar,50)
+            };
             parameters[0].Value = model.CID;
             parameters[1].Value = model.CName;
             parameters[2].Value = model.AType;
@@ -152,6 +104,73 @@ namespace yny_003.DAL
             parameters[13].Value = model.OrderCount;
             parameters[14].Value = model.OrderPrice;
 
+            parameters[15].Value = model.SJ1;
+            parameters[16].Value = model.SJ2;
+            parameters[17].Value = model.GName;
+
+            parameters[18].Value = model.Unit;
+
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public static Hashtable Add(yny_003.Model.Account model, Hashtable MyHs)
+        {
+            string guid = Guid.NewGuid().ToString();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into Account(");
+            strSql.Append("CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice,SJ1,SJ2,GName,Unit)");
+            strSql.Append(" values (");
+            strSql.Append("@CID,@CName,@AType,@SupplierID,@SupplierName,@TotalMoney,@ReMoney,@CreateDate,@AStutas,@Spare,@Spare2,@Spare3,@comDate,@OrderCount,@OrderPrice,@SJ1,@SJ2,@GName,@Unit)");
+            strSql.AppendFormat(" ;select '{0}'", guid);
+            SqlParameter[] parameters = {
+                    new SqlParameter("@CID", SqlDbType.Int,4),
+                    new SqlParameter("@CName", SqlDbType.VarChar,50),
+                    new SqlParameter("@AType", SqlDbType.Int,4),
+                    new SqlParameter("@SupplierID", SqlDbType.Int,4),
+                    new SqlParameter("@SupplierName", SqlDbType.VarChar,250),
+                    new SqlParameter("@TotalMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@ReMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@AStutas", SqlDbType.Int,4),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,50),
+                    new SqlParameter("@Spare2", SqlDbType.VarChar,50),
+                    new SqlParameter("@Spare3", SqlDbType.Int,4),
+                    new SqlParameter("@comDate", SqlDbType.DateTime),new SqlParameter("@OrderCount", SqlDbType.Decimal,9),new SqlParameter("@OrderPrice", SqlDbType.Decimal,9),
+                    new SqlParameter("@SJ1", SqlDbType.VarChar,50),
+                    new SqlParameter("@SJ2", SqlDbType.VarChar,50),
+                    new SqlParameter("@GName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Unit", SqlDbType.VarChar,50)
+            };
+            parameters[0].Value = model.CID;
+            parameters[1].Value = model.CName;
+            parameters[2].Value = model.AType;
+            parameters[3].Value = model.SupplierID;
+            parameters[4].Value = model.SupplierName;
+            parameters[5].Value = model.TotalMoney;
+            parameters[6].Value = model.ReMoney;
+            parameters[7].Value = model.CreateDate;
+            parameters[8].Value = model.AStutas;
+            parameters[9].Value = model.Spare;
+            parameters[10].Value = model.Spare2;
+            parameters[11].Value = model.Spare3;
+            parameters[12].Value = model.comDate;
+            parameters[13].Value = model.OrderCount;
+            parameters[14].Value = model.OrderPrice;
+            parameters[15].Value = model.SJ1;
+            parameters[16].Value = model.SJ2;
+            parameters[17].Value = model.GName;
+            parameters[18].Value = model.Unit;
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
         }
@@ -160,69 +179,83 @@ namespace yny_003.DAL
         /// 更新一条数据
         /// </summary>
         public static bool Update(yny_003.Model.Account model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update Account set ");
-			strSql.Append("CID=@CID,");
-			strSql.Append("CName=@CName,");
-			strSql.Append("AType=@AType,");
-			strSql.Append("SupplierID=@SupplierID,");
-			strSql.Append("SupplierName=@SupplierName,");
-			strSql.Append("TotalMoney=@TotalMoney,");
-			strSql.Append("ReMoney=@ReMoney,");
-			strSql.Append("CreateDate=@CreateDate,");
-			strSql.Append("AStutas=@AStutas,");
-			strSql.Append("Spare=@Spare,");
-			strSql.Append("Spare2=@Spare2,");
-			strSql.Append("Spare3=@Spare3,");
-			strSql.Append("comDate=@comDate,");
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update Account set ");
+            strSql.Append("CID=@CID,");
+            strSql.Append("CName=@CName,");
+            strSql.Append("AType=@AType,");
+            strSql.Append("SupplierID=@SupplierID,");
+            strSql.Append("SupplierName=@SupplierName,");
+            strSql.Append("TotalMoney=@TotalMoney,");
+            strSql.Append("ReMoney=@ReMoney,");
+            strSql.Append("CreateDate=@CreateDate,");
+            strSql.Append("AStutas=@AStutas,");
+            strSql.Append("Spare=@Spare,");
+            strSql.Append("Spare2=@Spare2,");
+            strSql.Append("Spare3=@Spare3,");
+            strSql.Append("comDate=@comDate,");
             strSql.Append("OrderCount=@OrderCount,");
-            strSql.Append("OrderPrice=@OrderPrice");
+            strSql.Append("OrderPrice=@OrderPrice,");
+
+            strSql.Append("SJ1=@SJ1,");
+            strSql.Append("SJ2=@SJ2,");
+            strSql.Append("GName=@GName,");
+            strSql.Append("Unit=@Unit");
             strSql.Append(" where ID=@ID");
-			SqlParameter[] parameters = {
-					new SqlParameter("@CID", SqlDbType.Int,4),
-					new SqlParameter("@CName", SqlDbType.VarChar,50),
-					new SqlParameter("@AType", SqlDbType.Int,4),
-					new SqlParameter("@SupplierID", SqlDbType.Int,4),
-					new SqlParameter("@SupplierName", SqlDbType.VarChar,250),
-					new SqlParameter("@TotalMoney", SqlDbType.Decimal,9),
-					new SqlParameter("@ReMoney", SqlDbType.Decimal,9),
-					new SqlParameter("@CreateDate", SqlDbType.DateTime),
-					new SqlParameter("@AStutas", SqlDbType.Int,4),
-					new SqlParameter("@Spare", SqlDbType.VarChar,50),
-					new SqlParameter("@Spare2", SqlDbType.VarChar,50),
-					new SqlParameter("@Spare3", SqlDbType.Int,4),
-					new SqlParameter("@comDate", SqlDbType.DateTime),
+            SqlParameter[] parameters = {
+                    new SqlParameter("@CID", SqlDbType.Int,4),
+                    new SqlParameter("@CName", SqlDbType.VarChar,50),
+                    new SqlParameter("@AType", SqlDbType.Int,4),
+                    new SqlParameter("@SupplierID", SqlDbType.Int,4),
+                    new SqlParameter("@SupplierName", SqlDbType.VarChar,250),
+                    new SqlParameter("@TotalMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@ReMoney", SqlDbType.Decimal,9),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@AStutas", SqlDbType.Int,4),
+                    new SqlParameter("@Spare", SqlDbType.VarChar,50),
+                    new SqlParameter("@Spare2", SqlDbType.VarChar,50),
+                    new SqlParameter("@Spare3", SqlDbType.Int,4),
+                    new SqlParameter("@comDate", SqlDbType.DateTime),
                     new SqlParameter("@OrderCount", SqlDbType.Decimal,9),
                     new SqlParameter("@OrderPrice", SqlDbType.Decimal,9),
+                    new SqlParameter("@SJ1", SqlDbType.VarChar,50),
+                    new SqlParameter("@SJ2", SqlDbType.VarChar,50),
+                    new SqlParameter("@GName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Unit", SqlDbType.VarChar,50),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
-			parameters[0].Value = model.CID;
-			parameters[1].Value = model.CName;
-			parameters[2].Value = model.AType;
-			parameters[3].Value = model.SupplierID;
-			parameters[4].Value = model.SupplierName;
-			parameters[5].Value = model.TotalMoney;
-			parameters[6].Value = model.ReMoney;
-			parameters[7].Value = model.CreateDate;
-			parameters[8].Value = model.AStutas;
-			parameters[9].Value = model.Spare;
-			parameters[10].Value = model.Spare2;
-			parameters[11].Value = model.Spare3;
-			parameters[12].Value = model.comDate;
+            parameters[0].Value = model.CID;
+            parameters[1].Value = model.CName;
+            parameters[2].Value = model.AType;
+            parameters[3].Value = model.SupplierID;
+            parameters[4].Value = model.SupplierName;
+            parameters[5].Value = model.TotalMoney;
+            parameters[6].Value = model.ReMoney;
+            parameters[7].Value = model.CreateDate;
+            parameters[8].Value = model.AStutas;
+            parameters[9].Value = model.Spare;
+            parameters[10].Value = model.Spare2;
+            parameters[11].Value = model.Spare3;
+            parameters[12].Value = model.comDate;
             parameters[13].Value = model.OrderCount;
             parameters[14].Value = model.OrderPrice;
-            parameters[15].Value = model.ID;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+            parameters[15].Value = model.SJ1;
+            parameters[16].Value = model.SJ2;
+            parameters[17].Value = model.GName;
+            parameters[18].Value = model.Unit;
+            parameters[19].Value = model.ID;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// 更新一条数据
         /// </summary>
@@ -245,7 +278,11 @@ namespace yny_003.DAL
             strSql.Append("Spare3=@Spare3,");
             strSql.Append("comDate=@comDate,");
             strSql.Append("OrderCount=@OrderCount,");
-            strSql.Append("OrderPrice=@OrderPrice");
+            strSql.Append("OrderPrice=@OrderPrice,");
+            strSql.Append("SJ1=@SJ1,");
+            strSql.Append("SJ2=@SJ2,");
+            strSql.Append("GName=@GName,");
+            strSql.Append("Unit=@Unit");
             strSql.Append(" where ID=@ID");
             strSql.AppendFormat(" ;select '{0}'", guid);
             SqlParameter[] parameters = {
@@ -264,6 +301,10 @@ namespace yny_003.DAL
                     new SqlParameter("@comDate", SqlDbType.DateTime),
                     new SqlParameter("@OrderCount", SqlDbType.Decimal,9),
                     new SqlParameter("@OrderPrice", SqlDbType.Decimal,9),
+                        new SqlParameter("@SJ1", SqlDbType.VarChar,50),
+                    new SqlParameter("@SJ2", SqlDbType.VarChar,50),
+                    new SqlParameter("@GName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Unit", SqlDbType.VarChar,50),
                     new SqlParameter("@ID", SqlDbType.Int,4)};
             parameters[0].Value = model.CID;
             parameters[1].Value = model.CName;
@@ -280,7 +321,11 @@ namespace yny_003.DAL
             parameters[12].Value = model.comDate;
             parameters[13].Value = model.OrderCount;
             parameters[14].Value = model.OrderPrice;
-            parameters[15].Value = model.ID;
+            parameters[15].Value = model.SJ1;
+            parameters[16].Value = model.SJ2;
+            parameters[17].Value = model.GName;
+            parameters[18].Value = model.Unit;
+            parameters[19].Value = model.ID;
 
             MyHs.Add(strSql.ToString(), parameters);
             return MyHs;
@@ -289,71 +334,71 @@ namespace yny_003.DAL
         /// 删除一条数据
         /// </summary>
         public static bool Delete(int ID)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Account ");
-			strSql.Append(" where ID=@ID");
-			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4)
-			};
-			parameters[0].Value = ID;
+        {
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from Account ");
+            strSql.Append(" where ID=@ID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ID", SqlDbType.Int,4)
+            };
+            parameters[0].Value = ID;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// 批量删除数据
         /// </summary>
-        public static bool DeleteList(string IDlist )
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Account ");
-			strSql.Append(" where ID in ("+IDlist + ")  ");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+        public static bool DeleteList(string IDlist)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from Account ");
+            strSql.Append(" where ID in (" + IDlist + ")  ");
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
         public static yny_003.Model.Account GetModel(int ID)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice from Account ");
-			strSql.Append(" where ID=@ID");
-			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4)
-			};
-			parameters[0].Value = ID;
+        {
 
-			yny_003.Model.Account model=new yny_003.Model.Account();
-			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
-			if(ds.Tables[0].Rows.Count>0)
-			{
-				return DataRowToModel(ds.Tables[0].Rows[0]);
-			}
-			else
-			{
-				return null;
-			}
-		}
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice,SJ1,SJ2,GName,Unit from Account ");
+            strSql.Append(" where ID=@ID");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@ID", SqlDbType.Int,4)
+            };
+            parameters[0].Value = ID;
+
+            yny_003.Model.Account model = new yny_003.Model.Account();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
@@ -361,7 +406,7 @@ namespace yny_003.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice from Account ");
+            strSql.Append("select  top 1 ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice,SJ1,SJ2,GName,Unit from Account ");
             strSql.Append(" where CName=@CName");
             SqlParameter[] parameters = {
                     new SqlParameter("@CName", SqlDbType.VarChar,50)
@@ -384,66 +429,66 @@ namespace yny_003.DAL
         /// 得到一个对象实体
         /// </summary>
         public static yny_003.Model.Account DataRowToModel(DataRow row)
-		{
-			yny_003.Model.Account model=new yny_003.Model.Account();
-			if (row != null)
-			{
-				if(row["ID"]!=null && row["ID"].ToString()!="")
-				{
-					model.ID=int.Parse(row["ID"].ToString());
-				}
-				if(row["CID"]!=null && row["CID"].ToString()!="")
-				{
-					model.CID=int.Parse(row["CID"].ToString());
-				}
-				if(row["CName"]!=null)
-				{
-					model.CName=row["CName"].ToString();
-				}
-				if(row["AType"]!=null && row["AType"].ToString()!="")
-				{
-					model.AType=int.Parse(row["AType"].ToString());
-				}
-				if(row["SupplierID"]!=null && row["SupplierID"].ToString()!="")
-				{
-					model.SupplierID=int.Parse(row["SupplierID"].ToString());
-				}
-				if(row["SupplierName"]!=null)
-				{
-					model.SupplierName=row["SupplierName"].ToString();
-				}
-				if(row["TotalMoney"]!=null && row["TotalMoney"].ToString()!="")
-				{
-					model.TotalMoney=decimal.Parse(row["TotalMoney"].ToString());
-				}
-				if(row["ReMoney"]!=null && row["ReMoney"].ToString()!="")
-				{
-					model.ReMoney=decimal.Parse(row["ReMoney"].ToString());
-				}
-				if(row["CreateDate"]!=null && row["CreateDate"].ToString()!="")
-				{
-					model.CreateDate=DateTime.Parse(row["CreateDate"].ToString());
-				}
-				if(row["AStutas"]!=null && row["AStutas"].ToString()!="")
-				{
-					model.AStutas=int.Parse(row["AStutas"].ToString());
-				}
-				if(row["Spare"]!=null)
-				{
-					model.Spare=row["Spare"].ToString();
-				}
-				if(row["Spare2"]!=null)
-				{
-					model.Spare2=row["Spare2"].ToString();
-				}
-				if(row["Spare3"]!=null && row["Spare3"].ToString()!="")
-				{
-					model.Spare3=int.Parse(row["Spare3"].ToString());
-				}
-				if(row["comDate"]!=null && row["comDate"].ToString()!="")
-				{
-					model.comDate=DateTime.Parse(row["comDate"].ToString());
-				}
+        {
+            yny_003.Model.Account model = new yny_003.Model.Account();
+            if (row != null)
+            {
+                if (row["ID"] != null && row["ID"].ToString() != "")
+                {
+                    model.ID = int.Parse(row["ID"].ToString());
+                }
+                if (row["CID"] != null && row["CID"].ToString() != "")
+                {
+                    model.CID = int.Parse(row["CID"].ToString());
+                }
+                if (row["CName"] != null)
+                {
+                    model.CName = row["CName"].ToString();
+                }
+                if (row["AType"] != null && row["AType"].ToString() != "")
+                {
+                    model.AType = int.Parse(row["AType"].ToString());
+                }
+                if (row["SupplierID"] != null && row["SupplierID"].ToString() != "")
+                {
+                    model.SupplierID = int.Parse(row["SupplierID"].ToString());
+                }
+                if (row["SupplierName"] != null)
+                {
+                    model.SupplierName = row["SupplierName"].ToString();
+                }
+                if (row["TotalMoney"] != null && row["TotalMoney"].ToString() != "")
+                {
+                    model.TotalMoney = decimal.Parse(row["TotalMoney"].ToString());
+                }
+                if (row["ReMoney"] != null && row["ReMoney"].ToString() != "")
+                {
+                    model.ReMoney = decimal.Parse(row["ReMoney"].ToString());
+                }
+                if (row["CreateDate"] != null && row["CreateDate"].ToString() != "")
+                {
+                    model.CreateDate = DateTime.Parse(row["CreateDate"].ToString());
+                }
+                if (row["AStutas"] != null && row["AStutas"].ToString() != "")
+                {
+                    model.AStutas = int.Parse(row["AStutas"].ToString());
+                }
+                if (row["Spare"] != null)
+                {
+                    model.Spare = row["Spare"].ToString();
+                }
+                if (row["Spare2"] != null)
+                {
+                    model.Spare2 = row["Spare2"].ToString();
+                }
+                if (row["Spare3"] != null && row["Spare3"].ToString() != "")
+                {
+                    model.Spare3 = int.Parse(row["Spare3"].ToString());
+                }
+                if (row["comDate"] != null && row["comDate"].ToString() != "")
+                {
+                    model.comDate = DateTime.Parse(row["comDate"].ToString());
+                }
 
                 if (row["OrderCount"] != null && row["OrderCount"].ToString() != "")
                 {
@@ -453,24 +498,41 @@ namespace yny_003.DAL
                 {
                     model.OrderPrice = decimal.Parse(row["OrderPrice"].ToString());
                 }
+
+                if (row["SJ1"] != null)
+                {
+                    model.SJ1 = row["SJ1"].ToString();
+                }
+                if (row["SJ2"] != null)
+                {
+                    model.SJ2 = row["SJ2"].ToString();
+                }
+                if (row["GName"] != null)
+                {
+                    model.GName = row["GName"].ToString();
+                }
+                if (row["Unit"] != null)
+                {
+                    model.Unit = row["Unit"].ToString();
+                }
             }
-			return model;
-		}
+            return model;
+        }
 
         /// <summary>
         /// 获得数据列表
         /// </summary>
         public static DataSet GetList(string strWhere)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice ");
-			strSql.Append(" FROM Account ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice,SJ1,SJ2,GName,Unit ");
+            strSql.Append(" FROM Account ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
         /// <summary>
 		/// 获得数据列表
@@ -496,72 +558,72 @@ namespace yny_003.DAL
         /// <summary>
         /// 获得前几行数据
         /// </summary>
-        public static DataSet GetList(int Top,string strWhere,string filedOrder)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ");
-			if(Top>0)
-			{
-				strSql.Append(" top "+Top.ToString());
-			}
-			strSql.Append(" ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice ");
-			strSql.Append(" FROM Account ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			strSql.Append(" order by " + filedOrder);
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        public static DataSet GetList(int Top, string strWhere, string filedOrder)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ");
+            if (Top > 0)
+            {
+                strSql.Append(" top " + Top.ToString());
+            }
+            strSql.Append(" ID,CID,CName,AType,SupplierID,SupplierName,TotalMoney,ReMoney,CreateDate,AStutas,Spare,Spare2,Spare3,comDate,OrderCount,OrderPrice,SJ1,SJ2,GName,Unit ");
+            strSql.Append(" FROM Account ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            strSql.Append(" order by " + filedOrder);
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
         /// <summary>
         /// 获取记录总数
         /// </summary>
         public static int GetRecordCount(string strWhere)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM Account ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			object obj = DbHelperSQL.GetSingle(strSql.ToString());
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) FROM Account ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
         public static DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("SELECT * FROM ( ");
-			strSql.Append(" SELECT ROW_NUMBER() OVER (");
-			if (!string.IsNullOrEmpty(orderby.Trim()))
-			{
-				strSql.Append("order by T." + orderby );
-			}
-			else
-			{
-				strSql.Append("order by T.ID desc");
-			}
-			strSql.Append(")AS Row, T.*  from Account T ");
-			if (!string.IsNullOrEmpty(strWhere.Trim()))
-			{
-				strSql.Append(" WHERE " + strWhere);
-			}
-			strSql.Append(" ) TT");
-			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("SELECT * FROM ( ");
+            strSql.Append(" SELECT ROW_NUMBER() OVER (");
+            if (!string.IsNullOrEmpty(orderby.Trim()))
+            {
+                strSql.Append("order by T." + orderby);
+            }
+            else
+            {
+                strSql.Append("order by T.ID desc");
+            }
+            strSql.Append(")AS Row, T.*  from Account T ");
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" WHERE " + strWhere);
+            }
+            strSql.Append(" ) TT");
+            strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
-		/*
+        /*
 		/// <summary>
 		/// 分页获取数据列表
 		/// </summary>
@@ -586,10 +648,10 @@ namespace yny_003.DAL
 			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
 		}*/
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+        #endregion  BasicMethod
+        #region  ExtensionMethod
 
-		#endregion  ExtensionMethod
-	}
+        #endregion  ExtensionMethod
+    }
 }
 

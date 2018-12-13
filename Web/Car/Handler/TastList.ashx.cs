@@ -94,7 +94,7 @@ namespace yny_003.Web.Car.Handler
                 
                 sb.Append(ListNotice[i].Name + "~");
                 sb.Append(Model.C_CarTast.typename(ListNotice[i].TType) + "~");
-                sb.Append(ListNotice[i].Prot + "~");
+                //sb.Append(ListNotice[i].Prot + "~");
                 //sb.Append((ListNotice[i].ImpUnit.ToString())+ "~");
                 sb.Append(BLL.C_Supplier.GetModel(Convert.ToInt32(ListNotice[i].SupplierName)).Name + "~");
                 //sb.Append(ListNotice[i].SupplierTel + "~");
@@ -133,13 +133,12 @@ namespace yny_003.Web.Car.Handler
                 sb.Append((ListNotice[i].CreateDate) + "~");
                 sb.Append((ListNotice[i].ComDate) + "~");
                 sb.Append((Model.C_CarTast.statename(ListNotice[i].TState)) + "~");
-
+                sb.Append((ListNotice[i].SHInt==1?"已审核":"未审核") + "~");
                 //装车
                 if (ListNotice[i].TType == 1)
                 {
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"subxiechedan('"+ ListNotice[i].Name+"')\" style ='background-color:cornflowerblue;'> 卸车列表</div>");
                 }
-
                 if (ListNotice[i].TState != 2 && TModel.Role.IsAdmin)
                 {
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"celTast('" + ListNotice[i].ID + "')\">取消任务</div>");
@@ -157,6 +156,11 @@ namespace yny_003.Web.Car.Handler
                 if (ListNotice[i].TState == -2)
                 {
                     sb.Append("<div class=\"pay btn btn-danger\" onclick=\"SetCelTast('" + ListNotice[i].ID + "')\">取消标记</div>");
+                }
+
+                if (ListNotice[i].SHInt == 0)
+                {
+                    sb.Append("<div class=\"pay btn btn-danger\"  style ='background-color:cornflowerblue;' onclick=\"SHTast('" + ListNotice[i].ID + "')\">审核</div>");
                 }
 
                 sb.Append("≌");

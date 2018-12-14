@@ -114,7 +114,6 @@ namespace yny_003.Web.mobile.html
                     if (string.IsNullOrEmpty(cartast.BDImg))
                         return "请上传磅单图片";
 
-
                     List<Model.OrderDetail> listord2 = null;
                     if (!string.IsNullOrEmpty(cartast.OCode))
                     {
@@ -151,35 +150,35 @@ namespace yny_003.Web.mobile.html
                 }
                 BLL.C_CarTast.Update(cartast, MyHs);
 
-                if (cartast.TType == 1 || cartast.TType == 2)
-                {
-                    Model.Member mc1 = BLL.Member.GetModelByMID(cartast.CarSJ1);
-                    Model.Member mc2 = BLL.Member.GetModelByMID(cartast.CarSJ2);
-                    if (mc1 != null)
-                        SJ1 = mc1.MName;
-                    if (mc2 != null)
-                        SJ2= mc2.MName;
+                //if (cartast.TType == 1 || cartast.TType == 2)
+                //{
+                //    Model.Member mc1 = BLL.Member.GetModelByMID(cartast.CarSJ1);
+                //    Model.Member mc2 = BLL.Member.GetModelByMID(cartast.CarSJ2);
+                //    if (mc1 != null)
+                //        SJ1 = mc1.MName;
+                //    if (mc2 != null)
+                //        SJ2= mc2.MName;
 
-                    Model.Account acc = new Model.Account();
-                    acc.CID = cartast.ID;
-                    acc.CName = cartast.Name;
-                    acc.AType = cartast.TType == 1 ? 0 : 1;
-                    acc.SupplierID = Convert.ToInt32(cartast.SupplierName);
-                    supplier = BLL.C_Supplier.GetModel(int.Parse(cartast.SupplierName));
-                    acc.SupplierName = supplier.Name;
-                    acc.TotalMoney = retotalMoney;
-                    acc.ReMoney = 0;
-                    acc.CreateDate = DateTime.Now;
-                    acc.AStutas = 0;
-                    acc.comDate = DateTime.MaxValue;
-                    acc.OrderCount = recount;
-                    acc.OrderPrice = reprice;
-                    acc.SJ1 = SJ1;
-                    acc.SJ2 = SJ2;
-                    acc.GName = gname;
-                    acc.Unit = unit;
-                    BLL.Account.Add(acc, MyHs);
-                }
+                //    Model.Account acc = new Model.Account();
+                //    acc.CID = cartast.ID;
+                //    acc.CName = cartast.Name;
+                //    acc.AType = cartast.TType == 1 ? 0 : 1;
+                //    acc.SupplierID = Convert.ToInt32(cartast.SupplierName);
+                //    supplier = BLL.C_Supplier.GetModel(int.Parse(cartast.SupplierName));
+                //    acc.SupplierName = supplier.Name;
+                //    acc.TotalMoney = retotalMoney;
+                //    acc.ReMoney = 0;
+                //    acc.CreateDate = DateTime.Now;
+                //    acc.AStutas = 0;
+                //    acc.comDate = DateTime.MaxValue;
+                //    acc.OrderCount = recount;
+                //    acc.OrderPrice = reprice;
+                //    acc.SJ1 = SJ1;
+                //    acc.SJ2 = SJ2;
+                //    acc.GName = gname;
+                //    acc.Unit = unit;
+                //    BLL.Account.Add(acc, MyHs);
+                //}
 
 
                 if (BLL.CommonBase.RunHashtable(MyHs))

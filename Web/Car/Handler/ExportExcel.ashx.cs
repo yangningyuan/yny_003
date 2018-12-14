@@ -694,7 +694,7 @@ namespace yny_003.Web.Car.Handler
 
                     if (emp.TType == 1)
                     {
-                        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "' and TState!=2 ");
+                        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "'  ");
                         foreach (var emp2 in xclist)
                         {
                             txobjlist.Add(new

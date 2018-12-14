@@ -95,7 +95,7 @@
                 <input id="Spare2" name="txtKey" data-name="txtKey" placeholder="请输入车牌号" type="text" class="sinput" />--%>
             </div>
         </div>
-        <div class="ui_table" <%-- id="dowebok" style="margin-top: 195px;"--%>>
+        <div class="ui_table"  id="dowebok" <%--style="margin-top: 195px;"--%>>
             <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                 <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">
                     <tr>

@@ -102,7 +102,7 @@
                     onclick="WdatePicker({ minDate: '#F{$dp.$D(\'startDate2\')}' })" />
             </div>
         </div>
-        <div class="ui_table"<%-- id="dowebok" style="margin-top: 50px;"--%>>
+        <div class="ui_table" id="dowebok" <%-- style="margin-top: 50px;"--%>>
             <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                 <div style="width: 100%; overflow-x: auto; margin-top: 8px; margin-bottom: 10px;">
                     <table cellpadding="0" cellspacing="0" class="tabcolor" id="Result">

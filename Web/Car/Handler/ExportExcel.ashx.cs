@@ -560,7 +560,7 @@ namespace yny_003.Web.Car.Handler
         {
             try
             {//
-                string strWhere = "'1'='1' and TType=1  ";
+                string strWhere = "'1'='1'  ";
                 if (!string.IsNullOrEmpty(_context.Request["tState"]))
                 {
                     strWhere += " and IsDelete='" + _context.Request["tState"] + "'";
@@ -601,11 +601,13 @@ namespace yny_003.Web.Car.Handler
 
                 if (!string.IsNullOrEmpty(_context.Request["CarSJ1"]))
                 {
-                    strWhere += " and CarSJ1 in(select MID from Member where RoleCode='SiJi' and MName like '%" + _context.Request["CarSJ1"] + "%' AND FMID='1' AND IsClock=0 AND IsClose=0) ";
+                    //strWhere += " and CarSJ1 in(select MID from Member where RoleCode='SiJi' and MName like '%" + _context.Request["CarSJ1"] + "%' AND FMID='1' AND IsClock=0 AND IsClose=0) ";
+                    strWhere += " and CarSJ1 ='" + _context.Request["CarSJ1"] + "' ";
                 }
                 if (!string.IsNullOrEmpty(_context.Request["CarSJ2"]))
                 {
-                    strWhere += " and CarSJ2 in(select MID from Member where RoleCode='SiJi' and MName like '%" + _context.Request["CarSJ2"] + "%' AND FMID in('2','3') AND IsClock=0 AND IsClose=0) ";
+                    //strWhere += " and CarSJ2 in(select MID from Member where RoleCode='SiJi' and MName like '%" + _context.Request["CarSJ2"] + "%' AND FMID in('2','3') AND IsClock=0 AND IsClose=0) ";
+                    strWhere += " and CarSJ2 ='" + _context.Request["CarSJ2"] + "' ";
                 }
                 if (!string.IsNullOrEmpty(_context.Request["Spare2"]))
                 {
@@ -643,88 +645,88 @@ namespace yny_003.Web.Car.Handler
                 };
 
                 List<object> txobjlist = new List<object>();
-                //ListNotice.ForEach(emp => txobjlist.Add(new
-                //{
-                //    a0 = (emp.Name),
-                //    a1 = (Model.C_CarTast.typename(emp.TType)),
-                //    //a2 = (emp.Prot),
-                //    a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
-                //    //a4 = emp.SupplierTel,
-                //    a5 = (emp.Spare2),
-                //    a6 = (emp.CSpare2),
-                //    //a7 = (emp.CarSJ1),
-                //    a16 = (string.IsNullOrEmpty(emp.CarSJ1)?"": BLL.Member.GetModelByMID(emp.CarSJ1).MName),
-                //    //a8 = (emp.CarSJ2),
-                //    a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
-                //    //a9 = (emp.OCode),
-                //    a10 = (GoodName(emp.OCode)),
-                //    a12 = (GoodOrder(emp.OCode).GCount),
-                //    a11 = (GoodOrder(emp.OCode).ReCount),
-                //    a13 = (GoodOrder(emp.OCode).BuyPrice),
-                //    a14 = (emp.CreateDate),
-                //    a15 = (emp.ComDate),
-                //}
-                //));
-
-                foreach (var emp in ListNotice)
+                ListNotice.ForEach(emp => txobjlist.Add(new
                 {
-                    txobjlist.Add(new
-                    {
-                        a0 = (emp.Name),
-                        a18 = (emp.TCode),
-                        a1 = (Model.C_CarTast.typename(emp.TType)),
-                        //a2 = (emp.Prot),
-                        a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
-                        //a4 = emp.SupplierTel,
-                        a5 = (emp.Spare2),
-                        a6 = (emp.CSpare2),
-                        //a7 = (emp.CarSJ1),
-                        a16 = (string.IsNullOrEmpty(emp.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp.CarSJ1).MName),
-                        //a8 = (emp.CarSJ2),
-                        a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
-                        //a9 = (emp.OCode),
-                        a10 = (GoodName(emp.OCode)),
-                        a12 = (GoodOrder(emp.OCode).GCount),
-                        a11 = (GoodOrder(emp.OCode).ReCount),
-                        a13 = (GoodOrder(emp.OCode).BuyPrice),
-                        a14 = (emp.CreateDate),
-                        a15 = (emp.ComDate),
-                        a19=((Model.C_CarTast.statename(emp.TState))),
-                    });
-
-                    if (emp.TType == 1)
-                    {
-                        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "'  ");
-                        foreach (var emp2 in xclist)
-                        {
-                            txobjlist.Add(new
-                            {
-                                a0 = (emp2.Name),
-                                a18 = (emp2.TCode),
-                                a1 = (Model.C_CarTast.typename(emp2.TType)),
-                                //a2 = (emp.Prot),
-                                a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp2.SupplierName)).Name),
-                                //a4 = emp.SupplierTel,
-                                a5 = (emp2.Spare2),
-                                a6 = (emp2.CSpare2),
-                                //a7 = (emp.CarSJ1),
-                                a16 = (string.IsNullOrEmpty(emp2.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp2.CarSJ1).MName),
-                                //a8 = (emp.CarSJ2),
-                                a17 = (string.IsNullOrEmpty(emp2.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp2.CarSJ2).MName),
-                                //a9 = (emp.OCode),
-                                a10 = (GoodName(emp2.OCode)),
-                                a12 = (GoodOrder(emp2.OCode).GCount),
-                                a11 = (GoodOrder(emp2.OCode).ReCount),
-                                a13 = (GoodOrder(emp2.OCode).BuyPrice),
-                                a14 = (emp2.CreateDate),
-                                a15 = (emp2.ComDate),
-                                a19 = ((Model.C_CarTast.statename(emp2.TState))),
-                            });
-                        }
-                    }
-
-
+                    a0 = (emp.Name),
+                    a1 = (Model.C_CarTast.typename(emp.TType)),
+                    //a2 = (emp.Prot),
+                    a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
+                    //a4 = emp.SupplierTel,
+                    a5 = (emp.Spare2),
+                    a6 = (emp.CSpare2),
+                    //a7 = (emp.CarSJ1),
+                    a16 = (string.IsNullOrEmpty(emp.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp.CarSJ1).MName),
+                    //a8 = (emp.CarSJ2),
+                    a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
+                    //a9 = (emp.OCode),
+                    a10 = (GoodName(emp.OCode)),
+                    a12 = (GoodOrder(emp.OCode).GCount),
+                    a11 = (GoodOrder(emp.OCode).ReCount),
+                    a13 = (GoodOrder(emp.OCode).BuyPrice),
+                    a14 = (emp.CreateDate),
+                    a15 = (emp.ComDate),
                 }
+                ));
+
+                //foreach (var emp in ListNotice)
+                //{
+                //    txobjlist.Add(new
+                //    {
+                //        a0 = (emp.Name),
+                //        a18 = (emp.TCode),
+                //        a1 = (Model.C_CarTast.typename(emp.TType)),
+                //        //a2 = (emp.Prot),
+                //        a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),
+                //        //a4 = emp.SupplierTel,
+                //        a5 = (emp.Spare2),
+                //        a6 = (emp.CSpare2),
+                //        //a7 = (emp.CarSJ1),
+                //        a16 = (string.IsNullOrEmpty(emp.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp.CarSJ1).MName),
+                //        //a8 = (emp.CarSJ2),
+                //        a17 = (string.IsNullOrEmpty(emp.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp.CarSJ2).MName),
+                //        //a9 = (emp.OCode),
+                //        a10 = (GoodName(emp.OCode)),
+                //        a12 = (GoodOrder(emp.OCode).GCount),
+                //        a11 = (GoodOrder(emp.OCode).ReCount),
+                //        a13 = (GoodOrder(emp.OCode).BuyPrice),
+                //        a14 = (emp.CreateDate),
+                //        a15 = (emp.ComDate),
+                //        a19=((Model.C_CarTast.statename(emp.TState))),
+                //    });
+
+                //    if (emp.TType == 1)
+                //    {
+                //        var xclist = BLL.C_CarTast.GetModelList(" TCode='" + emp.Name + "'  ");
+                //        foreach (var emp2 in xclist)
+                //        {
+                //            txobjlist.Add(new
+                //            {
+                //                a0 = (emp2.Name),
+                //                a18 = (emp2.TCode),
+                //                a1 = (Model.C_CarTast.typename(emp2.TType)),
+                //                //a2 = (emp.Prot),
+                //                a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp2.SupplierName)).Name),
+                //                //a4 = emp.SupplierTel,
+                //                a5 = (emp2.Spare2),
+                //                a6 = (emp2.CSpare2),
+                //                //a7 = (emp.CarSJ1),
+                //                a16 = (string.IsNullOrEmpty(emp2.CarSJ1) ? "" : BLL.Member.GetModelByMID(emp2.CarSJ1).MName),
+                //                //a8 = (emp.CarSJ2),
+                //                a17 = (string.IsNullOrEmpty(emp2.CarSJ2) ? "" : BLL.Member.GetModelByMID(emp2.CarSJ2).MName),
+                //                //a9 = (emp.OCode),
+                //                a10 = (GoodName(emp2.OCode)),
+                //                a12 = (GoodOrder(emp2.OCode).GCount),
+                //                a11 = (GoodOrder(emp2.OCode).ReCount),
+                //                a13 = (GoodOrder(emp2.OCode).BuyPrice),
+                //                a14 = (emp2.CreateDate),
+                //                a15 = (emp2.ComDate),
+                //                a19 = ((Model.C_CarTast.statename(emp2.TState))),
+                //            });
+                //        }
+                //    }
+
+
+                //}
 
 
                 // 3.进行Excel转换操作，并返回转换的文件下载链接

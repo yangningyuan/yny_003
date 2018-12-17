@@ -312,22 +312,34 @@ namespace yny_003.Web
             //    TModel = null;
             //if (!IsPostBack)
             //{
-                if (!WebModel.WebState || !TestCloseTime())
+            if (!WebModel.WebState || !TestCloseTime())
+            {
+                if ((TModel == null || !TModel.Role.Super) && !Context.Request.Url.AbsolutePath.ToUpper().Contains("MQL/LOGIN.ASPX"))
                 {
-                    if ((TModel == null || !TModel.Role.Super) && !Context.Request.Url.AbsolutePath.ToUpper().Contains("MQL/LOGIN.ASPX"))
+                    if (Request.QueryString["type"] == "tel")
                     {
                         Response.Write("<script>window.top.location.href='SysManage/Out.aspx'</script>");
-                        Response.End();
                     }
-                    else
-                    {
-                        VerifyPower();
+                    else {
+                        if (System.Web.HttpContext.Current.Request.Url.ToString().Contains("Default"))
+                        {
+                            Response.Write("<script>window.top.location.href='MQL/Login.aspx'</script>");
+                        }
+                        else {
+                            Response.Write("<script>window.top.location.href='/mobile/html/Login.aspx'</script>");
+                        }
                     }
+                    Response.End();
                 }
                 else
                 {
                     VerifyPower();
                 }
+            }
+            else
+            {
+                VerifyPower();
+            }
             //}
         }
 
@@ -397,7 +409,21 @@ namespace yny_003.Web
             {
                 if (NoPower())
                 {
-                    Response.Write("<script>window.top.location.href='/mobile/html/Login.aspx'</script>");
+                    //Response.Write("<script>window.top.location.href='/mobile/html/Login.aspx'</script>");
+                    if (Request.QueryString["type"] == "tel")
+                    {
+                        Response.Write("<script>window.top.location.href='/mobile/html/Login.aspx'</script>");
+                    }
+                    else {
+                        if (System.Web.HttpContext.Current.Request.Url.ToString().Contains("Default"))
+                        {
+                            Response.Write("<script>window.top.location.href='MQL/Login.aspx'</script>");
+                        }
+                        else {
+                            Response.Write("<script>window.top.location.href='/mobile/html/Login.aspx'</script>");
+                        }
+
+                    }
                     Response.End();
                 }
             }

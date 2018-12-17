@@ -57,11 +57,13 @@ namespace yny_003.Web.Car.Handler
 
             if (!string.IsNullOrEmpty(context.Request["CarSJ1"]))
             {
-                strWhere += " and CarSJ1 in(select MID from Member where RoleCode='SiJi' and MName like '%" + context.Request["CarSJ1"] + "%' AND FMID='1' AND IsClock=0 AND IsClose=0) ";
+                //strWhere += " and CarSJ1 in(select MID from Member where RoleCode='SiJi' and MName like '%" + context.Request["CarSJ1"] + "%' AND FMID='1' AND IsClock=0 AND IsClose=0) ";
+                strWhere += " and CarSJ1 ='" + context.Request["CarSJ1"] + "' ";
             }
             if (!string.IsNullOrEmpty(context.Request["CarSJ2"]))
             {
-                strWhere += " and CarSJ2 in(select MID from Member where RoleCode='SiJi' and MName like '%" + context.Request["CarSJ2"] + "%' AND FMID in('2','3') AND IsClock=0 AND IsClose=0) ";
+                //strWhere += " and CarSJ2 in(select MID from Member where RoleCode='SiJi' and MName like '%" + context.Request["CarSJ2"] + "%' AND FMID in('2','3') AND IsClock=0 AND IsClose=0) ";
+                strWhere += " and CarSJ2 ='" + context.Request["CarSJ2"] + "' ";
             }
             if (!string.IsNullOrEmpty(context.Request["Spare2"]))
             {
@@ -197,7 +199,6 @@ namespace yny_003.Web.Car.Handler
                     sb.Append("~");
                     sb.Append("~");
                     sb.Append("<strong style='color:red;'>本页合计<strong>~");
-                    sb.Append("~");
                     sb.Append("~");
                     sb.Append("~");
                     sb.Append("~");

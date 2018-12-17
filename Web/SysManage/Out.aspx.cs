@@ -15,7 +15,7 @@ namespace yny_003.Web.SysManage
                 }
                 else
                 {
-                    Response.Write(RetUrlStr("/Login.aspx", "/Login.aspx"));
+                    Response.Write(RetUrlStr("/MQL/Login.aspx", "/Login.aspx"));
                 }
                 Response.Buffer = true;
                 Response.ExpiresAbsolute = DateTime.Now.AddDays(-1);

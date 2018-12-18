@@ -648,6 +648,7 @@ namespace yny_003.Web.Car.Handler
                 ListNotice.ForEach(emp => txobjlist.Add(new
                 {
                     a0 = (emp.Name),
+                    a18 = (emp.TCode),
                     a1 = (Model.C_CarTast.typename(emp.TType)),
                     //a2 = (emp.Prot),
                     a3 = (BLL.C_Supplier.GetModel(Convert.ToInt32(emp.SupplierName)).Name),

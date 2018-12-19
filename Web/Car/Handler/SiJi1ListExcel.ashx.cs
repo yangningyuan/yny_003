@@ -21,7 +21,7 @@ namespace yny_003.Web.Car.Handler
 
             if (!string.IsNullOrEmpty(context.Request["mKey"]))
             {
-                strWhere += string.Format(" and ( MID='{0}' or MName='{0}') ", (context.Request["mKey"]));
+                strWhere += string.Format(" and ( MID='{0}' ) ", (context.Request["mKey"]));
             }
             if (!string.IsNullOrEmpty(context.Request["SiJiType"]))
             {

@@ -313,7 +313,7 @@ namespace yny_003.Web.Car.Handler
 
                 if (!string.IsNullOrEmpty(_context.Request["mKey"]))
                 {
-                    strWhere += string.Format(" and ( MID='{0}' or MName='{0}') ", (_context.Request["mKey"]));
+                    strWhere += string.Format(" and ( MID='{0}' ) ", (_context.Request["mKey"]));
                 }
                 if (!string.IsNullOrEmpty(_context.Request["SiJiType"]))
                 {
@@ -575,13 +575,16 @@ namespace yny_003.Web.Car.Handler
                 }
                 if (!string.IsNullOrEmpty(_context.Request["coststate"]))
                 {
-                    strWhere += " and TState='" + _context.Request["coststate"] + "' ";
+                    strWhere += " and TState in(" + _context.Request["coststate"] + ") ";
                 }
                 if (!string.IsNullOrEmpty(_context.Request["TType"]))
                 {
                     strWhere += " and TType='" + _context.Request["TType"] + "' ";
                 }
-
+                if (!string.IsNullOrEmpty(_context.Request["SHType"]))
+                {
+                    strWhere += " and SHInt='" + _context.Request["SHType"] + "' ";
+                }
                 if (!string.IsNullOrEmpty(_context.Request["startDate"]))
                 {
                     strWhere += " and CreateDate>='" + _context.Request["startDate"] + " 00:00:00' ";
@@ -641,7 +644,8 @@ namespace yny_003.Web.Car.Handler
                       { "a13", "价格" },
                       { "a14", "创建日期" },
                       { "a15", "交货日期" },
-                    {"a19","任务状态" }
+                    {"a19","任务状态" },
+                    {"a20","审核状态" }
                 };
 
                 List<object> txobjlist = new List<object>();
@@ -666,6 +670,8 @@ namespace yny_003.Web.Car.Handler
                     a13 = (GoodOrder(emp.OCode).BuyPrice),
                     a14 = (emp.CreateDate),
                     a15 = (emp.ComDate),
+                    a19 = ((Model.C_CarTast.statename(emp.TState))),
+                    a20=emp.SHInt==0?"未审核":"已审核"
                 }
                 ));
 

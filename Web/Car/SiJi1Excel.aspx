@@ -35,7 +35,7 @@
                     <option value="0">未完成</option>
                     <option value="1">已完成</option>
                 </select>
-                <input id="mKey" name="txtKey" data-name="txtKey" placeholder="司机姓名" type="text" class="sinput" />
+                <input id="mKey" name="txtKey" data-name="txtKey" placeholder="司机编号" type="text" class="sinput" />
                 <input type="text" name="txtKey" data-name="txtKey" id="startDate" placeholder="开始日期"
                     value="开始日期" onfocus="if (value =='开始日期'){value =''}" class="daycash_input" style="width: 120px;"
                     onclick="WdatePicker({ maxDate: '#F{$dp.$D(\'endDate\')}' })" />

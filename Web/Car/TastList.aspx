@@ -57,7 +57,7 @@
 
             <select id="coststate" name="txtKey" data-name="txtKey" onchange="SearchByCondition();seachTotal();" style="margin-top: 8px;">
                 <option value="">任务状态</option>
-                <option value="0">未完成</option>
+                <option value="0,-1,-2">未完成</option>
                 <option value="1">已完成</option>
                 <option value="2">已取消</option>
             </select>
@@ -66,6 +66,11 @@
                 <option value="1">装车</option>
                 <option value="2">卸车</option>
                 <option value="3">空车</option>
+            </select>
+             <select id="SHType" name="txtKey" data-name="txtKey" onchange="SearchByCondition();seachTotal();" style="margin-top: 8px;">
+                <option value="">审核状态</option>
+                <option value="0">未审核</option>
+                <option value="1">已审核</option>
             </select>
             
             <div class="pay" onclick="UpDateByID('Car/ModifyTast.aspx?','修改任务',900,470);">

@@ -31,11 +31,16 @@ namespace yny_003.Web.Car.Handler
             }
             if (!string.IsNullOrEmpty(context.Request["coststate"]))
             {
-                strWhere += " and TState='" + context.Request["coststate"] + "' ";
+                strWhere += " and TState in(" + context.Request["coststate"] + ") ";
             }
             if (!string.IsNullOrEmpty(context.Request["TType"]))
             {
                 strWhere += " and TType='" + context.Request["TType"] + "' ";
+            }
+
+            if (!string.IsNullOrEmpty(context.Request["SHType"]))
+            {
+                strWhere += " and SHInt='" + context.Request["SHType"] + "' ";
             }
 
             if (!string.IsNullOrEmpty(context.Request["startDate"]))

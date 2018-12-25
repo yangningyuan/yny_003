@@ -36,19 +36,24 @@ namespace yny_003.Web.Admin
             List<Model.Goods> list = BLL.Goods.GetList(" isdeleted=0 ");
             foreach (var item in list)
             {
-                DataTable dt = BLL.CommonBase.GetTable("select CONVERT(varchar(7),CreatedTime,120) dt,ISNULL(sum(ReCount),0) my  from OrderDetail where  gid=" + item.GID + " and OrderCode in(select OCode from C_CarTast where TState=1) group by CONVERT(varchar(7),CreatedTime,120)");
+                DataTable dt = BLL.CommonBase.GetTable("select CONVERT(varchar(7),DATEADD(month,-1,CreatedTime),120) dt,ISNULL(sum(ReCount),0) my  from OrderDetail where  gid="+item.GID+" and OrderCode in(select OCode from C_CarTast where TState=1) group by CONVERT(varchar(7),DATEADD(month,-1,CreatedTime),120);");
+
 
                 if (dt.Rows.Count > 0)
                 {
+                    
                     Model.Goods g = BLL.Goods.GetModel(item.GID);
-                    goodsList += "{" + g.GName + " data:[";
+                    goodsList += "{name:'" + g.GName + "',data:[";
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        goodsList += "" + dt.Rows[i]["my"].ToString() + ",";
+                        DateTime dt2 = Convert.ToDateTime(dt.Rows[i]["dt"]);
+                        goodsList += "[Date.UTC("+ dt2.ToString("yyyy") + ",  "+ dt2.ToString("MM")+ ")," + dt.Rows[i]["my"].ToString() + "],";
                     }
                     goodsList += "]},";
                 }
             }
+
+            goodsList = goodsList.Length > 0 ? goodsList.Substring(0, goodsList.Length - 1) : "";
             decimal zctotal = Convert.ToDecimal(BLL.CommonBase.GetSingle(" select ISNULL(SUM(recount),0) from OrderDetail where  OrderCode in(select OCode from C_CarTast where ttype=1 and TState=1) "));
             if (zctotal > 0)
             {
